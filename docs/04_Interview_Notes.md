@@ -1,18 +1,68 @@
-# PrepPilot --- Interview Notes
+# PrepPilot — Interview Notes       (Date:-04-07-2026)
 
-## Git
+# Module 1 — Git Fundamentals
 
-### Questions
+## Questions
 
-1.  What is Git?
-2.  What is a repository?
-3.  What does git init do?
-4.  What does git status do?
-5.  What does git add do?
-6.  What does git commit do?
-7.  What is HEAD?
-8.  Why doesn't Git track empty folders?
+### 1. What is Git?
 
-### Revision
+### 2. Why do software companies use Git?
 
-Add your own answers after each module.
+### 3. What is a Git Repository?
+
+### 4. What does git init do?
+
+### 5. What does git status do?
+
+### 6. What does git add do?
+
+### 7. What does git commit do?
+
+### 8. What is the Working Directory?
+
+### 9. What is the Staging Area?
+
+### 10. What is a Commit?
+
+### 11. What is a Commit Hash?
+
+### 12. What is HEAD?
+
+### 13. Why doesn't Git track empty folders?
+
+### 14. Difference between git add and git commit?
+
+### 15. Explain the Git workflow.
+
+---
+
+## Git Workflow
+
+Working Directory
+
+↓
+
+git add
+
+↓
+
+Staging Area
+
+↓
+
+git commit
+
+↓
+
+Repository
+
+---
+
+## Revision Status
+
+Module 1:
+✅ Completed
+
+Revision:
+⬜ Pending
+                                *--END--*

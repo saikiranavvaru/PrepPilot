@@ -1,24 +1,60 @@
-# PrepPilot --- Developer Journal
+# PrepPilot — Developer Journal       (Date:-04-07-2026)
 
-## Day 1
+## Day 1 — Project Foundation
+
+### Goal
+
+Start PrepPilot as a production-level software project.
+
+---
 
 ### Completed
 
--   Installed Node.js
--   Installed Git
--   Initialized Git repository
--   Created project structure
--   Created README
--   First Git commit
+* Installed Node.js
+* Verified npm installation
+* Installed Git
+* Initialized the Git repository
+* Created the project folder
+* Created the client folder
+* Created the server folder
+* Created README.md
+* Learned the complete Git workflow
+* Made the first Git commit
 
-### Mistakes
+---
 
--   Created README.md as a folder.
--   Initialized Git in the wrong directory once.
+### Concepts Learned
 
-### Lessons Learned
+* What Git is
+* Repository
+* Working Directory
+* Staging Area
+* Commit
+* Commit Hash
+* HEAD
+* Git History
 
--   Git doesn't track empty folders.
--   Difference between Working Directory, Staging Area, and Repository.
--   Basic Git workflow: git init → git status → git add → git commit →
-    git log
+---
+
+### Mistakes Made
+
+* Created README.md as a folder instead of a file.
+* Initialized Git in the wrong project folder.
+* Learned how to identify and fix both issues.
+
+---
+
+### Key Lesson
+
+Professional development is not just writing code.
+
+Planning, version control, documentation, and understanding concepts are equally important.
+
+---
+
+### Result
+
+Module 1 completed successfully.
+
+PrepPilot officially entered Version 0.0.1.
+                             *--END--*

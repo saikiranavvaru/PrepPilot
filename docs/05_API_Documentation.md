@@ -1,17 +1,59 @@
-# PrepPilot --- API Documentation
+# PrepPilot — API Documentation       (Date:-04-07-2026)
 
-## API Standards
+## Current Status
 
-For every API document:
+No APIs have been created yet.
 
--   Endpoint
--   HTTP Method
--   Purpose
--   Request Body
--   Response
--   Status Codes
--   Authentication Required
--   Example Request
--   Example Response
+API development will begin in **Module 2 — Backend Foundation**.
 
-(No APIs have been created yet.)
+---
+
+## API Documentation Standard
+
+Every API created during this project will include:
+
+* Endpoint
+* HTTP Method
+* Purpose
+* Authentication Required
+* Request Parameters
+* Request Body
+* Success Response
+* Error Response
+* HTTP Status Codes
+* Example Request
+* Example Response
+* Notes
+
+---
+
+## Planned APIs
+
+### Authentication
+
+* POST /register
+* POST /login
+* POST /logout
+
+### User
+
+* GET /profile
+* PUT /profile
+
+### Resume
+
+* POST /resume/upload
+* GET /resume
+
+### Interview
+
+* GET /questions
+* POST /submit
+
+### Dashboard
+
+* GET /dashboard
+* GET /progress
+
+No implementation has started yet.
+                              *--END--*
