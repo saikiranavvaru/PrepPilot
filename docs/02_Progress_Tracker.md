@@ -43,9 +43,11 @@ Milestone Achieved:
 * Production project officially started.
 * First Git commit created successfully.
 * Engineering documentation initialized.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Next Update: After Next Completed Chapter ✅
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 # PrepPilot — Progress Tracker       (Date:-06-07-2026)
 
 ## Overall Project Progress
@@ -166,6 +168,50 @@ Current Backend Status
 * Backend project successfully initialized.
 * GitHub repository updated.
 * Ready to begin Express.js development.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Next Update: After Next Completed Chapter ✅
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                        
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+
+### ✅ Chapter 4 — Express.js       (Date:-07-07-2026)
+
+Topics Covered:
+
+* Introduction to Express.js
+* Why Express.js is used with Node.js
+* Framework vs Runtime
+* Installing Express using npm
+* Understanding node_modules
+* Understanding package-lock.json
+* Creating the first Express application
+* Creating the first HTTP route
+* Request (`req`) and Response (`res`) objects
+* HTTP Request–Response Lifecycle
+* Starting the server using app.listen()
+* Running the backend on localhost
+* Browser testing
+* Professional Git dependency management
+* Creating and configuring .gitignore
+
+Milestone Achieved:
+
+* Express successfully installed.
+* First backend server created.
+* First HTTP endpoint (`GET /`) implemented.
+* Backend successfully served its first response in the browser.
+* node_modules removed from Git tracking.
+* Professional Git ignore rules configured.
+* Backend project successfully committed and synchronized with GitHub.
+
+---
+
+Current Backend Status
+
+* Backend server running successfully.
+* Express framework integrated.
+* Git repository configured with .gitignore.
+* Ready to learn HTTP Server internals in Chapter 5.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Next Update: After Module 2 — Chapter 5 ✅
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
