@@ -1,0 +1,18 @@
+{
+  "name": "preppilot-server",
+  "version": "1.0.0",
+  "description": "Backend server for PrepPilot AI Interview Preparation Platform",
+  "keywords": [
+    "backend",
+    "nodejs",
+    "express",
+    "preppilot"
+  ],
+  "license": "ISC",
+  "author": "Sai Kiran Avvaru",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
