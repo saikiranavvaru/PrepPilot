@@ -67,7 +67,9 @@ Revision:
 ⬜ Pending
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Continue Updating After Every Lesson ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # Module 2 — Backend Foundation (Chapter 1–3)       (Date:-06-07-2026)
@@ -165,6 +167,7 @@ Revision:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Continue Updating After Every Lesson ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # Module 2 — Backend Foundation (Chapter 4)       (Date:-07-07-2026)
@@ -281,5 +284,132 @@ Revision:
 ⬜ Pending
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 5)
+
+## Questions
+
+### 1. What is an HTTP Server?
+
+### 2. What is the difference between a Client and a Server?
+
+### 3. What is localhost?
+
+### 4. What is a Port?
+
+### 5. What is a Socket? (High Level)
+
+### 6. What is Node.js HTTP Module?
+
+### 7. What does `http.createServer()` do?
+
+### 8. What does `server.listen()` do?
+
+### 9. What is the purpose of `req`?
+
+### 10. What is the purpose of `res`?
+
+### 11. What is the difference between `res.write()` and `res.end()`?
+
+### 12. Can Node.js create an HTTP Server without Express?
+
+### 13. Why do developers still use Express if Node.js already provides an HTTP module?
+
+### 14. Does Express replace Node.js?
+
+### 15. Explain the Browser → Server → Browser request lifecycle.
+
+### 16. How are `req` and `res` objects created?
+
+### 17. Why does every request receive a separate `req` and `res` object?
+
+---
+
+## Important Code
+
+### Pure Node.js HTTP Server
+
+```javascript
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+
+    res.write("Hello from Pure Node.js!");
+
+    res.end();
+
+});
+
+server.listen(4000, () => {
+
+    console.log("HTTP Server running on http://localhost:4000");
+
+});
+```
+
+---
+
+### Express Server
+
+```javascript
+const express = require("express");
+
+const app = express();
+
+app.get("/", (req, res) => {
+
+    res.send("🚀 Welcome to PrepPilot Backend");
+
+});
+
+app.listen(3000);
+```
+
+---
+
+## Important Commands
+
+### Run Express Server
+
+```powershell
+node index.js
+```
+
+### Run Pure Node.js Server
+
+```powershell
+node http-server-demo.js
+```
+
+---
+
+## Key Revision Notes
+
+* Node.js includes a built-in HTTP module.
+* Express is built on top of Node's HTTP module.
+* HTTP Server listens for incoming requests and sends responses.
+* `req` represents the incoming HTTP request.
+* `res` represents the outgoing HTTP response.
+* `res.write()` writes response data.
+* `res.end()` completes the response.
+* Express simplifies the same process using `res.send()`.
+* Every incoming request receives its own `req` and `res` objects.
+* Browser → Node.js → Express → Route → Express → Node.js → Browser is the complete request lifecycle.
+
+---
+
+Module 2 (Chapter 5):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

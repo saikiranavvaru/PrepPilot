@@ -45,7 +45,9 @@ Milestone Achieved:
 * Engineering documentation initialized.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Next Update: After Next Completed Chapter ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # PrepPilot — Progress Tracker       (Date:-06-07-2026)
@@ -170,7 +172,9 @@ Current Backend Status
 * Ready to begin Express.js development.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Next Update: After Next Completed Chapter ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
 
 ### ✅ Chapter 4 — Express.js       (Date:-07-07-2026)
@@ -213,5 +217,47 @@ Current Backend Status
 * Ready to learn HTTP Server internals in Chapter 5.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Next Update: After Module 2 — Chapter 5 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 5 — HTTP Server       (Date:-07-07-2026)
+
+Topics Covered:
+
+* Understanding what an HTTP Server is.
+* Client–Server Architecture.
+* Browser Request to Server Response lifecycle.
+* Understanding Ports and localhost.
+* High-level introduction to TCP connections and Sockets.
+* Node.js built-in HTTP module.
+* Creating an HTTP server without Express.
+* Understanding `http.createServer()`.
+* Understanding `server.listen()`.
+* Working with Request (`req`) and Response (`res`) objects.
+* Difference between `res.write()` and `res.end()`.
+* Comparing Node.js HTTP Server with Express.js.
+* Understanding how Express internally uses Node's HTTP module.
+
+Milestone Achieved:
+
+* Successfully created a Pure Node.js HTTP Server.
+* Successfully served the first HTTP response without Express.
+* Understood the complete journey of an HTTP request from Browser → Node.js → Express → Browser.
+* Gained a strong conceptual understanding of backend request processing.
+
+---
+
+Current Backend Status
+
+* Express server running successfully.
+* Pure Node.js HTTP server implemented for learning purposes.
+* Strong understanding of HTTP server architecture established.
+* Ready to learn HTTP Requests & Responses in Chapter 6.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 2 — Chapter 6 ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

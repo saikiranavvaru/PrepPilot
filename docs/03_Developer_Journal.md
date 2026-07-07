@@ -59,7 +59,9 @@ Module 1 completed successfully.
 PrepPilot officially entered Version 0.0.1.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Journal Entry Complete ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # PrepPilot — Developer Journal       (Date:-06-07-2026)
@@ -160,7 +162,9 @@ Backend foundation established.
 PrepPilot backend officially initialized and ready for Express.js development.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Journal Entry Complete ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## Day 3 — Express.js Foundation (Chapter 4)       (Date:-07-07-2026) 
@@ -255,5 +259,100 @@ PrepPilot backend officially became a running web server capable of receiving HT
 This marks the beginning of the project's backend runtime. The application is now capable of accepting incoming HTTP requests and responding through Express.js.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Day 4 — HTTP Server Fundamentals (Chapter 5)      (Date:-07-07-2026)
+
+### Goal
+
+Understand how backend servers actually work internally by learning Node.js HTTP Server fundamentals before relying on Express.js abstractions.
+
+---
+
+### Completed
+
+* Learned the purpose of an HTTP Server.
+* Understood Client–Server communication.
+* Explored the complete Request–Response lifecycle.
+* Learned how browsers communicate with backend servers.
+* Understood the concept of Ports and localhost.
+* Learned the role of TCP connections and sockets (high-level).
+* Explored Node.js built-in HTTP module.
+* Created a Pure Node.js HTTP Server.
+* Successfully served responses without using Express.
+* Compared Node.js HTTP Server with Express.js.
+* Understood how Express internally uses Node's HTTP module.
+* Learned the lifecycle of `req` and `res` objects from browser request to browser response.
+
+---
+
+### Concepts Learned
+
+Backend Architecture
+
+* HTTP Server
+* Client
+* Server
+* Request
+* Response
+* Request–Response Lifecycle
+* Port
+* localhost
+* Socket (High Level)
+
+Node.js
+
+* Built-in HTTP Module
+* http.createServer()
+* server.listen()
+* res.write()
+* res.end()
+
+Express
+
+* Express is built on top of Node.js HTTP module.
+* Express simplifies routing and response handling.
+* app.listen() internally creates and starts a Node.js HTTP Server.
+
+---
+
+### Mistakes Made
+
+* Initially assumed Express itself was the HTTP Server.
+* Learned that Express depends on Node's built-in HTTP module.
+* Realized that `req` and `res` objects are created automatically for every incoming request rather than being created manually.
+
+---
+
+### Key Lessons
+
+Every backend application begins with an HTTP Server.
+
+Node.js provides the core HTTP functionality, while Express builds additional abstractions to simplify backend development.
+
+Understanding the internal request flow makes debugging, API development, and framework usage significantly easier.
+
+---
+
+### Project Milestone
+
+🚀 Built the first HTTP Server using Pure Node.js.
+
+This milestone strengthened the understanding of backend internals by removing framework abstractions and exposing how HTTP communication works underneath Express.
+
+---
+
+### Result
+
+Module 2 — Chapter 5 completed successfully.
+
+PrepPilot now includes both an Express-based server and a Pure Node.js HTTP Server demonstration for long-term learning and interview preparation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
