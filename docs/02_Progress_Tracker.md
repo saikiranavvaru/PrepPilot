@@ -261,3 +261,41 @@ Current Backend Status
 Next Update: After Module 2 — Chapter 6 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 6 — HTTP Requests & Responses      (Date:-07-07-2026)
+
+Topics Covered:
+
+* Understanding HTTP Requests and HTTP Responses.
+* Anatomy of an HTTP Request (Method, URL, Headers, Body).
+* Anatomy of an HTTP Response (Status Code, Headers, Body).
+* Understanding HTTP Methods (GET, POST, PUT, PATCH, DELETE).
+* CRUD operations and their corresponding HTTP methods.
+* Understanding HTTP Status Codes and their categories.
+* Understanding HTTP Headers and their purpose.
+* Understanding Request Body and JSON data.
+* Sending Plain Text, HTML, and JSON responses using Express.
+* Difference between `res.send()` and `res.json()`.
+* Understanding `res.status()` and method chaining.
+* Complete Browser → Server → Browser communication lifecycle.
+
+Milestone Achieved:
+
+* Successfully understood how HTTP Requests and Responses work.
+* Implemented different response types using Express.
+* Learned industry-standard HTTP methods and status codes.
+* Built a strong understanding of API communication fundamentals.
+
+---
+
+Current Backend Status
+
+* Strong understanding of HTTP communication established.
+* Able to design request-response flow for backend APIs.
+* Ready to build professional application routing in Chapter 7.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 2 — Chapter 7 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

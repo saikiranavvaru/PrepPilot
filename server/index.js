@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 app.get("/", (req, res) => {
-    res.send("🚀 Welcome to PrepPilot Backend");
+    res.send("🚀 Welcome to our first Express Server!");
 });
 
 app.listen(PORT, () => {

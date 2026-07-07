@@ -252,6 +252,8 @@ Module 2 — Chapter 4 completed successfully.
 
 PrepPilot backend officially became a running web server capable of receiving HTTP requests and returning HTTP responses.
 
+---
+
 ### Project Milestone
 
 🚀 PrepPilot served its first HTTP response successfully.
@@ -350,6 +352,101 @@ This milestone strengthened the understanding of backend internals by removing f
 Module 2 — Chapter 5 completed successfully.
 
 PrepPilot now includes both an Express-based server and a Pure Node.js HTTP Server demonstration for long-term learning and interview preparation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Day 5 — HTTP Requests & Responses (Chapter 6)
+
+**Date:** 08-07-2026
+
+### Goal
+
+Develop a complete understanding of how clients and servers communicate through HTTP by exploring request structures, response structures, methods, status codes, headers, and response types.
+
+---
+
+### Completed
+
+* Learned the structure of HTTP Requests.
+* Learned the structure of HTTP Responses.
+* Explored HTTP Methods (GET, POST, PUT, PATCH, DELETE).
+* Understood CRUD operations.
+* Learned Request Body and JSON.
+* Understood HTTP Headers.
+* Explored HTTP Status Codes and their categories.
+* Implemented Plain Text responses.
+* Implemented HTML responses.
+* Implemented JSON responses.
+* Learned Express response methods.
+* Understood Browser → Server → Browser communication.
+
+---
+
+### Concepts Learned
+
+HTTP
+
+* HTTP Request
+* HTTP Response
+* Request Lifecycle
+* Response Lifecycle
+* HTTP Methods
+* CRUD
+* Status Codes
+* Headers
+* Request Body
+* JSON
+
+Express
+
+* res.send()
+* res.json()
+* res.status()
+* Method Chaining
+
+Backend
+
+* Client–Server Communication
+* Browser Request Processing
+* API Communication Flow
+
+---
+
+### Mistakes Made
+
+* Initially confused HTTP Method with Route.
+* Assumed Node.js directly handled every request instead of understanding Express route matching.
+* Improved understanding of how different response types affect browser behavior.
+
+---
+
+### Key Lessons
+
+HTTP is the communication language between clients and servers.
+
+Every backend API follows the same request-response lifecycle regardless of application size.
+
+Choosing appropriate HTTP methods and status codes makes APIs predictable, maintainable, and aligned with industry standards.
+
+---
+
+### Project Milestone
+
+🚀 Successfully understood and implemented different HTTP response types using Express.
+
+Established the communication foundation required for all future PrepPilot APIs.
+
+---
+
+### Result
+
+Module 2 — Chapter 6 completed successfully.
+
+PrepPilot backend now has a strong conceptual foundation for building production-ready REST APIs.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

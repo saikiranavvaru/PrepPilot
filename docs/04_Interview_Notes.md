@@ -166,6 +166,7 @@ Revision:
 ⬜ Pending
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -403,6 +404,126 @@ node http-server-demo.js
 ---
 
 Module 2 (Chapter 5):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 6)
+
+## Questions
+
+### 1. What is an HTTP Request?
+
+### 2. What is an HTTP Response?
+
+### 3. What are the four parts of an HTTP Request?
+
+### 4. What are the three parts of an HTTP Response?
+
+### 5. What is the purpose of an HTTP Method?
+
+### 6. Explain GET, POST, PUT, PATCH, and DELETE.
+
+### 7. What is CRUD?
+
+### 8. What is JSON?
+
+### 9. Why do APIs commonly use JSON?
+
+### 10. What is the difference between `res.send()` and `res.json()`?
+
+### 11. What does `res.status()` do?
+
+### 12. What is method chaining in Express?
+
+### 13. What are HTTP Headers?
+
+### 14. What is a Request Body?
+
+### 15. Explain HTTP Status Code families.
+
+### 16. Difference between 200 and 201?
+
+### 17. Difference between 400 and 404?
+
+### 18. Difference between 401 and 403?
+
+### 19. Difference between 404 and 500?
+
+### 20. Explain the complete Browser → Server → Browser lifecycle.
+
+---
+
+## Important Code
+
+### Plain Text Response
+
+```javascript
+app.get("/", (req, res) => {
+
+    res.send("Hello Backend");
+
+});
+```
+
+---
+
+### HTML Response
+
+```javascript
+app.get("/", (req, res) => {
+
+    res.send("<h1>Hello Backend</h1>");
+
+});
+```
+
+---
+
+### JSON Response
+
+```javascript
+app.get("/", (req, res) => {
+
+    res.status(200).json({
+
+        project: "PrepPilot",
+        module: 2,
+        chapter: 6
+
+    });
+
+});
+```
+
+---
+
+## Important Revision Notes
+
+* HTTP Request contains Method, URL, Headers, and optional Body.
+* HTTP Response contains Status Code, Headers, and Body.
+* GET reads data.
+* POST creates data.
+* PUT replaces data.
+* PATCH partially updates data.
+* DELETE removes data.
+* CRUD maps directly to HTTP methods.
+* APIs primarily communicate using JSON.
+* `res.send()` can send multiple response types.
+* `res.json()` always sends JSON.
+* `res.status()` sets the HTTP status code.
+* Every request follows the Browser → Node.js → Express → Route → Express → Node.js → Browser lifecycle.
+
+---
+
+Module 2 (Chapter 6):
 ✅ Completed
 
 Revision:
