@@ -534,3 +534,123 @@ Revision:
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 7)       (Date:-08-07-2026)
+
+## Questions
+
+### 1. What is Routing?
+
+### 2. What is a Route?
+
+### 3. What are the three parts of a Route?
+
+### 4. How does Express match incoming requests?
+
+### 5. Why does Route Order matter?
+
+### 6. What happens if no matching route exists?
+
+### 7. Why do professional applications use `/api` prefixes?
+
+### 8. What are Route Parameters?
+
+### 9. Why do we use `:` in Express routes?
+
+### 10. Where are Route Parameters stored?
+
+### 11. How do you access Route Parameters?
+
+### 12. Can a route have multiple Route Parameters?
+
+### 13. Difference between Route Parameters and Query Parameters?
+
+### 14. What is Express Router?
+
+### 15. Why shouldn't all routes remain inside `index.js`?
+
+### 16. What are the advantages of feature-based routing?
+
+### 17. What is `app.use()`?
+
+### 18. Why is `app.use()` important?
+
+### 19. What can `app.use()` register?
+
+### 20. Explain the request flow involving `app.use()` and routing.
+
+---
+
+## Important Code
+
+### Basic Route
+
+```javascript
+app.get("/profile", (req, res) => {
+
+    res.send("User Profile");
+
+});
+```
+
+---
+
+### Route Parameter
+
+```javascript
+app.get("/students/:id", (req, res) => {
+
+    res.send(`Student ID: ${req.params.id}`);
+
+});
+```
+
+---
+
+### Multiple Route Parameters
+
+```javascript
+app.get("/users/:userId/posts/:postId", (req, res) => {
+
+    res.send(req.params);
+
+});
+```
+
+---
+
+### Using app.use()
+
+```javascript
+app.use("/api/auth", authRoutes);
+```
+
+---
+
+## Important Revision Notes
+
+* A Route consists of an HTTP Method, a Path, and a Route Handler.
+* Express matches requests using both the HTTP Method and the Route Path.
+* Route order affects request matching because Express checks routes from top to bottom.
+* Route Parameters create dynamic URLs.
+* Route Parameters are stored inside `req.params`.
+* Multiple Route Parameters can exist within the same route.
+* Route Parameters identify resources, while Query Parameters provide additional options.
+* Express Router allows routes to be separated into feature-based files.
+* Professional applications organize routes by feature instead of keeping everything inside `index.js`.
+* `app.use()` is used to register routers and middleware.
+* Requests pass through `app.use()` before reaching matching route handlers.
+
+---
+
+Module 2 (Chapter 7):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

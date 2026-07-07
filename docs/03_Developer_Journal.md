@@ -1,6 +1,6 @@
 # PrepPilot — Developer Journal       (Date:-04-07-2026)
 
-## Day 1 — Project Foundation
+## Development Log — Project Foundation — (Module 2 Chapter 1)
 
 ### Goal
 
@@ -66,7 +66,7 @@ Journal Entry Complete ✅
 
 # PrepPilot — Developer Journal       (Date:-06-07-2026)
 
-## Day 2 — Backend Foundation (Chapter 1–3)
+## Development Log — Backend Foundation — (Module 2 Chapter 1–3)
 
 ### Goal
 
@@ -167,7 +167,9 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Day 3 — Express.js Foundation (Chapter 4)       (Date:-07-07-2026) 
+# PrepPilot — Developer Journal       (Date:-07-07-2026)
+
+## Development Log — Express.js Foundation — ( Module 2 Chapter 4)       
 
 ### Goal
 
@@ -246,19 +248,19 @@ Professional developers verify repository state before reacting to Git errors.
 
 ---
 
-### Result
-
-Module 2 — Chapter 4 completed successfully.
-
-PrepPilot backend officially became a running web server capable of receiving HTTP requests and returning HTTP responses.
-
----
-
 ### Project Milestone
 
 🚀 PrepPilot served its first HTTP response successfully.
 
 This marks the beginning of the project's backend runtime. The application is now capable of accepting incoming HTTP requests and responding through Express.js.
+
+---
+
+### Result
+
+Module 2 — Chapter 4 completed successfully.
+
+PrepPilot backend officially became a running web server capable of receiving HTTP requests and returning HTTP responses.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -266,7 +268,9 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Day 4 — HTTP Server Fundamentals (Chapter 5)      (Date:-07-07-2026)
+# PrepPilot — Developer Journal       (Date:-07-07-2026)
+
+## Development Log — HTTP Server Fundamentals — (Module 2 Chapter 5)     
 
 ### Goal
 
@@ -359,9 +363,9 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Day 5 — HTTP Requests & Responses (Chapter 6)
+# PrepPilot — Developer Journal       (Date:-07-07-2026)
 
-**Date:** 08-07-2026
+## Development Log — HTTP Requests & Responses — ( Module 2 Chapter 6) 
 
 ### Goal
 
@@ -447,6 +451,110 @@ Established the communication foundation required for all future PrepPilot APIs.
 Module 2 — Chapter 6 completed successfully.
 
 PrepPilot backend now has a strong conceptual foundation for building production-ready REST APIs.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal       (Date:-08-07-2026)
+
+## Development Log — Routing — (Module 2 Chapter 7)
+
+### Goal
+
+Learn how Express routes incoming HTTP requests to the correct handler functions and understand how professional backend applications organize routing for scalability and maintainability.
+
+---
+
+### Completed
+
+* Learned the concept of Routing.
+* Understood how Express matches incoming requests.
+* Learned the three components of every route:
+  * HTTP Method
+  * Path
+  * Route Handler
+* Built multiple routes in the Express server.
+* Tested different routes through the browser.
+* Learned route matching behavior.
+* Understood why route order is important.
+* Learned API prefixes (`/api`).
+* Implemented Route Parameters using `:id`.
+* Accessed dynamic values using `req.params`.
+* Learned multiple Route Parameters.
+* Understood the difference between Route Parameters and Query Parameters.
+* Learned the purpose of Express Router.
+* Explored professional feature-based route organization.
+* Learned the purpose of `app.use()`.
+* Understood how `app.use()` is used for routers and middleware.
+
+---
+
+### Concepts Learned
+
+Routing
+
+* Route
+* Route Matching
+* Route Handler
+* Route Order
+* Static Routes
+* Dynamic Routes
+* Route Parameters
+* Multiple Route Parameters
+* API Prefixes
+
+Express
+
+* Express Router
+* app.use()
+* req.params
+
+Backend Architecture
+
+* Feature-Based Route Organization
+* Scalable Backend Structure
+* Request Forwarding
+* Request Processing Pipeline
+
+---
+
+### Mistakes Made
+
+* Initially assumed Express matched requests only by URL.
+* Learned that Express matches requests using both the HTTP Method and the Route Path.
+* Initially confused Route Parameters with Query Parameters.
+* Improved understanding of how `app.use()` acts as a gateway before requests reach route handlers.
+
+---
+
+### Key Lessons
+
+Routing is the backbone of every backend application.
+
+Professional applications separate routes by feature instead of placing every endpoint inside a single file.
+
+Understanding Route Parameters allows one route to serve unlimited dynamic resources without creating duplicate routes.
+
+`app.use()` provides a flexible mechanism for forwarding requests, registering middleware, and organizing large Express applications.
+
+---
+
+### Project Milestone
+
+🚀 Successfully transformed PrepPilot from a single-route backend into a multi-route backend.
+
+Established the routing architecture that will support all future backend features including Authentication, Resume Management, AI Interviews, and Progress Tracking.
+
+---
+
+### Result
+
+Module 2 — Chapter 7 completed successfully.
+
+PrepPilot backend now follows the routing principles used in professional Express applications and is ready for REST API development.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

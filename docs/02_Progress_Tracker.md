@@ -299,3 +299,44 @@ Current Backend Status
 Next Update: After Module 2 — Chapter 7 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 7 — Routing      (Date:-08-07-2026)
+
+Topics Covered:
+
+* Understanding the purpose of Routing in backend applications.
+* Understanding how Express matches incoming requests.
+* Anatomy of a Route (HTTP Method + Path + Handler).
+* Creating multiple routes within an Express application.
+* Understanding route matching based on both HTTP Method and Path.
+* Understanding why Route Order matters in Express.
+* Introduction to API prefixes (`/api`).
+* Understanding Route Parameters using `:parameter`.
+* Accessing Route Parameters through `req.params`.
+* Working with multiple Route Parameters.
+* Difference between Route Parameters and Query Parameters.
+* Understanding the concept of Express Router.
+* Learning professional route organization used in production applications.
+* Understanding the purpose and usage of `app.use()`.
+* High-level introduction to Middleware flow using `app.use()`.
+
+Milestone Achieved:
+
+* Successfully built multiple API routes.
+* Successfully implemented dynamic routes using Route Parameters.
+* Understood how Express internally forwards requests using routers.
+* Learned how professional backend applications organize routing logic.
+
+---
+
+Current Backend Status
+
+* Multiple Express routes implemented successfully.
+* Strong understanding of route matching and request flow.
+* Prepared to build production-level REST APIs in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 2 — Chapter 8 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
