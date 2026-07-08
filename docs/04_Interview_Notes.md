@@ -797,3 +797,145 @@ Revision:
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 9)       (Date:-08-07-2026)
+
+## Questions
+
+### 1. What is Middleware?
+
+### 2. Why do we need Middleware?
+
+### 3. What are the three middleware parameters?
+
+### 4. What does `next()` do?
+
+### 5. What happens if `next()` is not called?
+
+### 6. Can middleware modify `req`?
+
+### 7. Can middleware stop a request?
+
+### 8. Does middleware order matter?
+
+### 9. What is `express.json()`?
+
+### 10. Difference between `app.use()` and `app.get()`?
+
+### 11. Difference between Global and Route Middleware?
+
+### 12. Why is Logging Middleware useful?
+
+### 13. Why is Authentication Middleware useful?
+
+### 14. Why is Middleware important in backend development?
+
+### 15. What is a Request Pipeline?
+
+---
+
+## Important Code
+
+### Global Middleware
+
+```javascript
+app.use((req, res, next) => {
+
+    console.log("Middleware executed");
+
+    next();
+
+});
+```
+
+---
+
+### Logging Middleware
+
+```javascript
+function logger(req, res, next) {
+
+    console.log(`${req.method} ${req.url}`);
+
+    next();
+
+}
+
+app.use(logger);
+```
+
+---
+
+### Authentication Middleware
+
+```javascript
+function auth(req, res, next) {
+
+    const isLoggedIn = true;
+
+    if (!isLoggedIn) {
+        return res.status(401).json({
+            message: "Unauthorized"
+        });
+    }
+
+    next();
+
+}
+```
+
+---
+
+### Route Middleware
+
+```javascript
+app.get("/profile", auth, (req, res) => {
+
+    res.send("Profile");
+
+});
+```
+
+---
+
+### Modifying Request Object
+
+```javascript
+app.use((req, res, next) => {
+
+    req.user = "SaiKiran";
+
+    next();
+
+});
+```
+
+---
+
+## Important Revision Notes
+
+* Middleware is a function that runs between the request and the response.
+* Middleware receives three parameters: `req`, `res`, and `next`.
+* `next()` tells Express to continue processing the request.
+* Forgetting `next()` can cause requests to hang indefinitely.
+* Middleware can modify the request object.
+* Middleware can stop requests by sending a response.
+* Middleware order matters because Express executes middleware from top to bottom.
+* `app.use()` registers middleware globally.
+* Route Middleware runs only for specific routes.
+* `express.json()` is built-in middleware that parses incoming JSON requests.
+* Professional applications use middleware for logging, authentication, validation, security, and error handling.
+
+---
+
+Module 2 (Chapter 9):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

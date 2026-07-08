@@ -388,3 +388,49 @@ Current Backend Status
 Next Update: After Module 2 — Chapter 9 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 9 — Middleware      (Date:-08-07-2026)
+
+Topics Covered:
+
+* Understanding what Middleware is and why backend applications need it.
+* Understanding the Request Pipeline in Express.
+* Learning the three middleware parameters:
+  * req
+  * res
+  * next
+* Understanding the purpose of `next()`.
+* Learning what happens when `next()` is not called.
+* Creating custom middleware functions.
+* Implementing Global Middleware using `app.use()`.
+* Implementing Route-Specific Middleware.
+* Understanding Middleware Order and execution flow.
+* Learning how middleware can modify the `req` object.
+* Learning how middleware can stop requests and send responses.
+* Building Logging Middleware.
+* Building Authentication Middleware.
+* Understanding `express.json()` as built-in middleware.
+* Understanding professional middleware architecture used in production applications.
+
+Milestone Achieved:
+
+* Successfully implemented custom middleware.
+* Successfully built Logging Middleware.
+* Successfully built Authentication Middleware.
+* Successfully understood middleware execution flow and request pipelines.
+* Successfully understood how middleware powers professional Express applications.
+
+---
+
+Current Backend Status
+
+* Strong understanding of request processing pipelines.
+* Able to create and apply custom middleware.
+* Able to differentiate between Global and Route Middleware.
+* Prepared to implement professional backend configurations and environment management.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 2 — Chapter 10 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  

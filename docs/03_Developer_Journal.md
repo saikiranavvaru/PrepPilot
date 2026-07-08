@@ -673,3 +673,110 @@ PrepPilot backend now supports REST API principles and is prepared for Middlewar
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal       (Date:-08-07-2026)
+
+## Development Log — Middleware — (Module 2 Chapter 9)
+
+### Goal
+
+Understand how Express processes requests using middleware and learn how professional applications use middleware for logging, authentication, request modification, and request control.
+
+---
+
+### Completed
+
+* Learned what Middleware is.
+* Understood why Middleware exists.
+* Learned the Request Pipeline concept.
+* Learned the three middleware parameters:
+  * req
+  * res
+  * next
+* Understood the purpose of `next()`.
+* Built custom middleware functions.
+* Implemented Global Middleware.
+* Implemented Route-Specific Middleware.
+* Built Logging Middleware.
+* Built Authentication Middleware.
+* Learned how middleware can modify requests.
+* Learned how middleware can stop requests.
+* Understood Middleware Order.
+* Understood `express.json()` as middleware.
+* Explored professional middleware architecture.
+
+---
+
+### Concepts Learned
+
+Middleware
+
+* Request Pipeline
+* Global Middleware
+* Route Middleware
+* Custom Middleware
+* Built-in Middleware
+* Logging Middleware
+* Authentication Middleware
+
+Express
+
+* req
+* res
+* next()
+* app.use()
+* express.json()
+
+Backend Architecture
+
+* Request Processing Pipeline
+* Request Enrichment
+* Request Interception
+* Middleware Composition
+
+---
+
+### Mistakes Made
+
+* Initially assumed middleware only executes before routes.
+* Learned that middleware can also stop requests completely.
+* Initially underestimated the importance of `next()`.
+* Learned that forgetting `next()` causes requests to hang indefinitely.
+* Initially thought middleware could only read requests.
+* Learned that middleware can modify requests and pass additional data to routes.
+
+---
+
+### Key Lessons
+
+Middleware is one of the most powerful features of Express.
+
+Professional applications use middleware to separate cross-cutting concerns such as logging, authentication, validation, and security from business logic.
+
+Understanding `next()` and middleware order is essential for debugging request flow in backend applications.
+
+Middleware makes backend applications cleaner, more reusable, and easier to maintain.
+
+---
+
+### Project Milestone
+
+🚀 Successfully implemented the middleware architecture used in professional Express applications.
+
+Established the foundation required for future Authentication, Authorization, Logging, Request Validation, and Error Handling systems inside PrepPilot.
+
+Successfully understood the complete request pipeline from incoming request to final response.
+
+---
+
+### Result
+
+Module 2 — Chapter 9 completed successfully.
+
+PrepPilot backend now supports middleware-based request processing and is prepared for production-level backend architecture.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
