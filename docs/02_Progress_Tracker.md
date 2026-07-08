@@ -433,4 +433,47 @@ Current Backend Status
 
 Next Update: After Module 2 — Chapter 10 ✅
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 10 — Environment Variables      (Date:-08-07-2026)
+
+Topics Covered:
+
+* Understanding what Environment Variables are.
+* Understanding why applications need Environment Variables.
+* Learning why secrets should never be hardcoded inside source code.
+* Understanding the purpose of the `.env` file.
+* Learning how Node.js accesses Environment Variables using `process.env`.
+* Installing and configuring the `dotenv` package.
+* Understanding how `dotenv` loads variables from `.env` into `process.env`.
+* Configuring application settings using Environment Variables.
+* Using default values with logical OR (`||`) operators.
+* Understanding configuration management in backend applications.
+* Learning the importance of `NODE_ENV`.
+* Understanding different configurations for Development and Production environments.
+* Learning why `.env` files should never be committed to GitHub.
+* Configuring `.gitignore` to protect sensitive information.
+* Understanding professional practices for managing application secrets and configuration.
+
+Milestone Achieved:
+
+* Successfully configured Environment Variables using `.env`.
+* Successfully loaded variables using `dotenv`.
+* Successfully accessed variables through `process.env`.
+* Successfully migrated configuration values from hardcoded code into environment variables.
+* Established secure configuration management practices for PrepPilot.
+
+---
+
+Current Backend Status
+
+* Backend configuration is now environment-driven.
+* Application secrets and configuration are separated from source code.
+* Strong understanding of configuration management and deployment practices.
+* Prepared to build a production-grade backend folder structure.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 2 — Chapter 11 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

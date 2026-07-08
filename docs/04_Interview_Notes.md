@@ -939,3 +939,117 @@ Revision:
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 10)       (Date:-08-07-2026)
+
+## Questions
+
+### 1. What are Environment Variables?
+
+### 2. Why do we need Environment Variables?
+
+### 3. What is `.env`?
+
+### 4. What does `dotenv` do?
+
+### 5. What is `process.env`?
+
+### 6. Why should `.env` never be committed?
+
+### 7. What is `NODE_ENV`?
+
+### 8. Difference between hardcoded values and Environment Variables?
+
+### 9. Why is configuration management important?
+
+### 10. What kind of values belong inside `.env`?
+
+### 11. What is the purpose of fallback values?
+
+### 12. Why should secrets remain outside source code?
+
+### 13. Why do production and development environments require different configurations?
+
+### 14. What is secure secret management?
+
+### 15. Why are Environment Variables important for deployment?
+
+---
+
+## Important Code
+
+### Loading Environment Variables
+
+```javascript
+require("dotenv").config();
+```
+
+---
+
+### Accessing Environment Variables
+
+```javascript
+console.log(process.env.APP_NAME);
+
+console.log(process.env.NODE_ENV);
+```
+
+---
+
+### Configuring the Application Port
+
+```javascript
+const PORT = process.env.PORT || 3000;
+```
+
+---
+
+### Example `.env` File
+
+```env
+PORT=3000
+
+APP_NAME=PrepPilot
+
+JWT_SECRET=mySecretKey
+
+NODE_ENV=development
+```
+
+---
+
+### Ignoring Sensitive Files
+
+```gitignore
+server/node_modules/
+
+server/.env
+```
+
+---
+
+## Important Revision Notes
+
+* Environment Variables store configuration values outside source code.
+* `.env` files provide a convenient way to manage application configuration.
+* `dotenv` loads `.env` variables into `process.env`.
+* `process.env` contains all Environment Variables available to the Node.js application.
+* Hardcoded secrets should never exist inside source code.
+* `.env` files should never be committed to Git repositories.
+* `NODE_ENV` helps applications behave differently in development and production environments.
+* Fallback values improve application reliability.
+* Configuration management is essential for deployment and production systems.
+
+---
+
+Module 2 (Chapter 10):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

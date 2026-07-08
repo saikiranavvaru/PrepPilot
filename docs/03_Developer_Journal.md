@@ -780,3 +780,101 @@ PrepPilot backend now supports middleware-based request processing and is prepar
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal       (Date:-08-07-2026)
+
+## Development Log — Environment Variables — (Module 2 Chapter 10)
+
+### Goal
+
+Learn how professional applications manage configuration and secrets using Environment Variables and understand why hardcoded configuration values are considered poor engineering practice.
+
+---
+
+### Completed
+
+* Learned what Environment Variables are.
+* Understood why applications need Environment Variables.
+* Created a `.env` file.
+* Installed the `dotenv` package.
+* Configured `dotenv` inside the Express application.
+* Loaded variables into `process.env`.
+* Replaced hardcoded values with Environment Variables.
+* Configured application settings using `process.env.PORT`.
+* Configured custom variables such as `APP_NAME` and `NODE_ENV`.
+* Learned how to provide fallback values using `||`.
+* Understood configuration management practices.
+* Configured `.gitignore` to protect sensitive information.
+* Learned why `.env` files should never be committed.
+
+---
+
+### Concepts Learned
+
+Environment Variables
+
+* `.env`
+* `process.env`
+* `dotenv`
+* Configuration Management
+* Application Secrets
+* Environment-Based Configuration
+* Fallback Values
+
+Backend Architecture
+
+* Development Configuration
+* Production Configuration
+* Secure Secret Management
+* Deployment Readiness
+
+Node.js
+
+* Process Object
+* Environment Variables
+* Runtime Configuration
+
+---
+
+### Mistakes Made
+
+* Initially assumed configuration values should be written directly inside source code.
+* Initially thought `.env` files should be committed to GitHub.
+* Underestimated the importance of configuration management in production applications.
+* Learned that secrets and API keys must always remain outside source code.
+
+---
+
+### Key Lessons
+
+Environment Variables allow applications to run in multiple environments without changing source code.
+
+Professional applications separate configuration and secrets from application logic.
+
+The `.env` file and `dotenv` package provide a simple and secure way to manage application configuration.
+
+Protecting secrets is a fundamental responsibility of backend developers.
+
+---
+
+### Project Milestone
+
+🚀 Successfully implemented environment-based configuration for PrepPilot.
+
+Established secure practices for managing application settings, API keys, and future database credentials.
+
+Prepared the project for real-world deployment environments and production configuration management.
+
+---
+
+### Result
+
+Module 2 — Chapter 10 completed successfully.
+
+PrepPilot backend now supports professional configuration management practices and is prepared for production-level application architecture.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
