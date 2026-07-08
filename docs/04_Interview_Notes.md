@@ -1,6 +1,6 @@
-# PrepPilot — Interview Notes       (Date:-04-07-2026)
+# PrepPilot — Interview Notes      
 
-# Module 1 — Git Fundamentals
+# Module 1 — Git Fundamentals      (Date:-04-07-2026)
 
 ## Questions
 
@@ -290,7 +290,7 @@ Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# Module 2 — Backend Foundation (Chapter 5)
+# Module 2 — Backend Foundation (Chapter 5)     (Date:-07-07-2026)
 
 ## Questions
 
@@ -415,7 +415,7 @@ Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# Module 2 — Backend Foundation (Chapter 6)
+# Module 2 — Backend Foundation (Chapter 6)      (Date:-07-07-2026)
 
 ## Questions
 
@@ -644,6 +644,149 @@ app.use("/api/auth", authRoutes);
 ---
 
 Module 2 (Chapter 7):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 8)       (Date:-08-07-2026)
+
+## Questions
+
+### 1. What is an API?
+
+### 2. What does REST stand for?
+
+### 3. What is a Resource?
+
+### 4. What is CRUD?
+
+### 5. Why do we use nouns in REST URLs?
+
+### 6. Difference between GET and POST?
+
+### 7. Difference between PUT and POST?
+
+### 8. Why is REST popular?
+
+### 9. What are HTTP Status Codes?
+
+### 10. Difference between 200 and 201?
+
+### 11. Difference between 400 and 404?
+
+### 12. Difference between 401 and 403?
+
+### 13. Difference between 404 and 500?
+
+### 14. Why are status codes important?
+
+### 15. What is `req.body`?
+
+### 16. Why is `req.body` undefined?
+
+### 17. What does `express.json()` do?
+
+### 18. Why do we use Postman?
+
+### 19. Difference between `req.params` and `req.body`?
+
+### 20. Why are browsers insufficient for testing APIs?
+
+---
+
+## Important Code
+
+### Get All Books
+
+```javascript
+app.get("/books", (req, res) => {
+
+    res.status(200).json({
+        success: true,
+        data: books
+    });
+
+});
+```
+
+---
+
+### Get One Book
+
+```javascript
+app.get("/books/:id", (req, res) => {
+
+    const bookId = Number(req.params.id);
+
+    const book = books.find((b) => b.id === bookId);
+
+    if (!book) {
+        return res.status(404).json({
+            success: false,
+            message: "Book not found"
+        });
+    }
+
+    res.status(200).json({
+        success: true,
+        data: book
+    });
+
+});
+```
+
+---
+
+### Create Book
+
+```javascript
+app.post("/books", (req, res) => {
+
+    const newBook = req.body;
+
+    res.status(201).json({
+        success: true,
+        data: newBook
+    });
+
+});
+```
+
+---
+
+### JSON Middleware
+
+```javascript
+app.use(express.json());
+```
+
+---
+
+## Important Revision Notes
+
+* REST is a set of rules used to design APIs.
+* Resources should be represented using nouns.
+* CRUD operations map directly to HTTP methods.
+* GET reads data.
+* POST creates data.
+* PUT updates data.
+* DELETE removes data.
+* Status codes communicate the result of a request.
+* `req.body` contains data sent by the client.
+* `express.json()` converts JSON into JavaScript objects and populates `req.body`.
+* Browsers are limited for testing APIs because they mainly send GET requests.
+* APIs should return structured JSON responses with appropriate status codes.
+
+---
+
+Module 2 (Chapter 8):
 ✅ Completed
 
 Revision:

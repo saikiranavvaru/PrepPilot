@@ -340,3 +340,51 @@ Current Backend Status
 Next Update: After Module 2 — Chapter 8 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 8 — REST APIs      (Date:-08-07-2026)
+
+Topics Covered:
+
+* Understanding what an API is and why applications need APIs.
+* Understanding the concept of REST (Representational State Transfer).
+* Understanding Resources in RESTful applications.
+* Learning REST principles and industry standards.
+* Understanding CRUD operations.
+* Mapping CRUD operations to HTTP Methods.
+* Designing RESTful API endpoints using Resources.
+* Learning why REST URLs use nouns instead of verbs.
+* Understanding common HTTP Status Codes.
+* Learning the purpose of status codes in APIs.
+* Building the first REST APIs using Express.
+* Creating APIs using `GET` requests.
+* Creating APIs using `POST` requests.
+* Understanding `req.body`.
+* Understanding why `req.body` becomes `undefined`.
+* Learning the purpose of `express.json()`.
+* Understanding how Express converts JSON into JavaScript objects.
+* Learning why backend developers use Postman.
+* Designing initial REST APIs for PrepPilot.
+* Understanding professional API response structures.
+
+Milestone Achieved:
+
+* Successfully built the first REST APIs in PrepPilot.
+* Successfully implemented `GET` and `POST` APIs.
+* Successfully used `req.params` and `req.body`.
+* Successfully returned JSON responses with proper HTTP status codes.
+* Established the foundation for building production-level backend APIs.
+
+---
+
+Current Backend Status
+
+* REST API fundamentals understood successfully.
+* Backend can now return structured JSON responses.
+* Strong understanding of Resources, HTTP Methods, and Status Codes.
+* Prepared to learn Middleware and request processing pipelines.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 2 — Chapter 9 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

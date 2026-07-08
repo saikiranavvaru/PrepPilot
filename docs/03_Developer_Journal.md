@@ -561,3 +561,115 @@ PrepPilot backend now follows the routing principles used in professional Expres
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal       (Date:-08-07-2026)
+
+## Development Log — REST APIs — (Module 2 Chapter 8)
+
+### Goal
+
+Learn how professional backend applications design REST APIs and understand how HTTP methods, request bodies, and status codes work together to create production-level APIs.
+
+---
+
+### Completed
+
+* Learned what an API is.
+* Learned the concept of REST.
+* Understood the idea of Resources.
+* Learned CRUD operations.
+* Mapped CRUD operations to HTTP methods.
+* Learned REST API design principles.
+* Learned why REST URLs use nouns instead of verbs.
+* Studied common HTTP Status Codes.
+* Built the first REST APIs using Express.
+* Created APIs using `GET` requests.
+* Created APIs using `POST` requests.
+* Built a temporary in-memory Books API.
+* Implemented APIs using `req.params`.
+* Learned the purpose of `req.body`.
+* Learned why `req.body` becomes `undefined`.
+* Implemented `express.json()`.
+* Understood how Express parses JSON requests.
+* Learned why backend developers use Postman.
+* Designed future REST APIs for PrepPilot.
+
+---
+
+### Concepts Learned
+
+REST
+
+* API
+* REST
+* Resources
+* CRUD Operations
+* RESTful URLs
+* Resource Naming
+
+HTTP
+
+* GET
+* POST
+* PUT
+* DELETE
+* HTTP Status Codes
+
+Express
+
+* req.params
+* req.body
+* express.json()
+* JSON Responses
+
+Backend Architecture
+
+* API Design
+* Request Parsing
+* Structured Responses
+* Resource-Oriented Development
+
+---
+
+### Mistakes Made
+
+* Initially assumed APIs are only used between frontend and backend applications.
+* Initially thought URLs should contain action names like `/getUsers`.
+* Initially assumed Express automatically understands JSON request bodies.
+* Learned that `express.json()` middleware is required to populate `req.body`.
+
+---
+
+### Key Lessons
+
+REST provides a standard way to design APIs that makes applications easier to understand and maintain.
+
+Resources should be represented by nouns, while HTTP methods describe the action.
+
+Proper status codes and structured JSON responses are critical for frontend and backend communication.
+
+Understanding `req.body` and `express.json()` is essential for building APIs that accept data from clients.
+
+---
+
+### Project Milestone
+
+🚀 Successfully built the first real REST APIs in PrepPilot.
+
+Established the foundation for future features including Authentication APIs, Resume APIs, Interview APIs, and Progress APIs.
+
+Successfully transformed the backend from simple routes into resource-based API endpoints.
+
+---
+
+### Result
+
+Module 2 — Chapter 8 completed successfully.
+
+PrepPilot backend now supports REST API principles and is prepared for Middleware and advanced backend architecture.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
