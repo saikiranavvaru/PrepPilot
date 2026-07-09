@@ -1053,3 +1053,119 @@ Revision:
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 11)       (Date:-09-07-2026)
+
+## Questions
+
+### 1. What is Separation of Concerns?
+
+### 2. Why should large applications avoid putting everything inside `index.js`?
+
+### 3. What is the purpose of the `src` folder?
+
+### 4. What is the purpose of the `routes` folder?
+
+### 5. What is the purpose of the `controllers` folder?
+
+### 6. What is the difference between routes and controllers?
+
+### 7. What is the purpose of the `middleware` folder?
+
+### 8. What is the purpose of the `config` folder?
+
+### 9. What is the purpose of the `services` folder?
+
+### 10. What is the purpose of the `utils` folder?
+
+### 11. What is the request flow in a professional Express application?
+
+### 12. Why is backend folder structure important?
+
+### 13. What are the advantages of a layered architecture?
+
+### 14. Why is `app.use()` important for routing architecture?
+
+### 15. Why should `index.js` remain lightweight?
+
+---
+
+## Important Code
+
+### Importing Routes
+
+```javascript
+const indexRoutes = require("./src/routes/index.routes");
+```
+
+---
+
+### Registering Routes
+
+```javascript
+app.use("/", indexRoutes);
+```
+
+---
+
+### Creating a Router
+
+```javascript
+const express = require("express");
+
+const router = express.Router();
+```
+
+---
+
+### Route File
+
+```javascript
+router.get("/", getHome);
+
+router.get("/health", getHealth);
+```
+
+---
+
+### Controller File
+
+```javascript
+function getHome(req, res) {
+    res.send("🏠 Welcome to PrepPilot Backend");
+}
+
+function getHealth(req, res) {
+    res.json({
+        status: "Server is running",
+        uptime: "Healthy"
+    });
+}
+```
+
+---
+
+## Important Revision Notes
+
+* Large applications should avoid placing all logic inside one file.
+* Separation of Concerns improves maintainability and scalability.
+* Routes should map requests to controllers.
+* Controllers should contain request-handling logic.
+* `app.use()` connects route modules to the Express application.
+* Professional applications organize code into dedicated folders.
+* `index.js` should primarily handle application startup and configuration.
+* A clean architecture makes debugging and team collaboration easier.
+
+---
+
+Module 2 (Chapter 11):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

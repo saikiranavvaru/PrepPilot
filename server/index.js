@@ -2,24 +2,16 @@ require("dotenv").config(); // Load environment variables
 
 const express = require("express");
 
+const indexRoutes = require("./src/routes/index.routes");
+
 const app = express();
 
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-// Home Route
-app.get("/", (req, res) => {
-    res.send("🏠 Welcome to PrepPilot Backend");
-});
-
-// Health Check Route
-app.get("/health", (req, res) => {
-    res.json({
-        status: "Server is running",
-        uptime: "Healthy"
-    });
-});
+// Temporary routes - will be moved into separate route files later
+app.use("/", indexRoutes);
 
 // Login Route
 app.post("/login", (req, res) => {

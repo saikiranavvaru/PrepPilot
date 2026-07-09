@@ -477,3 +477,46 @@ Current Backend Status
 Next Update: After Module 2 — Chapter 11 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 11 — Professional Backend Folder Structure      (Date:-09-07-2026)
+
+Topics Covered:
+
+* Understanding why large `index.js` files become difficult to maintain.
+* Learning the principle of Separation of Concerns.
+* Understanding why professional backend applications use folders.
+* Introduction to backend architecture and code organization.
+* Creating a professional `src` directory.
+* Understanding the purpose of the `routes` folder.
+* Understanding the purpose of the `controllers` folder.
+* Understanding the purpose of the `middleware` folder.
+* Understanding the purpose of the `config` folder.
+* Understanding the purpose of the `services` folder.
+* Understanding the purpose of the `utils` folder.
+* Creating the first route file using Express Router.
+* Creating the first controller file.
+* Separating routes from business logic.
+* Understanding professional request flow inside an Express application.
+* Learning how `index.js` acts as the application entry point.
+
+Milestone Achieved:
+
+* Successfully implemented a production-style backend folder structure.
+* Successfully separated routes into `src/routes`.
+* Successfully separated controller logic into `src/controllers`.
+* Established scalable backend architecture for PrepPilot.
+
+---
+
+Current Backend Status
+
+* Backend now follows a professional folder structure.
+* Request handling is separated into routes and controllers.
+* Foundation for scalable feature development has been established.
+* Project architecture is prepared for future Authentication, Database, and AI modules.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 2 — Chapter 12 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

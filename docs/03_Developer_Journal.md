@@ -878,3 +878,104 @@ PrepPilot backend now supports professional configuration management practices a
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal       (Date:-09-07-2026)
+
+## Development Log — Professional Backend Folder Structure — (Module 2 Chapter 11)
+
+### Goal
+
+Learn how professional backend applications organize their code using folders and understand how to separate responsibilities between routes, controllers, middleware, services, and configuration files.
+
+---
+
+### Completed
+
+* Learned why keeping everything inside `index.js` is not scalable.
+* Understood the principle of Separation of Concerns.
+* Created a professional `src` directory.
+* Created:
+  * `routes`
+  * `controllers`
+  * `middleware`
+  * `config`
+  * `services`
+  * `utils`
+* Implemented the first route file using Express Router.
+* Implemented the first controller file.
+* Moved Home and Health APIs into dedicated route and controller files.
+* Connected routes to the application using `app.use()`.
+* Learned professional request flow.
+* Understood how large applications are organized.
+
+---
+
+### Concepts Learned
+
+Backend Architecture
+
+* Separation of Concerns
+* Layered Architecture
+* Request Flow
+* Scalable Folder Structure
+* Feature Organization
+
+Express
+
+* Express Router
+* Route Files
+* Controller Files
+* `module.exports`
+* `require()`
+* `app.use()`
+
+Folders
+
+* `src/routes`
+* `src/controllers`
+* `src/middleware`
+* `src/config`
+* `src/services`
+* `src/utils`
+
+---
+
+### Mistakes Made
+
+* Initially assumed all backend code should remain inside `index.js`.
+* Underestimated the importance of organizing code for long-term scalability.
+* Learned that controllers should handle logic while routes should only map endpoints.
+
+---
+
+### Key Lessons
+
+Professional applications separate responsibilities into dedicated folders.
+
+A clean folder structure improves readability, debugging, collaboration, and long-term maintainability.
+
+Controllers and routes should have clearly defined responsibilities.
+
+The application's entry point should remain lightweight and primarily focus on application startup and configuration.
+
+---
+
+### Project Milestone
+
+🚀 Successfully transformed PrepPilot from a single-file backend into a professionally organized backend architecture.
+
+Established the folder structure that will support Authentication, Database Integration, Resume Management, AI Interviews, and all future platform features.
+
+---
+
+### Result
+
+Module 2 — Chapter 11 completed successfully.
+
+PrepPilot backend now follows the architectural principles used in professional Express applications and is ready for building larger backend features.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
