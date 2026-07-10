@@ -616,3 +616,42 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 2 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 2 — Database Fundamentals (Date:-10-07-2026)
+
+Topics Covered:
+
+* Understanding that every software system is fundamentally data-driven.
+* Learning how applications model real-world information as data.
+* Understanding Structured Data and Unstructured Data.
+* Learning why databases usually store file metadata instead of actual files.
+* Understanding the hierarchy of Database → Schema → Table → Row → Column.
+* Introduction to schemas and their purpose in PostgreSQL.
+* Understanding the difference between an Application Server and a Database Server.
+* Understanding Local Databases and Cloud Databases.
+* Learning how data flows from React to Express and finally to PostgreSQL.
+* Understanding how backend engineers think about data before creating tables.
+* Introduction to Entities, Attributes, Records, and Relationships.
+* Learning how PrepPilot's future data will be organized and modeled.
+
+Milestone Achieved:
+
+* Successfully built the mental model required for database design.
+* Successfully understood how real applications organize and think about data.
+* Established the conceptual foundation for relational modeling and database design.
+* Connected PrepPilot's features with future database entities and relationships.
+
+---
+
+Current Backend Status
+
+* Backend architecture now includes a clear understanding of the future database layer.
+* Database hierarchy and data organization concepts have been established.
+* Foundation for relational databases and PostgreSQL design has been completed.
+* PrepPilot is now ready to begin relational database concepts and table design.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 3 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

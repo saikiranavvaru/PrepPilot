@@ -1373,31 +1373,89 @@ PostgreSQL = Stores and manages application data
 SQL = Language used to communicate with relational databases
 ```
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 2)       (Date:-10-07-2026)
+
+## Questions
+
+### 1. Why is every software application fundamentally data-driven?
+
+### 2. What is Structured Data?
+
+### 3. What is Unstructured Data?
+
+### 4. Why are files usually stored outside the database?
+
+### 5. What is the hierarchy of data storage inside a database?
+
+### 6. What is a schema?
+
+### 7. What is the difference between an Application Server and a Database Server?
+
+### 8. What is the difference between a Local Database and a Cloud Database?
+
+### 9. What is an Entity?
+
+### 10. What is an Attribute?
+
+### 11. What is a Record?
+
+### 12. What is a Relationship?
+
+### 13. How do backend engineers think before creating tables?
+
+### 14. How does data flow from React to PostgreSQL?
+
+### 15. Why is database design important?
+
 ---
 
-## Revision Status
+## Important Concepts
 
-Module 1:
-✅ Completed
-
-Revision:
-⬜ Pending
+```text
+Structured Data
+Unstructured Data
+Database Hierarchy
+Database Schema
+Entity
+Attribute
+Record
+Relationship
+Application Server
+Database Server
+Local Database
+Cloud Database
+```
 
 ---
 
-Module 2:
-✅ Completed
+## Revision Notes
 
-Revision:
-⬜ Pending
+```text
+Everything in software becomes data.
 
----
+Structured Data = Fixed format data.
 
-Module 3 (Chapter 1):
-✅ Completed
+Unstructured Data = Images, PDFs, Videos.
 
-Revision:
-⬜ Pending
+Database → Schema → Table → Row → Column
+
+Application Server = Business logic.
+
+Database Server = Data storage.
+
+Entity = Thing we store.
+
+Attribute = Information about an entity.
+
+Relationship = Connection between entities.
+Database design starts with data and relationships.
+```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

@@ -1186,7 +1186,7 @@ PrepPilot's future features such as user accounts, interview history, analytics,
 
 ### Project Milestone
 
-🗄️ Successfully established the database foundation for PrepPilot.
+Successfully established the database foundation for PrepPilot.
 
 Established the conceptual understanding required for PostgreSQL, SQL, and relational database design.
 
@@ -1206,4 +1206,86 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+## Development Log — Database Fundamentals — (Module 3 Chapter 2) — (10/07/2026)
 
+### Goal
+
+Understand how real applications think about and organize data before designing databases and writing SQL.
+
+---
+
+### Completed
+
+* Learned that every software application is fundamentally driven by data.
+* Understood Structured Data and Unstructured Data.
+* Learned why files are usually stored outside the database and only metadata is stored in tables.
+* Understood the hierarchy of Database → Schema → Table → Row → Column.
+* Learned the purpose of schemas in PostgreSQL.
+* Understood the difference between an Application Server and a Database Server.
+* Learned the difference between Local Databases and Cloud Databases.
+* Understood how data travels through React, Express, and PostgreSQL.
+* Learned how backend engineers model information before creating tables.
+* Introduced the concepts of Entities, Attributes, Records, and Relationships.
+* Connected PrepPilot's future features with its future database design.
+
+---
+
+### Concepts Learned
+
+#### Database Fundamentals
+
+* Structured Data
+* Unstructured Data
+* Database Hierarchy
+* Database Schema
+* Entity
+* Attribute
+* Record
+* Relationship
+
+#### Backend Architecture
+
+* Application Server
+* Database Server
+* Local Database
+* Cloud Database
+* Data Flow Architecture
+
+#### Database Design Thinking
+
+* Information Modeling
+* Entity Identification
+* Relationship Identification
+* Data Organization
+
+---
+
+### Key Lessons
+
+Database design begins with understanding the information that an application needs to store rather than immediately creating tables.
+
+Professional backend developers think in terms of entities, relationships, and data requirements before writing SQL.
+
+PrepPilot's future features can now be mapped into database entities and relationships.
+
+---
+
+### Project Milestone
+
+Successfully established the conceptual foundation for database modeling and relational design.
+
+Successfully prepared PrepPilot for relational database design and PostgreSQL implementation.
+
+---
+
+### Result
+
+Module 3 — Chapter 2 completed successfully.
+
+PrepPilot now has a strong conceptual understanding of how production applications organize and model data before implementation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
