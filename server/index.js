@@ -3,6 +3,7 @@ require("dotenv").config(); // Load environment variables
 const express = require("express");
 
 const indexRoutes = require("./src/routes/index.routes");
+const notesRoutes = require("./src/routes/notes.routes");
 
 const app = express();
 
@@ -12,6 +13,8 @@ const PORT = process.env.PORT || 3000;
 
 // Temporary routes - will be moved into separate route files later
 app.use("/", indexRoutes);
+app.use("/notes", notesRoutes);
+
 
 // Login Route
 app.post("/login", (req, res) => {

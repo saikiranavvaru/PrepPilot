@@ -1169,3 +1169,110 @@ Revision:
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 2 — Backend Foundation (Chapter 12)       (Date:-10-07-2026)
+
+## Questions
+
+### 1. What is CRUD?
+
+### 2. Why do we separate routes and controllers?
+
+### 3. Why do we use Express Router?
+
+### 4. What is in-memory storage?
+
+### 5. Why does data disappear after restarting the server?
+
+### 6. Why do we need databases?
+
+### 7. What is Postman?
+
+### 8. Why do backend developers use Postman?
+
+### 9. What is `req.body`?
+
+### 10. What is `req.params`?
+
+### 11. Why do APIs return status codes?
+
+### 12. Difference between `200`, `201`, and `404`?
+
+### 13. Explain the request flow of the Notes API.
+
+### 14. Why is professional folder structure important?
+
+### 15. What are the benefits of feature-based architecture?
+
+---
+
+## Important Code
+
+### Registering Routes
+
+```javascript
+app.use("/notes", notesRoutes);
+```
+
+---
+
+### GET All Notes
+
+```javascript
+router.get("/", getAllNotes);
+```
+
+---
+
+### GET Note By ID
+
+```javascript
+router.get("/:id", getNoteById);
+```
+
+---
+
+### Create Note
+
+```javascript
+router.post("/", createNote);
+```
+
+---
+
+### Delete Note
+
+```javascript
+router.delete("/:id", deleteNote);
+```
+
+---
+
+## Important Revision Notes
+
+* CRUD stands for Create, Read, Update, Delete.
+* Postman is used to test APIs without a frontend.
+* `req.body` stores incoming JSON data.
+* `req.params` stores route parameters.
+* Routes define endpoints.
+* Controllers contain request-handling logic.
+* In-memory data disappears after restarting the server.
+* Databases provide permanent storage.
+* Feature-based architecture improves scalability and maintainability.
+
+---
+
+Module 2 (Chapter 12):
+✅ Completed
+
+🎉 Module 2 — Backend Foundation:
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -979,3 +979,139 @@ PrepPilot backend now follows the architectural principles used in professional 
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal       (Date:-10-07-2026)
+
+## Development Log — Mini Backend Project — (Module 2 Chapter 12)
+
+### Goal
+
+Build a small production-style backend application by combining Routing, Controllers, Middleware, Environment Variables, and Professional Folder Structure into a single working project.
+
+---
+
+### Completed
+
+* Created Notes API.
+* Created `notes.routes.js`.
+* Created `notes.controller.js`.
+* Implemented GET `/notes`.
+* Implemented GET `/notes/:id`.
+* Implemented POST `/notes`.
+* Implemented DELETE `/notes/:id`.
+* Implemented JSON responses.
+* Implemented proper HTTP status codes.
+* Tested APIs using Postman.
+* Understood request flow through Routes and Controllers.
+* Built the first mini backend project using professional architecture.
+
+---
+
+### Concepts Learned
+
+Backend Architecture
+
+* Feature-Based Architecture
+* Separation of Concerns
+* Route Files
+* Controller Files
+* Request Flow
+
+REST APIs
+
+* GET
+* POST
+* DELETE
+* CRUD Operations
+* HTTP Status Codes
+
+Express
+
+* Express Router
+* req.params
+* req.body
+* res.status()
+* res.json()
+
+Tools
+
+* Postman
+* JSON Request Body
+* API Testing
+
+---
+
+### Mistakes Made
+
+* Initially did not know how to use Postman.
+* Accidentally entered the HTTP method inside the URL field in Postman.
+* Learned the difference between selecting a method and writing the URL.
+* Improved understanding of request flow and API testing.
+
+---
+
+### Key Lessons
+
+Building a small project helps connect individual concepts into a complete system.
+
+Routes should only define endpoints, while controllers should contain request-handling logic.
+
+Professional backend applications are built using small, organized modules instead of one large file.
+
+Postman is an essential tool for backend development and API testing.
+
+---
+
+### Project Milestone
+
+🚀 Successfully completed Module 2 — Backend Foundation.
+
+Established the complete backend foundation that will support Authentication, Database Integration, Resume Management, AI Features, and all future PrepPilot modules.
+
+---
+
+### Result
+
+Module 2 — Chapter 12 completed successfully.
+
+🎉 Module 2 — Backend Foundation completed successfully.
+
+PrepPilot now has a solid backend architecture and is ready to transition into database-driven development.
+
+---
+
+### Overall Project Progress
+
+```text
+Project Started:                04 July 2026
+Current Milestone:              Backend Foundation Completed
+Latest Update:                  10 July 2026
+
+Module 1 — Project Foundation      ✅ Completed
+Module 2 — Backend Foundation      ✅ Completed
+Module 3 — Database Design         ⏳ Not Started
+Module 4 — Authentication          ⏳ Not Started
+Module 5 — Frontend Development    ⏳ Not Started
+Module 6 — Core Features           ⏳ Not Started
+Module 7 — Deployment              ⏳ Not Started
+Module 8 — Final Polish            ⏳ Not Started
+```
+
+```text
+PrepPilot Overall Progress:
+≈ 30% Complete 🚀
+```
+
+---
+
+### Next Milestone
+
+🗄️ Module 3 — Database Design & SQL
+
+Transition from temporary in-memory data to persistent database-driven applications.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
