@@ -1276,3 +1276,131 @@ Revision:
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+# Module 3 — Database Design & SQL (Chapter 1)       (Date:-10-07-2026)
+
+## Questions
+
+### 1. Why are JavaScript arrays unsuitable for production data storage?
+
+### 2. What is in-memory storage?
+
+### 3. What happens to in-memory data when the server restarts?
+
+### 4. What is persistence?
+
+### 5. Why do real applications need databases?
+
+### 6. Why isn't storing data in JSON files enough for production systems?
+
+### 7. What is a database?
+
+### 8. What is a Database Management System (DBMS)?
+
+### 9. What is the difference between a Database and a DBMS?
+
+### 10. What is PostgreSQL?
+
+### 11. What problems do databases solve?
+
+### 12. Why are databases better at handling large amounts of data?
+
+### 13. Why do databases matter when multiple users access an application simultaneously?
+
+### 14. What is data integrity?
+
+### 15. What is data consistency?
+
+### 16. What is scalability?
+
+### 17. How will Express communicate with PostgreSQL?
+
+### 18. What is SQL?
+
+### 19. How are REST APIs connected to SQL operations?
+
+### 20. Why does PrepPilot need a database?
+
+---
+
+## Important Concepts
+
+```text
+In-Memory Storage
+Persistence
+Database
+Database Management System (DBMS)
+PostgreSQL
+Data Integrity
+Data Consistency
+Scalability
+Express ↔ PostgreSQL Communication
+SQL
+```
+
+---
+
+## REST → SQL Mapping
+
+```text
+POST   → INSERT
+GET    → SELECT
+PATCH  → UPDATE
+DELETE → DELETE
+```
+
+---
+
+## Revision Notes
+
+```text
+Array = Temporary storage in RAM
+
+Persistence = Data survives server restarts
+
+Database = Organized, permanent data storage
+
+DBMS = Software that manages databases
+
+PostgreSQL = Relational Database Management System
+
+Express = Handles HTTP requests and responses
+
+PostgreSQL = Stores and manages application data
+
+SQL = Language used to communicate with relational databases
+```
+
+---
+
+## Revision Status
+
+Module 1:
+✅ Completed
+
+Revision:
+⬜ Pending
+
+---
+
+Module 2:
+✅ Completed
+
+Revision:
+⬜ Pending
+
+---
+
+Module 3 (Chapter 1):
+✅ Completed
+
+Revision:
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

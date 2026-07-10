@@ -1115,3 +1115,95 @@ Transition from temporary in-memory data to persistent database-driven applicati
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+# PrepPilot — Developer Journal       (Date:-10-07-2026)
+
+## Development Log — Why Databases Exist — (Module 3 Chapter 1)
+
+### Goal
+
+Understand why real applications cannot rely on JavaScript arrays for data storage and build the foundation for integrating PostgreSQL into PrepPilot.
+
+---
+
+### Completed
+
+* Learned the limitations of in-memory storage.
+* Understood why data disappears after a server restart.
+* Learned the concept of persistence.
+* Understood why real applications require permanent data storage.
+* Learned why JSON files are not suitable for production systems.
+* Introduced the concepts of Database and Database Management System (DBMS).
+* Learned the role of PostgreSQL in backend applications.
+* Understood how databases handle large datasets and multiple users.
+* Connected REST API operations with database operations.
+* Understood how Express and PostgreSQL will communicate.
+* Prepared the backend for transitioning from arrays to database-driven storage.
+
+---
+
+### Concepts Learned
+
+#### Database Fundamentals
+
+* In-Memory Storage
+* Persistence
+* Database
+* Database Management System (DBMS)
+* Relational Database
+* PostgreSQL
+* Data Integrity
+* Data Consistency
+* Scalability
+
+#### Backend Architecture
+
+* Express Application Layer
+* Database Layer
+* Request → Controller → Database → Response Flow
+* SQL as the language for database communication
+
+#### REST and Databases
+
+* POST → INSERT
+* GET → SELECT
+* PATCH/PUT → UPDATE
+* DELETE → DELETE
+
+---
+
+### Key Lessons
+
+JavaScript arrays are useful for learning API development but are unsuitable for production applications because data is lost whenever the server restarts.
+
+A database provides permanent, organized, and scalable storage that supports relationships, validation, security, and concurrent users.
+
+PrepPilot's future features such as user accounts, interview history, analytics, and progress tracking depend entirely on persistent database storage.
+
+---
+
+### Project Milestone
+
+🗄️ Successfully established the database foundation for PrepPilot.
+
+Established the conceptual understanding required for PostgreSQL, SQL, and relational database design.
+
+Successfully connected the existing Express backend architecture with the future database layer.
+
+---
+
+### Result
+
+Module 3 — Chapter 1 completed successfully.
+
+PrepPilot has officially entered the Database Design phase and is now prepared to move from temporary in-memory storage to production-level persistent data storage using PostgreSQL.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
