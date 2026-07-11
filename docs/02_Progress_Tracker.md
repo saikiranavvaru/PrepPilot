@@ -697,3 +697,41 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 4 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 4 — Tables, Rows, Columns & Data Types (Date:-11-07-2026)
+
+Topics Covered:
+
+* Understanding why databases use data types.
+* Learning the importance of choosing correct data types.
+* Introduction to PostgreSQL data types.
+* Understanding VARCHAR and TEXT.
+* Understanding INTEGER and its use cases.
+* Understanding BOOLEAN values.
+* Understanding TIMESTAMP for date and time information.
+* Introduction to UUID and its advantages.
+* Learning how data types affect performance and data integrity.
+* Understanding common mistakes when selecting data types.
+* Designing the first real PrepPilot tables using appropriate data types.
+
+Milestone Achieved:
+
+* Successfully understood the purpose of PostgreSQL data types.
+* Successfully designed the first production-level database tables.
+* Established the foundation for creating PrepPilot's Users, Interviews, Questions, and Answers tables.
+* Prepared the project for keys, constraints, and real database implementation.
+
+---
+
+Current Backend Status
+
+* Database design now includes appropriate data type selection.
+* Initial table designs for PrepPilot have been established.
+* Foundation for constraints and relationships has been completed.
+* PrepPilot is now ready to begin database integrity and constraint design.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 5 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

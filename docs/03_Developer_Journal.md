@@ -1373,3 +1373,71 @@ PrepPilot now has a strong understanding of relational thinking and is prepared 
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Tables, Rows, Columns & Data Types — (Module 3 Chapter 4) — (11/07/2026)
+
+### Goal
+
+Learn how PostgreSQL stores different kinds of information and how to choose appropriate data types when designing production databases.
+
+---
+
+### Completed
+
+* Learned the purpose of database data types.
+* Explored common PostgreSQL data types.
+* Understood when to use VARCHAR and TEXT.
+* Understood INTEGER, BOOLEAN, TIMESTAMP, and UUID.
+* Learned why choosing incorrect data types creates future problems.
+* Designed the first PrepPilot tables with suitable data types.
+* Began thinking about database design from a query and data perspective.
+
+---
+
+### Concepts Learned
+
+#### PostgreSQL Data Types
+
+* VARCHAR
+* TEXT
+* INTEGER
+* BOOLEAN
+* TIMESTAMP
+* UUID
+
+#### Database Design
+
+* Data Integrity
+* Storage Efficiency
+* Query Requirements
+* Table Design
+
+---
+
+### Key Lessons
+
+Database design is not only about creating tables but also about selecting the correct type of data for every piece of information.
+
+Choosing the right data type improves data integrity, performance, and future maintainability.
+
+---
+
+### Project Milestone
+
+Successfully designed the first production-style database tables for PrepPilot.
+
+Established the foundation required for constraints, relationships, and database implementation.
+
+---
+
+### Result
+
+Module 3 — Chapter 4 completed successfully.
+
+PrepPilot now has its first realistic database table designs and is prepared for database constraints and relationships.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1551,3 +1551,74 @@ PrepPilot naturally fits a relational model.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 4)       (Date:-11-07-2026)
+
+## Questions
+
+### 1. What is a data type?
+
+### 2. Why are data types important?
+
+### 3. What is VARCHAR?
+
+### 4. What is the difference between VARCHAR and TEXT?
+
+### 5. What is INTEGER?
+
+### 6. Why shouldn't phone numbers use INTEGER?
+
+### 7. What is BOOLEAN?
+
+### 8. What is TIMESTAMP?
+
+### 9. What is UUID?
+
+### 10. Why do modern applications use UUID?
+
+### 11. How do data types affect database design?
+
+### 12. Which data types would you choose for a Users table?
+
+---
+
+## Important Concepts
+
+```text
+VARCHAR
+TEXT
+INTEGER
+BOOLEAN
+TIMESTAMP
+UUID
+Data Integrity
+Storage Efficiency
+```
+
+---
+
+## Revision Notes
+
+```text
+VARCHAR = Limited text.
+
+TEXT = Large text.
+
+INTEGER = Whole numbers.
+
+BOOLEAN = TRUE or FALSE.
+
+TIMESTAMP = Date and time.
+
+UUID = Unique identifier.
+
+Correct data types improve integrity and performance.
+
+Database design = Information + Appropriate data type.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
