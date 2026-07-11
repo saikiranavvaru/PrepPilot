@@ -1441,3 +1441,74 @@ PrepPilot now has its first realistic database table designs and is prepared for
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Keys & Constraints — (Module 3 Chapter 5) — (11/07/2026)
+
+### Goal
+
+Learn how relational databases enforce rules and protect themselves from invalid or inconsistent data.
+
+---
+
+### Completed
+
+* Learned the purpose of database constraints.
+* Understood Primary Keys and record identification.
+* Understood Foreign Keys and relationship validation.
+* Learned UNIQUE constraints and duplicate prevention.
+* Understood NOT NULL constraints.
+* Learned CHECK constraints for data validation.
+* Understood DEFAULT values and automatic initialization.
+* Designed production-style rules for PrepPilot tables.
+
+---
+
+### Concepts Learned
+
+#### Database Keys
+
+* Primary Key (PK)
+* Foreign Key (FK)
+
+#### Database Constraints
+
+* UNIQUE
+* NOT NULL
+* CHECK
+* DEFAULT
+
+#### Database Design
+
+* Data Integrity
+* Validation Rules
+* Relationship Integrity
+
+---
+
+### Key Lessons
+
+A database should not blindly trust applications. It should protect its own data through constraints and validation rules.
+
+Well-designed constraints make applications more reliable and prevent inconsistent data from entering the system.
+
+---
+
+### Project Milestone
+
+Successfully established the integrity rules for PrepPilot's database.
+
+Prepared the project for implementing real relationships between tables.
+
+---
+
+### Result
+
+Module 3 — Chapter 5 completed successfully.
+
+PrepPilot's database now has the foundation required for safe, reliable, and production-level data storage.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

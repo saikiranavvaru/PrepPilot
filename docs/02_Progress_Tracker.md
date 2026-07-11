@@ -735,3 +735,40 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 5 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 5 — Keys & Constraints (Date:-11-07-2026)
+
+Topics Covered:
+
+* Understanding why databases need keys and constraints.
+* Introduction to database rules and data validation.
+* Understanding Primary Keys and their importance.
+* Understanding Foreign Keys and relationships.
+* Introduction to UNIQUE constraints.
+* Understanding NOT NULL constraints.
+* Introduction to CHECK constraints.
+* Understanding DEFAULT values.
+* Learning how constraints protect data integrity.
+* Designing production-level rules for PrepPilot tables.
+
+Milestone Achieved:
+
+* Successfully understood database keys and constraints.
+* Established the foundation for enforcing data integrity.
+* Successfully designed rules for PrepPilot's core tables.
+* Prepared the project for implementing real database relationships.
+
+---
+
+Current Backend Status
+
+* Database design now includes data validation and integrity rules.
+* Core PrepPilot entities now have proper keys and constraints.
+* Foundation for implementing relationships has been completed.
+* PrepPilot is now ready for advanced relationship modeling.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 6 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

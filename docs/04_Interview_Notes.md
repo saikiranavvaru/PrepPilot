@@ -1622,3 +1622,72 @@ Database design = Information + Appropriate data type.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 5)       (Date:-11-07-2026)
+
+## Questions
+
+### 1. What is a constraint?
+
+### 2. What is a Primary Key?
+
+### 3. What are the rules of a Primary Key?
+
+### 4. What is a Foreign Key?
+
+### 5. Why are Foreign Keys important?
+
+### 6. What is UNIQUE?
+
+### 7. What is NOT NULL?
+
+### 8. What is CHECK?
+
+### 9. What is DEFAULT?
+
+### 10. Why are constraints important?
+
+### 11. Why do databases enforce rules?
+
+### 12. What constraints would you use for a Users table?
+
+---
+
+## Important Concepts
+
+```text
+Primary Key (PK)
+Foreign Key (FK)
+UNIQUE
+NOT NULL
+CHECK
+DEFAULT
+Data Integrity
+Relationship Integrity
+```
+
+---
+
+## Revision Notes
+
+```text
+Primary Key = Unique identity of a row.
+
+Foreign Key = Validates relationships.
+
+UNIQUE = No duplicate values.
+
+NOT NULL = Value is required.
+
+CHECK = Restricts allowed values.
+
+DEFAULT = Automatic value assignment.
+
+Constraints protect data integrity and consistency.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
