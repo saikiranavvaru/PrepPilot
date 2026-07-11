@@ -655,3 +655,45 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 3 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 3 — Relational Databases & PostgreSQL (Date:-11-07-2026)
+
+Topics Covered:
+
+* Understanding why PostgreSQL is called a Relational Database.
+* Learning that the real power of relational databases comes from relationships between data.
+* Understanding why relationships are essential in real-world applications.
+* Learning how relational databases reduce duplication and improve consistency.
+* Understanding how companies use relationships to model complex systems.
+* Learning why PostgreSQL organizes data using tables.
+* Introduction to One-to-One relationships.
+* Introduction to One-to-Many relationships.
+* Introduction to Many-to-Many relationships.
+* Understanding why relational databases are suitable for highly connected data.
+* Comparing Relational Databases and Non-Relational Databases.
+* Understanding why PostgreSQL is a better choice for PrepPilot.
+* Introduction to Relation, Tuple, and Attribute terminology.
+* Learning how PrepPilot's future database entities are related to each other.
+
+Milestone Achieved:
+
+* Successfully understood the core idea behind Relational Databases.
+* Successfully understood different types of database relationships.
+* Established the conceptual foundation for relational database design.
+* Connected PrepPilot's future features through database relationships.
+* Prepared the backend for table design and relationship implementation.
+
+---
+
+Current Backend Status
+
+* Backend now has a strong understanding of relational data modeling.
+* Database relationships for PrepPilot have been conceptually identified.
+* Foundation for constraints, keys, and table design has been established.
+* PrepPilot is now ready to begin designing actual database tables and schemas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 4 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

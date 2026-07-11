@@ -1289,3 +1289,87 @@ PrepPilot now has a strong conceptual understanding of how production applicatio
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Relational Databases & PostgreSQL — (Module 3 Chapter 3) — (11/07/2026)
+
+### Goal
+
+Understand why relational databases exist, how data relationships are modeled, and why PostgreSQL is an ideal database for PrepPilot.
+
+---
+
+### Completed
+
+* Learned why PostgreSQL is called a Relational Database.
+* Understood that relationships are the core idea behind relational databases.
+* Learned how relationships connect data in real-world applications.
+* Understood how relational databases reduce duplication and improve consistency.
+* Learned why PostgreSQL uses tables to organize data.
+* Introduced One-to-One relationships.
+* Introduced One-to-Many relationships.
+* Introduced Many-to-Many relationships.
+* Compared Relational Databases with Non-Relational Databases.
+* Learned why PostgreSQL is a better fit for PrepPilot.
+* Introduced the concepts of Relation, Tuple, and Attribute.
+* Connected PrepPilot's future entities through relationships.
+
+---
+
+### Concepts Learned
+
+#### Relational Databases
+
+* Relationships
+* Relational Database
+* Relation
+* Tuple
+* Attribute
+* Data Consistency
+* Data Integrity
+
+#### Database Relationships
+
+* One-to-One
+* One-to-Many
+* Many-to-Many
+
+#### Database Design Thinking
+
+* Relationship Modeling
+* Data Connectivity
+* Entity Relationships
+* Information Organization
+
+---
+
+### Key Lessons
+
+The real strength of a relational database is not tables but the relationships between data.
+
+Professional applications are built around connected information, and relational databases make these connections reliable and efficient.
+
+PrepPilot's users, interviews, questions, answers, and progress records naturally fit into a relational database model.
+
+---
+
+### Project Milestone
+
+Successfully established the conceptual foundation for relational database design.
+
+Successfully modeled PrepPilot's future features using database relationships.
+
+Successfully prepared the project for actual table design and PostgreSQL implementation.
+
+---
+
+### Result
+
+Module 3 — Chapter 3 completed successfully.
+
+PrepPilot now has a strong understanding of relational thinking and is prepared to begin designing real database tables and relationships.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

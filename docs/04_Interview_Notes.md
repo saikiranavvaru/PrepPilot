@@ -1415,6 +1415,16 @@ Continue Updating After Every Lesson ✅
 
 ---
 
+## Database
+```text
+→ Schema
+→ Table
+→ Row
+→ Column
+```
+
+---
+
 ## Important Concepts
 
 ```text
@@ -1455,6 +1465,85 @@ Attribute = Information about an entity.
 
 Relationship = Connection between entities.
 Database design starts with data and relationships.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 3)       (Date:-11-07-2026)
+
+## Questions
+
+### 1. Why is PostgreSQL called a Relational Database?
+
+### 2. What is a relationship?
+
+### 3. Why are relationships important?
+
+### 4. What are the types of relationships?
+
+### 5. What is One-to-One?
+
+### 6. What is One-to-Many?
+
+### 7. What is Many-to-Many?
+
+### 8. Why is PostgreSQL suitable for PrepPilot?
+
+### 9. What is the difference between PostgreSQL and MongoDB?
+
+### 10. What is a Relation?
+
+### 11. What is a Tuple?
+
+### 12. What is an Attribute?
+
+---
+
+## Relationship Types
+
+```text
+One-to-One
+One-to-Many
+Many-to-Many
+```
+
+---
+
+## Important Concepts
+
+```text
+Relational Database
+Relationship
+Relation
+Tuple
+Attribute
+Data Consistency
+Data Integrity
+```
+
+---
+
+## Revision Notes
+
+```text
+Relational Database = Database built around relationships.
+
+Relationship = Connection between data.
+
+Relation = Table.
+Tuple = Row.
+Attribute = Column.
+
+1:1 = One record ↔ One record.
+1:N = One record ↔ Many records.
+M:N = Many records ↔ Many records.
+
+PostgreSQL = Best for highly related data.
+PrepPilot naturally fits a relational model.
 ```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
