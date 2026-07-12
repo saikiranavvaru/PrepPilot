@@ -1579,3 +1579,70 @@ PrepPilot now has a complete conceptual database structure and is ready to start
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Introduction to SQL — (Module 3 Chapter 7) — (12/07/2026)
+
+### Goal
+
+Understand what SQL is, why it exists, and how backend applications use SQL to communicate with relational databases.
+
+---
+
+### Completed
+
+* Learned the purpose of SQL.
+* Understood SQL as the language of relational databases.
+* Connected SQL with REST API operations.
+* Understood how Express communicates with PostgreSQL.
+* Learned the major categories of SQL commands.
+* Introduced DDL, DML, DQL, DCL, and TCL.
+* Prepared the backend for writing real database queries.
+
+---
+
+### Concepts Learned
+
+#### SQL Fundamentals
+
+* SQL
+* Declarative Language
+* Database Queries
+* Database Communication
+
+#### SQL Categories
+
+* DDL
+* DML
+* DQL
+* DCL
+* TCL
+
+---
+
+### Key Lessons
+
+SQL allows applications to communicate with databases using a standard and powerful language.
+
+Backend APIs eventually translate into SQL operations that create, read, update, and delete data.
+
+---
+
+### Project Milestone
+
+Successfully established the SQL foundation required for PostgreSQL integration.
+
+Prepared PrepPilot for implementing database-driven APIs.
+
+---
+
+### Result
+
+Module 3 — Chapter 7 completed successfully.
+
+PrepPilot is now ready to begin executing real SQL queries and performing database CRUD operations.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

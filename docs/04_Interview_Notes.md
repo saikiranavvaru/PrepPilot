@@ -1763,3 +1763,69 @@ Relationships reduce duplication and improve consistency.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 7)       (Date:-12-07-2026)
+
+## Questions
+
+### 1. What is SQL?
+
+### 2. What does SQL stand for?
+
+### 3. Why do databases need SQL?
+
+### 4. Why is SQL called a declarative language?
+
+### 5. What is DDL?
+
+### 6. What is DML?
+
+### 7. What is DQL?
+
+### 8. What is DCL?
+
+### 9. What is TCL?
+
+### 10. How do REST APIs map to SQL operations?
+
+### 11. How does Express communicate with PostgreSQL?
+
+---
+
+## SQL Categories
+
+```text
+DDL
+DML
+DQL
+DCL
+TCL
+```
+
+---
+
+## Revision Notes
+
+```text
+SQL = Structured Query Language.
+
+SQL = Language used to communicate with relational databases.
+
+DQL = SELECT.
+
+DML = INSERT, UPDATE, DELETE.
+
+DDL = CREATE, ALTER, DROP.
+
+DCL = GRANT, REVOKE.
+
+TCL = COMMIT, ROLLBACK.
+
+REST APIs eventually become SQL operations.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
