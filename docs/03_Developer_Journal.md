@@ -1512,3 +1512,70 @@ PrepPilot's database now has the foundation required for safe, reliable, and pro
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Database Relationships (Deep Dive) — (Module 3 Chapter 6) — (12/07/2026)
+
+### Goal
+
+Understand how relational databases connect information and design the relationships required for PrepPilot's database.
+
+---
+
+### Completed
+
+* Learned the importance of database relationships.
+* Understood One-to-One relationships.
+* Understood One-to-Many relationships.
+* Understood Many-to-Many relationships.
+* Learned where Foreign Keys should be placed.
+* Introduced Junction Tables.
+* Learned how to identify relationship types.
+* Designed the major relationships required by PrepPilot.
+
+---
+
+### Concepts Learned
+
+#### Database Relationships
+
+* One-to-One (1:1)
+* One-to-Many (1:N)
+* Many-to-Many (M:N)
+* Junction Table
+* Foreign Key Placement
+
+#### Database Design
+
+* Relationship Modeling
+* Data Connectivity
+* Entity Relationships
+
+---
+
+### Key Lessons
+
+Most real-world applications are collections of related tables rather than isolated tables.
+
+Good database design depends on correctly identifying relationships and modeling them properly.
+
+---
+
+### Project Milestone
+
+Successfully established the relationship model for PrepPilot's database.
+
+Prepared the project for SQL queries and real database implementation.
+
+---
+
+### Result
+
+Module 3 — Chapter 6 completed successfully.
+
+PrepPilot now has a complete conceptual database structure and is ready to start interacting with PostgreSQL using SQL.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

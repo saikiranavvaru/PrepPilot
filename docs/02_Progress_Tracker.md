@@ -772,3 +772,39 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 6 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 6 — Database Relationships (Deep Dive) (Date:-12-07-2026)
+
+Topics Covered:
+
+* Understanding why relationships are the foundation of relational databases.
+* Learning One-to-One relationships.
+* Learning One-to-Many relationships.
+* Learning Many-to-Many relationships.
+* Understanding where Foreign Keys are placed.
+* Introduction to Junction Tables.
+* Learning how to identify relationship types.
+* Designing relationships for PrepPilot's core entities.
+* Understanding how relationships improve consistency and reduce duplication.
+
+Milestone Achieved:
+
+* Successfully understood all major database relationship types.
+* Successfully designed relationships for PrepPilot's database.
+* Established the foundation for relational database modeling.
+* Prepared the project for writing SQL and querying related data.
+
+---
+
+Current Backend Status
+
+* Core entities and their relationships have been identified.
+* Database design now includes relationship modeling.
+* Foundation for SQL querying and database implementation has been completed.
+* PrepPilot is now ready to begin interacting with PostgreSQL using SQL.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 7 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

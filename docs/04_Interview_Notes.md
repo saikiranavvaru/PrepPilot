@@ -1691,3 +1691,75 @@ Constraints protect data integrity and consistency.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 6)       (Date:-12-07-2026)
+
+## Questions
+
+### 1. What is a relationship?
+
+### 2. Why are relationships important?
+
+### 3. What is One-to-One?
+
+### 4. What is One-to-Many?
+
+### 5. What is Many-to-Many?
+
+### 6. What is a junction table?
+
+### 7. Where does the Foreign Key go in a One-to-Many relationship?
+
+### 8. How do you identify relationship types?
+
+### 9. Why are junction tables necessary?
+
+### 10. Design relationships for PrepPilot.
+
+---
+
+## Relationship Types
+
+```text
+One-to-One
+One-to-Many
+Many-to-Many
+```
+
+---
+
+## Important Concepts
+
+```text
+Relationship
+Foreign Key
+Junction Table
+One-to-One
+One-to-Many
+Many-to-Many
+Relationship Modeling
+```
+
+---
+
+## Revision Notes
+
+```text
+1:1 = One record ↔ One record.
+
+1:N = One record ↔ Many records.
+
+M:N = Many records ↔ Many records.
+
+Foreign Key lives on the many side.
+
+Junction Table solves Many-to-Many relationships.
+
+Relationships reduce duplication and improve consistency.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
