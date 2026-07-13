@@ -1646,3 +1646,70 @@ PrepPilot is now ready to begin executing real SQL queries and performing databa
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — CRUD Operations with SQL — (Module 3 Chapter 8) — (12/07/2026)
+
+### Goal
+
+Learn how applications create, read, update, and delete data using SQL queries and understand how these operations power backend APIs.
+
+---
+
+### Completed
+
+* Learned the concept of CRUD operations.
+* Understood SELECT queries for reading data.
+* Understood INSERT queries for creating data.
+* Understood UPDATE queries for modifying data.
+* Understood DELETE queries for removing data.
+* Connected CRUD operations with REST API endpoints.
+* Understood how backend applications communicate with PostgreSQL using SQL queries.
+* Learned important safety practices for UPDATE and DELETE queries.
+* Connected the existing Notes API with future database implementation.
+
+---
+
+### Concepts Learned
+
+#### SQL CRUD
+
+* SELECT
+* INSERT
+* UPDATE
+* DELETE
+
+#### Backend Architecture
+
+* REST → SQL Mapping
+* Request → SQL → Database → Response Flow
+
+---
+
+### Key Lessons
+
+Almost every backend feature eventually becomes a CRUD operation.
+
+REST APIs and SQL queries naturally map to each other, making backend development more structured and predictable.
+
+---
+
+### Project Milestone
+
+Successfully established the SQL foundation required for building database-driven APIs.
+
+Prepared PrepPilot for implementing real PostgreSQL queries.
+
+---
+
+### Result
+
+Module 3 — Chapter 8 completed successfully.
+
+PrepPilot is now ready to begin writing more advanced SQL queries and interacting with real database data.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+

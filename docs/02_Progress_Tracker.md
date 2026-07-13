@@ -842,3 +842,40 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 8 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 8 — CRUD Operations with SQL (Date:-12-07-2026)
+
+Topics Covered:
+
+* Understanding CRUD operations in databases.
+* Learning how CRUD maps to SQL commands.
+* Introduction to SELECT queries.
+* Introduction to INSERT queries.
+* Introduction to UPDATE queries.
+* Introduction to DELETE queries.
+* Understanding how REST APIs map to SQL operations.
+* Learning how Express applications interact with PostgreSQL using CRUD queries.
+* Understanding how the Notes API will transition from arrays to database queries.
+* Learning important safety practices when using UPDATE and DELETE.
+
+Milestone Achieved:
+
+* Successfully understood the four fundamental SQL operations.
+* Successfully connected SQL queries with REST API endpoints.
+* Established the foundation for building database-driven APIs.
+* Prepared PrepPilot for real PostgreSQL integration and querying.
+
+---
+
+Current Backend Status
+
+* Backend now has a complete understanding of database CRUD operations.
+* Foundation for database-driven APIs has been established.
+* Notes API is conceptually ready to move from arrays to PostgreSQL.
+* PrepPilot is now prepared for advanced SQL querying techniques.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 9 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

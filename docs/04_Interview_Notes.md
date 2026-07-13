@@ -1829,3 +1829,64 @@ REST APIs eventually become SQL operations.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 8)       (Date:-12-07-2026)
+
+## Questions
+
+### 1. What is CRUD?
+
+### 2. What is SELECT?
+
+### 3. What is INSERT?
+
+### 4. What is UPDATE?
+
+### 5. What is DELETE?
+
+### 6. Why should UPDATE usually have a WHERE clause?
+
+### 7. Why should DELETE usually have a WHERE clause?
+
+### 8. How do REST APIs map to SQL?
+
+### 9. How will the Notes API change when moving to PostgreSQL?
+
+### 10. Why are SQL CRUD operations important?
+
+---
+
+## CRUD Mapping
+
+```text
+Create → INSERT
+Read   → SELECT
+Update → UPDATE
+Delete → DELETE
+```
+
+---
+
+## Revision Notes
+
+```text
+SELECT = Read data.
+
+INSERT = Create data.
+
+UPDATE = Modify data.
+
+DELETE = Remove data.
+
+REST APIs naturally map to SQL CRUD operations.
+
+UPDATE and DELETE usually require WHERE clauses.
+
+Most backend applications are built around CRUD operations.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
