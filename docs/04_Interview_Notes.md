@@ -1830,7 +1830,7 @@ Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# Module 3 — Database Design & SQL (Chapter 8)       (Date:-12-07-2026)
+# Module 3 — Database Design & SQL (Chapter 8)       (Date:-13-07-2026)
 
 ## Questions
 
@@ -1883,6 +1883,83 @@ REST APIs naturally map to SQL CRUD operations.
 UPDATE and DELETE usually require WHERE clauses.
 
 Most backend applications are built around CRUD operations.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 9)       (Date:-13-07-2026)
+
+## Questions
+
+### 1. What is WHERE?
+
+### 2. What is ORDER BY?
+
+### 3. Difference between ASC and DESC?
+
+### 4. What is LIMIT?
+
+### 5. What is OFFSET?
+
+### 6. How does pagination work?
+
+### 7. What is LIKE?
+
+### 8. What are SQL wildcards?
+
+### 9. What is IN?
+
+### 10. What is BETWEEN?
+
+### 11. How would you implement search in SQL?
+
+### 12. How would you implement pagination?
+
+---
+
+## Important Concepts
+
+```text
+WHERE
+ORDER BY
+ASC
+DESC
+LIMIT
+OFFSET
+LIKE
+IN
+BETWEEN
+Pagination
+```
+
+---
+
+## Revision Notes
+
+```text
+WHERE = Filters rows.
+
+ORDER BY = Sorts rows.
+
+ASC = Ascending order.
+
+DESC = Descending order.
+
+LIMIT = Restricts number of rows.
+
+OFFSET = Skips rows for pagination.
+
+LIKE = Pattern matching.
+
+IN = Matches multiple values.
+
+BETWEEN = Filters a range of values.
+
+Pagination = LIMIT + OFFSET.
 ```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

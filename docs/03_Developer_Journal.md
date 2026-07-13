@@ -1647,7 +1647,7 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Development Log — CRUD Operations with SQL — (Module 3 Chapter 8) — (12/07/2026)
+## Development Log — CRUD Operations with SQL — (Module 3 Chapter 8) — (13/07/2026)
 
 ### Goal
 
@@ -1713,3 +1713,80 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+## Development Log — Filtering & Sorting Data — (Module 3 Chapter 9) — (13/07/2026)
+
+### Goal
+
+Learn how to filter, sort, search, and paginate database records using SQL and understand how these queries power real application features.
+
+---
+
+### Completed
+
+* Learned the WHERE clause for filtering data.
+* Understood comparison operators.
+* Learned ORDER BY for sorting query results.
+* Understood ASC and DESC ordering.
+* Learned LIMIT for restricting result size.
+* Understood OFFSET and pagination.
+* Learned pattern matching using LIKE.
+* Understood SQL wildcards.
+* Learned IN for multiple-value filtering.
+* Understood BETWEEN for range queries.
+* Combined multiple SQL clauses to solve business problems.
+* Connected SQL queries with real PrepPilot features.
+
+---
+
+### Concepts Learned
+
+#### SQL Filtering
+
+* WHERE
+* LIKE
+* IN
+* BETWEEN
+
+#### SQL Sorting & Pagination
+
+* ORDER BY
+* ASC
+* DESC
+* LIMIT
+* OFFSET
+
+#### Backend Features
+
+* Search
+* Pagination
+* Analytics Queries
+
+---
+
+### Key Lessons
+
+Real applications rarely need entire tables. Most features require filtering, sorting, and pagination.
+
+SQL becomes significantly more powerful when multiple clauses are combined to answer business questions.
+
+---
+
+### Project Milestone
+
+Successfully established the foundation for search, analytics, and dashboard queries in PrepPilot.
+
+Prepared the project for aggregation and reporting features.
+
+---
+
+### Result
+
+Module 3 — Chapter 9 completed successfully.
+
+PrepPilot can now conceptually support search, rankings, pagination, and analytical queries using SQL.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

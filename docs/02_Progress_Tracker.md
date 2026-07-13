@@ -843,7 +843,7 @@ Next Update: After Module 3 — Chapter 8 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-### Chapter 8 — CRUD Operations with SQL (Date:-12-07-2026)
+### Chapter 8 — CRUD Operations with SQL (Date:-13-07-2026)
 
 Topics Covered:
 
@@ -877,5 +877,45 @@ Current Backend Status
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Next Update: After Module 3 — Chapter 9 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 9 — Filtering & Sorting Data (Date:-13-07-2026)
+
+Topics Covered:
+
+* Understanding why real applications rarely fetch all database records.
+* Learning how to filter data using the WHERE clause.
+* Understanding comparison operators in SQL.
+* Learning how to sort data using ORDER BY.
+* Understanding ASC and DESC sorting.
+* Learning how to limit query results using LIMIT.
+* Understanding pagination using OFFSET.
+* Learning pattern matching using LIKE.
+* Understanding SQL wildcards (% and _).
+* Learning how to filter multiple values using IN.
+* Understanding range filtering using BETWEEN.
+* Combining filtering, sorting, and pagination to answer business questions.
+* Designing real PrepPilot queries for analytics, search, and dashboards.
+
+Milestone Achieved:
+
+* Successfully understood SQL filtering and sorting techniques.
+* Successfully implemented the mental model for pagination and search.
+* Established the foundation for building production-level SQL queries.
+* Prepared PrepPilot for analytics and reporting features.
+
+---
+
+Current Backend Status
+
+* Backend now supports conceptual database querying beyond basic CRUD operations.
+* Foundation for search, pagination, and analytics queries has been established.
+* PrepPilot is now capable of modeling real-world business queries.
+* Project is ready to begin aggregation and reporting queries.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 10 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
