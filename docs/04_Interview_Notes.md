@@ -1967,3 +1967,75 @@ Pagination = LIMIT + OFFSET.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 10)       (Date:-14-07-2026)
+
+## Questions
+
+### 1. What is an aggregate function?
+
+### 2. What does COUNT do?
+
+### 3. What does SUM do?
+
+### 4. What does AVG do?
+
+### 5. What does MIN do?
+
+### 6. What does MAX do?
+
+### 7. What is GROUP BY?
+
+### 8. Why do we use GROUP BY?
+
+### 9. What is HAVING?
+
+### 10. Difference between WHERE and HAVING?
+
+### 11. How would you build analytics for PrepPilot?
+
+---
+
+## Important Concepts
+
+```text
+COUNT
+SUM
+AVG
+MIN
+MAX
+GROUP BY
+HAVING
+Aggregation
+Analytics
+```
+
+---
+
+## Revision Notes
+
+```text
+COUNT = Counts rows.
+
+SUM = Adds values.
+
+AVG = Calculates average.
+
+MIN = Smallest value.
+
+MAX = Largest value.
+
+GROUP BY = Groups rows.
+
+HAVING = Filters groups.
+
+WHERE = Filters rows.
+
+Aggregation = Converts data into insights.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

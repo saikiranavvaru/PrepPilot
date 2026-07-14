@@ -919,3 +919,39 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 10 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 10 — Aggregation & Grouping (Date:-14-07-2026)
+
+Topics Covered:
+
+* Understanding aggregation and summary queries.
+* Learning aggregate functions: COUNT, SUM, AVG, MIN, and MAX.
+* Understanding how aggregate functions produce analytical insights.
+* Learning how to group data using GROUP BY.
+* Understanding how GROUP BY works with aggregate functions.
+* Learning how to filter grouped data using HAVING.
+* Understanding the difference between WHERE and HAVING.
+* Designing analytical queries for PrepPilot dashboards and reports.
+* Learning how businesses use aggregation for reporting and analytics.
+
+Milestone Achieved:
+
+* Successfully understood SQL aggregation and reporting queries.
+* Successfully implemented the mental model for analytical SQL queries.
+* Established the foundation for dashboards, leaderboards, and business analytics.
+* Prepared PrepPilot for advanced multi-table querying and reporting features.
+
+---
+
+Current Backend Status
+
+* Backend now supports conceptual analytical and reporting queries.
+* Foundation for dashboards and statistics has been established.
+* PrepPilot can now model real-world analytics requirements.
+* Project is now ready to connect multiple tables using SQL joins.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 11 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

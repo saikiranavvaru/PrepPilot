@@ -1790,3 +1790,77 @@ PrepPilot can now conceptually support search, rankings, pagination, and analyti
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Aggregation & Grouping — (Module 3 Chapter 10) — (14/07/2026)
+
+### Goal
+
+Learn how to summarize, group, and analyze data using SQL aggregate functions and build the foundation for analytics features.
+
+---
+
+### Completed
+
+* Learned aggregate functions in SQL.
+* Understood COUNT, SUM, AVG, MIN, and MAX.
+* Learned how aggregation produces summary values.
+* Understood GROUP BY and data grouping.
+* Learned how HAVING filters grouped data.
+* Understood the difference between WHERE and HAVING.
+* Built analytical queries for real business scenarios.
+* Connected aggregation concepts with future PrepPilot dashboards and analytics.
+
+---
+
+### Concepts Learned
+
+#### Aggregate Functions
+
+* COUNT
+* SUM
+* AVG
+* MIN
+* MAX
+
+#### Grouping & Filtering
+
+* GROUP BY
+* HAVING
+* Analytical Queries
+
+#### Backend Features
+
+* Dashboards
+* Reports
+* Statistics
+* Leaderboards
+
+---
+
+### Key Lessons
+
+Aggregation transforms raw data into meaningful information and insights.
+
+GROUP BY and aggregate functions are essential for building reports, dashboards, and analytics systems.
+
+---
+
+### Project Milestone
+
+Successfully established the analytical query foundation for PrepPilot.
+
+Prepared the project for multi-table queries and advanced reporting features.
+
+---
+
+### Result
+
+Module 3 — Chapter 10 completed successfully.
+
+PrepPilot is now capable of conceptually supporting dashboards, statistics, reports, and analytical features using SQL.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
