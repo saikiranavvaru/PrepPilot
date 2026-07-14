@@ -2039,3 +2039,70 @@ Aggregation = Converts data into insights.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 11)       (Date:-14-07-2026)
+
+## Questions
+
+### 1. What is a JOIN?
+
+### 2. Why do we need JOINs?
+
+### 3. What is INNER JOIN?
+
+### 4. What is LEFT JOIN?
+
+### 5. What is RIGHT JOIN?
+
+### 6. What is FULL JOIN?
+
+### 7. What is the difference between INNER JOIN and LEFT JOIN?
+
+### 8. Why do joins produce NULL values?
+
+### 9. How would you show users who have never taken an interview?
+
+### 10. How would you fetch a user's interviews and questions?
+
+---
+
+## Important Concepts
+
+```text
+JOIN
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL JOIN
+Foreign Key
+NULL
+Multi-Table Query
+```
+
+---
+
+## Revision Notes
+
+```text
+JOIN = Combines data from multiple tables.
+
+INNER JOIN = Matching rows only.
+
+LEFT JOIN = All left rows + matching right rows.
+
+RIGHT JOIN = All right rows + matching left rows.
+
+FULL JOIN = All rows from both tables.
+
+NULL = No matching record exists.
+
+Foreign Keys make joins possible.
+
+Most advanced queries use joins.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

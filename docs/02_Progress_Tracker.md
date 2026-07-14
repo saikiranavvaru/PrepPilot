@@ -955,3 +955,40 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 11 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 11 — SQL Joins (Date:-14-07-2026)
+
+Topics Covered:
+
+* Understanding why SQL joins are necessary in relational databases.
+* Learning how data from multiple tables can be combined.
+* Understanding INNER JOIN and matching records.
+* Understanding LEFT JOIN and handling missing relationships.
+* Introduction to RIGHT JOIN and FULL JOIN.
+* Learning how NULL values appear in joins.
+* Understanding how joins work using Foreign Keys.
+* Learning how to query related data across multiple tables.
+* Introduction to multi-table joins.
+* Designing real PrepPilot queries using joins.
+
+Milestone Achieved:
+
+* Successfully understood how relational data is connected through joins.
+* Successfully queried data across multiple related tables.
+* Established the foundation for advanced reporting and analytics queries.
+* Prepared PrepPilot for building complex database-driven features.
+
+---
+
+Current Backend Status
+
+* Backend now has a complete conceptual understanding of relational querying.
+* Foundation for multi-table queries and analytics has been established.
+* PrepPilot can now model real-world data retrieval scenarios.
+* Project is ready to begin database design principles and normalization.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 12 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

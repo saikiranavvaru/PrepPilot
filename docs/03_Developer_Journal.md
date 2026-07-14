@@ -1864,3 +1864,71 @@ PrepPilot is now capable of conceptually supporting dashboards, statistics, repo
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — SQL Joins — (Module 3 Chapter 11) — (14/07/2026)
+
+### Goal
+
+Learn how relational databases combine data from multiple tables and understand how joins power real-world application features.
+
+---
+
+### Completed
+
+* Learned the purpose of SQL joins.
+* Understood INNER JOIN and matching rows.
+* Understood LEFT JOIN and missing relationships.
+* Learned RIGHT JOIN and FULL JOIN.
+* Understood why joins produce NULL values.
+* Learned how Foreign Keys enable joins.
+* Built queries across multiple related tables.
+* Introduced multi-table joins.
+* Connected joins with future PrepPilot features and analytics.
+
+---
+
+### Concepts Learned
+
+#### SQL Joins
+
+* INNER JOIN
+* LEFT JOIN
+* RIGHT JOIN
+* FULL JOIN
+* Multi-Table Joins
+
+#### Relational Querying
+
+* Foreign Keys
+* NULL Handling
+* Related Data Retrieval
+
+---
+
+### Key Lessons
+
+The real power of relational databases comes from the ability to connect and query related data across multiple tables.
+
+Most advanced backend features such as dashboards, analytics, reports, and history pages rely heavily on SQL joins.
+
+---
+
+### Project Milestone
+
+Successfully established the foundation for relational querying and multi-table data retrieval.
+
+Prepared PrepPilot for advanced analytics and production-level database features.
+
+---
+
+### Result
+
+Module 3 — Chapter 11 completed successfully.
+
+PrepPilot can now conceptually retrieve and combine information across multiple related tables using SQL joins.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
