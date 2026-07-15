@@ -2106,3 +2106,80 @@ Most advanced queries use joins.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Module 3 — Database Design & SQL (Chapter 12)       (Date:-15-07-2026)
+
+## Questions
+
+### 1. What is normalization?
+
+### 2. Why do we normalize databases?
+
+### 3. What is data redundancy?
+
+### 4. What are data anomalies?
+
+### 5. What is an Insert Anomaly?
+
+### 6. What is an Update Anomaly?
+
+### 7. What is a Delete Anomaly?
+
+### 8. What is First Normal Form (1NF)?
+
+### 9. What is Second Normal Form (2NF)?
+
+### 10. What is Third Normal Form (3NF)?
+
+### 11. What is partial dependency?
+
+### 12. What is transitive dependency?
+
+### 13. What is denormalization?
+
+### 14. Why do companies sometimes denormalize?
+
+### 15. Is PrepPilot's database normalized?
+
+---
+
+## Important Concepts
+
+```text
+Normalization
+Denormalization
+Data Redundancy
+Data Anomalies
+1NF
+2NF
+3NF
+Partial Dependency
+Transitive Dependency
+```
+
+---
+
+## Revision Notes
+
+```text
+Normalization = Reducing duplication and improving consistency.
+
+Data Redundancy = Repeated information.
+
+Data Anomalies = Insert, Update, Delete problems.
+
+1NF = Atomic values only.
+
+2NF = No partial dependency.
+
+3NF = No transitive dependency.
+
+Denormalization = Intentional duplication for performance.
+
+Most production databases aim for 3NF.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

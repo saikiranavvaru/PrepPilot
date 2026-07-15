@@ -992,3 +992,41 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 12 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 12 — Database Normalization (Date:-15-07-2026)
+
+Topics Covered:
+
+* Understanding the purpose of database normalization.
+* Learning why duplicate data creates problems.
+* Understanding data redundancy and data anomalies.
+* Learning Insert, Update, and Delete anomalies.
+* Understanding First Normal Form (1NF).
+* Understanding Second Normal Form (2NF).
+* Understanding Third Normal Form (3NF).
+* Introduction to partial dependency and transitive dependency.
+* Learning how normalization improves database design.
+* Introduction to denormalization and its practical use cases.
+* Evaluating PrepPilot's database structure using normalization principles.
+
+Milestone Achieved:
+
+* Successfully understood the principles of database normalization.
+* Successfully identified bad database designs and their problems.
+* Established the foundation for building clean and scalable databases.
+* Verified that PrepPilot's database structure is close to Third Normal Form (3NF).
+
+---
+
+Current Backend Status
+
+* Database design now follows normalization principles.
+* Foundation for scalable and maintainable tables has been established.
+* PrepPilot's schema has been validated using relational design principles.
+* Project is now ready to move from database theory to real PostgreSQL implementation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 13 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1932,3 +1932,75 @@ PrepPilot can now conceptually retrieve and combine information across multiple 
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Database Normalization — (Module 3 Chapter 12) — (15/07/2026)
+
+### Goal
+
+Learn how professional databases eliminate redundancy, avoid anomalies, and organize information into clean and maintainable structures.
+
+---
+
+### Completed
+
+* Learned the purpose of normalization.
+* Understood data redundancy and its problems.
+* Learned Insert, Update, and Delete anomalies.
+* Understood First Normal Form (1NF).
+* Understood Second Normal Form (2NF).
+* Understood Third Normal Form (3NF).
+* Learned partial dependency and transitive dependency.
+* Introduced denormalization and its use cases.
+* Evaluated PrepPilot's database design using normalization principles.
+
+---
+
+### Concepts Learned
+
+#### Database Design
+
+* Data Redundancy
+* Data Anomalies
+* Normalization
+* Denormalization
+
+#### Normal Forms
+
+* First Normal Form (1NF)
+* Second Normal Form (2NF)
+* Third Normal Form (3NF)
+
+#### Dependencies
+
+* Partial Dependency
+* Transitive Dependency
+
+---
+
+### Key Lessons
+
+Good database design focuses on reducing duplication and keeping data consistent.
+
+Normalization helps create scalable and maintainable databases by separating information into related tables.
+
+---
+
+### Project Milestone
+
+Successfully established the database design principles required for production-level systems.
+
+Validated that PrepPilot's relational structure follows normalization concepts and is prepared for implementation.
+
+---
+
+### Result
+
+Module 3 — Chapter 12 completed successfully.
+
+PrepPilot now has a clean and scalable database design foundation and is ready to begin working with a real PostgreSQL database.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
