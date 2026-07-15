@@ -2183,3 +2183,76 @@ Most production databases aim for 3NF.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 13)       (Date:-15-07-2026)
+
+## Questions
+
+### 1. What is PostgreSQL?
+
+### 2. What is psql?
+
+### 3. What is the difference between PostgreSQL Server and psql?
+
+### 4. Why do we develop databases locally?
+
+### 5. What does `psql -U postgres` do?
+
+### 6. How do you create a database?
+
+### 7. How do you connect to a database?
+
+### 8. How do you list databases?
+
+### 9. How do you list tables?
+
+### 10. How do you exit psql?
+
+### 11. What is the default PostgreSQL port?
+
+---
+
+## Important Concepts
+
+```text
+PostgreSQL
+psql
+Database Server
+Database Client
+Local Database
+Database Connection
+CREATE DATABASE
+CREATE TABLE
+INSERT
+SELECT
+```
+
+---
+
+## Revision Notes
+
+```text
+PostgreSQL = Relational Database Management System.
+
+psql = Command-line client for PostgreSQL.
+
+Default Port = 5432.
+
+\l = List databases.
+
+\c = Connect database.
+
+\dt = List tables.
+
+\d = Describe table.
+
+\q = Exit psql.
+
+Development usually starts with a local database.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

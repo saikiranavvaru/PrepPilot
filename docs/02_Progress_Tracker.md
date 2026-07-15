@@ -1030,3 +1030,44 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 13 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 13 — PostgreSQL Installation & Local Setup (Date:-15-07-2026)
+
+Topics Covered:
+
+* Installing PostgreSQL and psql on Windows.
+* Understanding the difference between PostgreSQL Server and psql.
+* Understanding why databases are developed locally before deployment.
+* Learning the default PostgreSQL port and user configuration.
+* Verifying PostgreSQL installation using terminal commands.
+* Connecting to PostgreSQL using psql.
+* Running the first SQL queries.
+* Listing available databases.
+* Creating the first database (`preppilot`).
+* Connecting to a database.
+* Creating the first table.
+* Inserting and querying data.
+* Learning essential psql commands.
+
+Milestone Achieved:
+
+* Successfully installed and configured PostgreSQL.
+* Successfully connected to PostgreSQL using psql.
+* Created the first PrepPilot database.
+* Created the first table and performed database operations.
+* Established the local database environment for future backend development.
+
+---
+
+Current Backend Status
+
+* PostgreSQL is installed and configured successfully.
+* PrepPilot now has its own database running locally.
+* Backend environment is prepared for real database development.
+* Project is now ready to design and implement production database schemas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 14 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

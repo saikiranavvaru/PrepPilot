@@ -2004,3 +2004,81 @@ PrepPilot now has a clean and scalable database design foundation and is ready t
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — PostgreSQL Installation & Local Setup — (Module 3 Chapter 13) — (15/07/2026)
+
+### Goal
+
+Install PostgreSQL, connect to a real database, and perform the first database operations for PrepPilot.
+
+---
+
+### Completed
+
+* Installed PostgreSQL and psql.
+* Verified PostgreSQL installation.
+* Connected to PostgreSQL using the `postgres` user.
+* Ran the first SQL queries.
+* Created the `preppilot` database.
+* Connected to the `preppilot` database.
+* Created the first table (`users`).
+* Inserted the first row into the database.
+* Queried data using `SELECT`.
+
+---
+
+### Concepts Learned
+
+#### PostgreSQL
+
+* PostgreSQL Server
+* psql
+* Local Database Environment
+* Database Connection
+
+#### SQL Commands
+
+* CREATE DATABASE
+* CREATE TABLE
+* INSERT
+* SELECT
+
+#### psql Commands
+
+* `\l`
+* `\c`
+* `\dt`
+* `\d`
+* `\q`
+
+---
+
+### Key Lessons
+
+A database server and a database client are different components that work together.
+
+Local database environments allow developers to safely build and test applications before deployment.
+
+The ability to create databases, tables, and manipulate data marks the transition from database theory to practical database development.
+
+---
+
+### Project Milestone
+
+Successfully brought PostgreSQL into the PrepPilot project.
+
+Successfully completed the first end-to-end database workflow using a real relational database.
+
+---
+
+### Result
+
+Module 3 — Chapter 13 completed successfully.
+
+PrepPilot now has a fully configured local PostgreSQL environment and is ready to build its production database schema.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
