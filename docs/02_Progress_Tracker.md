@@ -1108,3 +1108,40 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 15 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 15 — Constraints & Data Integrity (Date:-16-07-2026)
+
+Topics Covered:
+
+* Understanding the purpose of database constraints.
+* Learning the concept of data integrity.
+* Understanding PRIMARY KEY and row identification.
+* Understanding NOT NULL and mandatory fields.
+* Understanding UNIQUE and duplicate prevention.
+* Understanding DEFAULT values and automatic data generation.
+* Understanding CHECK constraints and custom validations.
+* Understanding FOREIGN KEY and table relationships.
+* Learning how multiple constraints can be combined.
+* Designing production-ready tables using constraints.
+
+Milestone Achieved:
+
+* Successfully understood how databases enforce data integrity.
+* Successfully learned how to prevent invalid and inconsistent data.
+* Established the foundation for building safe and reliable database schemas.
+* Prepared PrepPilot's database for implementing real relationships and production-level validation.
+
+---
+
+Current Backend Status
+
+* Database tables can now enforce business rules and validations.
+* Foundation for relational integrity has been established.
+* PrepPilot's future tables can now prevent duplicate and invalid data.
+* Project is ready to design the complete production database schema.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 16 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

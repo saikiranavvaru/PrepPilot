@@ -2336,3 +2336,75 @@ Choose data types based on the kind of data being stored.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 15)       (Date:-16-07-2026)
+
+## Questions
+
+### 1. What is a constraint?
+
+### 2. Why are constraints important?
+
+### 3. What is data integrity?
+
+### 4. What is PRIMARY KEY?
+
+### 5. What is NOT NULL?
+
+### 6. What is UNIQUE?
+
+### 7. What is DEFAULT?
+
+### 8. What is CHECK?
+
+### 9. What is FOREIGN KEY?
+
+### 10. Why are foreign keys important?
+
+### 11. How do constraints improve database reliability?
+
+### 12. How would you design the users table for PrepPilot?
+
+---
+
+## Important Concepts
+
+```text
+PRIMARY KEY
+NOT NULL
+UNIQUE
+DEFAULT
+CHECK
+FOREIGN KEY
+Data Integrity
+Relational Integrity
+Validation Rules
+```
+
+---
+
+## Revision Notes
+
+```text
+PRIMARY KEY = Unique identifier.
+
+NOT NULL = Value is required.
+
+UNIQUE = No duplicate values.
+
+DEFAULT = Automatic value.
+
+CHECK = Custom validation rule.
+
+FOREIGN KEY = Creates relationships between tables.
+
+Data Integrity = Data stays correct and consistent.
+
+Constraints protect databases from invalid data.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

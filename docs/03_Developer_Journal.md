@@ -2158,3 +2158,74 @@ PrepPilot can now create production-level database tables using appropriate Post
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Constraints & Data Integrity — (Module 3 Chapter 15) — (16/07/2026)
+
+### Goal
+
+Learn how PostgreSQL protects data using constraints and understand how production databases maintain data integrity.
+
+---
+
+### Completed
+
+* Learned the purpose of database constraints.
+* Understood the concept of data integrity.
+* Learned PRIMARY KEY and row uniqueness.
+* Understood NOT NULL and mandatory data.
+* Learned UNIQUE and duplicate prevention.
+* Understood DEFAULT values.
+* Learned CHECK constraints for custom validation.
+* Understood FOREIGN KEY relationships.
+* Built production-style table definitions using multiple constraints.
+* Connected constraints with future PrepPilot requirements.
+
+---
+
+### Concepts Learned
+
+#### Database Constraints
+
+* PRIMARY KEY
+* NOT NULL
+* UNIQUE
+* DEFAULT
+* CHECK
+* FOREIGN KEY
+
+#### Database Design
+
+* Data Integrity
+* Validation Rules
+* Relational Integrity
+* Production Schema Design
+
+---
+
+### Key Lessons
+
+Constraints are the first line of defense against invalid and inconsistent data.
+
+Production databases rely heavily on constraints to enforce business rules and maintain reliable relationships between tables.
+
+---
+
+### Project Milestone
+
+Successfully established the data integrity foundation required for PrepPilot's production database.
+
+Prepared the project for designing complete relational schemas and implementing real-world database relationships.
+
+---
+
+### Result
+
+Module 3 — Chapter 15 completed successfully.
+
+PrepPilot can now design safe, validated, and production-ready database tables using PostgreSQL constraints.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
