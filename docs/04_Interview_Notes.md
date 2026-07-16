@@ -2408,3 +2408,68 @@ Constraints protect databases from invalid data.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 16)       (Date:-17-07-2026)
+
+## Questions
+
+### 1. How would you design a database for an interview platform?
+
+### 2. What entities exist in PrepPilot?
+
+### 3. Why is `user_technologies` a junction table?
+
+### 4. Why is `interviews` related to `users`?
+
+### 5. Why is `answers` related to `questions`?
+
+### 6. Why do we identify entities before writing SQL?
+
+### 7. Why are relationships important in database design?
+
+### 8. Is the PrepPilot database normalized?
+
+### 9. How can this schema scale in the future?
+
+### 10. How would you add new features to this schema?
+
+---
+
+## Important Concepts
+
+```text
+Database Modeling
+Entity
+Relationship
+Schema Design
+Junction Table
+One-to-One
+One-to-Many
+Many-to-Many
+Normalization
+Production Database Architecture
+```
+
+---
+
+## Revision Notes
+
+```text
+Database design starts with features and data requirements.
+
+Entity = Something we need to store.
+
+Relationship = Connection between entities.
+
+Junction Table = Solves many-to-many relationships.
+
+A good schema should be scalable and normalized.
+
+PrepPilot's database follows relational design principles and is close to 3NF.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

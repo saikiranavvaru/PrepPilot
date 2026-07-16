@@ -2229,3 +2229,77 @@ PrepPilot can now design safe, validated, and production-ready database tables u
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Designing the Real PrepPilot Database Schema — (Module 3 Chapter 16) — (17/07/2026)
+
+### Goal
+
+Design the complete production database schema for PrepPilot by identifying entities, relationships, and constraints required for the application.
+
+---
+
+### Completed
+
+* Identified the major features of PrepPilot.
+* Identified all required database entities.
+* Designed the `users` table.
+* Designed the `resumes` table.
+* Designed the `interviews` table.
+* Designed the `questions` table.
+* Designed the `answers` table.
+* Designed the `technologies` table.
+* Designed the `user_technologies` junction table.
+* Identified relationships between all entities.
+* Applied normalization and constraint principles.
+* Designed a scalable and extensible production database.
+
+---
+
+### Concepts Learned
+
+#### Database Design
+
+* Entity Identification
+* Relationship Identification
+* Schema Design
+* Database Modeling
+* Production Database Architecture
+
+#### Relationships
+
+* One-to-One
+* One-to-Many
+* Many-to-Many
+* Junction Tables
+
+---
+
+### Key Lessons
+
+A good database design begins by understanding the application's features and data requirements.
+
+Production databases are built by identifying entities, relationships, and constraints before writing SQL.
+
+A well-designed schema makes future features easier to implement and maintain.
+
+---
+
+### Project Milestone
+
+Successfully completed the production database design for PrepPilot.
+
+Established the complete relational model that will power future backend and AI features.
+
+---
+
+### Result
+
+Module 3 — Chapter 16 completed successfully.
+
+PrepPilot now has a complete production-ready database blueprint and is prepared for real database implementation inside PostgreSQL.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
