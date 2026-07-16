@@ -2082,3 +2082,79 @@ PrepPilot now has a fully configured local PostgreSQL environment and is ready t
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — PostgreSQL Data Types & Table Creation — (Module 3 Chapter 14) — (16/07/2026)
+
+### Goal
+
+Learn how PostgreSQL stores different kinds of data and begin designing production-level tables for PrepPilot.
+
+---
+
+### Completed
+
+* Learned the importance of database data types.
+* Understood INTEGER and SERIAL.
+* Understood VARCHAR and TEXT.
+* Learned BOOLEAN, DATE, and TIMESTAMP.
+* Introduced DECIMAL, UUID, and JSONB.
+* Learned how to choose the appropriate data type for a column.
+* Created realistic production-style tables.
+* Introduced automatic timestamps using DEFAULT CURRENT_TIMESTAMP.
+* Connected data type decisions with future PrepPilot features.
+
+---
+
+### Concepts Learned
+
+#### PostgreSQL Data Types
+
+* INTEGER
+* SERIAL
+* VARCHAR
+* TEXT
+* BOOLEAN
+* DATE
+* TIMESTAMP / TIMESTAMPTZ
+* DECIMAL
+* UUID
+* JSONB
+
+#### Database Design
+
+* Data Validation
+* Data Consistency
+* Default Values
+* Production Table Design
+
+---
+
+### Key Lessons
+
+Choosing the correct data type is essential for performance, storage efficiency, and data integrity.
+
+Production databases rely heavily on proper data type selection to build scalable and maintainable systems.
+
+TIMESTAMPTZ is generally preferred for application events because it handles time zones correctly.
+
+---
+
+### Project Milestone
+
+Successfully established the foundation for building PrepPilot's production database schema.
+
+Successfully moved from simple tables to designing realistic application tables.
+
+---
+
+### Result
+
+Module 3 — Chapter 14 completed successfully.
+
+PrepPilot can now create production-level database tables using appropriate PostgreSQL data types and is ready to implement constraints and relationships.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

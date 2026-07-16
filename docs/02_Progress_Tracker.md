@@ -1071,3 +1071,40 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 14 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 14 — PostgreSQL Data Types & Table Creation (Date:-16-07-2026)
+
+Topics Covered:
+
+* Understanding the purpose of data types in PostgreSQL.
+* Learning how data types enforce data validation and consistency.
+* Understanding INTEGER and SERIAL data types.
+* Understanding VARCHAR and TEXT data types.
+* Understanding BOOLEAN, DATE, and TIMESTAMP data types.
+* Introduction to DECIMAL, UUID, and JSONB.
+* Learning when to choose specific data types.
+* Understanding DEFAULT values and automatic timestamps.
+* Designing production-level tables using appropriate data types.
+* Creating the first real tables inside the PrepPilot database.
+
+Milestone Achieved:
+
+* Successfully understood PostgreSQL data types and their practical use cases.
+* Successfully created production-style database tables.
+* Established the foundation for building PrepPilot's real database schema.
+* Prepared the project for implementing database constraints and relationships.
+
+---
+
+Current Backend Status
+
+* PostgreSQL is fully operational and connected locally.
+* Foundation for production database schema design has been established.
+* Real tables can now be created using appropriate data types.
+* Project is ready to implement data integrity and constraints.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 15 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

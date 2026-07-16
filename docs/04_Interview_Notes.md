@@ -2256,3 +2256,83 @@ Development usually starts with a local database.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 14)       (Date:-16-07-2026)
+
+## Questions
+
+### 1. What is a data type?
+
+### 2. Why are data types important?
+
+### 3. What is INTEGER?
+
+### 4. What is SERIAL?
+
+### 5. Difference between VARCHAR and TEXT?
+
+### 6. What is BOOLEAN?
+
+### 7. What is DATE?
+
+### 8. Difference between TIMESTAMP and TIMESTAMPTZ?
+
+### 9. What is DECIMAL?
+
+### 10. What is UUID?
+
+### 11. What is JSONB?
+
+### 12. How would you design the users table for PrepPilot?
+
+---
+
+## Important Concepts
+
+```text
+INTEGER
+SERIAL
+VARCHAR
+TEXT
+BOOLEAN
+DATE
+TIMESTAMPTZ
+DECIMAL
+UUID
+JSONB
+DEFAULT CURRENT_TIMESTAMP
+```
+
+---
+
+## Revision Notes
+
+```text
+INTEGER = Whole numbers.
+
+SERIAL = Auto-incrementing numbers.
+
+VARCHAR = Short text.
+
+TEXT = Long text.
+
+BOOLEAN = TRUE or FALSE.
+
+DATE = Stores only dates.
+
+TIMESTAMPTZ = Date and time with timezone.
+
+DECIMAL = Numbers with decimal places.
+
+UUID = Globally unique identifier.
+
+JSONB = Stores JSON data efficiently.
+
+Choose data types based on the kind of data being stored.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
