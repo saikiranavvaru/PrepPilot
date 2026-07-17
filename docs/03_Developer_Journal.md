@@ -2303,3 +2303,190 @@ PrepPilot now has a complete production-ready database blueprint and is prepared
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Creating Real PrepPilot Tables — (Module 3 Chapter 17) — (17/07/2026)
+
+### Goal
+
+Transform the designed PrepPilot database schema into real PostgreSQL tables and establish the project's production database foundation.
+
+---
+
+### Completed
+
+* Connected to the `preppilot` database.
+* Verified existing tables using `\dt`.
+* Created the production `users` table.
+* Created the `resumes` table.
+* Created the `interviews` table.
+* Created the `questions` table.
+* Created the `answers` table.
+* Created the `technologies` table.
+* Created the `user_technologies` junction table.
+* Applied appropriate data types and constraints.
+* Verified table structures using `\d`.
+* Successfully implemented the first complete version of the PrepPilot database.
+
+---
+
+### Production Tables Created
+
+#### users
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    is_verified BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### resumes
+
+```sql
+CREATE TABLE resumes (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    resume_url TEXT NOT NULL,
+    summary TEXT,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### interviews
+
+```sql
+CREATE TABLE interviews (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    score DECIMAL(5,2)
+        CHECK (score >= 0 AND score <= 100),
+    completed_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### questions
+
+```sql
+CREATE TABLE questions (
+    id SERIAL PRIMARY KEY,
+    interview_id INTEGER NOT NULL,
+    question_text TEXT NOT NULL,
+    difficulty VARCHAR(20),
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### answers
+
+```sql
+CREATE TABLE answers (
+    id SERIAL PRIMARY KEY,
+    question_id INTEGER NOT NULL,
+    answer_text TEXT,
+    feedback TEXT,
+    score DECIMAL(5,2)
+        CHECK (score >= 0 AND score <= 100),
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### technologies
+
+```sql
+CREATE TABLE technologies (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL,
+    description TEXT
+);
+```
+
+#### user_technologies
+
+```sql
+CREATE TABLE user_technologies (
+    user_id INTEGER NOT NULL,
+    technology_id INTEGER NOT NULL,
+    PRIMARY KEY (user_id, technology_id)
+);
+```
+
+---
+
+### Concepts Learned
+
+#### PostgreSQL
+
+* CREATE TABLE
+* Production Table Design
+* Schema Implementation
+* Composite Primary Key
+* Table Verification
+* Database Inspection Commands
+
+#### Database Design
+
+* Translating ER diagrams into SQL tables.
+* Choosing appropriate data types.
+* Applying constraints during table creation.
+* Creating scalable production schemas.
+
+---
+
+### Useful PostgreSQL Commands
+
+```sql
+\c preppilot
+\dt
+\d users
+\d resumes
+\d interviews
+\d questions
+\d answers
+\d technologies
+\d user_technologies
+SELECT current_database();
+```
+
+---
+
+### Key Lessons
+
+A database design only becomes useful after it is implemented in a real database.
+
+Creating tables in a proper order makes relationships and future modifications easier.
+
+Production applications rely on well-designed schemas before writing backend code.
+
+Verifying table structures after creation is an important professional practice.
+
+---
+
+### Project Milestone
+
+🚀 Successfully implemented the first complete production database for PrepPilot.
+
+🚀 Established all seven core tables required for Authentication, Resumes, Interviews, Questions, Answers, Technologies, and Learning Progress.
+
+🚀 Completed the database structure that will support future backend and AI features.
+
+---
+
+### Result
+
+Module 3 — Chapter 17 completed successfully.
+
+PrepPilot now has a fully implemented PostgreSQL schema consisting of seven production tables and is ready for relational implementation using Foreign Keys and sample data insertion.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

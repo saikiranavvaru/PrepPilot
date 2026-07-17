@@ -2473,3 +2473,81 @@ PrepPilot's database follows relational design principles and is close to 3NF.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 17)       (Date:-17-07-2026)
+
+## Questions
+
+### 1. Why do we design the schema before creating tables?
+
+### 2. Why does every table need a primary key?
+
+### 3. Why is `user_technologies` using a composite primary key?
+
+### 4. Why do production tables use timestamps?
+
+### 5. Why is `email` unique?
+
+### 6. Why are `score` columns using DECIMAL?
+
+### 7. Why do we verify tables after creating them?
+
+### 8. What commands are used to inspect PostgreSQL tables?
+
+### 9. Why are foreign keys not added immediately?
+
+### 10. Why is schema implementation important?
+
+---
+
+## Tables Created
+
+```text
+users
+resumes
+interviews
+questions
+answers
+technologies
+user_technologies
+```
+
+---
+
+## Important Concepts
+
+```text
+CREATE TABLE
+Production Schema
+Schema Implementation
+Composite Primary Key
+Table Verification
+TIMESTAMPTZ
+Database Inspection
+```
+
+---
+
+## Revision Notes
+
+```text
+CREATE TABLE = Creates a new table.
+
+Schema Design → Table Creation → Relationships → Data → Backend.
+
+\dt = Lists all tables.
+
+\d table_name = Describes a table.
+
+Composite Primary Key = Multiple columns form one primary key.
+
+Production databases are built incrementally.
+
+PrepPilot now has seven production tables ready for relationships and backend integration.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
