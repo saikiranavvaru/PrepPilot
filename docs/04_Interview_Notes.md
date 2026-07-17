@@ -2634,3 +2634,71 @@ PrepPilot now has a complete relational database.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 19)       (Date:-18-07-2026)
+
+## Questions
+
+### 1. What is database seeding?
+
+### 2. Why do developers seed databases?
+
+### 3. How do you insert sample data?
+
+### 4. Why should seed data resemble real data?
+
+### 5. How do you test Foreign Keys?
+
+### 6. How do you verify `ON DELETE CASCADE`?
+
+### 7. Why is database testing important?
+
+### 8. How do you verify relationships after inserting data?
+
+### 9. What queries are commonly used to test a database?
+
+### 10. How would you populate PrepPilot's database?
+
+---
+
+## Important Concepts
+
+```text
+Database Seeding
+INSERT
+SELECT
+DELETE
+Foreign Key Testing
+ON DELETE CASCADE
+Relationship Testing
+Constraint Testing
+Data Verification
+```
+
+---
+
+## Revision Notes
+
+```text
+Database Seeding = Adding sample data.
+
+INSERT = Add new rows.
+
+SELECT = Read data.
+
+DELETE = Remove rows.
+
+Foreign Keys protect relationships.
+
+ON DELETE CASCADE removes child rows automatically.
+
+Realistic sample data helps test applications properly.
+
+Always test relationships before connecting the backend.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

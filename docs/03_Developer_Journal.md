@@ -2689,3 +2689,116 @@ PrepPilot now has a complete production-level relational database with properly 
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Seeding & Testing Database Data — (Module 3 Chapter 19) — (18/07/2026)
+
+### Goal
+
+Populate the PrepPilot database with realistic sample data and verify that relationships, constraints, and cascading behaviors work correctly.
+
+---
+
+### Completed
+
+* Inserted sample users.
+* Inserted technologies.
+* Created sample resumes.
+* Created sample interviews.
+* Created sample questions.
+* Created sample answers.
+* Populated the `user_technologies` junction table.
+* Executed queries to verify data.
+* Tested Foreign Key constraints.
+* Tested `ON DELETE CASCADE`.
+* Verified that the database behaves like a production relational system.
+
+---
+
+### Sample Data Inserted
+
+#### Users
+
+```text
+Sai Kiran
+Ravi
+Priya
+```
+
+#### Technologies
+
+```text
+Java
+React
+Node.js
+PostgreSQL
+```
+
+#### Interviews
+
+```text
+React Mock Interview
+Node.js Interview
+Java Interview
+```
+
+#### Questions
+
+```text
+What is React?
+What is useEffect?
+Explain Node.js Event Loop.
+```
+
+---
+
+### Concepts Learned
+
+#### Database Testing
+
+* Database Seeding
+* Constraint Testing
+* Relationship Testing
+* Cascade Testing
+* Data Verification
+
+#### PostgreSQL
+
+* INSERT
+* SELECT
+* DELETE
+* Foreign Key Validation
+* Cascading Delete
+
+---
+
+### Key Lessons
+
+An empty database cannot be properly tested.
+
+Seeding realistic data helps verify relationships and business rules before connecting the backend.
+
+Testing constraints early prevents future bugs and data integrity problems.
+
+---
+
+### Project Milestone
+
+🚀 Successfully populated the first version of PrepPilot's database.
+
+🚀 Verified that relationships, constraints, and cascading deletes work correctly.
+
+🚀 Established a fully tested relational database ready for backend integration.
+
+---
+
+### Result
+
+Module 3 — Chapter 19 completed successfully.
+
+PrepPilot now contains realistic sample data and a fully tested relational database ready to be connected with Express and Node.js.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
