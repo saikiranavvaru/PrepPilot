@@ -2551,3 +2551,86 @@ PrepPilot now has seven production tables ready for relationships and backend in
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & SQL (Chapter 18)       (Date:-17-07-2026)
+
+## Questions
+
+### 1. What is a Foreign Key?
+
+### 2. Why are Foreign Keys important?
+
+### 3. What is Referential Integrity?
+
+### 4. What happens without Foreign Keys?
+
+### 5. What is `REFERENCES`?
+
+### 6. What is `ON DELETE CASCADE`?
+
+### 7. Difference between `CASCADE` and `RESTRICT`?
+
+### 8. Why does `user_technologies` have two Foreign Keys?
+
+### 9. How are relationships implemented in PostgreSQL?
+
+### 10. Why do relational databases rely heavily on Foreign Keys?
+
+---
+
+## Final PrepPilot Relationships
+
+```text
+users
+│
+├── resumes
+├── interviews
+│      └── questions
+│              └── answers
+└── user_technologies
+        └── technologies
+```
+
+---
+
+## Important Concepts
+
+```text
+Foreign Key
+REFERENCES
+Referential Integrity
+ON DELETE CASCADE
+One-to-One
+One-to-Many
+Many-to-Many
+Cascading Delete
+Relational Database
+```
+
+---
+
+## Revision Notes
+
+```text
+Foreign Key = Creates relationships.
+
+REFERENCES = Connects tables.
+
+Referential Integrity = Relationships remain valid.
+
+ON DELETE CASCADE = Delete child rows automatically.
+
+One-to-One = One record to one record.
+
+One-to-Many = One record to many records.
+
+Many-to-Many = Solved using a junction table.
+
+PrepPilot now has a complete relational database.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

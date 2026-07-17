@@ -2490,3 +2490,202 @@ PrepPilot now has a fully implemented PostgreSQL schema consisting of seven prod
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Relationships & Foreign Keys in PostgreSQL — (Module 3 Chapter 18) — (17/07/2026)
+
+### Goal
+
+Implement relationships between PrepPilot tables and enforce data integrity using Foreign Keys.
+
+---
+
+### Completed
+
+* Implemented Foreign Keys.
+* Implemented Referential Integrity.
+* Connected all production tables.
+* Added `ON DELETE CASCADE`.
+* Verified relationships using `\d`.
+* Completed the relational structure of PrepPilot's database.
+
+---
+
+### Final Production Tables
+
+#### users
+
+```text
+id
+name
+email
+password
+is_verified
+created_at
+updated_at
+```
+
+#### resumes
+
+```text
+id
+user_id
+resume_url
+summary
+created_at
+updated_at
+```
+
+#### interviews
+
+```text
+id
+user_id
+title
+score
+completed_at
+created_at
+```
+
+#### questions
+
+```text
+id
+interview_id
+question_text
+difficulty
+created_at
+```
+
+#### answers
+
+```text
+id
+question_id
+answer_text
+feedback
+score
+created_at
+```
+
+#### technologies
+
+```text
+id
+name
+description
+```
+
+#### user_technologies
+
+```text
+user_id
+technology_id
+```
+
+---
+
+### Final Database Relationships
+
+```text
+users
+│
+├── resumes
+│      (1 → 1)
+│
+├── interviews
+│      (1 → N)
+│          │
+│          └── questions
+│                 (1 → N)
+│                     │
+│                     └── answers
+│                           (1 → 1)
+│
+└── user_technologies
+          (N ↔ N)
+               │
+               └── technologies
+```
+
+---
+
+### Foreign Keys Implemented
+
+```text
+resumes.user_id
+→ users.id
+
+interviews.user_id
+→ users.id
+
+questions.interview_id
+→ interviews.id
+
+answers.question_id
+→ questions.id
+
+user_technologies.user_id
+→ users.id
+
+user_technologies.technology_id
+→ technologies.id
+```
+
+All relationships use:
+
+```text
+ON DELETE CASCADE
+```
+
+---
+
+### Concepts Learned
+
+#### Database Relationships
+
+* Foreign Key
+* Referential Integrity
+* Cascading Deletes
+* Relationship Ownership
+* Relational Database Design
+
+#### PostgreSQL
+
+* REFERENCES
+* ON DELETE CASCADE
+* ALTER TABLE
+* Constraint Verification
+
+---
+
+### Key Lessons
+
+A relational database becomes powerful when tables are connected through relationships.
+
+Foreign Keys protect the database from invalid and orphaned data.
+
+Referential Integrity is one of the most important features of relational databases.
+
+---
+
+### Project Milestone
+
+🚀 Successfully transformed PrepPilot into a fully relational database.
+
+🚀 Completed the implementation of all table relationships and data integrity rules.
+
+🚀 Database is now ready for real data insertion and backend integration.
+
+---
+
+### Result
+
+Module 3 — Chapter 18 completed successfully.
+
+PrepPilot now has a complete production-level relational database with properly implemented Foreign Keys and cascading relationships.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

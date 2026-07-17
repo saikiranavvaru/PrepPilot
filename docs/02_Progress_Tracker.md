@@ -1222,3 +1222,40 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 18 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 18 — Relationships & Foreign Keys in PostgreSQL (Date:-17-07-2026)
+
+Topics Covered:
+
+* Understanding the purpose of Foreign Keys.
+* Understanding Referential Integrity.
+* Implementing One-to-One relationships.
+* Implementing One-to-Many relationships.
+* Implementing Many-to-Many relationships.
+* Adding Foreign Key constraints to existing tables.
+* Understanding `REFERENCES`.
+* Understanding `ON DELETE CASCADE`.
+* Verifying relationships using PostgreSQL commands.
+* Understanding how relational databases maintain data consistency.
+
+Milestone Achieved:
+
+* Successfully connected all PrepPilot tables using Foreign Keys.
+* Successfully implemented Referential Integrity.
+* Established cascading delete behavior for related data.
+* Completed the relational implementation of the PrepPilot database.
+
+---
+
+Current Backend Status
+
+* All production tables are now connected through relationships.
+* Database integrity is enforced through Foreign Key constraints.
+* PrepPilot now operates as a true relational database.
+* Database is ready for data insertion and query testing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 3 — Chapter 19 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
