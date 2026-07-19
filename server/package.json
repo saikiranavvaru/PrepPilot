@@ -1,11 +1,13 @@
 {
   "name": "preppilot-server",
   "version": "1.0.0",
-  "description": "Backend server for PrepPilot AI Interview Preparation Platform",
+  "description": "Backend server for the PrepPilot AI Interview Preparation Platform",
   "keywords": [
     "backend",
     "nodejs",
     "express",
+    "postgresql",
+    "api",
     "preppilot"
   ],
   "license": "ISC",
@@ -13,10 +15,13 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test:db": "node test-db.js"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.22.0"
   }
 }

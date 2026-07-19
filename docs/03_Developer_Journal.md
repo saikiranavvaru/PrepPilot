@@ -2802,3 +2802,662 @@ PrepPilot now contains realistic sample data and a fully tested relational datab
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal       (Date:-19-07-2026)
+
+## Development Log — Connecting Node.js and PostgreSQL — (Module 3 Chapter 20)  
+
+### Goal
+
+Connect the PrepPilot Express backend to PostgreSQL and replace temporary in-memory learning data with real persistent database data.
+
+Clean and reorganize the backend so that every file has one clear responsibility and the project is prepared for future Authentication, Resume Management, Interview Management, Analytics, and AI-powered features.
+
+---
+
+### Completed
+
+* Installed and configured the `pg` package.
+* Installed and configured the `dotenv` package.
+* Created `src/config/database.js`.
+* Created one reusable PostgreSQL connection pool.
+* Configured PostgreSQL connection values using environment variables.
+* Created a private `.env` file.
+* Created a safe `.env.example` file.
+* Updated `.gitignore`.
+* Protected:
+  * `server/.env`
+  * `server/node_modules/`
+  * `client/node_modules/`
+  * log files
+  * build files
+  * editor files
+  * operating-system files
+* Created `test-db.js`.
+* Tested PostgreSQL independently from Express.
+* Executed `SELECT NOW();`.
+* Executed `SELECT current_database(), current_user, NOW();`.
+* Verified:
+  * database name
+  * database user
+  * PostgreSQL time
+  * successful database connection
+* Connected Node.js to the `preppilot` PostgreSQL database.
+* Replaced temporary Books and Notes arrays with persistent PostgreSQL data.
+* Removed `http-server-demo.js`.
+* Removed the old Notes route and controller files.
+* Removed the old generic Index route and controller files.
+* Renamed:
+  * `index.routes.js` → `system.routes.js`
+  * `index.controller.js` → `system.controller.js`
+* Created:
+  * `src/routes/system.routes.js`
+  * `src/routes/users.routes.js`
+  * `src/controllers/system.controller.js`
+  * `src/controllers/users.controller.js`
+  * `src/config/database.js`
+  * `test-db.js`
+  * `.env.example`
+* Cleaned and simplified `index.js`.
+* Removed feature-specific route logic from `index.js`.
+* Removed PostgreSQL query logic from `index.js`.
+* Kept only application-level responsibilities inside `index.js`.
+* Configured:
+  * environment-variable loading
+  * Express application creation
+  * JSON middleware
+  * route mounting
+  * unknown-route handling
+  * PostgreSQL verification
+  * server startup
+  * graceful shutdown
+* Created system endpoints:
+  * `GET /`
+  * `GET /health`
+  * `GET /health/database`
+* Created PostgreSQL-backed user endpoints:
+  * `GET /api/v1/users`
+  * `GET /api/v1/users/:id`
+* Added API versioning using `/api/v1`.
+* Added pagination using:
+  * `page`
+  * `limit`
+  * `LIMIT`
+  * `OFFSET`
+* Added default pagination values:
+  * `page = 1`
+  * `limit = 20`
+* Added a maximum limit of 100 users per request.
+* Added pagination offset calculation.
+* Added total-user counting.
+* Added total-page calculation.
+* Added input validation.
+* Validated:
+  * user IDs
+  * page values
+  * limit values
+  * large pagination values
+  * zero
+  * negative values
+  * decimal values
+  * arrays
+  * objects
+  * invalid strings
+* Used parameterized PostgreSQL queries.
+* Used:
+  * `WHERE id = $1`
+  * `LIMIT $1`
+  * `OFFSET $2`
+* Protected SQL queries from unsafe direct input insertion.
+* Returned correct HTTP status codes:
+  * `200 OK`
+  * `400 Bad Request`
+  * `404 Not Found`
+  * `500 Internal Server Error`
+  * `503 Service Unavailable`
+* Removed passwords from all user responses.
+* Removed email addresses from public user responses.
+* Removed the PostgreSQL username from the database-health response.
+* Removed unnecessary environment information from the public root response.
+* Disabled the Express `X-Powered-By` header.
+* Added a JSON request-body size limit.
+* Added unknown-route handling.
+* Verified PostgreSQL before starting the server.
+* Added graceful shutdown.
+* Handled:
+  * `SIGINT`
+  * `SIGTERM`
+* Closed the HTTP server safely.
+* Closed the PostgreSQL connection pool safely.
+* Updated `package.json`.
+* Added npm scripts:
+  * `"start": "node index.js"`
+  * `"dev": "node index.js"`
+  * `"test:db": "node test-db.js"`
+* Tested:
+  * `npm run test:db`
+  * `npm start`
+  * `npm run dev`
+* Tested all major API endpoints.
+* Tested valid user IDs.
+* Tested invalid user IDs.
+* Tested missing users.
+* Tested pagination.
+* Tested invalid pagination.
+* Tested unknown routes.
+* Verified the HTTP `404` status code using browser developer tools.
+* Tested graceful shutdown using `Ctrl + C`.
+
+---
+
+### Concepts Learned
+
+#### Node.js and PostgreSQL Integration
+
+* `pg` Package
+* PostgreSQL Connection Pool
+* Persistent Storage
+* Database Configuration
+* Environment Variables
+* Database Connection Testing
+* PostgreSQL Query Execution
+
+#### Backend Architecture
+
+* Separation of Concerns
+* Feature-Based Structure
+* Entry Point
+* Route Files
+* Controller Files
+* Database Configuration File
+* Request Flow
+* Health Checks
+* Graceful Shutdown
+
+#### PostgreSQL Queries
+
+* `SELECT`
+* `COUNT(*)`
+* `WHERE`
+* `LIMIT`
+* `OFFSET`
+* Parameterized Queries
+* Query Placeholders
+* Safe Query Values
+
+#### REST API Design
+
+* API Versioning
+* Resource-Based URLs
+* Query Parameters
+* Route Parameters
+* Pagination
+* Input Validation
+* JSON Responses
+* HTTP Status Codes
+
+#### Security and Configuration
+
+* `.env`
+* `.env.example`
+* `.gitignore`
+* Secret Protection
+* Password Protection
+* Safe Public Responses
+* SQL Injection Prevention
+* Disabling `X-Powered-By`
+
+#### Server Lifecycle
+
+* Server Startup
+* PostgreSQL Verification
+* `SIGINT`
+* `SIGTERM`
+* Graceful Shutdown
+* Closing the HTTP Server
+* Closing the PostgreSQL Pool
+
+---
+
+### PostgreSQL Connection Pool
+
+A PostgreSQL connection pool manages reusable database connections.
+
+Instead of creating a new PostgreSQL connection for every incoming request, the backend uses an available connection from the pool.
+
+After the query finishes, the connection becomes available for another request.
+
+This improves:
+
+* performance
+* reliability
+* scalability
+* resource management
+
+The reusable pool is created inside `src/config/database.js`.
+
+Other files import the same pool instead of creating separate database connections.
+
+---
+
+### Environment Variables
+
+Environment variables store configuration values outside the source code.
+
+Examples:
+
+* `PORT`
+* `APP_NAME`
+* `NODE_ENV`
+* `JWT_SECRET`
+* `DB_HOST`
+* `DB_PORT`
+* `DB_NAME`
+* `DB_USER`
+* `DB_PASSWORD`
+
+The real values are stored inside `server/.env`.
+
+Safe placeholder values are stored inside `server/.env.example`.
+
+The `.env` file must never be committed to GitHub because it contains private values.
+
+---
+
+### Persistent Storage
+
+Temporary JavaScript arrays exist only while the Node.js process is running.
+
+When the server restarts, the array is created again and the previous data disappears.
+
+PostgreSQL stores information permanently.
+
+The data remains available after:
+
+* restarting Node.js
+* stopping the Express server
+* restarting the computer
+* opening the application later
+
+This makes PostgreSQL suitable for real PrepPilot features such as:
+
+* user accounts
+* resumes
+* interviews
+* questions
+* answers
+* scores
+* analytics
+* progress tracking
+
+---
+
+### Parameterized Queries
+
+A parameterized query separates SQL instructions from user-supplied values.
+
+Example:
+
+    const result = await pool.query(
+      `
+        SELECT
+          id,
+          name
+        FROM users
+        WHERE id = $1;
+      `,
+      [userId]
+    );
+
+`$1` is a placeholder.
+
+The real value is supplied separately inside the values array.
+
+This reduces SQL injection risk and makes database queries safer.
+
+---
+
+### API Versioning
+
+PrepPilot now uses:
+
+    /api/v1/users
+
+Meaning:
+
+    api   → Application Programming Interface
+    v1    → Version 1
+    users → User resource
+
+API versioning allows future versions to be introduced without immediately breaking older clients.
+
+For example:
+
+    /api/v1/users
+    /api/v2/users
+
+---
+
+### Health Checks
+
+Application health endpoint:
+
+    GET /health
+
+This confirms that Node.js and Express are running.
+
+Database health endpoint:
+
+    GET /health/database
+
+This confirms that the backend can communicate with PostgreSQL.
+
+A server can be running while its database is unavailable, so both checks are useful.
+
+---
+
+### Pagination
+
+Pagination divides a large collection of database records into smaller pages.
+
+Example:
+
+    GET /api/v1/users?page=2&limit=20
+
+This means:
+
+    Page number: 2
+    Maximum records: 20
+    Rows skipped: 20
+
+Formula:
+
+    offset = (page - 1) × limit
+
+Pagination prevents the server from returning thousands of records in one response.
+
+---
+
+### Mistakes Made
+
+* Initially used Books and Notes arrays for backend data.
+* Learned that in-memory data disappears after restarting the server.
+* Initially kept many routes and API operations inside `index.js`.
+* Learned that `index.js` should configure and start the application instead of containing feature-specific logic.
+* Initially renamed the Notes route file but kept Notes controller function names.
+* Corrected all names to match the Users feature.
+* Initially considered using a Service layer and separate custom error middleware before learning those concepts fully.
+* Realized that this was unnecessary overengineering for the current stage.
+* Removed those additional layers and kept the simpler architecture:
+
+    Route  
+      ↓  
+    Controller  
+      ↓  
+    Database
+
+* Initially kept the database-health route inside `index.js`.
+* Moved it into:
+  * `system.routes.js`
+  * `system.controller.js`
+* Initially exposed email addresses in public user endpoints.
+* Removed email from public user responses.
+* Initially exposed the PostgreSQL username in the database-health response.
+* Removed it from the public response.
+* Initially exposed the application environment in the root response.
+* Removed it because it was unnecessary publicly.
+* The PostgreSQL password contained the `#` symbol.
+* Initially wrote:
+
+    DB_PASSWORD=SaiKiran@77#
+
+* The password was interpreted incorrectly because `#` can begin a comment.
+* Corrected it using quotes:
+
+    DB_PASSWORD="SaiKiran@77#"
+
+* Initially ran `npm run test:db` from `C:\Projects\preppilot`.
+* npm could not find `package.json`.
+* Learned to run npm commands from `C:\Projects\preppilot\server`.
+* Also learned that the same command can be run from the project root using:
+
+    npm --prefix server run test:db
+
+* Initially expected the browser to display the HTTP status code inside the JSON response.
+* Learned that HTTP status codes are sent separately from the response body.
+* Learned to inspect status codes using:
+  * the browser Network tab
+  * `curl`
+  * PowerShell
+
+---
+
+### Key Lessons
+
+Temporary arrays are useful for learning API development but are unsuitable for permanent application data.
+
+Real backend applications need persistent database storage.
+
+Routes should define endpoint paths and connect them to controller functions.
+
+Controllers should handle request validation, database operations, and HTTP responses.
+
+`index.js` should configure and start the application.
+
+Database configuration should be centralized inside one reusable file.
+
+Private configuration values should never be written directly inside source code.
+
+`.env` contains real private values.
+
+`.env.example` contains safe placeholders.
+
+`.gitignore` protects `.env` from being committed.
+
+Parameterized SQL queries are safer than directly inserting values into SQL strings.
+
+Passwords must never be returned by APIs.
+
+Public APIs should expose only the information required by the client.
+
+API versioning creates a cleaner long-term structure.
+
+Health endpoints help developers, hosting platforms, and monitoring systems.
+
+Pagination improves performance and prevents excessively large responses.
+
+Graceful shutdown closes active resources safely.
+
+Professional architecture does not mean adding every possible folder.
+
+The best architecture is the simplest structure that is:
+
+* clear
+* maintainable
+* understandable
+* suitable for the current stage
+* prepared to grow
+
+---
+
+### Project Transformation
+
+Before Module 3:
+
+    Client
+      ↓
+    Express
+      ↓
+    Temporary Books or Notes Array
+      ↓
+    JSON Response
+
+After Module 3:
+
+    Client
+      ↓
+    index.js
+      ↓
+    Route File
+      ↓
+    Controller
+      ↓
+    database.js
+      ↓
+    PostgreSQL
+      ↓
+    Persistent Data
+      ↓
+    JSON Response
+
+---
+
+### Final Current Backend Structure
+
+    server/
+    ├── .env
+    ├── .env.example
+    ├── index.js
+    ├── package.json
+    ├── package-lock.json
+    ├── test-db.js
+    │
+    └── src/
+        ├── config/
+        │   └── database.js
+        │
+        ├── controllers/
+        │   ├── system.controller.js
+        │   └── users.controller.js
+        │
+        └── routes/
+            ├── system.routes.js
+            └── users.routes.js
+
+---
+
+### Current API Endpoints
+
+#### System Endpoints
+
+* `GET /`
+* `GET /health`
+* `GET /health/database`
+
+#### User Endpoints
+
+* `GET /api/v1/users`
+* `GET /api/v1/users/:id`
+
+#### Pagination Example
+
+    GET /api/v1/users?page=1&limit=20
+
+---
+
+### Successful Tests
+
+* Database connection test completed.
+* Express server startup completed.
+* API information endpoint tested.
+* Application health endpoint tested.
+* Database health endpoint tested.
+* All-users endpoint tested.
+* Single-user endpoint tested.
+* Pagination tested.
+* Invalid user ID tested.
+* Missing user tested.
+* Invalid page tested.
+* Invalid limit tested.
+* Unknown route tested.
+* HTTP `404` status verified.
+* Graceful shutdown tested.
+
+---
+
+### Project Milestone
+
+🐘 Successfully connected the PrepPilot backend to PostgreSQL.
+
+🚀 Successfully transformed PrepPilot from an in-memory Express learning server into a persistent PostgreSQL-backed API.
+
+🎉 Successfully completed Module 3 — Database Design & PostgreSQL technical implementation.
+
+Established the permanent database foundation that will support Authentication, Resume Management, Interview Sessions, Questions, Answers, Analytics, Progress Tracking, and future AI-powered features.
+
+---
+
+### Result
+
+Module 3 — Chapter 20 completed successfully.
+
+🎉 Module 3 — Database Design & PostgreSQL technical implementation completed successfully.
+
+PrepPilot now has:
+
+* Professional Express architecture
+* PostgreSQL connection
+* Persistent data storage
+* Reusable connection pool
+* Database-backed API endpoints
+* Parameterized queries
+* Pagination
+* Input validation
+* API versioning
+* Health-check endpoints
+* Protected environment variables
+* Graceful shutdown
+
+PrepPilot is now ready to transition into secure user Authentication and Authorization.
+
+---
+
+### Overall Project Progress
+
+    Project Started:                   04 July 2026
+    Current Milestone:                 Database Foundation Completed
+    Latest Update:                     19 July 2026
+
+    Module 1 — Project Foundation      ✅ Completed
+    Module 2 — Backend Foundation      ✅ Completed
+    Module 3 — Database Design         ✅ Technical Work Completed
+    Module 4 — Authentication          ⏳ Not Started
+    Module 5 — Frontend Development    ⏳ Not Started
+    Module 6 — Core Features           ⏳ Not Started
+    Module 7 — Deployment              ⏳ Not Started
+    Module 8 — Final Polish            ⏳ Not Started
+
+    PrepPilot Overall Technical Progress:
+
+    3 completed modules ÷ 8 total modules × 100
+
+    = 37.5%
+
+    ≈ 37.5% Complete 🚀
+
+---
+
+### Next Milestone
+
+🔐 Module 4 — Authentication & Authorization
+
+Planned Topics:
+
+* bcrypt password hashing
+* User registration
+* User login
+* JWT creation
+* JWT verification
+* Authentication middleware
+* Protected routes
+* Current-user profile
+* Authorization
+* Secure authentication error responses
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---

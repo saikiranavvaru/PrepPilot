@@ -1297,3 +1297,168 @@ Current Backend Status
 Next Update: After Module 3 — Chapter 20 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ Chapter 20 — Connecting Node.js and PostgreSQL      (Date:-19-07-2026)
+
+Topics Covered:
+
+* Installing and configuring the `pg` package.
+* Installing and configuring the `dotenv` package.
+* Creating a reusable PostgreSQL connection pool.
+* Creating `src/config/database.js`.
+* Reading database configuration from environment variables.
+* Creating a private `.env` file.
+* Creating a safe `.env.example` file.
+* Updating `.gitignore` to protect:
+  * `.env`
+  * `node_modules`
+  * log files
+  * build files
+  * local editor files
+* Creating `test-db.js`.
+* Testing PostgreSQL independently from Express.
+* Connecting Node.js to the `preppilot` PostgreSQL database.
+* Replacing temporary Books and Notes arrays with persistent PostgreSQL data.
+* Removing the old `http-server-demo.js` file.
+* Removing old learning-only Notes routes and controllers.
+* Renaming:
+  * `index.routes.js` → `system.routes.js`
+  * `index.controller.js` → `system.controller.js`
+* Creating:
+  * `system.routes.js`
+  * `system.controller.js`
+  * `users.routes.js`
+  * `users.controller.js`
+  * `database.js`
+  * `test-db.js`
+  * `.env.example`
+* Cleaning and simplifying `index.js`.
+* Separating:
+  * application startup
+  * route definitions
+  * controller logic
+  * database configuration
+* Creating system endpoints:
+  * `GET /`
+  * `GET /health`
+  * `GET /health/database`
+* Creating PostgreSQL-backed user endpoints:
+  * `GET /api/v1/users`
+  * `GET /api/v1/users/:id`
+* Adding API versioning using `/api/v1`.
+* Reading real users from PostgreSQL.
+* Implementing pagination using:
+  * `page`
+  * `limit`
+  * `LIMIT`
+  * `OFFSET`
+* Calculating pagination offset using:
+  * `(page - 1) × limit`
+* Adding a maximum limit of 100 users per request.
+* Validating:
+  * user IDs
+  * page values
+  * limit values
+  * large pagination values
+* Using parameterized queries such as:
+  * `WHERE id = $1`
+  * `LIMIT $1`
+  * `OFFSET $2`
+* Understanding how parameterized queries reduce SQL injection risk.
+* Counting total users using `COUNT(*)`.
+* Returning pagination details:
+  * current page
+  * limit
+  * total users
+  * total pages
+* Using proper HTTP status codes:
+  * `200 OK`
+  * `400 Bad Request`
+  * `404 Not Found`
+  * `500 Internal Server Error`
+  * `503 Service Unavailable`
+* Removing passwords from API responses.
+* Removing email addresses from public user endpoints.
+* Removing the PostgreSQL username from the public health response.
+* Removing unnecessary environment details from the public API response.
+* Disabling the Express `X-Powered-By` header.
+* Adding a JSON request-body size limit.
+* Handling unknown routes.
+* Testing PostgreSQL before starting the HTTP server.
+* Adding graceful shutdown support.
+* Handling:
+  * `SIGINT`
+  * `SIGTERM`
+* Closing the HTTP server safely.
+* Closing the PostgreSQL pool safely.
+* Updating `package.json`.
+* Adding npm scripts:
+  * `npm start`
+  * `npm run dev`
+  * `npm run test:db`
+* Testing the complete backend flow:
+  * Client
+  * `index.js`
+  * Route
+  * Controller
+  * `database.js`
+  * PostgreSQL
+  * JSON response
+
+Milestone Achieved:
+
+* Successfully connected the PrepPilot backend to PostgreSQL.
+* Successfully replaced temporary in-memory data with persistent database storage.
+* Successfully created a reusable PostgreSQL connection pool.
+* Successfully created a standalone database connection test.
+* Successfully created system health endpoints.
+* Successfully created PostgreSQL-backed user endpoints.
+* Successfully implemented API versioning.
+* Successfully implemented pagination.
+* Successfully implemented input validation.
+* Successfully used parameterized SQL queries.
+* Successfully protected environment variables.
+* Successfully created `.env.example`.
+* Successfully verified that `.env` is ignored by Git.
+* Successfully reorganized the backend into a clean feature-based structure.
+* Successfully removed old Module 2 learning-only files.
+* Successfully tested valid and invalid API requests.
+* Successfully verified HTTP error status codes.
+* Successfully tested graceful shutdown.
+* Successfully completed the technical implementation of Module 3.
+
+---
+
+Current Backend Status
+
+* Express backend operational.
+* PostgreSQL database connected.
+* PostgreSQL connection pool operational.
+* Environment variables loaded successfully.
+* System routes operational.
+* User routes operational.
+* System controller operational.
+* Users controller operational.
+* Database health endpoint operational.
+* Pagination operational.
+* Input validation operational.
+* Parameterized queries operational.
+* Unknown-route handling operational.
+* Graceful shutdown operational.
+* Backend ready for Authentication and Authorization.
+
+---
+
+🎉 Module 3 — Database Design & PostgreSQL Technical Work Completed
+
+Next Update: Module 3 final documentation, Git commit, and push ✅
+
+Next Module: Module 4 — Authentication & Authorization 🔐
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 1 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---

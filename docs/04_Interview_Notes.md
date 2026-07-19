@@ -2702,3 +2702,469 @@ Always test relationships before connecting the backend.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 3 — Database Design & PostgreSQL (Chapter 20)       (Date:-19-07-2026)
+
+## Questions
+
+### 1. How does Node.js connect to PostgreSQL?
+
+### 2. What is the `pg` package?
+
+### 3. What is a PostgreSQL connection pool?
+
+### 4. Why should a backend use a connection pool?
+
+### 5. What is the purpose of `database.js`?
+
+### 6. What is the purpose of `test-db.js`?
+
+### 7. What is persistent data storage?
+
+### 8. What is the difference between in-memory storage and PostgreSQL storage?
+
+### 9. Why does array data disappear when the Node.js server restarts?
+
+### 10. Why were the Books and Notes arrays removed from PrepPilot?
+
+### 11. What is an environment variable?
+
+### 12. What is the purpose of a `.env` file?
+
+### 13. Why should `.env` never be committed to GitHub?
+
+### 14. What is `.env.example`?
+
+### 15. What is the difference between `.env` and `.env.example`?
+
+### 16. Why should database credentials not be written directly inside source code?
+
+### 17. Why must `require("dotenv").config()` run before importing `database.js`?
+
+### 18. What is a parameterized query?
+
+### 19. What does `$1` mean inside a PostgreSQL query?
+
+### 20. Why are query values passed in a separate array?
+
+### 21. How do parameterized queries reduce SQL injection risk?
+
+### 22. What is SQL injection?
+
+### 23. What is API versioning?
+
+### 24. What does `/api/v1/users` mean?
+
+### 25. Why are routes and controllers separated?
+
+### 26. What is separation of concerns?
+
+### 27. What is the responsibility of `index.js`?
+
+### 28. What is the responsibility of `system.routes.js`?
+
+### 29. What is the responsibility of `system.controller.js`?
+
+### 30. What is the responsibility of `users.routes.js`?
+
+### 31. What is the responsibility of `users.controller.js`?
+
+### 32. What is the responsibility of `database.js`?
+
+### 33. What is the difference between a route and a controller?
+
+### 34. What is a health-check endpoint?
+
+### 35. What is the purpose of `GET /health`?
+
+### 36. What is the purpose of `GET /health/database`?
+
+### 37. Why can the Express server be healthy while PostgreSQL is unavailable?
+
+### 38. Why is HTTP status `503` used when the database is unavailable?
+
+### 39. What is pagination?
+
+### 40. Why do APIs use pagination?
+
+### 41. What does `LIMIT` do in PostgreSQL?
+
+### 42. What does `OFFSET` do in PostgreSQL?
+
+### 43. How is the pagination offset calculated?
+
+### 44. What does `page=2&limit=20` mean?
+
+### 45. Why should an API enforce a maximum pagination limit?
+
+### 46. What is input validation?
+
+### 47. Why must route parameters be validated?
+
+### 48. What happens when `/api/v1/users/abc` is requested?
+
+### 49. What happens when `/api/v1/users/0` is requested?
+
+### 50. What happens when `/api/v1/users/999999` is requested?
+
+### 51. What is the difference between HTTP `400` and `404`?
+
+### 52. What is the difference between HTTP `500` and `503`?
+
+### 53. Why should passwords never be returned by an API?
+
+### 54. Why were email addresses removed from public user endpoints?
+
+### 55. Why was the PostgreSQL username removed from the public database-health response?
+
+### 56. Why was the Express `X-Powered-By` header disabled?
+
+### 57. Why was a JSON request-body size limit added?
+
+### 58. What is an unknown-route handler?
+
+### 59. Why should PostgreSQL be tested before starting the HTTP server?
+
+### 60. What is graceful shutdown?
+
+### 61. What is `SIGINT`?
+
+### 62. What is `SIGTERM`?
+
+### 63. Why should the HTTP server close during shutdown?
+
+### 64. Why should the PostgreSQL pool close during shutdown?
+
+### 65. What does `npm start` do?
+
+### 66. What does `npm run dev` do?
+
+### 67. What does `npm run test:db` do?
+
+### 68. Why did npm fail when it was run from the project root?
+
+### 69. Explain the request flow of `GET /api/v1/users`.
+
+### 70. Explain the request flow of `GET /api/v1/users/1`.
+
+### 71. How did Module 3 improve the Module 2 backend?
+
+### 72. Why was the Service layer not added yet?
+
+### 73. What is overengineering?
+
+### 74. Why is the current `Route → Controller → Database` structure suitable?
+
+### 75. Is the current PrepPilot backend fully production-ready?
+
+### 76. What important feature is still required before user routes can be securely protected?
+
+---
+
+## Important Code
+
+### Loading Environment Variables
+
+    require("dotenv").config();
+
+---
+
+### Creating a PostgreSQL Pool
+
+    const { Pool } = require("pg");
+
+    const pool = new Pool({
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT) || 5432,
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+    });
+
+---
+
+### Exporting the Pool
+
+    module.exports = pool;
+
+---
+
+### Testing the PostgreSQL Connection
+
+    const result = await pool.query(`
+      SELECT
+        current_database() AS database_name,
+        current_user AS database_user,
+        NOW() AS database_time;
+    `);
+
+---
+
+### Testing PostgreSQL Before Server Startup
+
+    await pool.query("SELECT 1");
+
+---
+
+### Mounting System Routes
+
+    app.use("/", systemRoutes);
+
+---
+
+### Mounting User Routes
+
+    app.use("/api/v1/users", usersRoutes);
+
+---
+
+### System Routes
+
+    router.get("/", getApiInformation);
+
+    router.get("/health", getApplicationHealth);
+
+    router.get("/health/database", getDatabaseHealth);
+
+---
+
+### User Routes
+
+    router.get("/", getAllUsers);
+
+    router.get("/:id", getUserById);
+
+---
+
+### Parameterized User Query
+
+    const result = await pool.query(
+      `
+        SELECT
+          id,
+          name,
+          is_verified,
+          created_at,
+          updated_at
+        FROM users
+        WHERE id = $1;
+      `,
+      [userId]
+    );
+
+---
+
+### Pagination Query
+
+    const usersResult = await pool.query(
+      `
+        SELECT
+          id,
+          name,
+          is_verified,
+          created_at,
+          updated_at
+        FROM users
+        ORDER BY id
+        LIMIT $1
+        OFFSET $2;
+      `,
+      [limit, offset]
+    );
+
+---
+
+### Counting Total Users
+
+    const countResult = await pool.query(`
+      SELECT COUNT(*)::INTEGER AS total
+      FROM users;
+    `);
+
+---
+
+### Calculating Pagination Offset
+
+    const offset = (page - 1) * limit;
+
+---
+
+### Running Independent Queries Together
+
+    const [usersResult, countResult] = await Promise.all([
+      pool.query(usersQuery, [limit, offset]),
+      pool.query(countQuery),
+    ]);
+
+---
+
+### Validating a Positive Integer
+
+    function parsePositiveInteger(value) {
+      if (
+        value === undefined ||
+        value === null ||
+        Array.isArray(value) ||
+        typeof value === "object"
+      ) {
+        return null;
+      }
+
+      const parsedValue = Number(value);
+
+      if (
+        !Number.isSafeInteger(parsedValue) ||
+        parsedValue <= 0
+      ) {
+        return null;
+      }
+
+      return parsedValue;
+    }
+
+---
+
+### Returning Invalid Input Response
+
+    return res.status(400).json({
+      success: false,
+      message: "User ID must be a positive integer",
+    });
+
+---
+
+### Returning User Not Found Response
+
+    return res.status(404).json({
+      success: false,
+      message: "User not found",
+    });
+
+---
+
+### Returning Database Unavailable Response
+
+    return res.status(503).json({
+      success: false,
+      status: "unhealthy",
+      message: "PostgreSQL is currently unavailable",
+    });
+
+---
+
+### Unknown Route Handler
+
+    app.use((req, res) => {
+      return res.status(404).json({
+        success: false,
+        message: `Route not found: ${req.method} ${req.originalUrl}`,
+      });
+    });
+
+---
+
+### Starting the Server
+
+    server = app.listen(PORT, () => {
+      console.log(
+        `🚀 PrepPilot API running at http://localhost:${PORT}`
+      );
+    });
+
+---
+
+### Closing the PostgreSQL Pool
+
+    await pool.end();
+
+---
+
+### Package Scripts
+
+    "scripts": {
+      "start": "node index.js",
+      "dev": "node index.js",
+      "test:db": "node test-db.js"
+    }
+
+---
+
+## Important Revision Notes
+
+* The `pg` package connects Node.js to PostgreSQL.
+* A PostgreSQL connection pool provides reusable database connections.
+* `database.js` creates and exports the shared connection pool.
+* `test-db.js` tests PostgreSQL without starting the Express server.
+* `.env` contains real private configuration values.
+* `.env.example` contains safe placeholder values.
+* `.gitignore` prevents `.env` from being committed.
+* Environment variables must be loaded before importing database configuration.
+* PostgreSQL provides persistent storage.
+* JavaScript arrays provide temporary in-memory storage.
+* In-memory data disappears when the Node.js process restarts.
+* Routes define endpoint paths.
+* Controllers handle requests, validation, queries, and responses.
+* `index.js` configures and starts the application.
+* Parameterized queries separate SQL instructions from user values.
+* `$1`, `$2`, and similar placeholders are replaced using a separate values array.
+* Parameterized queries reduce SQL injection risk.
+* Pagination divides database results into smaller pages.
+* `LIMIT` controls how many rows are returned.
+* `OFFSET` controls how many rows are skipped.
+* The pagination offset formula is `(page - 1) × limit`.
+* HTTP `200` means the request succeeded.
+* HTTP `400` means the request contains invalid input.
+* HTTP `404` means a route or resource was not found.
+* HTTP `500` means an unexpected internal error occurred.
+* HTTP `503` means an important dependency is temporarily unavailable.
+* Passwords must never be returned in API responses.
+* Public user endpoints should not reveal unnecessary private information.
+* Health endpoints confirm that the application and database are operational.
+* `/api/v1` creates a versioned API namespace.
+* Graceful shutdown safely closes the HTTP server and PostgreSQL pool.
+* `SIGINT` is commonly triggered by pressing `Ctrl + C`.
+* `SIGTERM` is commonly sent by hosting platforms.
+* npm commands normally run from the folder containing `package.json`.
+* The current request flow is:
+
+    Client  
+      ↓  
+    Route  
+      ↓  
+    Controller  
+      ↓  
+    database.js  
+      ↓  
+    PostgreSQL  
+      ↓  
+    JSON Response
+
+* The current architecture is intentionally simple:
+
+    Route  
+      ↓  
+    Controller  
+      ↓  
+    Database
+
+* A Service or Repository layer can be added later when business logic becomes larger.
+* The current backend foundation is strong but still requires Authentication and Authorization before becoming production-ready.
+
+---
+
+Module 3 (Chapter 20):  
+✅ Completed
+
+🎉 Module 3 — Database Design & PostgreSQL:  
+✅ Technical Work Completed
+
+Revision:  
+⬜ Pending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
