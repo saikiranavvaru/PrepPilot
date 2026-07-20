@@ -3168,3 +3168,128 @@ Continue Updating After Every Lesson ✅
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ---
+
+# Module 4 — Authentication Foundation (Chapter 1)       (Date:-20-07-2026)
+
+## Questions
+
+### 1. What is Authentication?
+
+### 2. What is Authorization?
+
+### 3. What is the difference between Authentication and Authorization?
+
+### 4. What is the difference between Registration and Login?
+
+### 5. Why should passwords never be stored in plain text?
+
+### 6. What is Password Hashing?
+
+### 7. What is Salt?
+
+### 8. What is bcrypt?
+
+### 9. What is the difference between Hashing and Encryption?
+
+### 10. What is a Session?
+
+### 11. What is a Token?
+
+### 12. What is JWT?
+
+### 13. What are the three parts of a JWT?
+
+### 14. Is JWT encrypted?
+
+### 15. Why should JWT have an expiration time?
+
+### 16. What is Authentication Middleware?
+
+### 17. What are Public Routes and Protected Routes?
+
+### 18. What is the `Authorization: Bearer <token>` header?
+
+### 19. What is the difference between `401 Unauthorized` and `403 Forbidden`?
+
+### 20. Why is Authorization required even after Authentication?
+
+---
+
+## Important Concepts
+
+```text
+Authentication
+Authorization
+Registration
+Login
+Password Hashing
+Salt
+bcrypt
+Session
+Token
+JWT
+Header
+Payload
+Signature
+Authentication Middleware
+Public Routes
+Protected Routes
+Authorization Header
+Ownership Checks
+```
+
+---
+
+## Authentication Flow
+
+```text
+Register
+    ↓
+Hash Password
+    ↓
+Store User
+    ↓
+Login
+    ↓
+Verify Password
+    ↓
+Generate JWT
+    ↓
+Client Sends Token
+    ↓
+Middleware Verifies Token
+    ↓
+Protected Route
+```
+
+---
+
+## Revision Notes
+
+```text
+Authentication = Verify identity
+
+Authorization = Verify permissions
+
+Registration = Create account
+
+Login = Verify account
+
+Hash Passwords using bcrypt
+
+JWT = Header + Payload + Signature
+
+Authentication before Authorization
+
+Middleware protects secured routes
+
+Never store plain text passwords
+
+Never expose password hashes
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

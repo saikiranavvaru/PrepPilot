@@ -1462,3 +1462,50 @@ Next Update: After Module 4 — Chapter 1 ✅
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ---
+
+## Module 4 Progress (Authentication)
+
+### Chapter 1 — Authentication Fundamentals (Date:-20-07-2026)
+
+Topics Covered:
+
+* Understanding why PrepPilot needs Authentication.
+* Learning the difference between Authentication and Authorization.
+* Understanding Registration and Login flows.
+* Learning why passwords must never be stored in plain text.
+* Understanding Password Hashing, Salt and bcrypt.
+* Learning the difference between Hashing and Encryption.
+* Understanding Sessions and Token-based Authentication.
+* Introduction to JSON Web Tokens (JWT).
+* Understanding JWT Header, Payload and Signature.
+* Learning how JWT expiration and signatures protect authenticated requests.
+* Understanding Public Routes, Protected Routes and Authentication Middleware.
+* Learning how the `Authorization: Bearer <token>` header works.
+* Understanding the difference between `401 Unauthorized` and `403 Forbidden`.
+* Learning why Authentication must be followed by Authorization and ownership checks.
+* Identifying common authentication security mistakes.
+* Planning how Authentication will fit into PrepPilot's Express and PostgreSQL architecture.
+
+Milestone Achieved:
+
+* Successfully understood the complete Authentication lifecycle.
+* Understood secure password storage using bcrypt.
+* Understood Sessions, Tokens and JWT.
+* Understood how protected routes verify user identity.
+* Established the security foundation required to build Registration and Login.
+* Prepared PrepPilot for Authentication Schema Design.
+
+---
+
+Current Backend Status
+
+* Express and PostgreSQL integration remain fully functional.
+* No Authentication code has been implemented yet.
+* The Authentication architecture is now clearly understood.
+* PrepPilot is ready to design the Authentication-ready `users` table.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 2 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

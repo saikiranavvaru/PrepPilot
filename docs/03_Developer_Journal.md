@@ -3461,3 +3461,90 @@ Journal Entry Complete ✅
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ---
+
+# PrepPilot — Developer Journal       (Date:-20-07-2026)
+
+## Development Log — Authentication Fundamentals — (Module 4 Chapter 1)
+
+### Goal
+
+Understand the complete authentication system and establish the security foundation required to implement user registration, login, and protected routes in PrepPilot.
+
+---
+
+### Completed
+
+* Learned the difference between Authentication and Authorization.
+* Understood the complete Registration and Login workflows.
+* Learned secure password storage using Hashing, Salt and bcrypt.
+* Understood Sessions, Token-based Authentication and JWT.
+* Learned the structure of a JSON Web Token (Header, Payload and Signature).
+* Understood how Authentication Middleware protects secured routes.
+* Learned the difference between Public Routes and Protected Routes.
+* Understood ownership-based access control and common authentication security practices.
+* Planned how authentication will integrate with PrepPilot's existing Express and PostgreSQL architecture.
+
+---
+
+### Concepts Learned
+
+#### Authentication
+
+* Authentication
+* Authorization
+* Registration
+* Login
+* Password Hashing
+* Salt
+* bcrypt
+
+#### JWT Authentication
+
+* Sessions
+* Tokens
+* JSON Web Token (JWT)
+* Header
+* Payload
+* Signature
+* Token Expiration
+
+#### Security Concepts
+
+* Authentication Middleware
+* Public Routes
+* Protected Routes
+* Authorization Header
+* Ownership Checks
+* Secure Authentication Practices
+
+---
+
+### Key Lessons
+
+Authentication verifies a user's identity, while Authorization determines what the authenticated user is allowed to access.
+
+Passwords should never be stored in plain text and must always be protected using secure hashing algorithms such as bcrypt.
+
+JWT provides a secure way to identify authenticated users across multiple requests, while Middleware centralizes authentication logic for protected APIs.
+
+---
+
+### Project Milestone
+
+Successfully established the authentication foundation for PrepPilot.
+
+Prepared the backend architecture for implementing secure Registration, Login, JWT Authentication and Protected Routes.
+
+---
+
+### Result
+
+Module 4 — Chapter 1 completed successfully.
+
+PrepPilot has officially entered the Authentication phase and is now ready to design the authentication-ready database schema before implementing secure user authentication.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
