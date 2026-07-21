@@ -1509,3 +1509,40 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 2 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Module 4 Progress Authentication     (Date:-21-07-2026)
+
+### Chapter 2 — Authentication Database Schema
+
+### Topics Covered
+
+* Designed the authentication-ready `users` table.
+* Learned the purpose of each authentication column.
+* Understood secure password storage using `password_hash`.
+* Learned the role of `is_verified` and `is_active`.
+* Understood why JWT is not stored in the database.
+* Learned how authentication data relates to future PrepPilot tables.
+* Understood authentication database security best practices.
+
+---
+
+### Milestone Achieved
+
+* Designed a production-ready authentication database schema.
+* Prepared the database for user registration and login.
+* Established the foundation for JWT-based authentication.
+
+---
+
+### Current Backend Status
+
+* Express backend is complete.
+* PostgreSQL database is integrated.
+* Authentication database schema is ready.
+* Ready to implement authentication packages and user registration.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 3 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

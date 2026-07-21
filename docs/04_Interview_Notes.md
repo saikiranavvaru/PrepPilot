@@ -3293,3 +3293,78 @@ Never expose password hashes
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Authentication (Chapter 2) — (Date:-21-07-2026)
+
+## Questions
+
+### 1. Why should authentication start with database design?
+
+### 2. What columns should an authentication-ready users table contain?
+
+### 3. Why do we use `password_hash` instead of `password`?
+
+### 4. Why must email be `UNIQUE`?
+
+### 5. What is the purpose of `is_verified`?
+
+### 6. Why is `is_active` useful?
+
+### 7. Why do we use `TIMESTAMPTZ`?
+
+### 8. Should JWT be stored in the users table?
+
+### 9. Why doesn't bcrypt require a separate salt column?
+
+### 10. How does the users table relate to future tables?
+
+### 11. Why should email be normalized?
+
+### 12. Why shouldn't `password_hash` be returned in API responses?
+
+---
+
+## Important Concepts
+
+```text
+Authentication Schema
+Users Table
+password_hash
+UNIQUE Email
+is_verified
+is_active
+TIMESTAMPTZ
+JWT
+bcrypt
+Email Normalization
+Foreign Key Relationships
+Authentication Security
+```
+
+---
+
+## Revision Notes
+
+```text
+Users table stores authentication data
+
+Passwords are stored as password_hash
+
+Email must be UNIQUE
+
+JWT is not stored in users table
+
+bcrypt stores the salt inside the hash
+
+Normalize email before saving
+
+Never return password_hash
+
+Authentication data connects to future user resources
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

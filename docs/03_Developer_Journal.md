@@ -3548,3 +3548,68 @@ PrepPilot has officially entered the Authentication phase and is now ready to de
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Authentication Database Schema — (Module 4 Chapter 2) — (Date:-21-07-2026)
+
+### Goal
+
+Design a secure and scalable database schema to support user authentication in PrepPilot.
+
+---
+
+### Completed
+
+* Designed the authentication-ready `users` table.
+* Added authentication-related columns.
+* Planned secure password storage using `password_hash`.
+* Prepared the database for Registration and Login.
+* Connected the authentication schema with future project modules.
+
+---
+
+### Concepts Learned
+
+#### Database Design
+
+* Authentication Schema
+* User Table
+* Primary Key
+* Unique Email
+* Password Hash
+* Account Status
+* Timestamps
+
+#### Security
+
+* Password Hashing
+* Email Normalization
+* JWT Storage
+* Authentication Best Practices
+
+---
+
+### Key Lessons
+
+A well-designed database schema is the foundation of secure authentication. Proper user data design makes future features such as JWT authentication, authorization and user ownership much easier to implement.
+
+---
+
+### Project Milestone
+
+Successfully designed the authentication database structure for PrepPilot.
+
+Prepared the backend for implementing Registration and Login APIs.
+
+---
+
+### Result
+
+Module 4 — Chapter 2 completed successfully.
+
+PrepPilot now has a production-ready authentication database schema.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
