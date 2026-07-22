@@ -3368,3 +3368,91 @@ Authentication data connects to future user resources
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Module 4 — Authentication & Security (Chapter 3)       (Date:-22-07-2026)
+
+## Questions
+
+### 1. Why do we need authentication packages in Express?
+
+### 2. What is bcrypt?
+
+### 3. Why should passwords be hashed instead of stored in plain text?
+
+### 4. What is a password hash?
+
+### 5. What is JWT (JSON Web Token)?
+
+### 6. Why do we use JWT for authentication?
+
+### 7. What is dotenv?
+
+### 8. Why should secret keys never be hardcoded?
+
+### 9. What is the purpose of the `.env` file?
+
+### 10. Why should `.env` be added to `.gitignore`?
+
+### 11. What is the validator package used for?
+
+### 12. Why is input validation important?
+
+### 13. Why should each authentication package have a single responsibility?
+
+### 14. Where should authentication packages be installed in PrepPilot?
+
+### 15. What is the correct flow of user registration?
+
+### 16. What is the correct flow of user login?
+
+---
+
+## Important Concepts
+
+```text
+bcrypt
+jsonwebtoken (JWT)
+dotenv
+validator
+Password Hashing
+JWT Authentication
+Environment Variables
+Input Validation
+package.json
+Dependencies
+.gitignore
+Authentication Flow
+```
+
+---
+
+## Revision Notes
+
+```text
+bcrypt = Hashes and verifies passwords securely.
+
+jsonwebtoken (JWT) = Creates and verifies authentication tokens.
+
+dotenv = Loads environment variables from the .env file.
+
+validator = Validates user input before processing.
+
+Store secrets in .env, never inside source code.
+
+Never commit .env to GitHub.
+
+Install authentication packages inside the server folder.
+
+Registration Flow:
+Validate → Hash Password → Store User
+
+Login Flow:
+Validate → Find User → Compare Password → Generate JWT
+
+Each package should have one responsibility.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1465,7 +1465,7 @@ Next Update: After Module 4 — Chapter 1 ✅
 
 ## Module 4 Progress (Authentication)
 
-### Chapter 1 — Authentication Fundamentals (Date:-20-07-2026)
+### Chapter 1 — Authentication Fundamentals (20-07-2026)
 
 Topics Covered:
 
@@ -1510,7 +1510,7 @@ Next Update: After Module 4 — Chapter 2 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Module 4 Progress Authentication     (Date:-21-07-2026)
+## Module 4 Progress Authentication     (21-07-2026)
 
 ### Chapter 2 — Authentication Database Schema
 
@@ -1544,5 +1544,42 @@ Next Update: After Module 4 — Chapter 2 ✅
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Next Update: After Module 4 — Chapter 3 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 3 — Installing & Configuring Authentication Packages (22-07-2026)
+
+Topics Covered:
+
+* Understanding why authentication requires external packages.
+* Learning the purpose of `bcrypt`.
+* Learning the purpose of `jsonwebtoken (JWT)`.
+* Learning the purpose of `dotenv`.
+* Learning the purpose of `validator`.
+* Installing authentication packages using npm.
+* Understanding dependency management with `package.json`.
+* Creating and configuring the `.env` file.
+* Protecting secrets using `.gitignore`.
+* Understanding how authentication packages fit into PrepPilot's architecture.
+
+Milestone Achieved:
+
+* Successfully installed all required authentication packages.
+* Configured the backend environment for secure authentication.
+* Prepared PrepPilot for password hashing and JWT implementation.
+* Established the authentication foundation for future chapters.
+
+---
+
+Current Backend Status
+
+* Authentication packages are installed and configured.
+* Environment variables are securely managed using `.env`.
+* Backend is prepared for authentication development.
+* PrepPilot is ready to build the User Registration API.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 4 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -2803,7 +2803,7 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# PrepPilot — Developer Journal       (Date:-19-07-2026)
+# PrepPilot — Developer Journal       (19-07-2026)
 
 ## Development Log — Connecting Node.js and PostgreSQL — (Module 3 Chapter 20)  
 
@@ -3462,7 +3462,7 @@ Journal Entry Complete ✅
 
 ---
 
-# PrepPilot — Developer Journal       (Date:-20-07-2026)
+# PrepPilot — Developer Journal       (20-07-2026)
 
 ## Development Log — Authentication Fundamentals — (Module 4 Chapter 1)
 
@@ -3549,7 +3549,7 @@ Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Development Log — Authentication Database Schema — (Module 4 Chapter 2) — (Date:-21-07-2026)
+## Development Log — Authentication Database Schema — (Module 4 Chapter 2) — (21-07-2026)
 
 ### Goal
 
@@ -3607,6 +3607,81 @@ Prepared the backend for implementing Registration and Login APIs.
 Module 4 — Chapter 2 completed successfully.
 
 PrepPilot now has a production-ready authentication database schema.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Installing & Configuring Authentication Packages — (Module 4 Chapter 3) — (22/07/2026)
+
+### Goal
+
+Prepare PrepPilot's backend for secure authentication by installing and configuring the essential packages required for password hashing, JWT authentication, environment variable management, and input validation.
+
+---
+
+### Completed
+
+* Learned why Express alone is not enough for authentication.
+* Installed `bcrypt` for secure password hashing.
+* Installed `jsonwebtoken` for JWT-based authentication.
+* Installed `dotenv` for environment variable management.
+* Installed `validator` for user input validation.
+* Configured the project dependencies using npm.
+* Created the `.env` file for storing sensitive configuration values.
+* Protected environment variables by adding `.env` to `.gitignore`.
+* Understood how each package fits into PrepPilot's authentication architecture.
+
+---
+
+### Concepts Learned
+
+#### Authentication Packages
+
+* bcrypt
+* jsonwebtoken (JWT)
+* dotenv
+* validator
+
+#### Backend Configuration
+
+* npm Dependencies
+* package.json
+* .env File
+* .gitignore
+
+#### Authentication Architecture
+
+* Password Hashing
+* Token-Based Authentication
+* Environment Variables
+* Input Validation
+
+---
+
+### Key Lessons
+
+Authentication is built using specialized libraries, with each package handling a single responsibility. This keeps the backend secure, modular, and easy to maintain.
+
+Sensitive information such as JWT secrets should always be stored in environment variables and never hardcoded inside the application's source code.
+
+---
+
+### Project Milestone
+
+Successfully prepared PrepPilot's backend environment for implementing authentication.
+
+Established the required packages and configuration needed to build secure Registration and Login APIs.
+
+---
+
+### Result
+
+Module 4 — Chapter 3 completed successfully.
+
+PrepPilot's backend is now fully prepared to begin implementing secure user authentication using industry-standard tools and best practices.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
