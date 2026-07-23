@@ -1583,3 +1583,39 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 4 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 4 — User Registration Validation (Date:-23-07-2026)
+
+Topics Covered:
+
+* Understanding the purpose of input validation.
+* Learning why validation is the first security layer.
+* Understanding why validation must happen before hashing and database operations.
+* Learning validation rules for name, email, and password.
+* Understanding the difference between client-side and server-side validation.
+* Learning why the backend should never trust frontend validation.
+* Understanding the role of the `validator` package.
+* Learning how validation fits into the user registration flow.
+* Understanding proper validation error responses using HTTP status codes.
+
+Milestone Achieved:
+
+* Successfully understood the complete user registration validation process.
+* Established validation rules for PrepPilot registration.
+* Prepared the backend to reject invalid requests before processing.
+* Built the foundation for secure Registration APIs.
+
+---
+
+Current Backend Status
+
+* Backend validation strategy has been established.
+* Registration input validation flow is fully planned.
+* PrepPilot is ready to begin implementing validation logic.
+* Backend is prepared for password hashing and Registration API development.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 5 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

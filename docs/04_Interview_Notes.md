@@ -3456,3 +3456,73 @@ Each package should have one responsibility.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Authentication & Security (Chapter 4)       (Date:-23-07-2026)
+
+## Questions
+
+### 1. What is input validation?
+
+### 2. Why is validation important in user registration?
+
+### 3. Why should validation happen before hashing the password?
+
+### 4. Why should the backend never trust frontend validation?
+
+### 5. What is the difference between client-side validation and server-side validation?
+
+### 6. Why do we use the `validator` package instead of writing our own validation?
+
+### 7. What HTTP status code is commonly returned when validation fails?
+
+### 8. What validation rules should PrepPilot apply during registration?
+
+### 9. What happens if invalid data is stored in the database?
+
+### 10. Explain the complete registration validation flow.
+
+---
+
+## Important Concepts
+
+```text
+Input Validation
+Client-side Validation
+Server-side Validation
+validator
+Name Validation
+Email Validation
+Password Validation
+400 Bad Request
+Registration Flow
+Backend Security
+```
+
+---
+
+## Revision Notes
+
+```text
+Validation is the first security layer.
+
+Always validate before hashing passwords.
+
+Always validate before database operations.
+
+Never trust frontend validation alone.
+
+Use validator for reliable input validation.
+
+Return 400 Bad Request for invalid user input.
+
+Registration Flow:
+Validate → Hash Password → Store User → Success Response
+
+Server-side validation protects the application and database.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

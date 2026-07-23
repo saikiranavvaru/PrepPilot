@@ -3688,3 +3688,75 @@ PrepPilot's backend is now fully prepared to begin implementing secure user auth
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — User Registration Validation — (Module 4 Chapter 4) — (23/07/2026)
+
+### Goal
+
+Understand how a backend validates user input before processing registration requests and establish secure validation rules for PrepPilot.
+
+---
+
+### Completed
+
+* Learned the purpose of input validation.
+* Understood why validation is the first security layer.
+* Learned why validation must occur before hashing passwords.
+* Established validation rules for name, email, and password.
+* Understood the difference between client-side and server-side validation.
+* Learned why frontend validation alone is never sufficient.
+* Understood the purpose of the `validator` package.
+* Learned the complete registration validation flow.
+* Understood how APIs should respond to invalid user input.
+
+---
+
+### Concepts Learned
+
+#### Validation
+
+* Input Validation
+* Client-side Validation
+* Server-side Validation
+
+#### Registration
+
+* Name Validation
+* Email Validation
+* Password Validation
+
+#### Backend Security
+
+* validator
+* HTTP 400 Bad Request
+* Registration Flow
+
+---
+
+### Key Lessons
+
+Validation is the first line of defense for every backend application. Every request must be validated before performing expensive operations such as password hashing or database queries.
+
+A secure backend never trusts client-side validation and always validates user input on the server.
+
+---
+
+### Project Milestone
+
+Successfully designed the validation process for PrepPilot's Registration API.
+
+Prepared the backend for implementing password hashing and user registration.
+
+---
+
+### Result
+
+Module 4 — Chapter 4 completed successfully.
+
+PrepPilot now has a secure validation strategy that ensures only valid user data reaches the authentication system.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
