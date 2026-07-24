@@ -3760,3 +3760,72 @@ PrepPilot now has a secure validation strategy that ensures only valid user data
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Password Hashing with bcrypt — (Module 4 Chapter 5) — (24/07/2026)
+
+### Goal
+
+Learn how professional backend applications securely store user passwords using bcrypt and understand why password hashing is one of the most important security practices in authentication systems.
+
+---
+
+### Completed
+
+* Learned password hashing fundamentals.
+* Understood why plain-text password storage is dangerous.
+* Studied the differences between hashing and encryption.
+* Learned how bcrypt works.
+* Understood salts and salt rounds.
+* Learned how password verification works during login.
+* Understood the authentication flow used in PrepPilot.
+
+---
+
+### Concepts Learned
+
+#### Password Security
+
+* Plain-text passwords should never be stored.
+* Passwords must always be hashed before database insertion.
+
+#### Hashing
+
+* One-way transformation.
+* Original password cannot be recovered.
+
+#### bcrypt
+
+* Automatically generates a unique salt.
+* Produces different hashes for identical passwords.
+* Provides secure password comparison.
+
+#### Authentication Flow
+
+* Validate input.
+* Hash password.
+* Store hash.
+* Compare hash during login.
+
+---
+
+### Key Lessons
+
+Password hashing is one of the first security layers in every backend application. bcrypt protects users by converting passwords into irreversible hashes while using salts and configurable work factors to resist brute-force attacks.
+
+---
+
+### Project Milestone
+
+PrepPilot's authentication architecture is now fully designed up to secure password storage. The next step is implementing the registration API using bcrypt.
+
+---
+
+### Result
+
+The project is now prepared to securely store user credentials using industry-standard password hashing practices.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

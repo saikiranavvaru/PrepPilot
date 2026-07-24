@@ -3526,3 +3526,69 @@ Server-side validation protects the application and database.
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Password Hashing with bcrypt (Chapter 5)       (Date:-24-07-2026)
+
+## Questions
+
+### 1. Why should passwords never be stored in plain text?
+
+### 2. What is password hashing?
+
+### 3. What is the difference between hashing and encryption?
+
+### 4. Why is bcrypt commonly used for password hashing?
+
+### 5. What is a salt in bcrypt?
+
+### 6. What are salt rounds?
+
+### 7. How does bcrypt.compare() verify a password?
+
+### 8. Can a bcrypt hash be decrypted? Why or why not?
+
+---
+
+## Important Concepts
+
+```text
+• Plain-text passwords
+• Password hashing
+• One-way hashing
+• Encryption vs Hashing
+• bcrypt
+• Salt
+• Salt rounds
+• bcrypt.compare()
+• Registration authentication flow
+• Login authentication flow
+• Password security best practices
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Never store passwords in plain text.
+
+✔ Hash passwords before saving them.
+
+✔ Hashing is one-way; encryption is reversible.
+
+✔ bcrypt automatically adds a unique salt.
+
+✔ Same passwords generate different hashes because of salts.
+
+✔ Salt rounds improve resistance against brute-force attacks.
+
+✔ During login, use bcrypt.compare() instead of decrypting hashes.
+
+✔ Password hashing is a core security requirement in every backend application.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1619,3 +1619,39 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 5 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 5 — Password Hashing with bcrypt (Date:-24-07-2026)
+
+Topics Covered:
+
+* Why passwords should never be stored in plain text.
+* Understanding password hashing.
+* Difference between hashing and encryption.
+* Introduction to bcrypt.
+* Salt and why it is important.
+* Salt rounds and their impact on security and performance.
+* Registration password hashing flow.
+* Login password verification using bcrypt.compare().
+* Common password security mistakes.
+* Password hashing workflow in PrepPilot.
+
+Milestone Achieved:
+
+* Learned how to securely protect user passwords before storing them in the database.
+* Understood the complete password hashing lifecycle for registration and login.
+
+---
+
+Current Backend Status
+
+* Authentication fundamentals completed.
+* Authentication database schema completed.
+* Authentication packages installed and configured.
+* User registration validation completed.
+* Password hashing concepts mastered and ready to implement in the registration API.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 6 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
