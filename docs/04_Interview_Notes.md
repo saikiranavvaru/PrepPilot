@@ -3592,3 +3592,64 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — User Registration API (Chapter 6)       (Date:-25-07-2026)
+
+## Questions
+
+### 1. What is the purpose of a User Registration API?
+
+### 2. Why is input validation performed before database operations?
+
+### 3. Why should duplicate email addresses be checked?
+
+### 4. Why are passwords hashed before storing them?
+
+### 5. Why is HTTP 201 used after successful registration?
+
+### 6. What is the difference between HTTP 400 and HTTP 409?
+
+### 7. What is the correct order of the registration workflow?
+
+### 8. Why should registration logic be separated into routes, controllers, and services?
+
+---
+
+## Important Concepts
+
+```text
+• User Registration API
+• req.body
+• Input Validation
+• Duplicate Email Check
+• Password Hashing
+• HTTP Status Codes
+• Route → Controller → Service
+• Registration Workflow
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Receive user data through req.body.
+
+✔ Validate all incoming input.
+
+✔ Check if the email already exists.
+
+✔ Hash the password before saving it.
+
+✔ Store only the hashed password.
+
+✔ Return HTTP 201 after successful registration.
+
+✔ Keep business logic separated using a layered architecture.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

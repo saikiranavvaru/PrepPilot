@@ -3829,3 +3829,44 @@ The project is now prepared to securely store user credentials using industry-st
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — User Registration API — (Module 4 Chapter 6) — (25/07/2026)
+
+### Goal
+
+Understand how a professional backend handles user registration from request to database.
+
+---
+
+### Completed
+
+* Learned the complete registration flow.
+* Understood request validation.
+* Learned duplicate email verification.
+* Studied password hashing before storage.
+* Learned proper API responses and status codes.
+* Understood layered backend architecture.
+
+---
+
+### Key Lessons
+
+A registration API is more than inserting a user into the database. It validates input, protects user credentials, prevents duplicate accounts, and follows a clean architecture.
+
+---
+
+### Project Milestone
+
+PrepPilot's registration process is fully designed and ready for implementation.
+
+---
+
+### Result
+
+Prepared to build the actual registration endpoint using Express, PostgreSQL, and bcrypt.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

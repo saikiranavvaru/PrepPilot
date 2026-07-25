@@ -1655,3 +1655,32 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 6 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 6 — User Registration API (Date:-25-07-2026)
+
+Topics Covered:
+
+* Purpose of the User Registration API.
+* Complete registration workflow.
+* Receiving request data using `req.body`.
+* Input validation and duplicate email checking.
+* Password hashing before database storage.
+* Appropriate HTTP status codes.
+* Professional backend architecture (Route → Controller → Service → Database).
+
+Milestone Achieved:
+
+* Understood the complete user registration process and how all authentication concepts connect into one workflow.
+
+---
+
+Current Backend Status
+
+* Authentication workflow is fully planned.
+* Ready to implement the Registration API in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 7 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
