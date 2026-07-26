@@ -3870,3 +3870,44 @@ Prepared to build the actual registration endpoint using Express, PostgreSQL, an
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — User Login API — (Module 4 Chapter 7) — (26/07/2026)
+
+### Goal
+
+Understand how a backend securely authenticates users using email and password verification.
+
+---
+
+### Completed
+
+* Learned the complete login workflow.
+* Understood request validation.
+* Learned how users are searched by email.
+* Studied password verification using `bcrypt.compare()`.
+* Learned secure error handling for invalid credentials.
+* Understood professional login architecture.
+
+---
+
+### Key Lessons
+
+A login API authenticates users by verifying their credentials rather than creating new accounts. Secure password comparison and generic error messages are essential for protecting user accounts.
+
+---
+
+### Project Milestone
+
+PrepPilot's login authentication flow is fully designed and prepared for JWT integration.
+
+---
+
+### Result
+
+Ready to implement secure login functionality and generate authentication tokens in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

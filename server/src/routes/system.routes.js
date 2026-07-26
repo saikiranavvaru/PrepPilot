@@ -1,36 +1,23 @@
-// ======================================================
-// SYSTEM ROUTES
-// ======================================================
-//
-// This file defines system-level routes for PrepPilot.
-//
-// Mounted in index.js at:
-//
+// System Routes
+
+// Defines system-level API endpoints.
+
+// Mounted in index.js:
 // app.use("/", systemRoutes);
-//
-// Final endpoints:
-//
+
+// Available endpoints:
 // GET /
 // GET /health
 // GET /health/database
-//
-// The actual request-handling logic is kept inside:
-//
+
+// Controller:
 // src/controllers/system.controller.js
-//
-// ======================================================
 
-
-// ======================================================
-// 1. IMPORT REQUIRED MODULES
+// Note:
+// These routes will be protected with authentication and authorization in Module 4.
 // ======================================================
 
 const express = require("express");
-
-
-// ======================================================
-// 2. IMPORT CONTROLLER FUNCTIONS
-// ======================================================
 
 const {
   getApiInformation,
@@ -38,49 +25,18 @@ const {
   getDatabaseHealth,
 } = require("../controllers/system.controller");
 
-
-// ======================================================
-// 3. CREATE EXPRESS ROUTER
-// ======================================================
-
 const router = express.Router();
 
-
 // ======================================================
-// 4. API INFORMATION ROUTE
-// ======================================================
+// System Endpoints
 
-// Returns basic information about the PrepPilot API.
-//
-// Endpoint:
-// GET /
+// API information
 router.get("/", getApiInformation);
 
-
-// ======================================================
-// 5. APPLICATION HEALTH ROUTE
-// ======================================================
-
-// Checks whether the Express application is running.
-//
-// Endpoint:
-// GET /health
+// Application health check
 router.get("/health", getApplicationHealth);
 
-
-// ======================================================
-// 6. DATABASE HEALTH ROUTE
-// ======================================================
-
-// Checks whether PrepPilot can communicate with PostgreSQL.
-//
-// Endpoint:
-// GET /health/database
+// PostgreSQL connectivity check
 router.get("/health/database", getDatabaseHealth);
-
-
-// ======================================================
-// 7. EXPORT ROUTER
-// ======================================================
 
 module.exports = router;

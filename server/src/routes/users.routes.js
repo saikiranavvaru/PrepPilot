@@ -1,15 +1,20 @@
+//User Routes
+
+// Defines user-related API endpoints.
+
+// Mounted in index.js: 
+// app.use("/api/v1/users", userRoutes);
+
+// Available endpoints:
+// GET /api/v1/users
+// GET /api/v1/users/:id
+
+// Controller:
+// src/controllers/users.controller.js
+
+// Note:
+// These routes will be protected with authentication and authorization in Module 4.
 // ======================================================
-// USERS ROUTES
-// ======================================================
-//
-// Defines routes for reading PrepPilot user information.
-//
-// Mounted at:
-// /api/v1/users
-//
-// These routes should be protected with authentication
-// and authorization during Module 4.
-//
 
 const express = require("express");
 
@@ -21,13 +26,12 @@ const {
 const router = express.Router();
 
 // ======================================================
-// READ USERS
-// ======================================================
+// User Endpoints
 
-// GET /api/v1/users?page=1&limit=20
+// Get all users
 router.get("/", getAllUsers);
 
-// GET /api/v1/users/:id
+// Get a user by ID
 router.get("/:id", getUserById);
 
 module.exports = router;

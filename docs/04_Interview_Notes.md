@@ -3653,3 +3653,68 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — User Login API (Chapter 7)       (Date:-26-07-2026)
+
+## Questions
+
+### 1. What is the purpose of the User Login API?
+
+### 2. Why is `bcrypt.compare()` used during login?
+
+### 3. Why shouldn't passwords be compared directly?
+
+### 4. Why do login APIs return "Invalid email or password" instead of revealing whether the email exists?
+
+### 5. Which HTTP status code is commonly used for invalid login credentials?
+
+### 6. What happens after successful password verification?
+
+### 7. What is the correct login workflow?
+
+### 8. Why should login logic be separated into routes, controllers, and services?
+
+---
+
+## Important Concepts
+
+```text
+• User Login API
+• req.body
+• Input Validation
+• User Lookup
+• bcrypt.compare()
+• Authentication
+• HTTP 401 Unauthorized
+• Generic Error Messages
+• Login Workflow
+• Route → Controller → Service
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Receive login credentials through req.body.
+
+✔ Validate all incoming input.
+
+✔ Find the user using the registered email.
+
+✔ Verify passwords using bcrypt.compare().
+
+✔ Never compare plain-text passwords directly.
+
+✔ Return HTTP 401 for invalid credentials.
+
+✔ Never reveal whether the email exists.
+
+✔ Keep login logic organized using layered architecture.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

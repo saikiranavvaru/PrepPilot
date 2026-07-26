@@ -1684,3 +1684,34 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 7 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 7 — User Login API (Date:-26-07-2026)
+
+Topics Covered:
+
+* Purpose of the User Login API.
+* Complete login workflow.
+* Receiving login credentials using `req.body`.
+* Input validation.
+* Finding users by email.
+* Password verification using `bcrypt.compare()`.
+* Proper HTTP status codes for login.
+* Professional login architecture.
+
+Milestone Achieved:
+
+* Understood the complete authentication process for verifying existing users before granting access.
+
+---
+
+Current Backend Status
+
+* Registration workflow completed.
+* Login workflow fully designed.
+* Ready to implement JWT-based authentication in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 8 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
