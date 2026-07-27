@@ -3718,3 +3718,68 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — JWT (JSON Web Token) Generation (Chapter 8)       (Date:-27-07-2026)
+
+## Questions
+
+### 1. What does JWT stand for?
+
+### 2. Why is JWT used after successful login?
+
+### 3. What are the three parts of a JWT?
+
+### 4. What information should be stored in the JWT payload?
+
+### 5. Why should passwords never be stored inside a JWT?
+
+### 6. What is the purpose of the JWT signature?
+
+### 7. Why do JWTs have an expiration time?
+
+### 8. How is a JWT sent with future API requests?
+
+---
+
+## Important Concepts
+
+```text
+• JSON Web Token (JWT)
+• Header
+• Payload
+• Signature
+• JWT Secret
+• Token Generation
+• Token Verification
+• Authorization Header
+• Bearer Token
+• Token Expiration
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ JWT is generated after successful login.
+
+✔ JWT consists of Header, Payload, and Signature.
+
+✔ Store only non-sensitive information in the payload.
+
+✔ Never store passwords or secret data inside a JWT.
+
+✔ The signature prevents token tampering.
+
+✔ JWT is sent using the Authorization: Bearer <token> header.
+
+✔ Always verify the JWT before allowing access to protected resources.
+
+✔ Tokens should expire after a specific duration for better security.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

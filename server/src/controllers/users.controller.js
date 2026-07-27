@@ -1,36 +1,11 @@
-// ======================================================
-// USERS CONTROLLER
-// ======================================================
-//
-// Handles user-related HTTP requests.
-//
-// Current endpoints:
-//
-// GET /api/v1/users
-// GET /api/v1/users/:id
-//
-// Authentication and authorization will be added in a
-// future module.
-//
-// ======================================================
+// User Controller
 
-
-// ======================================================
-// 1. IMPORT DATABASE CONNECTION
+// Handles user-related requests.
 // ======================================================
 
 const pool = require("../config/database");
 
-
-// ======================================================
-// 2. HELPER FUNCTION
-// ======================================================
-//
-// Converts a value into a positive integer.
-//
-// Returns null when the value is invalid.
-//
-
+// Validate positive integer values.
 function parsePositiveInteger(value) {
   if (
     value === undefined ||
@@ -53,31 +28,10 @@ function parsePositiveInteger(value) {
   return parsedValue;
 }
 
-
-// ======================================================
-// 3. GET ALL USERS
-// ======================================================
-//
-// Endpoint:
-//
-// GET /api/v1/users
-//
-// Optional pagination:
-//
-// GET /api/v1/users?page=1&limit=20
-//
-// Defaults:
-//
-// page  = 1
-// limit = 20
-//
-// Maximum limit:
-//
-// 100 users per request
-//
-
+// Get all users with optional pagination.
 async function getAllUsers(req, res) {
   try {
+    // Read pagination values from the query string.
     const page =
       req.query.page === undefined
         ? 1
@@ -88,6 +42,7 @@ async function getAllUsers(req, res) {
         ? 20
         : parsePositiveInteger(req.query.limit);
 
+    // Validate the page number.
     if (page === null) {
       return res.status(400).json({
         success: false,
@@ -95,6 +50,7 @@ async function getAllUsers(req, res) {
       });
     }
 
+    // Validate the page size.
     if (limit === null || limit > 100) {
       return res.status(400).json({
         success: false,
@@ -102,10 +58,10 @@ async function getAllUsers(req, res) {
       });
     }
 
+    // Calculate the starting position for pagination.
     const offset = (page - 1) * limit;
 
-    // Reject pagination values that exceed JavaScript's
-    // safe integer range.
+    // Prevent extremely large pagination values.
     if (!Number.isSafeInteger(offset)) {
       return res.status(400).json({
         success: false,
@@ -113,6 +69,7 @@ async function getAllUsers(req, res) {
       });
     }
 
+    // Query users for the current page.
     const usersQuery = `
       SELECT
         id,
@@ -126,13 +83,13 @@ async function getAllUsers(req, res) {
       OFFSET $2;
     `;
 
+    // Query the total number of users.
     const countQuery = `
       SELECT COUNT(*)::INTEGER AS total
       FROM users;
     `;
 
-    // These queries do not depend on each other, so they
-    // can run at the same time.
+    // Run both queries in parallel for better performance.
     const [usersResult, countResult] = await Promise.all([
       pool.query(usersQuery, [limit, offset]),
       pool.query(countQuery),
@@ -140,11 +97,13 @@ async function getAllUsers(req, res) {
 
     const totalUsers = countResult.rows[0].total;
 
+    // Calculate pagination details.
     const totalPages =
       totalUsers === 0
         ? 0
         : Math.ceil(totalUsers / limit);
 
+    // Return the paginated response.
     return res.status(200).json({
       success: true,
       count: usersResult.rows.length,
@@ -166,22 +125,10 @@ async function getAllUsers(req, res) {
   }
 }
 
-
-// ======================================================
-// 4. GET USER BY ID
-// ======================================================
-//
-// Endpoint:
-//
-// GET /api/v1/users/:id
-//
-// Example:
-//
-// GET /api/v1/users/1
-//
-
+// Get a user by ID.
 async function getUserById(req, res) {
   try {
+    // Validate the user ID.
     const userId = parsePositiveInteger(req.params.id);
 
     if (userId === null) {
@@ -191,6 +138,7 @@ async function getUserById(req, res) {
       });
     }
 
+    // Find the user in the database.
     const result = await pool.query(
       `
         SELECT
@@ -205,6 +153,7 @@ async function getUserById(req, res) {
       [userId]
     );
 
+    // Return 404 if the user doesn't exist.
     if (result.rows.length === 0) {
       return res.status(404).json({
         success: false,
@@ -212,6 +161,7 @@ async function getUserById(req, res) {
       });
     }
 
+    // Return the requested user.
     return res.status(200).json({
       success: true,
       data: result.rows[0],
@@ -225,11 +175,6 @@ async function getUserById(req, res) {
     });
   }
 }
-
-
-// ======================================================
-// 5. EXPORT CONTROLLER FUNCTIONS
-// ======================================================
 
 module.exports = {
   getAllUsers,

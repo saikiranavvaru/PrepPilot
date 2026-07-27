@@ -3911,3 +3911,44 @@ Ready to implement secure login functionality and generate authentication tokens
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — JWT (JSON Web Token) Generation — (Module 4 Chapter 8) — (27/07/2026)
+
+### Goal
+
+Understand how JWT works and how it is used to maintain secure user authentication after login.
+
+---
+
+### Completed
+
+* Learned the purpose of JWT.
+* Studied JWT structure.
+* Understood Header, Payload, and Signature.
+* Learned how JWT is generated after login.
+* Understood token verification and expiration.
+* Learned how JWT is sent with API requests.
+
+---
+
+### Key Lessons
+
+JWT allows authenticated users to access protected resources without sending their password on every request. Secure token generation, verification, and expiration are essential parts of modern authentication systems.
+
+---
+
+### Project Milestone
+
+PrepPilot's authentication workflow now includes secure token-based authentication and is ready for middleware implementation.
+
+---
+
+### Result
+
+Prepared to implement JWT verification using authentication middleware in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

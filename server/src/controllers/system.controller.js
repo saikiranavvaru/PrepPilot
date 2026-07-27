@@ -1,48 +1,12 @@
-// ======================================================
-// SYSTEM CONTROLLER
-// ======================================================
-//
-// Handles system-level endpoints for PrepPilot.
-//
-// Current endpoints:
-//
-// GET /
-// GET /health
-// GET /health/database
-//
-// Responsibilities:
-//
-// 1. Return basic API information
-// 2. Report whether the Express application is running
-// 3. Check whether PostgreSQL is available
-//
+// System Controller
+
+// Handles system-related requests such as API information and health monitoring.
 // ======================================================
 
-
-// ======================================================
-// 1. IMPORT REQUIRED MODULES
-// ======================================================
-
-// Import the shared PostgreSQL connection pool.
 const pool = require("../config/database");
-
-// Read the application version from package.json.
 const { version } = require("../../package.json");
 
-
-// ======================================================
-// 2. GET API INFORMATION
-// ======================================================
-//
-// Endpoint:
-//
-// GET /
-//
-// Purpose:
-//
-// Returns basic public information about the PrepPilot API.
-//
-
+// Return basic information about the API.
 function getApiInformation(req, res) {
   return res.status(200).json({
     success: true,
@@ -54,21 +18,7 @@ function getApiInformation(req, res) {
   });
 }
 
-
-// ======================================================
-// 3. GET APPLICATION HEALTH
-// ======================================================
-//
-// Endpoint:
-//
-// GET /health
-//
-// Purpose:
-//
-// Confirms that the Node.js and Express application
-// is running successfully.
-//
-
+// Return the current application health.
 function getApplicationHealth(req, res) {
   return res.status(200).json({
     success: true,
@@ -76,31 +26,16 @@ function getApplicationHealth(req, res) {
     data: {
       service: process.env.APP_NAME || "PrepPilot API",
 
-      // Number of seconds the Node.js process has
-      // been running.
+      // Number of seconds the application has been running.
       uptimeSeconds: Math.floor(process.uptime()),
 
-      // Current server timestamp.
+      // Current server time.
       timestamp: new Date().toISOString(),
     },
   });
 }
 
-
-// ======================================================
-// 4. GET DATABASE HEALTH
-// ======================================================
-//
-// Endpoint:
-//
-// GET /health/database
-//
-// Purpose:
-//
-// Checks whether PrepPilot can communicate with
-// PostgreSQL.
-//
-
+// Check whether PostgreSQL is available.
 async function getDatabaseHealth(req, res) {
   try {
     const result = await pool.query(`
@@ -121,8 +56,7 @@ async function getDatabaseHealth(req, res) {
   } catch (error) {
     console.error("Database health-check error:", error);
 
-    // HTTP 503 means the Express server is running,
-    // but an important dependency is unavailable.
+    // Return 503 when the database is unavailable.
     return res.status(503).json({
       success: false,
       status: "unhealthy",
@@ -130,11 +64,6 @@ async function getDatabaseHealth(req, res) {
     });
   }
 }
-
-
-// ======================================================
-// 5. EXPORT CONTROLLER FUNCTIONS
-// ======================================================
 
 module.exports = {
   getApiInformation,

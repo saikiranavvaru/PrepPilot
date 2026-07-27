@@ -1715,3 +1715,33 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 8 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 8 — JWT (JSON Web Token) Generation (Date:-27-07-2026)
+
+Topics Covered:
+
+* Introduction to JWT.
+* Purpose of JWT in authentication.
+* JWT structure (Header, Payload, Signature).
+* JWT generation after successful login.
+* JWT verification process.
+* JWT expiration and secret key.
+* Sending JWT in the Authorization header.
+
+Milestone Achieved:
+
+* Understood how JWT maintains user authentication securely without requiring repeated logins.
+
+---
+
+Current Backend Status
+
+* Registration and Login workflows completed.
+* JWT authentication flow fully designed.
+* Ready to implement authentication middleware in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 9 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
