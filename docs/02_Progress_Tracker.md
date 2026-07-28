@@ -1745,3 +1745,34 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 9 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 9 — Authentication Middleware (Date:-28-07-2026)
+
+Topics Covered:
+
+* Introduction to Express Middleware.
+* Purpose of Authentication Middleware.
+* JWT verification process.
+* Reading JWT from the Authorization header.
+* Using `req.user`.
+* Understanding `next()`.
+* Public vs Protected routes.
+* Authentication request flow.
+
+Milestone Achieved:
+
+* Understood how middleware protects backend APIs by verifying user authentication before allowing access to protected resources.
+
+---
+
+Current Backend Status
+
+* JWT authentication workflow completed.
+* Authentication middleware architecture fully designed.
+* Ready to secure application routes in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 10 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

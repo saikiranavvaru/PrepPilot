@@ -3952,3 +3952,45 @@ Prepared to implement JWT verification using authentication middleware in the ne
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Authentication Middleware — (Module 4 Chapter 9) — (28/07/2026)
+
+### Goal
+
+Understand how authentication middleware verifies JWTs and protects private API routes.
+
+---
+
+### Completed
+
+* Learned the purpose of Express middleware.
+* Understood how JWT is verified.
+* Learned how middleware processes every request.
+* Studied the Authorization header.
+* Understood the use of `req.user`.
+* Learned the purpose of `next()`.
+* Differentiated public and protected routes.
+
+---
+
+### Key Lessons
+
+Authentication middleware centralizes JWT verification in one place, making backend applications cleaner, more secure, and easier to maintain.
+
+---
+
+### Project Milestone
+
+PrepPilot's authentication system is now designed to protect private APIs using middleware before executing route logic.
+
+---
+
+### Result
+
+Prepared to implement protected routes using authentication middleware in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

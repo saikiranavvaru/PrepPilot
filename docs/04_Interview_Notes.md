@@ -3783,3 +3783,68 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Authentication Middleware (Chapter 9)       (Date:-28-07-2026)
+
+## Questions
+
+### 1. What is middleware in Express?
+
+### 2. Why is authentication implemented using middleware?
+
+### 3. Where is the JWT usually sent by the client?
+
+### 4. What is the purpose of the Authorization header?
+
+### 5. What does `next()` do in middleware?
+
+### 6. What is `req.user` used for?
+
+### 7. What is the difference between public and protected routes?
+
+### 8. What happens when JWT verification fails?
+
+---
+
+## Important Concepts
+
+```text
+• Express Middleware
+• Authentication Middleware
+• JWT Verification
+• Authorization Header
+• Bearer Token
+• req.user
+• next()
+• Public Routes
+• Protected Routes
+• HTTP 401 Unauthorized
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Middleware executes before the route handler.
+
+✔ Authentication middleware verifies the JWT.
+
+✔ JWT is sent through the Authorization header.
+
+✔ Store authenticated user information in req.user.
+
+✔ Call next() only after successful verification.
+
+✔ Return HTTP 401 for invalid or expired tokens.
+
+✔ Public routes don't require authentication.
+
+✔ Protected routes can only be accessed by authenticated users.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
