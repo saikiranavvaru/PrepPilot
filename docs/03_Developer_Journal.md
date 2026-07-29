@@ -3994,3 +3994,43 @@ Prepared to implement protected routes using authentication middleware in the ne
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Protected Routes — (Module 4 Chapter 10) — (29/07/2026)
+
+### Goal
+
+Understand how protected routes work with authentication middleware to secure private APIs.
+
+---
+
+### Completed
+
+* Learned the purpose of protected routes.
+* Understood the difference between public and protected APIs.
+* Studied how middleware controls route access.
+* Learned how `req.user` identifies authenticated users.
+* Understood the complete request lifecycle for protected APIs.
+
+---
+
+### Key Lessons
+
+Protected routes ensure that only authenticated users can access personal data. By combining JWT authentication with middleware, backend applications provide secure and scalable access control.
+
+---
+
+### Project Milestone
+
+PrepPilot's authentication flow is now designed to securely protect user-specific APIs before business logic is executed.
+
+---
+
+### Result
+
+Prepared to implement authorization and resource ownership for authenticated users.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

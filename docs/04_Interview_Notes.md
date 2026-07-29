@@ -3848,3 +3848,68 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Protected Routes (Chapter 10)       (Date:-29-07-2026)
+
+## Questions
+
+### 1. What is a protected route?
+
+### 2. What is the difference between a public route and a protected route?
+
+### 3. Why should the Dashboard API be protected?
+
+### 4. How does authentication middleware protect a route?
+
+### 5. What is the purpose of `req.user`?
+
+### 6. Why shouldn't the backend trust a user ID sent from the frontend?
+
+### 7. What happens when an unauthenticated user accesses a protected route?
+
+### 8. Why are protected routes important in backend security?
+
+---
+
+## Important Concepts
+
+```text
+• Protected Routes
+• Public Routes
+• Authentication Middleware
+• JWT Verification
+• Authorization Header
+• req.user
+• Route Protection
+• HTTP 401 Unauthorized
+• Request Lifecycle
+• User Authentication
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Protected routes require a valid JWT.
+
+✔ Public routes can be accessed without authentication.
+
+✔ Middleware verifies JWT before reaching the route.
+
+✔ req.user stores the authenticated user's information.
+
+✔ Never trust user IDs received directly from the client.
+
+✔ Return HTTP 401 for unauthorized requests.
+
+✔ Protect all user-specific APIs.
+
+✔ Secure routes improve application security and user privacy.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1776,3 +1776,33 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 10 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 10 — Protected Routes (Date:-29-07-2026)
+
+Topics Covered:
+
+* Introduction to Protected Routes.
+* Public vs Protected APIs.
+* Authentication Middleware integration.
+* JWT verification before route access.
+* Using `req.user` in protected routes.
+* Secure request lifecycle.
+* Protecting user-specific resources.
+
+Milestone Achieved:
+
+* Understood how protected routes ensure that only authenticated users can access private resources in PrepPilot.
+
+---
+
+Current Backend Status
+
+* Authentication Middleware completed.
+* Protected route architecture fully designed.
+* Ready to implement authorization and resource ownership in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 11 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
