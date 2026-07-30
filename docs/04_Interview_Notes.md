@@ -3913,3 +3913,68 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Authorization & Resource Ownership (Chapter 11)       (Date:-30-07-2026)
+
+## Questions
+
+### 1. What is the difference between authentication and authorization?
+
+### 2. What is resource ownership?
+
+### 3. Why should the backend use `req.user.id` instead of trusting user IDs from the client?
+
+### 4. When should HTTP 403 Forbidden be returned?
+
+### 5. What is the difference between HTTP 401 and HTTP 403?
+
+### 6. Why is authorization important in backend applications?
+
+### 7. How does resource ownership improve security?
+
+### 8. What is the correct authorization workflow after JWT verification?
+
+---
+
+## Important Concepts
+
+```text
+• Authentication
+• Authorization
+• Resource Ownership
+• req.user.id
+• JWT Verification
+• Ownership Validation
+• HTTP 401 Unauthorized
+• HTTP 403 Forbidden
+• User-specific Resources
+• Secure Access Control
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Authentication verifies the user's identity.
+
+✔ Authorization verifies the user's permissions.
+
+✔ Every protected resource should have an owner.
+
+✔ Use req.user.id for ownership checks.
+
+✔ Never trust user IDs received from the client.
+
+✔ Return HTTP 401 for unauthenticated requests.
+
+✔ Return HTTP 403 when access is denied after authentication.
+
+✔ Always verify ownership before returning user-specific data.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1806,3 +1806,33 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 11 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 11 — Authorization & Resource Ownership (Date:-30-07-2026)
+
+Topics Covered:
+
+* Authentication vs Authorization.
+* Resource Ownership.
+* User-specific data protection.
+* Ownership verification using `req.user.id`.
+* HTTP 401 vs HTTP 403.
+* Secure authorization workflow.
+* Protecting user resources in PrepPilot.
+
+Milestone Achieved:
+
+* Understood how authorization ensures authenticated users can only access their own resources.
+
+---
+
+Current Backend Status
+
+* Authentication system fully designed.
+* Authorization workflow completed.
+* Ready to implement global error handling in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 12 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

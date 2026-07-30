@@ -4034,3 +4034,43 @@ Prepared to implement authorization and resource ownership for authenticated use
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Authorization & Resource Ownership — (Module 4 Chapter 11) — (30/07/2026)
+
+### Goal
+
+Understand how backend applications authorize authenticated users and enforce resource ownership.
+
+---
+
+### Completed
+
+* Learned the difference between authentication and authorization.
+* Understood resource ownership.
+* Studied ownership verification using `req.user.id`.
+* Learned when to return HTTP 403 Forbidden.
+* Understood how authorization protects user-specific resources.
+
+---
+
+### Key Lessons
+
+Authentication identifies the user, while authorization determines what the user is allowed to access. Every protected resource should verify ownership before returning data.
+
+---
+
+### Project Milestone
+
+PrepPilot's authentication system now includes proper authorization and resource ownership, ensuring users can only access their own data.
+
+---
+
+### Result
+
+Prepared to implement centralized error handling for the authentication system.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
