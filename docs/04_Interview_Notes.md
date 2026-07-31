@@ -3978,3 +3978,68 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Global Error Handling (Chapter 12)       (Date:-31-07-2026)
+
+## Questions
+
+### 1. What is Global Error Handling?
+
+### 2. Why is centralized error handling preferred over handling errors in every route?
+
+### 3. Why should backend applications return consistent error responses?
+
+### 4. Why should stack traces never be exposed to users?
+
+### 5. Where should detailed error information be stored?
+
+### 6. What HTTP status code is commonly returned for unexpected server errors?
+
+### 7. What are the benefits of Global Error Handling?
+
+### 8. Why is Global Error Handling important for production applications?
+
+---
+
+## Important Concepts
+
+```text
+• Global Error Handling
+• Centralized Error Processing
+• Error Logging
+• Consistent API Responses
+• Secure Error Messages
+• HTTP Status Codes
+• Internal Server Error
+• Express Error Handler
+• Backend Reliability
+• Application Security
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Global Error Handling centralizes error management.
+
+✔ Return consistent error responses across all APIs.
+
+✔ Never expose stack traces or internal details to users.
+
+✔ Store detailed error information in server logs.
+
+✔ Return the correct HTTP status code for every error.
+
+✔ Use HTTP 500 for unexpected server errors.
+
+✔ Centralized error handling improves security and maintainability.
+
+✔ Every production backend should include a global error handler.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -4074,3 +4074,45 @@ Prepared to implement centralized error handling for the authentication system.
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Global Error Handling — (Module 4 Chapter 12) — (31/07/2026)
+
+### Goal
+
+Understand how production backend applications manage errors through a centralized error handling system.
+
+---
+
+### Completed
+
+* Learned the purpose of global error handling.
+* Understood different types of backend errors.
+* Studied centralized error processing.
+* Learned how to return consistent API error responses.
+* Understood secure error messaging.
+* Learned the importance of error logging.
+* Reviewed common HTTP error status codes.
+
+---
+
+### Key Lessons
+
+Global error handling centralizes error management, prevents duplicate code, improves debugging, and ensures secure, consistent API responses across the entire application.
+
+---
+
+### Project Milestone
+
+PrepPilot's backend architecture now includes a standardized error handling strategy for all current and future APIs.
+
+---
+
+### Result
+
+Prepared to implement production-level authentication security practices in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

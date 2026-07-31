@@ -1836,3 +1836,33 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 12 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 12 — Global Error Handling (Date:-31-07-2026)
+
+Topics Covered:
+
+* Introduction to Global Error Handling.
+* Understanding backend errors.
+* Centralized error handling in Express.
+* Consistent API error responses.
+* Secure error messaging.
+* Error logging.
+* Standard HTTP error status codes.
+
+Milestone Achieved:
+
+* Understood how centralized error handling improves backend reliability, security, and maintainability.
+
+---
+
+Current Backend Status
+
+* Authentication and authorization architecture completed.
+* Global error handling strategy established.
+* Ready to strengthen authentication security in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 13 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
