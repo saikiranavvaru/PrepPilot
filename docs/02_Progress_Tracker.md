@@ -1866,3 +1866,35 @@ Current Backend Status
 Next Update: After Module 4 — Chapter 13 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 13 — Authentication Security Best Practices (Date:-01-08-2026)
+
+Topics Covered:
+
+* Strong password policies.
+* Secure management of JWT secrets.
+* Environment variables (`.env`).
+* JWT expiration.
+* HTTPS for secure communication.
+* Brute-force attack prevention.
+* Secure API responses.
+* Principle of Least Privilege.
+* Request validation and dependency updates.
+
+Milestone Achieved:
+
+* Understood the essential security practices required to build a production-ready authentication system.
+
+---
+
+Current Backend Status
+
+* Authentication system fully designed.
+* Security best practices established.
+* Ready to test the complete authentication workflow in the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Chapter 14 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

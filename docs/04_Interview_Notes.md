@@ -4043,3 +4043,68 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Authentication Security Best Practices (Chapter 13)       (Date:-01-08-2026)
+
+## Questions
+
+### 1. Why should JWT secrets never be hardcoded?
+
+### 2. Why should `.env` files never be committed to GitHub?
+
+### 3. Why should JWTs have an expiration time?
+
+### 4. Why is HTTPS important for authentication?
+
+### 5. What is a brute-force attack?
+
+### 6. What is the Principle of Least Privilege?
+
+### 7. Why should password hashes never be returned in API responses?
+
+### 8. Why should the backend use `req.user.id` instead of trusting client-provided IDs?
+
+---
+
+## Important Concepts
+
+```text
+• Password Security
+• JWT Secret
+• Environment Variables (.env)
+• JWT Expiration
+• HTTPS
+• Brute-force Protection
+• Principle of Least Privilege
+• Secure API Responses
+• Request Validation
+• Dependency Updates
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ Store secrets in .env, never in source code.
+
+✔ Never commit .env files to GitHub.
+
+✔ Use strong password policies.
+
+✔ Configure JWT expiration.
+
+✔ Use HTTPS in production.
+
+✔ Prevent brute-force attacks.
+
+✔ Never expose sensitive data in API responses.
+
+✔ Always trust req.user.id instead of client-provided IDs.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

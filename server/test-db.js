@@ -1,52 +1,16 @@
-// ======================================================
-// DATABASE CONNECTION TEST
-// ======================================================
-//
-// This file tests whether Node.js can successfully
-// connect to the PrepPilot PostgreSQL database.
-//
-// Run this file using:
-//
-// node test-db.js
-//
-// This is a standalone testing file. It does not start
-// the Express server.
-//
-// ======================================================
+// Database Connection Test
 
-
+// Verifies that the application can connect to the PostgreSQL database.
 // ======================================================
-// 1. LOAD ENVIRONMENT VARIABLES
-// ======================================================
-//
-// Load variables from .env into process.env.
-//
-// This must happen before importing database.js because
-// database.js uses the database environment variables.
-//
 
 require("dotenv").config();
 
-
-// ======================================================
-// 2. IMPORT DATABASE CONNECTION POOL
-// ======================================================
-
 const pool = require("./src/config/database");
 
-
-// ======================================================
-// 3. TEST DATABASE CONNECTION
-// ======================================================
-
+// Test the database connection.
 async function testDatabaseConnection() {
   try {
-    // Execute a simple PostgreSQL query.
-    //
-    // current_database() returns the connected database.
-    // current_user returns the PostgreSQL user.
-    // NOW() returns the current PostgreSQL date and time.
-
+    // Execute a simple query to verify the connection.
     const result = await pool.query(`
       SELECT
         current_database() AS database_name,
@@ -64,21 +28,13 @@ async function testDatabaseConnection() {
     console.error("❌ PostgreSQL connection failed!");
     console.error("Reason:", error.message);
 
-    // Marks the command as failed while still allowing
-    // the finally block to close the connection pool.
+    // Exit with a failure status code.
     process.exitCode = 1;
   } finally {
-    // This file only performs one connection test.
-    //
-    // Closing the pool allows the Node.js process to end
-    // cleanly after the test is complete.
+    // Close the connection pool before exiting.
     await pool.end();
   }
 }
 
-
-// ======================================================
-// 4. RUN DATABASE TEST
-// ======================================================
-
+// Run the connection test.
 testDatabaseConnection();
