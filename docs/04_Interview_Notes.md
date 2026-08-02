@@ -4108,3 +4108,72 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Testing Authentication APIs & Implementation Planning (Chapter 14)       (Date:-02-08-2026)
+
+## Questions
+
+### 1. What is API testing?
+
+### 2. What is the difference between positive and negative testing?
+
+### 3. Which authentication scenarios should be tested during registration?
+
+### 4. Which authentication scenarios should be tested during login?
+
+### 5. How should valid, missing, modified, and expired JWTs be tested?
+
+### 6. Why must authorization be tested separately from authentication?
+
+### 7. Why can authentication testing not be completed before the real endpoints are implemented?
+
+### 8. What should happen before authentication code is considered production-ready?
+
+---
+
+## Important Concepts
+
+```text
+• API Testing
+• Positive Test Cases
+• Negative Test Cases
+• Registration Testing
+• Login Testing
+• JWT Testing
+• Protected Route Testing
+• Authorization Testing
+• Error Response Testing
+• Authentication Implementation
+• Express Controllers and Routes
+• PostgreSQL Integration
+• Refactoring
+• Production Release
+```
+
+---
+
+## Revision Notes
+
+```text
+✔ API testing verifies real backend behavior.
+
+✔ Both successful and failed scenarios must be tested.
+
+✔ Authentication theory alone does not complete the feature.
+
+✔ Registration and login endpoints must exist before they can be tested.
+
+✔ JWT middleware and protected routes must be implemented before access-control testing.
+
+✔ Authorization must confirm that users can only access their own resources.
+
+✔ Refactoring should happen after working implementation.
+
+✔ From the next phase onward, PrepPilot will focus on real authentication code and testing.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Lesson ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

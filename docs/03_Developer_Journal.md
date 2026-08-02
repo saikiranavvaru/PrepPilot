@@ -4159,3 +4159,75 @@ Ready to test the complete authentication system before final refactoring and mo
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Testing Authentication APIs & Corrected Implementation Plan — (Module 4 Chapter 14) — (02/08/2026)
+
+### Goal
+
+Understand how authentication APIs should be tested and review whether PrepPilot currently contains the working authentication features required for real testing.
+
+---
+
+### Completed
+
+* Studied positive and negative authentication test cases.
+* Reviewed testing requirements for registration, login, JWTs, protected routes, authorization, and error handling.
+* Re-examined the existing PrepPilot backend architecture.
+* Confirmed that Modules 1–3 created a real Express and PostgreSQL foundation.
+* Identified that Module 4 had focused too heavily on theory without implementing the planned authentication code.
+* Corrected the future development roadmap.
+
+---
+
+### Concepts Learned
+
+#### API Testing
+
+* Successful and failed requests must both be tested.
+* Status codes, response bodies, database changes, tokens, and access control must be verified.
+* Authentication cannot be considered complete until its actual endpoints are implemented and tested.
+
+#### Development Process
+
+* Architecture and theory are useful, but they must lead to working implementation.
+* Testing should happen after real features exist.
+* Refactoring and production review should happen only after implementation and testing.
+
+---
+
+### Key Lessons
+
+Module 4 has completed a broad authentication design phase, but the authentication system itself is not yet finished. The next stage must focus on writing and testing real code rather than continuing with theory-only chapters.
+
+---
+
+### Corrected Future Plan
+
+The implementation phase will proceed in this order:
+
+1. Registration API.
+2. Login API and JWT generation.
+3. Authentication middleware.
+4. Protected current-user endpoint.
+5. Authorization and resource ownership.
+6. Global error handling and security improvements.
+7. Real API testing.
+8. Refactoring, documentation, and release.
+
+---
+
+### Project Milestone
+
+PrepPilot now has a corrected and practical Module 4 direction based on its actual backend architecture.
+
+---
+
+### Result
+
+The authentication design phase is complete. From the next development step onward, PrepPilot will implement real authentication files, endpoints, middleware, database operations, testing, and production improvements.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
