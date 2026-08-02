@@ -4231,3 +4231,77 @@ The authentication design phase is complete. From the next development step onwa
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — User Registration API — (Module 4 Implementation 1) — (02/08/2026)
+
+### Goal
+
+Implement a secure user registration system using Express, PostgreSQL, and bcrypt while following production-level backend practices.
+
+---
+
+### Completed
+
+* Created authentication routes.
+* Created authentication controller.
+* Implemented the registration endpoint.
+* Added request validation.
+* Normalized email addresses.
+* Trimmed user names.
+* Prevented duplicate email registrations.
+* Hashed passwords using bcrypt.
+* Stored users securely in PostgreSQL.
+* Returned safe JSON responses.
+* Tested successful and failure scenarios using Postman.
+* Verified bcrypt hashes inside PostgreSQL.
+
+---
+
+### Concepts Learned
+
+#### Authentication
+
+* User Registration
+* Password Hashing
+* bcrypt
+* Input Validation
+
+#### Database
+
+* Parameterized Queries
+* Duplicate Record Prevention
+* Secure Password Storage
+
+#### API Development
+
+* REST Endpoint Design
+* HTTP Status Codes
+* Safe API Responses
+
+---
+
+### Key Lessons
+
+Passwords should never be stored in plain text. Every user password must be securely hashed before being saved in the database. Authentication endpoints should validate input, prevent duplicate accounts, and return only safe user information.
+
+---
+
+### Project Milestone
+
+Successfully completed the first authentication implementation for PrepPilot.
+
+Established the foundation required for secure user login and JWT authentication.
+
+---
+
+### Result
+
+Implementation 1 completed successfully.
+
+PrepPilot now supports secure user registration using Express, PostgreSQL, and bcrypt.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

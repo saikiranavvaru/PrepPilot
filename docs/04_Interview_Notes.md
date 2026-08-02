@@ -4177,3 +4177,76 @@ Continue Updating After Every Lesson ✅
 Continue Updating After Every Lesson ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Authentication Implementation (Implementation 1)       (Date:-02-08-2026)
+
+## Questions
+
+### 1. Why should passwords never be stored in plain text?
+
+### 2. What is bcrypt?
+
+### 3. Why do we hash passwords before storing them?
+
+### 4. What is a salt in bcrypt?
+
+### 5. Why are parameterized SQL queries important?
+
+### 6. Why should email addresses be normalized before storing them?
+
+### 7. Why should duplicate email registrations be prevented?
+
+### 8. Why should password hashes never be returned in API responses?
+
+### 9. What HTTP status code should a successful registration return?
+
+### 10. How do you verify that a password has been stored securely in PostgreSQL?
+
+---
+
+## Important Concepts
+
+```text
+User Registration
+Authentication
+bcrypt
+Password Hashing
+Salt Rounds
+Input Validation
+Email Normalization
+Duplicate Email Validation
+Parameterized Queries
+REST API
+HTTP Status Codes
+PostgreSQL
+```
+
+---
+
+## Revision Notes
+
+```text
+Passwords must always be hashed before storage.
+
+bcrypt generates secure password hashes.
+
+Registration should validate all incoming data.
+
+Email addresses should be normalized.
+
+Duplicate accounts should be prevented.
+
+Parameterized queries protect against SQL Injection.
+
+Successful registration returns HTTP 201.
+
+Password hashes should never be returned in API responses.
+
+Always verify stored hashes directly in PostgreSQL during testing.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Implementation ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

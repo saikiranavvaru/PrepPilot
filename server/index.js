@@ -43,6 +43,7 @@ const pool = require("./src/config/database");
 // Application route files.
 const systemRoutes = require("./src/routes/system.routes");
 const usersRoutes = require("./src/routes/users.routes");
+const authRoutes = require("./src/routes/auth.routes");
 
 
 // ======================================================
@@ -111,6 +112,12 @@ app.use("/", systemRoutes);
 
 app.use("/api/v1/users", usersRoutes);
 
+// Authentication routes:
+//
+// POST /api/v1/auth/register
+//
+
+app.use("/api/v1/auth", authRoutes);
 
 // ======================================================
 // 7. HANDLE UNKNOWN ROUTES
