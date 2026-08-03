@@ -1,16 +1,10 @@
-// ======================================================
-// AUTHENTICATION CONTROLLER
-// ======================================================
-//
+// Authentication Controller
+
 // Handles authentication-related requests.
-//
-// Current responsibility:
-//
-// POST /api/v1/auth/register
-//
 // ======================================================
 
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const validator = require("validator");
 
 const pool = require("../config/database");
@@ -19,10 +13,8 @@ const SALT_ROUNDS = 10;
 const MIN_PASSWORD_LENGTH = 8;
 const MAX_PASSWORD_BYTES = 72;
 
-
 // ======================================================
-// REGISTER USER
-// ======================================================
+// Register User
 
 async function registerUser(req, res) {
   try {
@@ -162,7 +154,135 @@ async function registerUser(req, res) {
   }
 }
 
+// ======================================================
+// Login User
+
+async function loginUser(req, res) {
+  try {
+    const { email, password } = req.body;
+
+    // Validate required fields and data types.
+    if (
+      typeof email !== "string" ||
+      typeof password !== "string"
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required",
+      });
+    }
+
+    const normalizedEmail =
+      validator.normalizeEmail(email.trim()) || "";
+
+    // Validate email.
+    if (!validator.isEmail(normalizedEmail)) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide a valid email address",
+      });
+    }
+
+    // Prevent empty passwords.
+    if (password.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required",
+      });
+    }
+
+    // Find the user by normalized email.
+    const result = await pool.query(
+      `
+        SELECT
+          id,
+          name,
+          email,
+          password_hash,
+          is_verified,
+          is_active,
+          created_at,
+          updated_at
+        FROM users
+        WHERE email = $1;
+      `,
+      [normalizedEmail]
+    );
+
+    const user = result.rows[0];
+
+    // Use a generic response to avoid revealing
+    // whether an email address is registered.
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
+    // Compare the submitted password with the bcrypt hash.
+    const passwordMatches = await bcrypt.compare(
+      password,
+      user.password_hash
+    );
+
+    if (!passwordMatches) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
+    // Prevent disabled accounts from logging in.
+    if (!user.is_active) {
+      return res.status(403).json({
+        success: false,
+        message: "This account is inactive",
+      });
+    }
+
+    if (!process.env.JWT_SECRET) {
+      throw new Error("JWT_SECRET is not configured");
+    }
+
+    // Generate a signed access token.
+    const token = jwt.sign(
+      {
+        sub: user.id,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: process.env.JWT_EXPIRES_IN || "1h",
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Login successful",
+      data: {
+        token,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          is_verified: user.is_verified,
+          is_active: user.is_active,
+          created_at: user.created_at,
+          updated_at: user.updated_at,
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Login user error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to log in",
+    });
+  }
+}
 
 module.exports = {
   registerUser,
+  loginUser,
 };

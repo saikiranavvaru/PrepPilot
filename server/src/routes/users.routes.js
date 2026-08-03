@@ -11,9 +11,6 @@
 
 // Controller:
 // src/controllers/users.controller.js
-
-// Note:
-// These routes will be protected with authentication and authorization in Module 4.
 // ======================================================
 
 const express = require("express");
