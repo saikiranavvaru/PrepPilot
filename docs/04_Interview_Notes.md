@@ -4250,3 +4250,74 @@ Always verify stored hashes directly in PostgreSQL during testing.
 Continue Updating After Every Implementation ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 4 — Authentication Implementation (Implementation 2)       (Date:-03-08-2026)
+
+## Questions
+
+### 1. Why is bcrypt.compare() used instead of comparing plain-text passwords?
+
+### 2. What is a JSON Web Token (JWT)?
+
+### 3. Why should JWT_SECRET be stored in an environment variable?
+
+### 4. Why should login return a generic "Invalid email or password" message?
+
+### 5. Why should inactive users be prevented from logging in?
+
+### 6. What information should be stored inside a JWT payload?
+
+### 7. Why should password hashes never be returned in login responses?
+
+### 8. What HTTP status code should a successful login return?
+
+### 9. Why do JWTs have expiration times?
+
+### 10. How does JWT authentication differ from session-based authentication?
+
+---
+
+## Important Concepts
+
+```text
+User Login
+Authentication
+bcrypt.compare()
+JSON Web Token (JWT)
+JWT_SECRET
+JWT Expiration
+Environment Variables
+Password Verification
+Authentication Flow
+HTTP Status Codes
+Secure API Responses
+PostgreSQL
+```
+
+---
+
+## Revision Notes
+
+```text
+Login verifies user credentials securely.
+
+bcrypt.compare() compares plain passwords with stored hashes.
+
+JWT provides stateless authentication.
+
+JWT_SECRET signs and verifies tokens.
+
+JWTs should always have expiration times.
+
+Inactive users should not be allowed to log in.
+
+Password hashes should never be returned in API responses.
+
+Successful login returns HTTP 200 with a signed JWT.
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Continue Updating After Every Implementation ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

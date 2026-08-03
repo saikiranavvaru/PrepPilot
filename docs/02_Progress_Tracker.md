@@ -1984,3 +1984,43 @@ Current Backend Status
 Next Update: After Module 4 — Implementation 2 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Implementation 2 — User Login and JWT Generation (Date:-03-08-2026)
+
+Topics Covered:
+
+* Implemented the user login endpoint.
+* Added login route to the authentication module.
+* Validated login request data.
+* Normalized email addresses before database lookup.
+* Retrieved users securely from PostgreSQL.
+* Compared passwords using bcrypt.
+* Prevented inactive users from logging in.
+* Generated JWT access tokens.
+* Configured JWT secret and expiration using environment variables.
+* Returned safe login responses without exposing password hashes.
+* Performed positive and negative API testing using Postman.
+* Verified JWT generation and account status validation.
+
+Milestone Achieved:
+
+* Successfully implemented secure user login.
+* Established JWT-based authentication for PrepPilot.
+* Completed production-style login validation and token generation.
+* Verified secure authentication flow through testing.
+
+---
+
+Current Backend Status
+
+* User registration and login are fully functional.
+* Password verification is handled securely using bcrypt.
+* JWT tokens are generated successfully after login.
+* Authentication module now supports secure account creation and login.
+* PrepPilot is ready to implement authentication middleware and protected routes.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next Update: After Module 4 — Implementation 3 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

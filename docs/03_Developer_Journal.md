@@ -4305,3 +4305,77 @@ PrepPilot now supports secure user registration using Express, PostgreSQL, and b
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — User Login and JWT Generation — (Module 4 Implementation 2) — (03/08/2026)
+
+### Goal
+
+Implement secure user login using Express, PostgreSQL, bcrypt, and JSON Web Tokens while following production-level authentication practices.
+
+---
+
+### Completed
+
+* Added login route.
+* Implemented login controller.
+* Validated login requests.
+* Normalized email addresses.
+* Retrieved users securely from PostgreSQL.
+* Compared passwords using bcrypt.
+* Prevented inactive users from logging in.
+* Generated JWT access tokens.
+* Loaded JWT configuration from environment variables.
+* Returned secure login responses.
+* Tested successful and failure scenarios using Postman.
+* Verified JWT generation and authentication flow.
+
+---
+
+### Concepts Learned
+
+#### Authentication
+
+* User Login
+* Password Verification
+* bcrypt.compare()
+* JWT Authentication
+
+#### Security
+
+* JSON Web Tokens
+* Environment Variables
+* Account Status Validation
+
+#### API Development
+
+* Authentication Responses
+* HTTP Status Codes
+* Secure Login Flow
+
+---
+
+### Key Lessons
+
+User authentication requires verifying credentials securely before granting access. Passwords should always be compared using bcrypt, and authenticated users should receive signed JWT tokens instead of exposing sensitive information.
+
+---
+
+### Project Milestone
+
+Successfully completed secure login functionality for PrepPilot.
+
+Established the authentication foundation required for protected routes and authorization.
+
+---
+
+### Result
+
+Implementation 2 completed successfully.
+
+PrepPilot now supports secure user registration and JWT-based login authentication.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Journal Entry Complete ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
