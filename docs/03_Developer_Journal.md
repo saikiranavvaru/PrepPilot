@@ -4379,3 +4379,153 @@ PrepPilot now supports secure user registration and JWT-based login authenticati
 Journal Entry Complete ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Implementation 3 — Authentication Middleware & Protected Routes
+
+Date:
+<04-08-2026>
+
+---
+
+## Goal
+
+The goal of this implementation was to build a reusable authentication layer capable of protecting private API endpoints across the PrepPilot backend.
+
+Instead of implementing authentication logic inside every controller, Express middleware was used to centralize authentication responsibilities.
+
+---
+
+## Work Completed
+
+Successfully implemented a reusable authentication middleware capable of:
+
+- Reading the Authorization header.
+- Validating Bearer token format.
+- Verifying JWT using jsonwebtoken.
+- Extracting authenticated user ID from the token payload.
+- Retrieving authenticated user details from PostgreSQL.
+- Rejecting inactive accounts.
+- Attaching authenticated user information to req.user.
+- Passing control to the next middleware or controller using next().
+
+Also implemented the first protected endpoint:
+
+GET /api/v1/auth/me
+
+This endpoint returns information about the currently authenticated user.
+
+---
+
+## Authentication Flow
+
+Incoming Request
+
+↓
+
+Authorization Header
+
+↓
+
+Extract Bearer Token
+
+↓
+
+Verify JWT
+
+↓
+
+Extract User ID
+
+↓
+
+Query PostgreSQL
+
+↓
+
+Check Active Status
+
+↓
+
+Attach User to req.user
+
+↓
+
+Controller Executes
+
+↓
+
+Response Returned
+
+---
+
+## Challenges Faced
+
+- Initially forgot to export getCurrentUser().
+- Forgot to import getCurrentUser inside auth.routes.js.
+- Fixed SQL syntax mistakes during testing.
+- Understood how Express middleware executes before controllers.
+- Learned why middleware should handle authentication instead of controllers.
+
+---
+
+## Key Learnings
+
+### Authentication vs Authorization
+
+Authentication verifies identity.
+
+Authorization verifies permissions.
+
+---
+
+### Express Middleware
+
+Middleware executes before controllers and can stop or continue the request lifecycle.
+
+---
+
+### JWT
+
+JWT stores user identity securely and allows stateless authentication.
+
+---
+
+### req.user
+
+Authenticated user information should be attached to req.user so every protected controller can access it without repeating database queries.
+
+---
+
+### Security
+
+Never trust client input.
+
+Always verify JWT.
+
+Always validate authenticated users against the database.
+
+Always reject inactive users.
+
+---
+
+## Testing Summary
+
+Successfully tested:
+
+✅ Valid Token
+
+✅ Missing Token
+
+✅ Invalid Token
+
+✅ Corrupted Token
+
+✅ Expired Token
+
+✅ Inactive Account
+
+---
+
+## Outcome
+
+PrepPilot now supports secure JWT authentication middleware capable of protecting any future private API endpoint using a single reusable middleware function.

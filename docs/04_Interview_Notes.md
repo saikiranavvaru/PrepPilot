@@ -4321,3 +4321,73 @@ Successful login returns HTTP 200 with a signed JWT.
 Continue Updating After Every Implementation ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Authentication Middleware & Protected Routes
+
+## Core Concepts
+
+1. What is authentication?
+2. What is authorization?
+3. Explain JWT.
+4. What are the three parts of a JWT?
+5. Why should JWT be verified?
+6. Why should authentication be implemented as middleware?
+7. What is Express middleware?
+8. What does next() do?
+9. What happens if next() is never called?
+10. Why attach the authenticated user to req.user?
+
+---
+
+## Express & Middleware
+
+11. Explain Express request lifecycle.
+12. What is the purpose of middleware chaining?
+13. Difference between app.use() and router.use().
+14. How do protected routes work?
+15. Why is middleware reusable?
+
+---
+
+## JWT Security
+
+16. What happens if a JWT is modified?
+17. Why should JWT contain only minimal information?
+18. Why should secrets never be exposed?
+19. Difference between JWT decoding and JWT verification.
+20. Why should JWT have an expiration time?
+
+---
+
+## Database
+
+21. Why query the database after verifying JWT?
+22. Why check is_active?
+23. Why should deleted users be rejected?
+24. What would happen if the user no longer exists?
+
+---
+
+## API Design
+
+25. Why is GET /api/v1/auth/me preferred over GET /users/:id?
+26. Why is the Authorization header used?
+27. Why use the Bearer authentication scheme?
+
+---
+
+## HTTP Status Codes
+
+28. When should 200 be returned?
+29. When should 401 be returned?
+30. When should 403 be returned?
+
+---
+
+## Practical Coding
+
+31. How do you verify a JWT in Node.js?
+32. How do you create authentication middleware?
+33. How do you protect an Express route?
+34. How would you test JWT authentication in Postman?
+35. Explain the complete authentication flow implemented in PrepPilot.

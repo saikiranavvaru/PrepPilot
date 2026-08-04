@@ -2024,3 +2024,95 @@ Current Backend Status
 Next Update: After Module 4 — Implementation 3 ✅
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Implementation 3 — Authentication Middleware & Protected Routes 
+
+## Status
+
+✅ Completed
+
+---
+
+## Objective
+
+The objective of this implementation was to secure PrepPilot's private API endpoints using JWT-based authentication middleware. Instead of repeating authentication logic inside every controller, a reusable middleware layer was introduced to validate requests before they reach protected business logic.
+
+---
+
+## Features Implemented
+
+### Authentication Middleware
+
+- Implemented reusable Express authentication middleware.
+- Extracted JWT from the Authorization request header.
+- Validated Bearer token format.
+- Verified JWT signature using the application secret.
+- Checked JWT expiration.
+- Retrieved authenticated user from PostgreSQL.
+- Verified that the authenticated account is active.
+- Attached authenticated user information to `req.user`.
+- Prevented unauthorized requests from accessing protected routes.
+
+---
+
+### Protected Endpoint
+
+Implemented:
+
+GET /api/v1/auth/me
+
+Purpose:
+
+Returns the currently authenticated user's information without requiring the frontend to send the user ID.
+
+---
+
+## Security Features
+
+- Bearer Token Authentication
+- JWT Signature Verification
+- Token Expiration Validation
+- Active Account Verification
+- Unauthorized Request Protection
+- Reusable Authentication Layer
+
+---
+
+## Testing Completed
+
+### Positive Tests
+
+- Successfully accessed protected endpoint using a valid JWT.
+- Verified authenticated user information was returned correctly.
+
+### Negative Tests
+
+- Missing Authorization header
+- Invalid JWT
+- Corrupted JWT
+- Expired JWT
+- Inactive user account
+
+All tests passed successfully.
+
+---
+
+## Current Authentication Flow
+
+User Login
+↓
+JWT Generated
+↓
+Client stores JWT
+↓
+Protected Request
+↓
+Authentication Middleware
+↓
+JWT Verification
+↓
+Database User Validation
+↓
+req.user
+↓
+Protected Controller

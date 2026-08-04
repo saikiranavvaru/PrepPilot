@@ -17,7 +17,12 @@ const express = require("express");
 const {
   registerUser,
   loginUser,
+  getCurrentUser,
 } = require("../controllers/auth.controller");
+
+const {
+  authenticateUser,
+} = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
@@ -27,5 +32,6 @@ const router = express.Router();
 // Register a new PrepPilot user.
 router.post("/register", registerUser);
 router.post("/login", loginUser);
+router.get("/me", authenticateUser, getCurrentUser);
 
 module.exports = router;
