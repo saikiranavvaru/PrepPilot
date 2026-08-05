@@ -6,8 +6,8 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const validator = require("validator");
-
 const pool = require("../config/database");
+const {generateVerificationToken,} = require("../utils/token");
 
 const SALT_ROUNDS = 10;
 const MIN_PASSWORD_LENGTH = 8;
@@ -108,11 +108,24 @@ async function registerUser(req, res) {
       SALT_ROUNDS
     );
 
+    // Generate a verification token and set it to expire in 1 hour.
+    const verificationToken =
+  generateVerificationToken();
+
+const verificationTokenExpiresAt =
+  new Date(Date.now() + 60 * 60 * 1000);
+
     // Insert the new user using a parameterized query.
     const result = await pool.query(
   `
-    INSERT INTO users (name, email, password_hash)
-    VALUES ($1, $2, $3)
+    INSERT INTO users (
+      name,
+      email,
+      password_hash,
+      verification_token,
+      verification_token_expires_at
+    )
+    VALUES ($1, $2, $3, $4, $5)
     RETURNING
       id,
       name,
@@ -125,6 +138,8 @@ async function registerUser(req, res) {
     normalizedName,
     normalizedEmail,
     hashedPassword,
+    verificationToken,
+    verificationTokenExpiresAt,
   ]
 );
 
@@ -292,8 +307,88 @@ function getCurrentUser(req, res) {
   });
 }
 
+// ======================================================
+// Verify Email
+
+async function verifyEmail(req, res) {
+  try {
+    const { token } = req.query;
+
+    // Ensure a verification token is provided.
+    if (!token) {
+      return res.status(400).json({
+        success: false,
+        message: "Verification token is required",
+      });
+    }
+
+    // Find the user associated with the verification token.
+    const result = await pool.query(
+      `
+        SELECT
+          id,
+          verification_token,
+          verification_token_expires_at,
+          is_verified
+        FROM users
+        WHERE verification_token = $1;
+      `,
+      [token]
+    );
+
+    // Invalid or unknown token.
+    if (result.rows.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid verification token",
+      });
+    }
+
+    const user = result.rows[0];
+
+    // Check whether the verification token has expired.
+    if (
+      user.verification_token_expires_at &&
+      user.verification_token_expires_at < new Date()
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Verification token has expired",
+      });
+    }
+
+    // Mark the user's email as verified and invalidate the verification token.
+await pool.query(
+  `
+    UPDATE users
+    SET
+      is_verified = TRUE,
+      verification_token = NULL,
+      verification_token_expires_at = NULL,
+      updated_at = CURRENT_TIMESTAMP
+    WHERE id = $1;
+  `,
+  [user.id]
+);
+
+return res.status(200).json({
+  success: true,
+  message: "Email verified successfully",
+});
+
+  } catch (error) {
+    console.error("Verify email error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to verify email",
+    });
+  }
+}
+
 module.exports = {
   registerUser,
   loginUser,
   getCurrentUser,
+  verifyEmail,
 };

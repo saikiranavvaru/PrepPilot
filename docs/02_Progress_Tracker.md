@@ -2116,3 +2116,40 @@ Database User Validation
 req.user
 ↓
 Protected Controller
+
+## ✅ Module 4 – Implementation 4: Email Verification Backend
+
+**Status:** Completed ✅
+
+### Objective
+Implemented the backend email verification workflow to ensure newly registered users can verify ownership of their email address before gaining full access to application features.
+
+### Features Implemented
+- Extended the `users` table with email verification fields.
+- Added secure verification token generation using Node.js `crypto`.
+- Generated a unique verification token during user registration.
+- Stored verification tokens and expiration timestamps in PostgreSQL.
+- Implemented the `GET /api/v1/auth/verify-email` endpoint.
+- Validated missing, invalid, and expired verification tokens.
+- Updated user verification status after successful verification.
+- Cleared verification tokens after successful verification to prevent reuse.
+- Updated the `updated_at` timestamp after account verification.
+
+### Testing Completed
+- Successfully verified a valid verification token.
+- Rejected requests without a verification token.
+- Rejected invalid verification tokens.
+- Prevented reuse of previously verified tokens.
+- Rejected expired verification tokens.
+- Verified all database updates using PostgreSQL.
+
+### Current Authentication Progress
+- ✅ User Registration
+- ✅ Password Hashing (bcrypt)
+- ✅ User Login
+- ✅ JWT Authentication
+- ✅ Authentication Middleware
+- ✅ Protected Routes
+- ✅ Email Verification Backend
+
+**Result:** The backend now supports a secure email verification workflow, with only email delivery remaining for complete end-to-end verification.

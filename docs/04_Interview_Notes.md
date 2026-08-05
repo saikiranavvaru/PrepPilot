@@ -4391,3 +4391,33 @@ Continue Updating After Every Implementation ✅
 33. How do you protect an Express route?
 34. How would you test JWT authentication in Postman?
 35. Explain the complete authentication flow implemented in PrepPilot.
+
+# Module 4 – Implementation 4 Interview Questions
+
+## Beginner
+
+1. Why do applications verify users' email addresses?
+2. What is a verification token?
+3. Why shouldn't email verification tokens be predictable?
+4. Why is Node.js `crypto.randomBytes()` suitable for generating verification tokens?
+5. Why should verification tokens have an expiration time?
+
+---
+
+## Intermediate
+
+6. Why is a random verification token generally preferred over JWT for email verification?
+7. Why should verification tokens be removed after successful verification?
+8. What happens if a verification token never expires?
+9. Why is the verification token not returned in the API response?
+10. Why is email verification usually implemented after user registration?
+
+---
+
+## Advanced
+
+11. Explain the complete email verification workflow from user registration until account verification.
+12. How would you prevent brute-force attacks against verification tokens?
+13. Why should verification endpoints always validate expiration timestamps before updating user records?
+14. How would you resend verification emails without generating unnecessary database records?
+15. How would you securely implement email verification in a distributed production environment with multiple backend servers?

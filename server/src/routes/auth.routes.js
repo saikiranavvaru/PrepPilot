@@ -18,6 +18,7 @@ const {
   registerUser,
   loginUser,
   getCurrentUser,
+  verifyEmail,
 } = require("../controllers/auth.controller");
 
 const {
@@ -32,6 +33,7 @@ const router = express.Router();
 // Register a new PrepPilot user.
 router.post("/register", registerUser);
 router.post("/login", loginUser);
+router.get("/verify-email", verifyEmail);
 router.get("/me", authenticateUser, getCurrentUser);
 
 module.exports = router;

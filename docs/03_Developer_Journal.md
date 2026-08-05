@@ -4529,3 +4529,114 @@ Successfully tested:
 ## Outcome
 
 PrepPilot now supports secure JWT authentication middleware capable of protecting any future private API endpoint using a single reusable middleware function.
+
+# Module 4 – Implementation 4: Email Verification Backend
+
+## Overview
+
+Today I implemented the backend logic required for email verification. The goal was to ensure that every newly registered user receives a unique verification token that can later be used to verify ownership of their email address.
+
+Although actual email delivery has not yet been implemented, the complete verification workflow has been developed and tested successfully.
+
+---
+
+## Database Changes
+
+The `users` table was extended with two additional columns:
+
+- `verification_token`
+- `verification_token_expires_at`
+
+These fields allow the application to temporarily store a secure verification token and define how long the token remains valid.
+
+---
+
+## Token Generation
+
+Created a reusable utility inside:
+
+```
+src/utils/token.js
+```
+
+using Node.js' built-in `crypto` module.
+
+Each registration now generates a cryptographically secure random token using:
+
+```javascript
+crypto.randomBytes(32).toString("hex");
+```
+
+The generated token is stored in PostgreSQL together with a one-hour expiration timestamp.
+
+---
+
+## Registration Flow Improvements
+
+The registration process was extended to:
+
+1. Validate user input.
+2. Hash the user's password using bcrypt.
+3. Generate a verification token.
+4. Generate an expiration timestamp.
+5. Store both values inside the database.
+
+The API response intentionally excludes the verification token to maintain good security practices.
+
+---
+
+## Email Verification Endpoint
+
+Implemented:
+
+```
+GET /api/v1/auth/verify-email
+```
+
+The endpoint performs the following validations:
+
+- Checks whether a token was provided.
+- Searches for a matching verification token.
+- Validates token expiration.
+- Marks the account as verified.
+- Removes the verification token.
+- Removes the expiration timestamp.
+- Updates the `updated_at` field.
+
+This ensures that verification links are single-use and cannot be reused after successful verification.
+
+---
+
+## Testing Performed
+
+Positive Tests:
+- Successful email verification.
+
+Negative Tests:
+- Missing verification token.
+- Invalid verification token.
+- Expired verification token.
+- Reused verification token.
+
+All scenarios behaved as expected.
+
+---
+
+## Key Learnings
+
+During this implementation I learned:
+
+- How production applications perform email verification.
+- Why cryptographically secure random tokens are preferred for one-time verification.
+- Why verification tokens require expiration times.
+- Why verification tokens should be removed immediately after successful verification.
+- How to build secure verification workflows without exposing sensitive information through API responses.
+- How reusable utility modules improve project maintainability.
+
+---
+
+## Result
+
+PrepPilot now supports a complete backend email verification workflow.
+
+The only remaining step is integrating an email service (such as Nodemailer) so verification links can be automatically delivered to users.
