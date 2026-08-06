@@ -4421,3 +4421,84 @@ Continue Updating After Every Implementation ✅
 13. Why should verification endpoints always validate expiration timestamps before updating user records?
 14. How would you resend verification emails without generating unnecessary database records?
 15. How would you securely implement email verification in a distributed production environment with multiple backend servers?
+
+## Email Verification Service
+
+### Overview
+
+PrepPilot automatically sends an email verification link whenever a new user successfully registers. This verifies ownership of the user's email address before allowing full access to the application.
+
+---
+
+### Email Verification Flow
+
+```text
+User Registration
+        │
+        ▼
+Generate Verification Token
+        │
+        ▼
+Store Token in PostgreSQL
+        │
+        ▼
+Generate Verification URL
+        │
+        ▼
+Send Email via Gmail SMTP
+        │
+        ▼
+User Clicks Verification Link
+        │
+        ▼
+Email Successfully Verified
+```
+
+---
+
+### Email Configuration
+
+Environment Variables:
+
+```env
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-gmail-app-password
+APP_URL=http://localhost:3000
+```
+
+---
+
+### Email Service
+
+**Function**
+
+```javascript
+sendVerificationEmail(email, token)
+```
+
+**Responsibilities**
+
+- Generate a secure verification URL.
+- Send verification emails using Nodemailer.
+- Return SMTP delivery information.
+- Log the Message ID for debugging and monitoring.
+
+---
+
+### Email Contents
+
+Every verification email contains:
+
+- Welcome message.
+- Secure verification link.
+- Link expiration notice (1 hour).
+- Instructions to ignore the email if the account was not created by the recipient.
+
+---
+
+### Development Notes
+
+- Gmail SMTP is used for local development.
+- Gmail App Password authentication is required instead of the normal account password.
+- Emails may appear in the Spam folder during development because the application is not using a verified custom domain or email authentication records.
+- The `APP_URL` environment variable allows verification links to work correctly across local, staging, and production environments without changing the application code.

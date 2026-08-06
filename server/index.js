@@ -40,6 +40,9 @@ const express = require("express");
 // Shared PostgreSQL connection pool.
 const pool = require("./src/config/database");
 
+// Initialize mail service.
+require("./src/utils/mail");
+
 // Application route files.
 const systemRoutes = require("./src/routes/system.routes");
 const usersRoutes = require("./src/routes/users.routes");

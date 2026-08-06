@@ -2153,3 +2153,26 @@ Implemented the backend email verification workflow to ensure newly registered u
 - ✅ Email Verification Backend
 
 **Result:** The backend now supports a secure email verification workflow, with only email delivery remaining for complete end-to-end verification.
+
+## Module 4 – Authentication & Authorization
+
+### ✅ Implementation 5: Real Email Delivery with Gmail SMTP
+
+**Status:** ✅ Completed
+
+**Objective:**
+Integrated a real email delivery system into PrepPilot so that newly registered users automatically receive an email verification link after successful registration.
+
+**Features Implemented:**
+
+- Configured Nodemailer for SMTP email delivery.
+- Connected Gmail using App Password authentication.
+- Created a reusable email service (`email.service.js`).
+- Implemented the `sendVerificationEmail()` function.
+- Generated dynamic verification links using the `APP_URL` environment variable.
+- Successfully delivered verification emails to real email accounts.
+- Added email delivery logging for easier debugging.
+
+**Outcome:**
+
+PrepPilot now sends real verification emails immediately after user registration, providing a production-style email verification workflow and eliminating the need to manually retrieve verification tokens from the database.

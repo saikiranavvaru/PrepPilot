@@ -4640,3 +4640,21 @@ During this implementation I learned:
 PrepPilot now supports a complete backend email verification workflow.
 
 The only remaining step is integrating an email service (such as Nodemailer) so verification links can be automatically delivered to users.
+
+## Module 4 – Implementation 5 Reflection
+
+Today I integrated a complete email delivery system into PrepPilot using Nodemailer and Gmail SMTP. After successfully configuring Gmail App Password authentication, I created a reusable email service responsible for sending verification emails to newly registered users.
+
+To improve flexibility and deployment readiness, I introduced the `APP_URL` environment variable, allowing verification links to be generated dynamically instead of hardcoding application URLs.
+
+During testing, I verified that emails were successfully delivered through Gmail SMTP. Invalid recipient addresses correctly produced Gmail bounce notifications, while valid email accounts received the verification email. I also observed that emails initially arrived in the Spam folder, which is expected for development environments that do not use a custom domain or email authentication records such as SPF, DKIM, and DMARC.
+
+This implementation transformed PrepPilot from a locally tested authentication system into an application capable of communicating with real users through email, making the registration and verification flow significantly more realistic and production-ready.
+
+### Key Learnings
+
+- Configuring Gmail SMTP securely using App Passwords.
+- Building reusable email services following separation of concerns.
+- Using environment variables for deployment flexibility.
+- Debugging email delivery using SMTP logs and message IDs.
+- Understanding common email deliverability behavior in development environments.

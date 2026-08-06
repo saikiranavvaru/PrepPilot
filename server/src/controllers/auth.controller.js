@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const validator = require("validator");
 const pool = require("../config/database");
 const {generateVerificationToken,} = require("../utils/token");
+const {sendVerificationEmail,} = require("../services/email.service");
 
 const SALT_ROUNDS = 10;
 const MIN_PASSWORD_LENGTH = 8;
@@ -142,6 +143,12 @@ const verificationTokenExpiresAt =
     verificationTokenExpiresAt,
   ]
 );
+
+    // Send the verification email after successful registration.
+    await sendVerificationEmail(
+      normalizedEmail,
+      verificationToken
+    );
 
     return res.status(201).json({
       success: true,
