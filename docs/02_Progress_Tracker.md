@@ -2176,3 +2176,39 @@ Integrated a real email delivery system into PrepPilot so that newly registered 
 **Outcome:**
 
 PrepPilot now sends real verification emails immediately after user registration, providing a production-style email verification workflow and eliminating the need to manually retrieve verification tokens from the database.
+
+## Module 4 — Authentication Implementation 6
+## Forgot Password & Reset Password
+
+Status: In Progress
+
+Completed:
+
+- Added password reset columns to users table:
+  - reset_password_token
+  - reset_password_token_expires_at
+
+- Refactored token utility:
+  - Replaced generateVerificationToken()
+  - Created reusable generateSecureToken()
+
+- Added forgot password endpoint:
+  - POST /api/v1/auth/forgot-password
+
+- Implemented forgotPassword controller foundation:
+  - Request validation
+  - Email normalization
+  - Email format validation
+  - User lookup
+  - User enumeration protection
+
+- Added secure password reset token generation.
+
+- Stored reset token and expiry information in PostgreSQL.
+
+Next:
+
+- Create password reset email service.
+- Send password reset link.
+- Implement reset password endpoint.
+- Complete password update workflow.

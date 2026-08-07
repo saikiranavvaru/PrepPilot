@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const validator = require("validator");
 const pool = require("../config/database");
-const {generateVerificationToken,} = require("../utils/token");
+const {generateSecureToken,} = require("../utils/token");
 const {sendVerificationEmail,} = require("../services/email.service");
 
 const SALT_ROUNDS = 10;
@@ -111,7 +111,7 @@ async function registerUser(req, res) {
 
     // Generate a verification token and set it to expire in 1 hour.
     const verificationToken =
-  generateVerificationToken();
+      generateSecureToken();
 
 const verificationTokenExpiresAt =
   new Date(Date.now() + 60 * 60 * 1000);
@@ -393,9 +393,108 @@ return res.status(200).json({
   }
 }
 
+async function forgotPassword(req, res) {
+  try {
+    // Extract the email address from the request body.
+    const { email } = req.body;
+
+    // Ensure the client has provided an email.
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "Email is required",
+      });
+    }
+
+    // Normalize the email to maintain a consistent format in the database.
+    const normalizedEmail = validator.normalizeEmail(email);
+
+    // Validate the email format before querying the database.
+    if (
+      !normalizedEmail ||
+      !validator.isEmail(normalizedEmail)
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide a valid email address",
+      });
+    }
+
+    // Look up the user using the normalized email address.
+    const result = await pool.query(
+      `
+        SELECT
+          id,
+          name,
+          email,
+          is_active
+        FROM users
+        WHERE email = $1;
+      `,
+      [normalizedEmail]
+    );
+
+    // Always return the same response if the email doesn't exist.
+// This prevents attackers from discovering registered email addresses.
+if (result.rows.length === 0) {
+  return res.status(200).json({
+    success: true,
+    message:
+      "If an account with that email exists, a password reset link has been sent.",
+  });
+}
+
+// Retrieve the matching user from the query result.
+const user = result.rows[0];
+
+// Do not allow password resets for inactive accounts.
+if (!user.is_active) {
+  return res.status(403).json({
+    success: false,
+    message: "Account is inactive",
+  });
+}
+
+// Generate a secure token for the password reset link.
+const resetPasswordToken = generateSecureToken();
+
+// The reset link will remain valid for 1 hour.
+const resetPasswordTokenExpiresAt =
+  new Date(Date.now() + 60 * 60 * 1000);
+
+  // Save the reset token and its expiration time in the database.
+await pool.query(
+  `
+    UPDATE users
+    SET
+      reset_password_token = $1,
+      reset_password_token_expires_at = $2,
+      updated_at = CURRENT_TIMESTAMP
+    WHERE id = $3;
+  `,
+  [
+    resetPasswordToken,
+    resetPasswordTokenExpiresAt,
+    user.id,
+  ]
+);
+
+  } catch (error) {
+    // Log the error for debugging while returning
+    // a generic message to the client.
+    console.error("Forgot password error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to process forgot password request",
+    });
+  }
+}
+
 module.exports = {
   registerUser,
   loginUser,
   getCurrentUser,
   verifyEmail,
+  forgotPassword,
 };

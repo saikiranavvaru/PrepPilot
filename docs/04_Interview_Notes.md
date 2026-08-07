@@ -4502,3 +4502,78 @@ Every verification email contains:
 - Gmail App Password authentication is required instead of the normal account password.
 - Emails may appear in the Spam folder during development because the application is not using a verified custom domain or email authentication records.
 - The `APP_URL` environment variable allows verification links to work correctly across local, staging, and production environments without changing the application code.
+
+# Forgot Password API
+
+## POST /api/v1/auth/forgot-password
+
+### Description
+
+Generates a secure password reset request for a user.
+
+The endpoint creates a temporary reset token and stores it with an expiration time.
+
+---
+
+## Request
+
+Method:
+
+POST
+
+Endpoint:
+
+/api/v1/auth/forgot-password
+
+
+### Body
+
+{
+    "email": "user@example.com"
+}
+
+---
+
+## Validation
+
+The API validates:
+
+- Email presence.
+- Email format.
+- Email normalization.
+
+---
+
+## Security
+
+The API prevents user enumeration attacks.
+
+The response remains identical whether the email exists or not.
+
+---
+
+## Database Changes
+
+The users table stores:
+
+- reset_password_token
+- reset_password_token_expires_at
+
+---
+
+## Current Status
+
+Implemented:
+
+- Route creation.
+- Controller setup.
+- Email validation.
+- User lookup.
+- Token generation.
+- Token storage.
+
+Pending:
+
+- Password reset email.
+- Reset password endpoint.
+- Password update logic.

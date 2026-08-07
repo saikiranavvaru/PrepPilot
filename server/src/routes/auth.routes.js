@@ -19,6 +19,7 @@ const {
   loginUser,
   getCurrentUser,
   verifyEmail,
+  forgotPassword,
 } = require("../controllers/auth.controller");
 
 const {
@@ -34,6 +35,7 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/verify-email", verifyEmail);
+router.post("/forgot-password", forgotPassword);
 router.get("/me", authenticateUser, getCurrentUser);
 
 module.exports = router;

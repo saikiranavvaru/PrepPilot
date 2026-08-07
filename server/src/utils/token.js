@@ -1,14 +1,14 @@
 // Token Utilities
 
-// Generates secure random tokens used for
-// email verification and future password reset flows.
+// Generates cryptographically secure random tokens
+// for email verification, password reset, and future authentication flows.
 
 const crypto = require("crypto");
 
-function generateVerificationToken() {
+function generateSecureToken() {
   return crypto.randomBytes(32).toString("hex");
 }
 
 module.exports = {
-  generateVerificationToken,
+  generateSecureToken,
 };
