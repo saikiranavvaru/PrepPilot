@@ -491,6 +491,14 @@ await pool.query(
   }
 }
 
+if (!user) {
+  // ...
+}
+
+if (user) {
+  // ...
+}
+
 module.exports = {
   registerUser,
   loginUser,
