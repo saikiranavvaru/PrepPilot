@@ -4680,3 +4680,46 @@ Instead of revealing whether an email exists, the API provides a generic respons
 The controller also generates a secure reset token with a one-hour expiration period and stores it in PostgreSQL.
 
 The next step is integrating password reset email delivery and implementing the password update flow.
+
+# Interview Notes — Implementation 6: Forgot Password
+
+## Key Concepts
+
+- **Forgot Password API**
+  - Allows users to request a password reset link using their registered email.
+  - Endpoint: `POST /api/v1/auth/forgot-password`
+
+- **Email Normalization**
+  - The submitted email is normalized before database lookup.
+  - Helps maintain consistent email handling.
+
+- **Secure Reset Token**
+  - A cryptographically secure random token is generated.
+  - The token is stored in the database with an expiration time.
+
+- **Token Expiration**
+  - The password reset token is valid for a limited time (1 hour).
+  - Expired tokens cannot be used to reset the password.
+
+- **Email Enumeration Protection**
+  - The API returns the same success message even when the email does not exist.
+  - This prevents attackers from discovering which email addresses have accounts.
+
+- **Password Reset Email**
+  - A reset link containing the secure token is sent to the user's email.
+  - The link allows the user to continue the password reset process.
+
+## Interview Questions
+
+1. What is the purpose of a forgot-password API?
+2. Why should password reset tokens be randomly generated?
+3. Why should a password reset token have an expiration time?
+4. What is email enumeration, and how does this implementation prevent it?
+5. Why should we normalize an email address before searching the database?
+6. Why should the reset token be stored in the database?
+7. What should happen if a user provides an invalid or expired reset token?
+8. Why should password reset links be sent through email instead of returning the token directly in the API response?
+
+## Key Takeaway
+
+A secure password-reset flow should use a **random, temporary, single-purpose token**, avoid revealing whether an email exists, and never expose the user's existing password.

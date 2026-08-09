@@ -2212,3 +2212,38 @@ Next:
 - Send password reset link.
 - Implement reset password endpoint.
 - Complete password update workflow.
+
+## Implementation 6 — Password Reset Flow
+
+**Status:** ✅ Completed
+
+Implemented the password reset flow for PrepPilot authentication.
+
+### Completed
+
+- Added `POST /api/v1/auth/forgot-password`
+- Added `POST /api/v1/auth/reset-password`
+- Added secure password reset token generation
+- Added password reset token expiration
+- Stored reset token and expiration in PostgreSQL
+- Added password reset email service
+- Added password validation during password reset
+- Hashes the new password using bcrypt
+- Clears the reset token after successful password reset
+- Prevents inactive accounts from resetting their password
+- Added generic responses to reduce email-account enumeration
+- Tested the complete password reset flow using Postman and Gmail
+
+### Verification
+
+Password reset was successfully tested:
+
+1. Requested a password reset.
+2. Received the reset email.
+3. Obtained the reset token.
+4. Submitted the token with a new password.
+5. API returned `200 OK`.
+6. Password was successfully updated.
+7. Reset token was invalidated after use.
+
+**Implementation 6 is complete.**

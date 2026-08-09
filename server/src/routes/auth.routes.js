@@ -20,6 +20,7 @@ const {
   getCurrentUser,
   verifyEmail,
   forgotPassword,
+  resetPassword,
 } = require("../controllers/auth.controller");
 
 const {
@@ -37,5 +38,6 @@ router.post("/login", loginUser);
 router.get("/verify-email", verifyEmail);
 router.post("/forgot-password", forgotPassword);
 router.get("/me", authenticateUser, getCurrentUser);
+router.post("/reset-password", resetPassword);
 
 module.exports = router;
