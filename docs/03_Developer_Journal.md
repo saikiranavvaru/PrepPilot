@@ -4723,3 +4723,51 @@ The next step is integrating password reset email delivery and implementing the 
 ## Key Takeaway
 
 A secure password-reset flow should use a **random, temporary, single-purpose token**, avoid revealing whether an email exists, and never expose the user's existing password.
+
+## Module 4 — Implementation 7.1
+### Review JWT → `req.user`
+
+### Objective
+
+Begin Implementation 7 by reviewing how PrepPilot currently authenticates requests and how the authenticated user's identity is made available to protected controllers.
+
+### What I Reviewed
+
+The focus of this step is the authentication middleware and the flow:
+
+JWT
+↓
+Verify JWT
+↓
+Read the user's ID from the JWT
+↓
+Identify the authenticated user
+↓
+Attach user information to `req.user`
+↓
+Controller can use `req.user.id`
+
+The `req.user` object is important because the next part of Implementation 7 will use the authenticated user's ID to determine whether that user is allowed to access a particular resource.
+
+### Why This Matters
+
+Authentication tells PrepPilot **who the user is**.
+
+Authorization will use that identity to determine:
+
+> **"Is this user allowed to access this resource?"**
+
+For example:
+
+```text
+User A
+  ↓
+JWT
+  ↓
+req.user.id = User A
+  ↓
+Request for Resource
+  ↓
+Check resource ownership
+  ↓
+Allow or reject
