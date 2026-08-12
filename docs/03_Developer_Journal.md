@@ -4747,3 +4747,10 @@ Identified the main PrepPilot resources connected to users through `user_id`:
 These relationships will be used to ensure users can access only their own resources.
 
 **7.2 — Identify User-Owned Resources: ✅ Completed**
+
+## Module 4 — Implementation 7.3
+### Implement Ownership Checks
+
+Started implementing resource ownership checks so authenticated users can access only resources belonging to their own `user_id`.
+
+**7.3 — Implement Ownership Checks: 🔄 In Progress**
