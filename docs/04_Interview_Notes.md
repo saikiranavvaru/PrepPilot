@@ -4641,3 +4641,29 @@ Compare with resource.user_id
      ↓
 Same user → Allow
 Different user → Reject
+
+## Module 4 — Implementation 8: Authentication Testing
+
+1. Why should authentication APIs be tested with both valid and invalid requests?
+
+2. Why should duplicate email registration return `409 Conflict`?
+
+3. Why should an API return a generic message for invalid login credentials?
+
+4. Why should missing, invalid, modified, or expired JWTs return `401 Unauthorized`?
+
+5. What is the purpose of testing protected routes without an Authorization header?
+
+6. Why should password hashes never be included in API responses?
+
+7. Why should email verification and password-reset tokens have expiration times?
+
+8. Why should a password-reset token normally be invalidated after successful use?
+
+9. How does a generic forgot-password response help prevent email enumeration?
+
+10. What is the difference between `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, and `409 Conflict`?
+
+11. Why are parameterized SQL queries important for authentication APIs?
+
+12. Why should inactive users be prevented from accessing protected resources?
