@@ -4578,3 +4578,66 @@ Pending:
 - Reset password endpoint.
 - Password update logic.
 
+## Module 4 — Implementation 7
+# Authorization & Resource Ownership
+
+## Key Concepts
+
+### 1. Authentication vs Authorization
+
+**Authentication** answers:
+
+> Who is the user?
+
+**Authorization** answers:
+
+> Is this authenticated user allowed to access this resource?
+
+PrepPilot uses JWT authentication to identify the current user. After successful authentication, the user is available through:
+
+`req.user`
+
+The user's ID can be accessed using:
+
+`req.user.id`
+
+---
+
+### 2. JWT → `req.user`
+
+The authentication middleware:
+
+1. Reads the JWT from the `Authorization` header.
+2. Verifies the token.
+3. Reads the user's ID from the JWT `sub` claim.
+4. Finds the user in PostgreSQL.
+5. Checks whether the account is active.
+6. Stores the user in `req.user`.
+
+This allows protected controllers to know which user is making the request.
+
+---
+
+### 3. Resource Ownership
+
+PrepPilot's database contains user-owned resources connected through `user_id`.
+
+Current relationships include:
+
+- `interviews`
+- `resumes`
+- `user_technologies`
+
+When these APIs are implemented, the authenticated user's ID should be compared with the resource's `user_id`.
+
+Conceptually:
+
+```text
+req.user.id
+     ↓
+Authenticated user
+     ↓
+Compare with resource.user_id
+     ↓
+Same user → Allow
+Different user → Reject

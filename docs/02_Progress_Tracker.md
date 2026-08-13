@@ -2247,3 +2247,31 @@ Password reset was successfully tested:
 7. Reset token was invalidated after use.
 
 **Implementation 6 is complete.**
+
+## Module 4 — Implementation 7: Authorization & Resource Ownership
+
+**Status:** ✅ Completed
+
+### Completed Work
+
+- Reviewed the JWT → `req.user` authentication flow.
+- Confirmed that the authenticated user's ID is available through `req.user.id`.
+- Identified current user-owned database resources:
+  - `interviews`
+  - `resumes`
+  - `user_technologies`
+- Reviewed `401`, `403`, and `404` response handling.
+- Verified protected authentication boundaries using Postman.
+- Confirmed that missing and invalid JWTs are rejected.
+- Confirmed that valid JWTs successfully authenticate the user.
+- Confirmed inactive accounts are blocked from protected endpoints.
+
+### Scope Note
+
+Resource ownership checks for resumes, interviews, and technologies will be implemented when their corresponding API routes/controllers are created.
+
+### Result
+
+PrepPilot now has a clear authorization foundation built on the authenticated user's identity.
+
+**Implementation 7: ✅ Completed**

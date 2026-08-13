@@ -4754,3 +4754,28 @@ These relationships will be used to ensure users can access only their own resou
 Started implementing resource ownership checks so authenticated users can access only resources belonging to their own `user_id`.
 
 **7.3 — Implement Ownership Checks: 🔄 In Progress**
+
+## Module 4 — Implementation 7
+### Authorization & Resource Ownership
+
+Implementation 7 focused on establishing and reviewing PrepPilot's authorization foundation.
+
+First, I reviewed the JWT authentication flow and confirmed that after successful authentication, the current user is available through `req.user`, including the user's ID through `req.user.id`.
+
+I then identified the current database resources connected to users through `user_id`:
+
+- `interviews`
+- `resumes`
+- `user_technologies`
+
+I reviewed the existing authentication response handling and confirmed the use of:
+
+- `401` for missing, invalid, or expired authentication.
+- `403` for authenticated users who are not permitted to continue.
+- `404` for resources that do not exist when resource APIs are available.
+
+I also tested the protected authentication endpoint using Postman. Missing tokens, invalid tokens, and valid authentication behaved as expected.
+
+The current backend does not yet contain resume, interview, or technology resource APIs, so cross-user ownership checks were not artificially added. The existing authentication foundation is ready to support those checks when the resource APIs are implemented.
+
+**Implementation 7 — Authorization & Resource Ownership: ✅ Completed**
