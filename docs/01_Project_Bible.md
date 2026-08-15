@@ -1,40 +1,48 @@
-# 🚀 PrepPilot — Project Bible
+# PrepPilot — Project Bible
 
-**Version:** 0.2.0  
+**Version:** 0.3.0  
 **Project Status:** Active Development  
-**Latest Update:** 19 July 2026
+**Latest Update:** 15 August 2026  
+**Current Milestone:** Module 4 — Authentication & Authorization Completed  
+**Next Milestone:** Module 5 — Frontend Development
 
 ---
 
-# 📖 Project Overview
+# 1. Project Overview
 
 PrepPilot is a full-stack AI-powered interview preparation platform designed to help students, graduates, and aspiring software engineers prepare for technical interviews in a structured, practical, and measurable way.
 
-The platform will allow users to:
+The platform is being developed as a long-term software engineering project rather than a temporary academic assignment.
 
-- 🤖 Practise AI-assisted mock interviews.
-- 📄 Upload and manage resumes.
-- 📝 Answer technical and behavioural interview questions.
-- 📊 Track interview performance and progress.
-- 🎯 Receive personalised learning recommendations.
-- 📈 Review scores, feedback, strengths, and improvement areas.
-- 🧠 Build confidence through repeated interview practice.
+PrepPilot is intended to demonstrate real-world engineering practices across:
 
-PrepPilot is being developed as a long-term engineering project rather than a temporary academic assignment.
+- Frontend development
+- Backend engineering
+- REST API design
+- Database design
+- Authentication and authorization
+- Application security
+- AI integration
+- Testing
+- Deployment
+- Documentation
+- Git and GitHub workflows
 
-The project is intended to demonstrate real full-stack development, backend engineering, database design, authentication, REST API development, deployment, documentation, and professional Git workflows.
+The long-term product will provide users with a single platform for interview practice, resume-based preparation, performance tracking, feedback, and personalised improvement.
 
 ---
 
-# 🎯 Product Vision
+# 2. Product Vision
 
-PrepPilot aims to provide one organised platform where users can prepare for software-engineering interviews, manage their learning progress, and receive useful feedback based on their performance.
+PrepPilot aims to provide one organised platform where users can prepare for software-engineering interviews, practise realistic interview scenarios, understand their performance, and continuously improve their weak areas.
 
-The long-term user journey is:
+The intended user journey is:
 
     Create Account
           ↓
-    Build User Profile
+    Verify Account
+          ↓
+    Build Profile
           ↓
     Upload Resume
           ↓
@@ -50,158 +58,170 @@ The long-term user journey is:
           ↓
     Improve Weak Areas
 
----
-
-# 🏆 Project Mission
-
-> Build PrepPilot as a real full-stack software product that demonstrates strong engineering fundamentals, secure architecture, clean code, professional documentation, and continuous technical improvement.
+The product will gradually evolve from a secure full-stack foundation into an AI-assisted interview preparation platform.
 
 ---
 
-# 👨‍💻 Developer Information
+# 3. Project Mission
 
-- **Developer:** Sai Kiran Avvaru
-- **Program:** B.Tech Computer Science Engineering
-- **Institution:** SRM University AP × Kalvium
-- **Specialisation:** AI and Full-Stack Development
-- **Project Type:** Long-Term Full-Stack Engineering Project
-- **Development Environment:** Windows 11, Visual Studio Code, PowerShell
-- **Version Control:** Git and GitHub
+> Build PrepPilot as a serious full-stack software product that demonstrates strong engineering fundamentals, secure architecture, maintainable code, professional documentation, and continuous technical improvement.
+
+The project prioritises understanding and engineering quality over simply adding features.
 
 ---
 
-# 🎯 Project Objectives
+# 4. Project Objectives
 
 ## Product Objectives
 
-- Build a complete interview-preparation platform.
-- Provide realistic mock-interview experiences.
-- Store and analyse user interview performance.
-- Support resume-based preparation.
-- Generate meaningful feedback and recommendations.
+- Provide structured technical interview preparation.
+- Support realistic mock-interview experiences.
+- Allow users to manage resumes and preparation data.
+- Record interview performance.
+- Provide useful feedback and recommendations.
 - Help users identify strengths and weaknesses.
-- Create a clear interview-preparation workflow.
+- Track improvement over time.
+- Create a complete interview-preparation workflow.
 
 ## Technical Objectives
 
 - Build a modular React frontend.
 - Build a structured Node.js and Express backend.
-- Design a relational PostgreSQL database.
+- Design and maintain a relational PostgreSQL database.
 - Implement secure authentication and authorization.
 - Build versioned REST APIs.
-- Use persistent data storage.
-- Add input validation and error handling.
-- Integrate AI-powered interview features.
-- Deploy the frontend, backend, and database.
-- Follow scalable software-development practices.
+- Validate and safely process user input.
+- Maintain persistent application data.
+- Integrate AI-powered features.
+- Deploy the application using production-oriented infrastructure.
+- Follow maintainable software-engineering practices.
 
 ## Learning Objectives
 
-- Understand how full-stack applications work from end to end.
-- Learn backend architecture and REST API design.
-- Learn relational database design and SQL.
+- Understand full-stack application architecture.
+- Develop practical backend engineering skills.
+- Understand relational database design and SQL.
 - Learn authentication and application security.
-- Learn production deployment.
-- Improve debugging and problem-solving skills.
-- Develop professional Git and documentation habits.
-- Build confidence in real software-engineering workflows.
+- Develop API design skills.
+- Learn testing and debugging practices.
+- Improve Git and documentation discipline.
+- Gain experience with production-oriented development workflows.
 
 ---
 
-# 👥 Intended Users
+# 5. Intended Users
 
-PrepPilot is mainly designed for:
+PrepPilot is primarily intended for:
 
-- Computer Science students.
-- Engineering students.
-- Fresh graduates.
-- Entry-level software developers.
-- Candidates preparing for internships.
-- Candidates preparing for technical interviews.
-- Learners who want structured interview practice.
-- Developers who want to track interview performance.
+- Computer Science students
+- Engineering students
+- Fresh graduates
+- Entry-level software developers
+- Internship candidates
+- Technical interview candidates
+- Learners seeking structured interview practice
+- Developers who want to track interview preparation progress
 
 ---
 
-# ✨ Core Product Features
+# 6. Core Product Capabilities
 
 ## User Management
 
-- User registration.
-- User login.
-- Secure password storage.
-- JWT-based authentication.
-- User profile management.
-- Protected user routes.
-- Account verification support.
+PrepPilot provides the foundation for secure user accounts, including:
+
+- User registration
+- User login
+- Secure password storage
+- JWT-based authentication
+- Protected resources
+- Current-user identification
+- Account verification
+- Password recovery
+- Authorization and resource ownership
 
 ## Resume Management
 
-- Resume upload.
-- Resume storage.
-- Resume summary.
-- Resume-based interview preparation.
-- Resume update and replacement.
-- Future AI-assisted resume analysis.
+Planned resume capabilities include:
+
+- Resume upload
+- Resume storage
+- Resume management
+- Resume replacement
+- Resume-based preparation
+- Future AI-assisted resume analysis
 
 ## Interview Management
 
-- Create mock interview sessions.
-- Select interview topics or technologies.
-- Generate interview questions.
-- Record interview completion.
-- Store interview scores.
-- Store interview history.
-- Review previous interview attempts.
+Planned interview capabilities include:
+
+- Mock interview creation
+- Technology/topic selection
+- Question generation
+- Interview sessions
+- Interview completion
+- Score recording
+- Interview history
+- Performance review
 
 ## Question and Answer Management
 
-- Store interview questions.
-- Assign difficulty levels.
-- Save user answers.
-- Store scores and feedback.
-- Review answers after completion.
-- Identify weak technical areas.
+Planned capabilities include:
+
+- Technical and behavioural questions
+- Difficulty classification
+- User answer submission
+- Answer evaluation
+- Scores
+- Feedback
+- Weak-area identification
 
 ## Technology Management
 
-- Store supported technologies.
-- Associate users with technologies.
-- Support many-to-many relationships.
-- Personalise questions based on selected technologies.
+Planned capabilities include:
+
+- Supported technology catalogue
+- User technology preferences
+- User-to-technology relationships
+- Technology-based interview preparation
 
 ## Progress and Analytics
 
-- Track completed interviews.
-- Track average scores.
-- Track improvement over time.
-- Display strengths and weaknesses.
-- Generate personalised recommendations.
-- Display interview history and performance trends.
+Planned capabilities include:
+
+- Completed interview tracking
+- Average scores
+- Performance trends
+- Strength identification
+- Weakness identification
+- Improvement tracking
+- Personalised recommendations
 
 ## AI Features
 
-- AI-generated interview questions.
-- AI-assisted answer evaluation.
-- AI-generated feedback.
-- Resume-based question generation.
-- Personalised recommendations.
-- Weak-area identification.
-- Future conversational mock-interview support.
+Future AI capabilities include:
+
+- AI-generated interview questions
+- AI-assisted answer evaluation
+- AI-generated feedback
+- Resume-based question generation
+- Personalised recommendations
+- Weak-area analysis
+- Conversational mock-interview experiences
 
 ---
 
-# 🛠️ Technology Stack
+# 7. Technology Stack
 
 ## Frontend
 
 - React
-- Tailwind CSS
-- React Router
-- Axios
 - JavaScript
 - HTML
 - CSS
+- Tailwind CSS
+- React Router
+- Axios
 
 ## Backend
 
@@ -210,88 +230,106 @@ PrepPilot is mainly designed for:
 - REST APIs
 - Express Router
 - Middleware
-- CommonJS modules
+- Controllers
 - JSON request and response handling
 
 ## Database
 
 - PostgreSQL
 - SQL
-- Relational Database Design
+- Relational database design
 - PostgreSQL connection pooling
-- Neon PostgreSQL for production hosting
 
 ## Authentication and Security
 
 - JSON Web Tokens
 - bcrypt
 - Password hashing
-- Protected routes
+- Authentication middleware
 - Authorization
+- Resource ownership checks
 - Environment variables
 - Parameterized SQL queries
+- Input validation
 
-## Tools and Development Environment
+## Development Tools
 
 - Visual Studio Code
-- Windows PowerShell
+- PowerShell
 - Git
 - GitHub
-- Postman
 - npm
 - PostgreSQL
 - psql
+- Postman
 - Browser Developer Tools
 
-## Deployment
+## Planned Deployment
 
-- Vercel for frontend deployment
-- Render for backend deployment
-- Neon for PostgreSQL hosting
-- Environment-based configuration
-- Production health checks
+- Vercel
+- Render
+- Neon PostgreSQL
+- Environment-based production configuration
 
 ---
 
-# 🏗️ Current System Architecture
+# 8. System Architecture
 
-The current backend follows a clear request flow:
+## Current Backend Architecture
+
+The backend currently follows a layered request flow:
 
     Client
       ↓
     Express Application
       ↓
-    Route File
+    Routes
       ↓
-    Controller
+    Authentication / Authorization Middleware
+      ↓
+    Controllers
       ↓
     PostgreSQL Connection Pool
       ↓
-    PostgreSQL Database
+    PostgreSQL
       ↓
     JSON Response
 
-The future complete architecture will be:
+Authentication and authorization are now part of the backend security boundary.
+
+Protected resources require the request to pass through the appropriate authentication and authorization checks before reaching protected business operations.
+
+## Long-Term Architecture
+
+As PrepPilot grows, the architecture may evolve toward:
 
     React Frontend
           ↓
     Versioned REST API
           ↓
-    Authentication and Authorization
+    Authentication
+          ↓
+    Authorization
           ↓
     Routes
           ↓
     Controllers
           ↓
-    Business Logic
+    Services
           ↓
-    PostgreSQL Database
+    Repositories / Data Access
           ↓
-    AI Services and Analytics
+    PostgreSQL
+
+AI services and analytics will integrate with the application where required.
+
+Additional architectural layers will only be introduced when the application's complexity justifies them.
 
 ---
 
-# 📂 Current Project Structure
+# 9. Current Project Structure
+
+The project is organised into separate application, documentation, and configuration areas.
 
     PrepPilot/
     │
@@ -300,20 +338,13 @@ The future complete architecture will be:
     ├── server/
     │   ├── src/
     │   │   ├── config/
-    │   │   │   └── database.js
-    │   │   │
     │   │   ├── controllers/
-    │   │   │   ├── system.controller.js
-    │   │   │   └── users.controller.js
-    │   │   │
+    │   │   ├── middleware/
     │   │   └── routes/
-    │   │       ├── system.routes.js
-    │   │       └── users.routes.js
     │   │
     │   ├── .env
     │   ├── .env.example
     │   ├── index.js
-    │   ├── test-db.js
     │   ├── package.json
     │   └── package-lock.json
     │
@@ -328,277 +359,183 @@ The future complete architecture will be:
     ├── CHANGELOG.md
     └── .gitignore
 
----
-
-# ⚙️ Current Backend Responsibilities
-
-## `index.js`
-
-The backend entry point is responsible for:
-
-- Loading environment variables.
-- Creating the Express application.
-- Configuring global middleware.
-- Mounting route files.
-- Handling unknown routes.
-- Verifying PostgreSQL connectivity.
-- Starting the server.
-- Closing the HTTP server and PostgreSQL pool safely.
-
-## `system.routes.js`
-
-Defines system-level endpoints:
-
-- `GET /`
-- `GET /health`
-- `GET /health/database`
-
-## `system.controller.js`
-
-Handles:
-
-- API information.
-- Application health.
-- Database health.
-
-## `users.routes.js`
-
-Defines user-related endpoints:
-
-- `GET /api/v1/users`
-- `GET /api/v1/users/:id`
-
-## `users.controller.js`
-
-Handles:
-
-- Reading user data from PostgreSQL.
-- Pagination.
-- User ID validation.
-- Parameterized queries.
-- HTTP responses and errors.
-
-## `database.js`
-
-Creates and exports one reusable PostgreSQL connection pool.
-
-## `test-db.js`
-
-Tests the PostgreSQL connection without starting the Express server.
-
-## `.env`
-
-Stores real private configuration values.
-
-## `.env.example`
-
-Documents required environment variables using safe placeholders.
+The exact implementation structure may evolve as the application grows.
 
 ---
 
-# 🌐 Current API Endpoints
+# 10. Engineering Principles
 
-## System Endpoints
+PrepPilot follows these engineering principles:
 
-- `GET /`
-  - Returns basic PrepPilot API information.
+### Understand Before Implementing
 
-- `GET /health`
-  - Confirms that Node.js and Express are running.
+Every major technology and architectural decision should be understood before being added to the project.
 
-- `GET /health/database`
-  - Confirms that PostgreSQL is reachable.
+### Keep Responsibilities Clear
 
-## User Endpoints
+Files, modules, controllers, middleware, and services should have focused responsibilities.
 
-- `GET /api/v1/users`
-  - Returns paginated user records.
+### Prefer Simplicity
 
-- `GET /api/v1/users/:id`
-  - Returns one user by ID.
+Architecture should solve real problems rather than introduce unnecessary complexity.
 
-## Pagination Example
+### Build Incrementally
 
-    GET /api/v1/users?page=1&limit=20
+Features should be developed in understandable stages rather than attempting the complete system at once.
 
----
+### Validate External Input
 
-# 🗄️ Current Database Design
+User-controlled input must be validated before being trusted by application logic or database operations.
 
-PrepPilot currently uses the following main PostgreSQL tables:
+### Protect Sensitive Data
 
-- `users`
-- `technologies`
-- `resumes`
-- `interviews`
-- `questions`
-- `answers`
-- `user_technologies`
+Passwords, secrets, tokens, database credentials, and unnecessary personal information must not be exposed.
 
-## Main Relationships
+### Test Important Behaviour
 
-    users 1 ─── 1 resumes
+Important authentication, authorization, API, database, and business behaviours should be tested before being considered complete.
 
-    users 1 ─── N interviews
+### Maintain Documentation
 
-    interviews 1 ─── N questions
+Documentation should evolve alongside the implementation.
 
-    questions 1 ─── 0..1 answers
+### Use Meaningful Git History
 
-    users M ─── N technologies
-              through
-         user_technologies
+Commits should describe meaningful engineering changes and preserve a useful project history.
 
-## Database Integrity
+### Refactor With Purpose
 
-The database schema uses:
-
-- Primary keys.
-- Foreign keys.
-- `NOT NULL`.
-- `UNIQUE`.
-- `DEFAULT`.
-- `CHECK`.
-- Composite primary keys.
-- Referential integrity.
-- `ON DELETE CASCADE`.
+Refactoring should improve maintainability, correctness, security, or scalability rather than simply making the project appear more complex.
 
 ---
 
-# 🔒 Security Principles
+# 11. Security Principles
 
-PrepPilot follows these security rules:
+PrepPilot treats security as a fundamental part of the architecture.
+
+The project follows these principles:
 
 - Never store secrets directly in source code.
-- Keep real secrets inside `.env`.
-- Never commit `.env` to GitHub.
-- Use `.env.example` for safe placeholders.
-- Never return passwords through APIs.
-- Avoid exposing unnecessary personal information.
-- Use parameterized SQL queries.
-- Hash passwords before storing them.
-- Protect private routes with authentication.
-- Use authorization for role-based access.
-- Hide unnecessary server implementation details.
-- Validate all user-supplied input.
-- Return safe error messages in production.
+- Keep private configuration in environment variables.
+- Never commit real `.env` files.
+- Use `.env.example` for safe configuration documentation.
+- Hash passwords before storage.
+- Never return password hashes through public API responses.
+- Authenticate protected requests.
+- Authorize access to protected resources.
+- Enforce resource ownership where applicable.
+- Validate user-controlled input.
+- Use parameterized database queries.
+- Avoid unnecessary information disclosure.
+- Return safe production error messages.
+- Use token expiration where appropriate.
+- Protect account recovery and verification flows.
+- Test authentication and authorization failure scenarios.
+
+Security requirements will evolve as the application becomes more complex.
 
 ---
 
-# ⚙️ Engineering Principles
+# 12. Documentation System
 
-- Understand every concept before adding it.
-- Keep each file focused on one responsibility.
-- Prefer simple architecture over unnecessary complexity.
-- Add new layers only when they are genuinely needed.
-- Use meaningful names for files, functions, and routes.
-- Write readable and maintainable code.
-- Use parameterized queries for database operations.
-- Protect sensitive configuration.
-- Build features incrementally.
-- Test every important endpoint.
-- Use meaningful Git commits.
-- Keep project documentation updated.
-- Refactor when the project grows, not only to look advanced.
-- Follow professional coding and folder-structure practices.
-- Treat PrepPilot as a real software product.
-
----
-
-# 📚 Documentation System
-
-PrepPilot maintains the following documentation:
+PrepPilot maintains separate documentation responsibilities to avoid unnecessary duplication.
 
 ## `README.md`
 
-Provides a public overview of the project, setup instructions, technology stack, and current status.
+Public project introduction, setup instructions, technology overview, and repository usage information.
 
 ## `01_Project_Bible.md`
 
-Defines the product vision, architecture, objectives, roadmap, and engineering principles.
+High-level product vision, architecture, engineering principles, project direction, and roadmap.
+
+This document should answer:
+
+> What is PrepPilot, how is it structured, and where is it going?
 
 ## `02_Progress_Tracker.md`
 
-Tracks completed chapters, milestones, module progress, and overall completion.
+Tracks learning modules, implementation milestones, completed work, and project progress.
+
+This document should answer:
+
+> What has been completed?
 
 ## `03_Developer_Journal.md`
 
-Records implementation work, mistakes, debugging, lessons, and technical decisions.
+Records important implementation experiences, debugging, technical decisions, mistakes, discoveries, and lessons learned.
+
+This document should answer:
+
+> How was the project built and what was learned?
 
 ## `04_Interview_Notes.md`
 
-Stores revision questions, important concepts, and technical interview preparation notes.
+Stores technical revision material and interview questions generated from the concepts learned during development.
 
 ## `05_API_Documentation.md`
 
-Documents endpoints, methods, parameters, status codes, request bodies, and responses.
+Documents the externally usable API contract, including endpoints, authentication requirements, request formats, parameters, responses, and status codes.
+
+This document should answer:
+
+> How can a client interact with the API?
 
 ## `CHANGELOG.md`
 
-Records important additions, changes, fixes, and releases.
+Records meaningful project releases and notable additions, changes, fixes, security improvements, and breaking changes.
 
-Documentation must evolve together with the codebase.
-
----
-
-# 🗺️ Project Roadmap
-
-# ✅ Module 1 — Project Foundation
-
-**Status:** Completed  
-**Completion Date:** 04 July 2026
-
-## Topics Completed
-
-- Project planning.
-- Technology-stack selection.
-- Git installation.
-- Node.js installation.
-- Git repository initialization.
-- GitHub repository creation.
-- Project folder structure.
-- README creation.
-- CHANGELOG creation.
-- Documentation setup.
-- Git workflow.
-- Staging and commits.
-- Remote repository connection.
-- First project release foundation.
+Documentation should remain focused on its own responsibility rather than repeating information from another document.
 
 ---
 
-# ✅ Module 2 — Backend Foundation
+# 13. Project Roadmap
+
+## Module 1 — Project Foundation
 
 **Status:** Completed  
-**Completion Date:** 10 July 2026
+**Version:** Initial Foundation
 
-## Topics Completed
+Major outcomes:
 
-- Node.js fundamentals.
-- npm and `package.json`.
-- Express.js.
-- Pure Node.js HTTP server.
-- Request and response lifecycle.
-- Routing.
-- Route parameters.
-- Query parameters.
-- Request bodies.
-- REST APIs.
-- HTTP methods.
-- HTTP status codes.
-- CRUD operations.
-- Middleware.
-- Environment variables.
-- Express Router.
-- Controllers.
-- Feature-based structure.
-- Postman.
-- Mini backend project.
-- Temporary Books and Notes APIs.
+- Project planning
+- Technology selection
+- Development environment setup
+- Git and GitHub workflow
+- Repository structure
+- Initial documentation system
+- Project foundation
 
-## Module Outcome
+---
 
-PrepPilot gained a working Express backend and a clear understanding of:
+## Module 2 — Backend Foundation
+
+**Status:** Completed
+
+Major outcomes:
+
+- Node.js fundamentals
+- npm and package management
+- Express.js
+- HTTP request/response lifecycle
+- Routing
+- Route parameters
+- Query parameters
+- Request bodies
+- REST APIs
+- HTTP methods
+- HTTP status codes
+- CRUD concepts
+- Middleware
+- Environment variables
+- Express Router
+- Controllers
+- Backend project structure
+- API testing
+- Initial backend learning APIs
+
+### Module Outcome
+
+PrepPilot gained its first structured Express backend and a practical understanding of:
 
     Client
       ↓
@@ -610,53 +547,34 @@ PrepPilot gained a working Express backend and a clear understanding of:
 
 ---
 
-# ✅ Module 3 — Database Design and PostgreSQL
+## Module 3 — Database Design and PostgreSQL
 
-**Status:** Technical Work Completed  
-**Completion Date:** 19 July 2026
+**Status:** Completed
 
-## Topics Completed
+Major outcomes:
 
-- Why databases exist.
-- PostgreSQL installation.
-- psql setup.
-- SQL fundamentals.
-- Tables, rows, and columns.
-- Data types.
-- Primary keys.
-- Foreign keys.
-- Constraints.
-- Referential integrity.
-- One-to-one relationships.
-- One-to-many relationships.
-- Many-to-many relationships.
-- Junction tables.
-- Normalization.
-- 1NF, 2NF, and 3NF.
-- Aggregate functions.
-- `GROUP BY`.
-- `HAVING`.
-- Joins.
-- Database seeding.
-- Testing foreign keys.
-- Testing `ON DELETE CASCADE`.
-- Connecting Node.js to PostgreSQL.
-- Installing `pg`.
-- PostgreSQL connection pooling.
-- Environment-based database configuration.
-- Parameterized queries.
-- Persistent user data.
-- API versioning.
-- Pagination.
-- Health-check endpoints.
-- Graceful shutdown.
-- Backend cleanup and refactoring.
+- PostgreSQL
+- SQL fundamentals
+- Relational database concepts
+- Tables and relationships
+- Primary and foreign keys
+- Constraints
+- Referential integrity
+- Normalization
+- Database relationships
+- PostgreSQL integration
+- Connection pooling
+- Parameterized queries
+- Persistent application data
+- API versioning
+- Pagination
+- Health checks
+- Graceful shutdown
+- Backend/database architecture
 
-## Module Outcome
+### Module Outcome
 
-PrepPilot evolved from an in-memory learning server into a PostgreSQL-backed API.
-
-Current flow:
+PrepPilot evolved from an in-memory learning backend into a PostgreSQL-backed application.
 
     Client
       ↓
@@ -668,218 +586,249 @@ Current flow:
       ↓
     PostgreSQL Pool
       ↓
-    PostgreSQL Database
+    PostgreSQL
+
+---
+
+## Module 4 — Authentication and Authorization
+
+**Status:** Completed  
+**Current Release:** `v0.3.0`
+
+Module 4 established the security foundation of PrepPilot.
+
+Major capabilities completed:
+
+- User registration
+- Input validation
+- Email normalization
+- Secure password hashing with bcrypt
+- Duplicate-account protection
+- User login
+- Password verification
+- JWT creation
+- JWT verification
+- Authentication middleware
+- Protected routes
+- Current-user identification
+- Authorization checks
+- Resource ownership checks
+- Email verification
+- Verification-token expiration
+- Forgot-password flow
+- Password-reset flow
+- Reset-token expiration and invalidation
+- Inactive-account protection
+- Secure authentication error handling
+- Authentication-focused testing
+- Sensitive-data response review
+
+### Module Outcome
+
+PrepPilot evolved from a database-backed API into an authenticated application with a defined security boundary.
+
+    Client
       ↓
-    JSON Response
+    Versioned API
+      ↓
+    Authentication
+      ↓
+    Authorization
+      ↓
+    Protected Resources
+      ↓
+    PostgreSQL
 
 ---
 
-# 🚧 Module 4 — Authentication and Authorization
+## Module 5 — Frontend Development
 
-**Status:** Not Started
+**Status:** Next
 
-## Planned Topics
+Planned areas:
 
-- bcrypt password hashing.
-- User registration.
-- User login.
-- JSON Web Tokens.
-- Token creation.
-- Token verification.
-- Authentication middleware.
-- Protected routes.
-- Authorization.
-- Current-user profile.
-- Secure error handling.
-- Account security.
-
-## Planned Endpoints
-
-- `POST /api/v1/auth/register`
-- `POST /api/v1/auth/login`
-- `GET /api/v1/users/me`
+- React fundamentals
+- Component architecture
+- Props and state
+- React Router
+- Forms
+- API integration
+- Axios
+- Authentication state
+- Protected frontend routes
+- Tailwind CSS
+- Responsive interfaces
+- Loading states
+- Error states
+- Dashboard architecture
 
 ---
 
-# 🚧 Module 5 — Frontend Development
+## Module 6 — Core PrepPilot Features
 
-**Status:** Not Started
+**Status:** Planned
 
-## Planned Topics
+Planned capabilities:
 
-- React fundamentals.
-- Component architecture.
-- Props.
-- State management.
-- React Router.
-- Forms.
-- API integration.
-- Axios.
-- Authentication state.
-- Protected frontend routes.
-- Tailwind CSS.
-- Responsive design.
-- Loading states.
-- Error states.
-- Dashboard architecture.
+- Resume management
+- Technology selection
+- Interview creation
+- Question generation
+- Answer submission
+- Interview scoring
+- Feedback storage
+- Interview history
+- Progress tracking
+- Analytics
+- Recommendations
+- AI integration
 
 ---
 
-# 🚧 Module 6 — Core PrepPilot Features
+## Module 7 — Deployment
 
-**Status:** Not Started
+**Status:** Planned
 
-## Planned Features
+Planned areas:
 
-- Resume upload and management.
-- Technology selection.
-- Interview creation.
-- Question generation.
-- Answer submission.
-- Interview scoring.
-- Feedback storage.
-- Interview history.
-- Progress tracking.
-- Analytics dashboard.
-- Recommendations.
-- AI integration.
+- Frontend deployment
+- Backend deployment
+- PostgreSQL hosting
+- Production environment configuration
+- CORS configuration
+- Build configuration
+- Production debugging
+- Health checks
+- Domain configuration
+- Monitoring
 
 ---
 
-# 🚧 Module 7 — Deployment
+## Module 8 — Final Polish
 
-**Status:** Not Started
+**Status:** Planned
 
-## Planned Topics
+Planned areas:
 
-- Frontend deployment.
-- Backend deployment.
-- PostgreSQL hosting.
-- Environment-variable configuration.
-- Production database connection.
-- CORS configuration.
-- Build configuration.
-- Deployment debugging.
-- Health checks.
-- Domain configuration.
-- Production monitoring.
-
----
-
-# 🚧 Module 8 — Final Polish
-
-**Status:** Not Started
-
-## Planned Topics
-
-- Automated testing.
-- Manual testing.
-- Bug fixing.
-- Error handling.
-- Security review.
-- Performance optimisation.
-- Accessibility.
-- Responsive-design review.
-- Documentation review.
-- Code cleanup.
-- Git history review.
-- Portfolio presentation.
-- Resume integration.
-- Final release.
+- Automated testing
+- Manual testing
+- Bug fixing
+- Security review
+- Performance optimisation
+- Accessibility
+- Responsive-design review
+- Documentation review
+- Code cleanup
+- Git history review
+- Portfolio preparation
+- Resume integration
+- Final production release
 
 ---
 
-# 📈 Current Project Status
+# 14. Current Project Status
 
-    Project Started:                   04 July 2026
-    Latest Update:                     19 July 2026
-    Current Milestone:                 Database Foundation Completed
+**Project Version:** `0.3.0`
 
-    Module 1 — Project Foundation      ✅ Completed
-    Module 2 — Backend Foundation      ✅ Completed
-    Module 3 — Database Design         ✅ Technical Work Completed
-    Module 4 — Authentication          ⏳ Not Started
-    Module 5 — Frontend Development    ⏳ Not Started
-    Module 6 — Core Features           ⏳ Not Started
-    Module 7 — Deployment              ⏳ Not Started
-    Module 8 — Final Polish            ⏳ Not Started
+**Current Milestone:** Module 4 — Authentication & Authorization Completed
+
+**Next Milestone:** Module 5 — Frontend Development
+
+Current module state:
+
+    Module 1 — Project Foundation
+    ✅ Completed
+
+    Module 2 — Backend Foundation
+    ✅ Completed
+
+    Module 3 — Database Design & PostgreSQL
+    ✅ Completed
+
+    Module 4 — Authentication & Authorization
+    ✅ Completed
+
+    Module 5 — Frontend Development
+    ⏳ Next
+
+    Module 6 — Core PrepPilot Features
+    ⏳ Planned
+
+    Module 7 — Deployment
+    ⏳ Planned
+
+    Module 8 — Final Polish
+    ⏳ Planned
 
 ---
 
-# 📊 Overall Progress
+# 15. Current System Maturity
 
-    Completed Modules: 3
-    Total Planned Modules: 8
+PrepPilot has progressed through three major architectural stages.
 
-    3 ÷ 8 × 100 = 37.5%
+## Stage 1 — Backend Foundation
 
-    PrepPilot Technical Progress:
-    Approximately 37.5% Complete 🚀
-
----
-
-# 🔄 Major Project Evolution
-
-## Module 2 State
-
-    Express Server
-          ↓
-    Temporary Books and Notes Arrays
-          ↓
-    Data Lost After Restart
-
-## Module 3 State
-
-    Express Server
-          ↓
+    Express
+      ↓
     Routes
-          ↓
+      ↓
     Controllers
-          ↓
-    PostgreSQL Connection Pool
-          ↓
-    Persistent PostgreSQL Data
+      ↓
+    Temporary Data
 
-This transition represents one of the most important architectural milestones in PrepPilot.
+## Stage 2 — Persistent Backend
+
+    Express
+      ↓
+    Routes
+      ↓
+    Controllers
+      ↓
+    PostgreSQL Pool
+      ↓
+    Persistent Database
+
+## Stage 3 — Secure Backend
+
+    Express
+      ↓
+    Versioned REST API
+      ↓
+    Authentication
+      ↓
+    Authorization
+      ↓
+    Controllers
+      ↓
+    PostgreSQL
+      ↓
+    Persistent User Data
+
+The next major transition will connect this backend foundation to the React frontend.
 
 ---
 
-# 🎯 End Goal
+# 16. Long-Term Architecture Philosophy
 
-By the completion of PrepPilot, the project should demonstrate:
+PrepPilot should grow according to actual application complexity.
 
-- Full-stack application development.
-- React frontend development.
-- Backend engineering.
-- REST API design.
-- PostgreSQL database design.
-- Authentication and authorization.
-- Security fundamentals.
-- AI-service integration.
-- Testing and debugging.
-- Deployment and environment configuration.
-- Git and GitHub workflows.
-- Professional technical documentation.
-- Clean and maintainable software architecture.
-- Production-style engineering practices.
+The current architecture is intentionally simple.
 
----
-
-# 🧱 Long-Term Architecture Philosophy
-
-The project should grow gradually.
-
-Current structure:
+Current direction:
 
     Route
+      ↓
+    Middleware
       ↓
     Controller
       ↓
     Database
 
-Possible future structure when complexity increases:
+As the application grows, some features may evolve toward:
 
     Route
+      ↓
+    Middleware
       ↓
     Controller
       ↓
@@ -889,37 +838,51 @@ Possible future structure when complexity increases:
       ↓
     Database
 
-Additional layers should only be introduced when the application genuinely needs them.
+Additional abstractions should only be introduced when they provide a genuine engineering benefit.
 
-The goal is not to create the maximum number of folders.
+The goal is not to maximise the number of folders, layers, or technologies.
 
-The goal is to create code that is:
+The goal is to build software that is:
 
-- understandable
-- secure
-- maintainable
-- testable
-- scalable
-- appropriate for the project’s current size
-
----
-
-# 🏁 Current Milestone
-
-**Completed:** Module 3 — Database Design and PostgreSQL  
-**Next:** Module 4 — Authentication and Authorization
-
-PrepPilot now has a stable backend and database foundation that can support secure user accounts, resumes, interviews, questions, answers, analytics, and AI-powered features.
+- Understandable
+- Secure
+- Maintainable
+- Testable
+- Scalable
+- Reliable
+- Appropriate for the project's current complexity
 
 ---
 
-# 🏆 Final Mission Statement
+# 17. End Goal
 
-> PrepPilot is being built not only to complete a course, but to become a serious full-stack portfolio project that demonstrates real engineering knowledge, disciplined learning, secure development, and the ability to build a complete software product from foundation to deployment.
+By the completion of the project, PrepPilot should demonstrate practical experience with:
+
+- Full-stack application development
+- React frontend engineering
+- Node.js backend development
+- Express.js REST APIs
+- PostgreSQL database design
+- Authentication and authorization
+- Application security
+- Automated and manual testing
+- AI-service integration
+- Deployment
+- Environment configuration
+- Git and GitHub workflows
+- Professional technical documentation
+- Maintainable software architecture
+- Production-oriented engineering practices
 
 ---
 
-**Current Milestone:** ✅ Database Foundation Completed  
-**Next Milestone:** 🔐 Authentication and Authorization  
-**Current Technical Progress:** Approximately 37.5% Complete  
-**Status:** Building a full-stack AI Interview Preparation Platform 🚀
+# 18. Project Mission Statement
+
+> PrepPilot is being built not merely as a course project, but as a serious full-stack portfolio application that demonstrates disciplined learning, secure development, practical software engineering, and the ability to evolve a product from a basic foundation into a complete production-oriented system.
+
+---
+
+**Current Version:** `0.3.0`  
+**Current Milestone:** ✅ Module 4 — Authentication & Authorization  
+**Next Milestone:** 🔐 Module 5 — Frontend Development  
+**Project Status:** Active Development 🚀

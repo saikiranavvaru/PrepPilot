@@ -2302,3 +2302,19 @@ Verify that the complete authentication system behaves correctly for valid reque
 The planned authentication test suite was completed successfully. The authentication system is behaving as expected for the tested scenarios.
 
 **Status: ✅ Completed**
+
+## Module 4 — Final Conclusion
+
+Module 4 successfully established and verified the authentication and authorization foundation of PrepPilot.
+
+During this module, the backend was extended with user registration, secure password hashing, login authentication, JWT-based authentication, protected routes, authenticated user identification, authorization, and resource ownership checks. The module also implemented email verification and password-recovery functionality using secure, time-limited tokens.
+
+The implemented authentication flows were manually verified through API requests and PostgreSQL checks. Testing covered successful operations as well as important failure and security scenarios, including invalid credentials, duplicate registration, invalid and expired tokens, inactive accounts, password reset, token invalidation, and prevention of reset-token reuse.
+
+The verification confirmed that passwords are stored securely using hashing, sensitive password information is not exposed through API responses, protected routes require valid authentication, and user-owned resources can be protected through authenticated user identity and authorization checks.
+
+This module establishes the core security layer required for PrepPilot's multi-user backend and provides the foundation for building the remaining application features on top of authenticated and authorized users.
+
+**Status: ✅ Module 4 Completed**
+
+---
