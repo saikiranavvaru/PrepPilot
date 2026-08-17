@@ -4799,3 +4799,126 @@ The planned authentication testing and verification scenarios were completed suc
 **Module 4: ✅ Completed**
 
 ---
+
+## Module 5 — Frontend Development
+
+### Chapter 01 — Frontend Foundation
+
+Status: ✅ Completed
+
+Completed:
+- React + Vite frontend initialized
+- Frontend development environment verified
+- React entry point understood
+- Vite starter UI replaced
+- Starter assets cleaned
+- Basic CSS foundation established
+- Production build verified
+- Frontend added to Git
+
+Implementation:
+- `client/`
+- `client/src/App.jsx`
+- `client/src/main.jsx`
+- `client/src/index.css`
+- `client/index.html`
+
+Git:
+- Commit: `feat(chapter-01): establish frontend foundation`
+
+Status: ✅ Complete
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 01
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# 2️⃣ `03_Developer_Journal.md`
+
+Add a Chapter 2 entry:
+
+```md
+## Module 5 — Chapter 2: Component Architecture & Reusability
+
+### Objective
+
+Build the first reusable component architecture for the PrepPilot frontend and understand how React components communicate and compose together.
+
+### Work Completed
+
+The frontend was divided into meaningful components rather than keeping all UI logic inside `App.jsx`.
+
+The following components were implemented and connected:
+
+- `Navbar`
+- `WelcomeSection`
+- `Footer`
+- `TopicSection`
+- `InterviewTopic`
+- `TopicCard`
+
+Props were introduced to pass data from parent components to child components.
+
+The interview topics were represented as an array of objects and rendered dynamically using `.map()`.
+
+A React `key` was supplied for each dynamically rendered topic.
+
+Component composition was then introduced:
+
+```text
+App
+  ↓
+TopicSection
+  ↓
+InterviewTopic
+  ↓
+TopicCard
+  ↓
+children
+
+The children prop was used to make TopicCard a generic reusable container.
+
+Data Flow
+
+The topic data is owned by App and passed down through props:
+
+App
+  ↓ topics
+TopicSection
+  ↓ title + description
+InterviewTopic
+  ↓ children
+TopicCard
+
+This established the one-way data-flow model used by React components.
+
+Experiment
+
+Prop drilling was intentionally demonstrated to understand the problem.
+
+The experiment passed user data through multiple components even though an intermediate component did not need the data.
+
+After verifying the behavior, the experimental code was completely removed and the project was restored to its clean architecture.
+
+Verification
+
+The browser output was verified after each major implementation step.
+
+The final production build was also verified successfully.
+
+Key Learning
+
+The main lesson from this chapter was that React applications should be divided according to meaningful responsibilities.
+
+Components should not be created merely to increase the number of files. Each component should have a clear responsibility and should communicate with other components through predictable data flow.
+
+Result
+
+PrepPilot now has a functional component architecture that can be extended in later chapters without placing all frontend logic inside App.jsx.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 02
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

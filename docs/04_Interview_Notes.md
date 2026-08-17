@@ -4703,3 +4703,115 @@ Architecture
 ## MODULE 4 OFFICIALY COMPLETED
 
 ---
+
+# Module 5 — Frontend Development
+
+## Chapter 01 — Frontend Foundation
+
+### Core Concepts
+
+#### 1. What is React?
+
+React is a JavaScript library for building user interfaces
+using reusable components.
+
+#### 2. What is Vite?
+
+Vite is a frontend development and build tool used to provide
+fast development workflows and production builds.
+
+#### 3. What is JSX?
+
+JSX is a syntax extension that allows UI-like markup to be
+written within JavaScript.
+
+#### 4. What is `main.jsx`?
+
+It acts as the entry point that initializes the React application
+and renders the root component.
+
+#### 5. What is the `root` element?
+
+The `root` element is the DOM element into which the React
+application is mounted.
+
+### PrepPilot Connection
+
+PrepPilot's React application begins at:
+
+`index.html`
+↓
+`main.jsx`
+↓
+`App.jsx`
+↓
+UI
+
+### Interview Questions
+
+1. What is React?
+2. Why is React used for frontend development?
+3. What is JSX?
+4. What is Vite?
+5. What is the role of `main.jsx`?
+6. What is the purpose of the root DOM element?
+7. What is the difference between development and production builds?
+8. Why should frontend architecture avoid unnecessary abstraction?
+9. Why is component-based architecture useful?
+10. How does a React application start in the browser?
+
+### Revision Summary
+
+React → UI library
+
+JSX → UI syntax inside JavaScript
+
+Vite → development/build tooling
+
+`main.jsx` → application entry point
+
+`App.jsx` → root application component
+
+`index.html` → HTML document containing React mount point
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 01
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+---
+
+# 3️⃣ `04_Interview_Notes.md`
+
+For Chapter 2, add **10 questions**, as you requested.
+
+```md
+## Module 5 — Chapter 2 Interview Questions
+
+1. What is a React component, and why are components important in a React application?
+
+2. What is the difference between a reusable component and a component created only for a single UI section?
+
+3. What are props in React, and how does data flow through props?
+
+4. Why should React components generally follow a one-way data-flow model?
+
+5. What is component composition, and how did we implement it in PrepPilot?
+
+6. What is the `children` prop in React, and when would you use it?
+
+7. Why is `.map()` commonly used when rendering lists of components in React?
+
+8. What is the purpose of the `key` prop when rendering a list in React?
+
+9. What is prop drilling, and why can it become a problem in a larger React application?
+
+10. How would you design React components so that responsibilities remain clear and the application stays maintainable as it grows?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 02
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

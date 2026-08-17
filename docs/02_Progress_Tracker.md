@@ -2318,3 +2318,86 @@ This module establishes the core security layer required for PrepPilot's multi-u
 **Status: ✅ Module 4 Completed**
 
 ---
+
+## Module 5 — Frontend Development
+
+### Chapter 01 — Frontend Foundation
+
+Status: ✅ Completed
+
+Completed:
+- React + Vite frontend initialized
+- Frontend development environment verified
+- React entry point understood
+- Vite starter UI replaced
+- Starter assets cleaned
+- Basic CSS foundation established
+- Production build verified
+- Frontend added to Git
+
+Implementation:
+- `client/`
+- `client/src/App.jsx`
+- `client/src/main.jsx`
+- `client/src/index.css`
+- `client/index.html`
+
+Git:
+- Commit: `feat(chapter-01): establish frontend foundation`
+
+Status: ✅ Complete
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 01
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Module 5 — Chapter 2: Component Architecture & Reusability
+
+**Status:** Completed  
+**Focus:** React component architecture, props, composition, reusable components, and one-way data flow.
+
+### Completed
+
+- Learned the purpose and structure of React components.
+- Created reusable component files.
+- Implemented `Navbar`, `WelcomeSection`, and `Footer`.
+- Learned how props allow parent components to pass data to children.
+- Created the reusable `InterviewTopic` component.
+- Created `TopicSection` to compose multiple interview-topic components.
+- Rendered topic data dynamically using JavaScript arrays and `.map()`.
+- Learned the purpose of React `key` when rendering lists.
+- Implemented component composition using `TopicSection → InterviewTopic → TopicCard`.
+- Learned and implemented the `children` prop.
+- Separated page-level topic data from presentation components.
+- Practiced React's one-way data flow.
+- Demonstrated prop drilling and removed the demonstration code after verification.
+- Verified the final component architecture in the browser.
+- Verified the production build successfully.
+
+### Final Component Structure
+
+```text
+App
+├── Navbar
+├── WelcomeSection
+├── TopicSection
+│   └── InterviewTopic
+│       └── TopicCard
+│           └── children
+└── Footer
+
+Implementation Result
+
+The frontend now uses a component-based architecture instead of keeping the complete page structure inside a single component. Topic information is maintained as data and passed through props to reusable components.
+
+Chapter Outcome
+
+Chapter 2 established the component architecture foundation required for the larger PrepPilot frontend. The implementation is intentionally simple at this stage so that later chapters can introduce state, events, hooks, forms, routing, API integration, and authentication without mixing those concepts into the component-architecture foundation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 02
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
