@@ -1,11 +1,14 @@
-import TopicCard from './TopicCard'
-
-function InterviewTopic({ title, description }) {
+function InterviewTopic({ title, description, onSelect }) {
     return (
-        <TopicCard>
+        <section>
             <h3>{title}</h3>
+
             <p>{description}</p>
-        </TopicCard>
+
+            <button onClick={onSelect}>
+                Select Topic
+            </button>
+        </section>
     )
 }
 
