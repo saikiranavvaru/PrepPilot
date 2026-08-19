@@ -4922,3 +4922,53 @@ PrepPilot now has a functional component architecture that can be extended in la
 END OF CHAPTER 02
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Developer Journal
+
+## Module 5 — Frontend Application Development
+### Chapter 3 — React State & Interactive Logic
+
+**Status:** ✅ COMPLETE
+
+Implemented:
+
+- Topic selection
+- Practice start/end
+- Dynamic questions
+- Controlled answer input
+- Answer validation and submission
+- Next-question navigation
+- Practice completion
+- Early ending
+- Completed-question tracking
+- Practice summary
+- State reset
+
+### Key React Flow
+
+```text
+User Action
+↓
+Event Handler
+↓
+State Update
+↓
+Re-render
+↓
+UI Change
+Debugging
+Fixed:
+- Submit button not disappearing
+- Submitted answers being editable
+- Incorrect 4 / 3 count
+- Incorrect early-practice progress
+- Practice reset issues
+Interview topics/questions are separated into src/data/topics.js for cleaner structure and future backend integration.
+Note: Questions Completed ≠ Score. Real answer evaluation will be implemented later.
+Chapter 3 — ✅ COMPLETE
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 03
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -4815,3 +4815,47 @@ For Chapter 2, add **10 questions**, as you requested.
 END OF CHAPTER 02
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# PrepPilot — Interview Notes
+
+## Module 5 — Chapter 3
+### React State & Interactive Logic
+
+**Status:** ✅ COMPLETE
+
+### Key Concepts
+- State & `useState`
+- Props
+- Event handling
+- Controlled inputs
+- Conditional rendering
+
+### Interview Questions
+1. Why do we need React state?
+2. What is `useState`?
+3. What are props?
+4. `onClick={handleClick}` vs `onClick={handleClick()}`?
+5. What is a controlled input?
+6. What is conditional rendering?
+7. Why is practice state inside `PracticePanel`?
+8. How does React update the UI after state changes?
+
+### Core Flow
+
+```text
+User Action
+↓
+Event Handler
+↓
+State Update
+↓
+Re-render
+↓
+UI Change
+Chapter 3 — ✅ COMPLETE
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 02
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

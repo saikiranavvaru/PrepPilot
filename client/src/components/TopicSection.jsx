@@ -7,10 +7,10 @@ function TopicSection({ topics, onSelectTopic }) {
 
             {topics.map((topic) => (
                 <InterviewTopic
-                    key={topic.title}
-                    title={topic.title}
-                    description={topic.description}
-                    onSelect={() => onSelectTopic(topic)}
+                key={topic.title}
+                title={topic.title}
+                description={topic.description}
+                onSelect={() => onSelectTopic(topic)}
                 />
             ))}
         </section>
