@@ -1,5 +1,6 @@
 const topics = [
     {
+        id: 'javascript',
         title: 'JavaScript',
         description:
             'Build strong JavaScript fundamentals for technical interviews.',
@@ -10,6 +11,7 @@ const topics = [
         ]
     },
     {
+        id: 'react',
         title: 'React',
         description:
             'Practice React concepts and build interview-ready applications.',
@@ -20,6 +22,7 @@ const topics = [
         ]
     },
     {
+        id: 'database',
         title: 'Database',
         description:
             'Strengthen SQL and database concepts for technical interviews.',

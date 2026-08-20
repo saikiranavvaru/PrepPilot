@@ -4856,6 +4856,64 @@ Chapter 3 — ✅ COMPLETE
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-END OF CHAPTER 02
+END OF CHAPTER 03
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+# Module 5 — Frontend Architecture & Routing (Chapter 4)      (Date:-20-08-2026)
+
+## Questions
+
+### 1. What is React Router and why is it used?
+
+### 2. What is the difference between `Link` and a normal `<a>` tag?
+
+### 3. What is the difference between `Link` and `NavLink`?
+
+### 4. What is the purpose of `BrowserRouter`?
+
+### 5. What are `Routes` and `Route` used for?
+
+### 6. What is a dynamic route parameter?
+
+### 7. How does `useParams()` work?
+
+### 8. Why should PrepPilot use stable topic IDs instead of topic titles in URLs?
+
+### 9. What is `useNavigate()` and when would you use it?
+
+### 10. Why do we need a 404 route?
+
+### 11. What is the purpose of a shared `AppLayout`?
+
+### 12. Why should page components and reusable components have separate responsibilities?
+
+### 13. How does the PrepPilot practice flow work after introducing routing?
+
+---
+
+## Important Concepts
+
+```text
+BrowserRouter
+Routes
+Route
+Link
+NavLink
+useNavigate
+useParams
+Dynamic Routes
+Stable IDs
+404 Route
+AppLayout
+Page Architecture
+Reusable Components
+Client-Side Routing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 04
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

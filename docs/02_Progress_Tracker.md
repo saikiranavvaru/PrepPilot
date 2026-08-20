@@ -2460,3 +2460,50 @@ The complete practice flow was tested successfully and the production build pass
 END OF CHAPTER 03
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+### Chapter 4 — Frontend Architecture & Routing (Date:-20-08-2026)
+
+Topics Covered:
+* Understanding the need for page-based frontend architecture.
+* Creating a dedicated `pages/` structure for PrepPilot.
+* Installing and configuring React Router.
+* Creating routes for Home, Practice, Progress, and Profile.
+* Implementing navigation using `Link` and `NavLink`.
+* Implementing active navigation states.
+* Creating a 404 Not Found page.
+* Creating a dedicated Practice Session route.
+* Passing topic information through URL parameters.
+* Using stable topic IDs for reliable routing.
+* Creating a shared `AppLayout` for Navbar, page content, and Footer.
+* Separating page responsibilities from reusable components.
+* Connecting the existing Chapter 3 practice system to the new routing architecture.
+* Testing navigation, dynamic routes, invalid routes, refresh behavior, and the complete practice flow.
+* Verifying the frontend production build successfully.
+
+Milestone Achieved:
+* Successfully transformed the PrepPilot frontend from a single-flow application into a structured multi-page React application.
+* Successfully implemented client-side routing and navigation.
+* Successfully connected the existing interactive practice system to dedicated practice-session routes.
+* Successfully implemented stable topic-based URLs and 404 handling.
+* Successfully established reusable application layout architecture.
+* Successfully tested the complete frontend routing and practice workflow.
+* Production build completed successfully with Vite.
+
+---
+Current Frontend Status
+* PrepPilot now has a structured React page and component architecture.
+* Frontend routing is implemented using React Router.
+* Home, Practice, Practice Session, Progress, Profile, and Not Found routes are available.
+* Practice sessions use stable topic IDs in the URL.
+* Shared Navbar and Footer are managed through `AppLayout`.
+* Chapter 3 practice functionality remains fully operational within the new architecture.
+* Frontend production build is passing successfully.
+* Project is ready to proceed to Chapter 5.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 04
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

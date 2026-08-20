@@ -1,32 +1,28 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
-import WelcomeSection from './components/WelcomeSection'
-import TopicSection from './components/TopicSection'
-import Footer from './components/Footer'
-import PracticePanel from './components/PracticePanel'
-import topics from './data/topics'
+import Home from './pages/Home'
+import Practice from './pages/Practice'
+import Progress from './pages/Progress'
+import Profile from './pages/Profile'
+import NotFound from './pages/NotFound'
+import PracticeSession from './pages/PracticeSession'
+import AppLayout from './components/AppLayout'
 
 function App() {
-     const [selectedTopic, setSelectedTopic] = useState(null)
-     
     return (
-        <main>
-            <Navbar title="PrepPilot" />
-
-            <WelcomeSection name="Salva" />
-
-            <TopicSection
-                topics={topics}
-                onSelectTopic={setSelectedTopic}
-            />
-
-            {selectedTopic && (
-                <PracticePanel topic={selectedTopic} />
-            )}
-
-            <Footer />
-        </main>
+        <BrowserRouter>
+          <AppLayout>
+            <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/practice" element={<Practice />} />
+            <Route path="/practice/session/:topicTitle" element={<PracticeSession />} />
+            <Route path="/progress" element={<Progress />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AppLayout>
+        </BrowserRouter>
     )
 }
 

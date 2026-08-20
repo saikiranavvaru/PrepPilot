@@ -4972,3 +4972,83 @@ Chapter 3 — ✅ COMPLETE
 END OF CHAPTER 03
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+## Development Log — Frontend Architecture & Routing — (Module 5 Chapter 4) — (20/08/2026)
+
+### Goal
+
+Learn how to structure PrepPilot into multiple pages and implement real frontend routing using React Router.
+
+---
+
+### Completed
+
+* Created a dedicated `pages/` structure.
+* Installed and configured React Router.
+* Created routes for Home, Practice, Progress, Profile, and 404.
+* Implemented navigation using `Link` and `NavLink`.
+* Added active navigation states.
+* Created a dedicated Practice Session route.
+* Added stable topic IDs and dynamic URL parameters.
+* Connected the existing Chapter 3 PracticePanel to the new routing system.
+* Created a shared `AppLayout` for Navbar and Footer.
+* Cleaned page and component responsibilities.
+* Tested navigation, practice sessions, invalid routes, refresh behavior, and the complete practice workflow.
+* Successfully verified the production build using Vite.
+
+---
+
+### Concepts Learned
+
+#### React Routing
+
+* BrowserRouter
+* Routes
+* Route
+* Link
+* NavLink
+* Dynamic URL parameters
+* useNavigate
+* useParams
+* useLocation
+
+#### Frontend Architecture
+
+* Page-based architecture
+* Shared application layout
+* Reusable components
+* Stable identifiers
+* Separation of responsibilities
+* 404 handling
+
+---
+
+### Key Lessons
+
+A growing React application should not keep every feature inside one component. Routing and page-based architecture allow each feature to have a clear responsibility and its own URL.
+
+Stable IDs are better for application routing than relying on display names, and reusable components should remain independent from page-level navigation logic.
+
+---
+
+### Project Milestone
+
+Successfully transformed PrepPilot from a single-flow React application into a structured multi-page frontend with real client-side routing.
+
+The existing Chapter 3 interview practice functionality was preserved and integrated into the new architecture.
+
+---
+
+### Result
+
+Module 5 — Chapter 4 completed successfully.
+
+PrepPilot now has structured pages, client-side routing, dynamic practice-session URLs, shared layout architecture, 404 handling, and a successful production build.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 04
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
