@@ -4834,11 +4834,13 @@ END OF CHAPTER 01
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# 2️⃣ `03_Developer_Journal.md`
+---
+
+# Developer_Journal.md
 
 Add a Chapter 2 entry:
 
-```md
+
 ## Module 5 — Chapter 2: Component Architecture & Reusability
 
 ### Objective
@@ -4922,6 +4924,8 @@ PrepPilot now has a functional component architecture that can be extended in la
 END OF CHAPTER 02
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
 
 # PrepPilot — Developer Journal
 

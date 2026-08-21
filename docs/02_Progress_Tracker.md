@@ -2378,7 +2378,6 @@ END OF CHAPTER 01
 
 ### Final Component Structure
 
-```text
 App
 ├── Navbar
 ├── WelcomeSection

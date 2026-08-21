@@ -4632,7 +4632,6 @@ When these APIs are implemented, the authenticated user's ID should be compared 
 
 Conceptually:
 
-```text
 req.user.id
      ↓
 Authenticated user
@@ -4787,7 +4786,6 @@ END OF CHAPTER 01
 
 For Chapter 2, add **10 questions**, as you requested.
 
-```md
 ## Module 5 — Chapter 2 Interview Questions
 
 1. What is a React component, and why are components important in a React application?
@@ -4842,7 +4840,6 @@ END OF CHAPTER 02
 
 ### Core Flow
 
-```text
 User Action
 ↓
 Event Handler
@@ -4914,6 +4911,6 @@ Client-Side Routing
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-END OF CHAPTER 04
+END OF CHAPTER 004
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
