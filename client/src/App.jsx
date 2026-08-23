@@ -8,6 +8,8 @@ import Profile from './pages/Profile'
 import NotFound from './pages/NotFound'
 import PracticeSession from './pages/PracticeSession'
 import AppLayout from './components/AppLayout'
+import Register from './pages/Register'
+import Login from './pages/Login'
 
 function App() {
     return (
@@ -19,6 +21,8 @@ function App() {
             <Route path="/practice/session/:topicTitle" element={<PracticeSession />} />
             <Route path="/progress" element={<Progress />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
             </Routes>
           </AppLayout>

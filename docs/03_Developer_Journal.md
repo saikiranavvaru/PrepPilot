@@ -4868,7 +4868,6 @@ A React `key` was supplied for each dynamically rendered topic.
 
 Component composition was then introduced:
 
-```text
 App
   ↓
 TopicSection
@@ -5056,3 +5055,80 @@ PrepPilot now has structured pages, client-side routing, dynamic practice-sessio
 END OF CHAPTER 04
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+## Development Log — Forms & Frontend Validation — (Module 5 Chapter 5) — (23/08/2026)
+
+### Goal
+Learn how to build structured React forms with client-side validation, normalization, reusable validation logic, submission feedback, and reliable form behavior.
+
+---
+
+### Completed
+* Created a controlled Registration form using React state.
+* Implemented validation for name, email, and password.
+* Added field-level validation error messages.
+* Implemented centralized input change handling.
+* Normalized form data before submission.
+* Trimmed unnecessary whitespace from names and emails.
+* Converted email addresses to lowercase.
+* Added successful submission feedback.
+* Reset form fields after successful submission.
+* Created a controlled Login form.
+* Reused validation and normalization logic between forms.
+* Created reusable validation functions in `utils/validation.js`.
+* Created reusable email normalization logic.
+* Tested valid, invalid, empty, and edge-case inputs.
+* Successfully verified the frontend production build using Vite.
+
+---
+
+### Concepts Learned
+
+#### React Forms
+* Controlled inputs
+* React state
+* Form submission
+* Input change handling
+* Form reset
+* Success states
+
+#### Form Validation
+* Required-field validation
+* Email format validation
+* Password length validation
+* Field-level error handling
+* Clearing errors while typing
+
+#### Data Handling
+* Input normalization
+* `trim()`
+* `toLowerCase()`
+* Reusable validation functions
+* Separation of validation and normalization
+
+---
+
+### Key Lessons
+Frontend forms should validate and clean user input before the data is sent to the backend. Reusable validation and normalization functions reduce duplication and keep form behavior consistent across the application.
+
+Controlled inputs give React full control over form state, while clear error handling and success feedback create a predictable user experience.
+
+---
+
+### Project Milestone
+Successfully established the frontend foundation for PrepPilot Registration and Login forms with validation, normalization, reusable utilities, success handling, and form reset behavior.
+
+---
+
+### Result
+Module 5 — Chapter 5 completed successfully.
+
+PrepPilot now has structured Registration and Login forms with reusable validation and normalization logic, consistent user feedback, tested edge cases, and a successful production build.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 05
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

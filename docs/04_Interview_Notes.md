@@ -4893,7 +4893,6 @@ END OF CHAPTER 03
 
 ## Important Concepts
 
-```text
 BrowserRouter
 Routes
 Route
@@ -4911,6 +4910,70 @@ Client-Side Routing
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-END OF CHAPTER 0004
+END OF CHAPTER 04
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+# Module 5 — Forms & Frontend Validation (Chapter 5)      (Date:-23-08-2026)
+
+## Questions
+
+### 1. What is a controlled component in React?
+
+### 2. Why do we use React state for form inputs?
+
+### 3. What is client-side form validation?
+
+### 4. Why should form data be validated before submission?
+
+### 5. How do you validate an email address on the frontend?
+
+### 6. Why should passwords have minimum-length validation?
+
+### 7. What is input normalization and why is it important?
+
+### 8. Why do we use `trim()` when processing form data?
+
+### 9. Why should email addresses be converted to lowercase?
+
+### 10. Why should passwords not be modified during normalization?
+
+### 11. Why is reusable validation logic better than duplicating validation in multiple components?
+
+### 12. What is the purpose of `utils/validation.js` in PrepPilot?
+
+### 13. How does centralized input handling improve the Registration and Login forms?
+
+### 14. What should happen after a successful form submission?
+
+### 15. How does the complete PrepPilot form flow work from user input to successful submission?
+
+---
+
+## Important Concepts
+
+Controlled Components
+React State
+Form Handling
+Client-Side Validation
+Field Validation
+Error Handling
+Email Validation
+Password Validation
+Input Normalization
+`trim()`
+`toLowerCase()`
+Reusable Validation
+`validation.js`
+Submission State
+Form Reset
+Registration Form
+Login Form
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 05
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

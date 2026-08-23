@@ -2489,7 +2489,6 @@ Milestone Achieved:
 * Successfully established reusable application layout architecture.
 * Successfully tested the complete frontend routing and practice workflow.
 * Production build completed successfully with Vite.
-
 ---
 Current Frontend Status
 * PrepPilot now has a structured React page and component architecture.
@@ -2505,4 +2504,51 @@ Current Frontend Status
 
 END OF CHAPTER 04
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+### Chapter 5 — Forms & Frontend Validation (Date:-23-08-2026)
+
+Topics Covered:
+* Building a controlled registration form using React state.
+* Implementing client-side validation for name, email, and password.
+* Implementing field-level error messages.
+* Clearing individual validation errors while typing.
+* Validating email format.
+* Enforcing minimum password length.
+* Normalizing registration data before submission.
+* Trimming unnecessary whitespace from form values.
+* Converting email addresses to lowercase.
+* Implementing submission success state.
+* Resetting form fields after successful submission.
+* Creating a controlled login form.
+* Reusing the same validation and form-handling patterns across Register and Login.
+* Centralizing input change handling.
+* Creating reusable validation functions.
+* Creating reusable email normalization logic.
+* Testing registration and login forms with valid, invalid, empty, and edge-case inputs.
+* Verifying the frontend production build successfully.
+
+Milestone Achieved:
+* Successfully implemented structured Registration and Login forms.
+* Successfully established client-side form validation and error handling.
+* Successfully implemented form-data normalization before future API submission.
+* Successfully introduced reusable validation and normalization utilities.
+* Successfully implemented submission feedback and form reset behavior.
+* Successfully tested the complete form workflow and edge cases.
+* Production build completed successfully with Vite.
+---
+Current Frontend Status
+* PrepPilot now has structured Registration and Login form foundations.
+* Form validation and normalization are handled on the frontend.
+* Shared validation logic is centralized in `utils/validation.js`.
+* Registration and Login use reusable input handling and validation patterns.
+* Successful submissions provide user feedback and reset the form.
+* Form behavior has been tested across normal and invalid inputs.
+* Frontend production build is passing successfully.
+* Project is ready to proceed to Chapter 6.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF CHAPTER 05
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
