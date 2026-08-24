@@ -10,6 +10,7 @@ import PracticeSession from './pages/PracticeSession'
 import AppLayout from './components/AppLayout'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import ApiTest from './ApiTest'
 
 function App() {
     return (
@@ -23,11 +24,14 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/api-test" element={<ApiTest />} />
             <Route path="*" element={<NotFound />} />
             </Routes>
           </AppLayout>
         </BrowserRouter>
     )
 }
+
+
 
 export default App

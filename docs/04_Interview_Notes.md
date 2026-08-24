@@ -4779,9 +4779,6 @@ END OF CHAPTER 01
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-
----
-
 # 3️⃣ `04_Interview_Notes.md`
 
 For Chapter 2, add **10 questions**, as you requested.
@@ -4857,8 +4854,6 @@ END OF CHAPTER 03
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-
 # Module 5 — Frontend Architecture & Routing (Chapter 4)      (Date:-20-08-2026)
 
 ## Questions
@@ -4913,8 +4908,6 @@ Client-Side Routing
 END OF CHAPTER 04
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
----
 
 # Module 5 — Forms & Frontend Validation (Chapter 5)      (Date:-23-08-2026)
 
@@ -4975,5 +4968,74 @@ Login Form
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 END OF CHAPTER 05
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 5 — Frontend API Integration (Chapter 6)      (Date:-24-08-2026)
+
+## Questions
+
+### 1. What is frontend-to-backend communication?
+
+### 2. Why does PrepPilot need an API integration layer?
+
+### 3. What is an API endpoint?
+
+### 4. What is the purpose of the `fetch()` function in a React application?
+
+### 5. Why should PrepPilot use a reusable `apiRequest()` utility instead of writing `fetch()` logic repeatedly?
+
+### 6. What is the purpose of an API base URL?
+
+### 7. Why should the API base URL be stored using environment variables?
+
+### 8. How does `useEffect()` help when fetching API data in a React component?
+
+### 9. Why do we use React state to store data received from an API?
+
+### 10. What is the difference between a loading state, success state, and error state?
+
+### 11. What is the difference between a network error and an HTTP error?
+
+### 12. Why doesn't `fetch()` automatically reject when the server returns a `404` or `500` response?
+
+### 13. What is the purpose of `response.ok`?
+
+### 14. Why should HTTP error handling be centralized inside `apiRequest()`?
+
+### 15. How does the complete PrepPilot API integration flow work from a React component to PostgreSQL and back to the UI?
+
+---
+
+## Important Concepts
+
+Frontend-to-Backend Communication  
+HTTP Requests  
+API  
+API Endpoints  
+`fetch()`  
+API Base URL  
+Environment Variables  
+`apiRequest()`  
+React `useEffect()`  
+React `useState()`  
+Asynchronous Data  
+Loading State  
+Success State  
+Error State  
+Network Errors  
+HTTP Errors  
+`response.ok`  
+JSON Responses  
+Backend Error Messages  
+Centralized API Handling  
+Reusable API Utility  
+Express API  
+PostgreSQL  
+Frontend API Integration
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 06
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

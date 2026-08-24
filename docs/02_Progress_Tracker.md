@@ -2460,8 +2460,6 @@ END OF CHAPTER 03
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-
 ### Chapter 4 — Frontend Architecture & Routing (Date:-20-08-2026)
 
 Topics Covered:
@@ -2506,8 +2504,6 @@ END OF CHAPTER 04
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-
 ### Chapter 5 — Forms & Frontend Validation (Date:-23-08-2026)
 
 Topics Covered:
@@ -2550,5 +2546,63 @@ Current Frontend Status
 * Project is ready to proceed to Chapter 6.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 END OF CHAPTER 05
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Chapter 6 — Frontend API Integration (Date:-24-08-2026)
+
+Topics Covered:
+* Understanding frontend-to-backend communication.
+* Connecting the React frontend to the existing PrepPilot Express API.
+* Configuring the frontend API base URL using environment variables.
+* Creating a reusable `apiRequest()` utility.
+* Connecting React to the real `GET /api/v1/users` endpoint.
+* Receiving real PostgreSQL-backed data from the backend.
+* Storing API response data in React state.
+* Rendering backend data dynamically in the frontend.
+* Understanding the API request lifecycle.
+* Implementing API loading state.
+* Implementing API error state.
+* Handling successful and failed API requests.
+* Understanding the difference between network errors and HTTP errors.
+* Checking `response.ok` for unsuccessful HTTP responses.
+* Preserving backend error messages in the frontend API layer.
+* Centralizing HTTP error handling inside the reusable API utility.
+* Testing successful API requests.
+* Testing intentionally failed API requests.
+* Restoring and verifying the production API endpoint after failure testing.
+* Establishing a reusable frontend-to-backend communication pattern for future PrepPilot features.
+
+Milestone Achieved:
+* Successfully connected the React frontend with the existing PrepPilot Express backend.
+* Successfully established a reusable frontend API utility.
+* Successfully configured the API base URL through environment variables.
+* Successfully consumed a real PostgreSQL-backed PrepPilot endpoint.
+* Successfully stored and rendered backend data using React state.
+* Successfully implemented loading and error handling.
+* Successfully established centralized HTTP error handling.
+* Successfully verified both successful and failed API request behavior.
+* Successfully established the foundation for future frontend features that consume PrepPilot APIs.
+
+---
+
+### Current Frontend Status
+
+* PrepPilot now has a functional frontend-to-backend communication layer.
+* React can communicate with the existing Express API through `apiRequest()`.
+* API configuration is separated from application components using environment variables.
+* Real backend user data can be retrieved and rendered in React.
+* API loading, success, and error states are handled.
+* HTTP failures are detected centrally by the API utility.
+* Backend error messages can be propagated to the frontend.
+* The API integration pattern is reusable for future Practice, Progress, Profile, Interview, Resume, and Authentication features.
+* Chapter 6 API integration foundation is successfully completed.
+* Project is ready to proceed to Chapter 7.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 06
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

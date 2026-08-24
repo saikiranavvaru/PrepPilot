@@ -37,6 +37,8 @@ require("dotenv").config();
 
 const express = require("express");
 
+const cors = require('cors')
+
 // Shared PostgreSQL connection pool.
 const pool = require("./src/config/database");
 
@@ -54,6 +56,8 @@ const authRoutes = require("./src/routes/auth.routes");
 // ======================================================
 
 const app = express();
+
+app.use(cors())
 
 // Use PORT from .env.
 // Fall back to port 3000 when PORT is unavailable.
