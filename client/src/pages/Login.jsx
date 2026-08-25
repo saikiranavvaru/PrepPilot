@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { apiRequest } from '../utils/api'
+import { setToken } from '../utils/auth'
 
 import {
     validateEmail,
@@ -13,21 +15,21 @@ function Login() {
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     function validateForm() {
-    const newErrors = {}
+        const newErrors = {}
 
-    const emailError = validateEmail(email)
-    const passwordError = validatePassword(password)
+        const emailError = validateEmail(email)
+        const passwordError = validatePassword(password)
 
-    if (emailError) {
-        newErrors.email = emailError
+        if (emailError) {
+            newErrors.email = emailError
+        }
+
+        if (passwordError) {
+            newErrors.password = passwordError
+        }
+
+        return newErrors
     }
-
-    if (passwordError) {
-        newErrors.password = passwordError
-    }
-
-    return newErrors
-}
 
     function handleInputChange(event) {
         const { name, value } = event.target
@@ -48,7 +50,7 @@ function Login() {
         setIsSubmitted(false)
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
 
         const validationErrors = validateForm()
@@ -66,10 +68,28 @@ function Login() {
 
         console.log(formData)
 
-        setIsSubmitted(true)
+        try {
+            const { response, data } = await apiRequest(
+                '/api/v1/auth/login',
+                {
+                    method: 'POST',
+                    body: formData
+                }
+            )
 
-        setEmail('')
-        setPassword('')
+            console.log('Login status:', response.status)
+            console.log('Login response:', data)
+
+            setToken(data.data.token)
+
+            console.log('JWT token stored successfully')
+
+            setIsSubmitted(true)
+            setEmail('')
+            setPassword('')
+        } catch (error) {
+            console.error('Login request failed:', error)
+        }
     }
 
     return (

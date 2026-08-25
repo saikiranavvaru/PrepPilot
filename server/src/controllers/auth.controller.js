@@ -241,6 +241,14 @@ async function loginUser(req, res) {
 
     const user = result.rows[0];
 
+    console.log("LOGIN EMAIL:", normalizedEmail);
+    console.log("USER FOUND:", !!user);
+    
+    if (user) {
+      console.log("USER ID:", user.id);
+      console.log("USER ACTIVE:", user.is_active);
+    }
+
     // Use a generic response to avoid revealing
     // whether an email address is registered.
     if (!user) {
