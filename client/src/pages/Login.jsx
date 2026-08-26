@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { apiRequest } from '../utils/api'
 import { setToken } from '../utils/auth'
+import { useAuth } from '../context/AuthContext'
 
 import {
     validateEmail,
@@ -13,6 +14,8 @@ function Login() {
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
     const [isSubmitted, setIsSubmitted] = useState(false)
+
+    const { setUser, setIsAuthenticated } = useAuth()
 
     function validateForm() {
         const newErrors = {}
@@ -83,6 +86,14 @@ function Login() {
             setToken(data.data.token)
 
             console.log('JWT token stored successfully')
+
+            // Update the shared authentication state.
+            setUser(data.data.user)
+            setIsAuthenticated(true)
+
+            console.log(
+                'Authentication state updated successfully'
+            )
 
             setIsSubmitted(true)
             setEmail('')

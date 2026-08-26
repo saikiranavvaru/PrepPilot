@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useAuth } from './context/AuthContext'
 
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
@@ -13,25 +14,34 @@ import Login from './pages/Login'
 import ApiTest from './ApiTest'
 
 function App() {
+    const { user, isAuthenticated, isLoading } = useAuth()
+
     return (
-        <BrowserRouter>
-          <AppLayout>
-            <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/practice" element={<Practice />} />
-            <Route path="/practice/session/:topicTitle" element={<PracticeSession />} />
-            <Route path="/progress" element={<Progress />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/api-test" element={<ApiTest />} />
-            <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AppLayout>
-        </BrowserRouter>
+        <>
+            <p>Loading: {String(isLoading)}</p>
+            <p>Authenticated: {String(isAuthenticated)}</p>
+            <p>User: {user ? user.name : 'Not logged in'}</p>
+
+            <BrowserRouter>
+                <AppLayout>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/practice" element={<Practice />} />
+                        <Route
+                            path="/practice/session/:topicTitle"
+                            element={<PracticeSession />}
+                        />
+                        <Route path="/progress" element={<Progress />} />
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/api-test" element={<ApiTest />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </AppLayout>
+            </BrowserRouter>
+        </>
     )
 }
-
-
 
 export default App

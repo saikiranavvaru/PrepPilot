@@ -5222,3 +5222,72 @@ PrepPilot now has a functional frontend API integration layer with reusable API 
 END OF CHAPTER 06
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Authentication State Management — (Module 5 Chapter 7) — (26/08/2026)
+
+### Goal
+Learn how to manage shared authentication state in PrepPilot, connect the existing JWT authentication system, restore authentication after refresh, expose auth state to components, and implement logout.
+
+---
+
+### Completed
+* Created and integrated `AuthContext.jsx`, `AuthProvider`, and `useAuth()`.
+* Connected login to the existing `POST /api/v1/auth/login` endpoint.
+* Stored the JWT after successful login.
+* Updated shared authentication state after login.
+* Restored authentication after browser refresh using `GET /api/v1/auth/me`.
+* Connected `Navbar.jsx` to the shared authentication state.
+* Displayed the authenticated user's name.
+* Implemented logout and JWT removal.
+* Verified the complete authentication lifecycle.
+
+---
+
+### Concepts Learned
+#### Authentication State
+* JWT vs authentication state
+* React Context
+* `AuthContext`
+* `AuthProvider`
+* `useAuth()`
+* `user`
+* `isAuthenticated`
+* `isLoading`
+
+#### Authentication Persistence
+* JWT persistence
+* Session restoration
+* `/api/v1/auth/me`
+* Protected API requests
+
+#### Authentication Testing
+* Login
+* Refresh and restoration
+* Protected endpoint
+* Logout
+* JWT removal
+
+---
+
+### Key Lessons
+A stored JWT and React authentication state are different. `AuthContext` provides shared authentication state across the application.
+
+Authentication must be restored after refresh because React state is recreated.
+
+The existing `/api/v1/auth/me` endpoint verifies the JWT and returns the authenticated user.
+
+Logout must clear both the stored JWT and frontend authentication state.
+
+---
+
+### Project Milestone
+Successfully established shared frontend authentication state for PrepPilot with login integration, JWT persistence, session restoration, authenticated UI, protected API verification, and logout.
+
+---
+
+### Result
+Module 5 — Chapter 7 completed successfully.
+
+PrepPilot now has a functional frontend authentication state management system ready for the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━END OF CHAPTER 07━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -5039,3 +5039,67 @@ Frontend API Integration
 END OF CHAPTER 06
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 5 — Authentication State Management (Chapter 7)      (Date:-26-08-2026)
+
+## Questions
+
+### 1. What is the difference between having a JWT and having application authentication state?
+
+### 2. Why does PrepPilot need shared authentication state in the frontend?
+
+### 3. What is the purpose of `AuthContext.jsx`?
+
+### 4. What is the role of `AuthProvider` in the authentication architecture?
+
+### 5. What is the purpose of the `useAuth()` hook?
+
+### 6. What authentication information should the frontend maintain?
+
+### 7. How does the existing `POST /api/v1/auth/login` endpoint connect with the frontend authentication state?
+
+### 8. Why must authentication state be restored after a browser refresh?
+
+### 9. How does `GET /api/v1/auth/me` help restore the authenticated user?
+
+### 10. How can components such as `Navbar.jsx` consume shared authentication state?
+
+### 11. What should happen to the authentication state when the user logs out?
+
+### 12. Why must logout remove the stored JWT as well as the React authentication state?
+
+### 13. What is the difference between authentication persistence and authentication restoration?
+
+### 14. How does React Context prevent different components from maintaining separate authentication states?
+
+### 15. How does the complete PrepPilot authentication lifecycle work from login to logout?
+
+---
+
+## Important Concepts
+
+JWT Authentication  
+Application Authentication State  
+`AuthContext.jsx`  
+`AuthProvider`  
+`useAuth()`  
+React Context  
+Shared State  
+`user`  
+`isAuthenticated`  
+`isLoading`  
+JWT Persistence  
+Authentication Restoration  
+Browser Refresh  
+`POST /api/v1/auth/login`  
+`GET /api/v1/auth/me`  
+Protected API Requests  
+Authenticated UI  
+Navbar Authentication  
+Logout  
+JWT Removal  
+Authentication Lifecycle  
+Frontend Authentication  
+Express Authentication API
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━END OF CHAPTER 07━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
