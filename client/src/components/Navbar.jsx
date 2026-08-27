@@ -21,26 +21,26 @@ function Navbar() {
                 PrepPilot
             </NavLink>
 
-            <NavLink
-                to="/practice"
-                className={({ isActive }) =>
-                    isActive ? 'active' : ''
-                }
-            >
-                Practice
-            </NavLink>
-
-            <NavLink
-                to="/progress"
-                className={({ isActive }) =>
-                    isActive ? 'active' : ''
-                }
-            >
-                Progress
-            </NavLink>
-
             {isAuthenticated ? (
                 <>
+                    <NavLink
+                        to="/practice"
+                        className={({ isActive }) =>
+                            isActive ? 'active' : ''
+                        }
+                    >
+                        Practice
+                    </NavLink>
+
+                    <NavLink
+                        to="/progress"
+                        className={({ isActive }) =>
+                            isActive ? 'active' : ''
+                        }
+                    >
+                        Progress
+                    </NavLink>
+
                     <NavLink
                         to="/profile"
                         className={({ isActive }) =>

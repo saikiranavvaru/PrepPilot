@@ -5290,4 +5290,110 @@ Module 5 — Chapter 7 completed successfully.
 
 PrepPilot now has a functional frontend authentication state management system ready for the next chapter.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━END OF CHAPTER 07━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 07
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Protected Routes & Authentication-Aware Frontend — (Module 5 Chapter 8) — (27/08/2026)
+
+### Goal
+
+Learn how to protect frontend routes in PrepPilot, connect protected-route behavior with shared authentication state, handle authentication loading during session restoration, implement authentication-aware navigation, and verify the complete protected frontend authentication flow.
+
+---
+
+### Completed
+
+* Created and integrated `ProtectedRoute.jsx`.
+* Connected `ProtectedRoute` with `AuthContext.jsx`.
+* Used `isLoading` before making protected-route authentication decisions.
+* Redirected unauthenticated users to `/login`.
+* Protected Practice, Practice Session, Progress, and Profile routes.
+* Kept public routes accessible to unauthenticated users.
+* Connected `Navbar.jsx` to authentication state.
+* Implemented authentication-aware navigation.
+* Displayed different navigation options for authenticated and unauthenticated users.
+* Displayed the authenticated user's name in the Navbar.
+* Implemented logout navigation to `/login`.
+* Verified login and logout synchronization without browser refresh.
+* Verified authentication restoration after browser refresh.
+* Verified protected-route behavior after JWT removal.
+* Verified authentication loading behavior during session restoration.
+* Verified the complete protected frontend authentication lifecycle.
+
+---
+
+### Concepts Learned
+
+#### Protected Routes
+
+* Protected frontend routes
+* `ProtectedRoute`
+* `Navigate`
+* `replace`
+* `children`
+* Authentication-based rendering
+* Public vs protected pages
+
+#### Authentication Loading
+
+* `isLoading`
+* Authentication restoration
+* Waiting for `/api/v1/auth/me`
+* Preventing premature redirects
+* Loading state before authentication decisions
+
+#### Authentication-Aware UI
+
+* `isAuthenticated`
+* Conditional navigation
+* Authenticated Navbar
+* Unauthenticated Navbar
+* Logout navigation
+* User information display
+
+#### Protected Route Testing
+
+* Logged-out access
+* Logged-in access
+* Browser refresh
+* Authentication restoration
+* JWT removal
+* Logout
+* Redirect behavior
+
+---
+
+### Key Lessons
+
+Protected routes should not decide whether a user is authenticated while authentication restoration is still in progress.
+
+`isLoading` must be checked before `isAuthenticated` so that a valid session is not incorrectly treated as logged out during application startup.
+
+`ProtectedRoute` acts as the frontend access-control layer by allowing authenticated users to render protected pages and redirecting unauthenticated users to `/login`.
+
+Authentication-aware navigation should use the shared authentication state instead of maintaining separate authentication logic inside the Navbar.
+
+The frontend must keep public and protected navigation behavior consistent with the authentication state.
+
+---
+
+### Project Milestone
+
+Successfully established protected frontend routing and authentication-aware UI for PrepPilot with authentication loading handling, protected pages, redirects, dynamic Navbar behavior, logout navigation, and complete authentication-flow verification.
+
+---
+
+### Result
+
+Module 5 — Chapter 8 completed successfully.
+
+PrepPilot now has a functional protected frontend routing system that uses shared authentication state, handles authentication restoration correctly, restricts protected pages, and keeps the user interface synchronized with authentication status.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 08
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

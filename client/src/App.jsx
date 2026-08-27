@@ -12,6 +12,7 @@ import AppLayout from './components/AppLayout'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import ApiTest from './ApiTest'
+import ProtectedRoute from './routes/ProtectedRoute'
 
 function App() {
     const { user, isAuthenticated, isLoading } = useAuth()
@@ -25,17 +26,55 @@ function App() {
             <BrowserRouter>
                 <AppLayout>
                     <Routes>
+                        {/* Public route */}
                         <Route path="/" element={<Home />} />
-                        <Route path="/practice" element={<Practice />} />
+
+                        {/* Protected route */}
+                        <Route
+                            path="/practice"
+                            element={
+                                <ProtectedRoute>
+                                    <Practice />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        {/* Protected route */}
                         <Route
                             path="/practice/session/:topicTitle"
-                            element={<PracticeSession />}
+                            element={
+                                <ProtectedRoute>
+                                    <PracticeSession />
+                                </ProtectedRoute>
+                            }
                         />
-                        <Route path="/progress" element={<Progress />} />
-                        <Route path="/profile" element={<Profile />} />
+
+                        {/* Protected route */}
+                        <Route
+                            path="/progress"
+                            element={
+                                <ProtectedRoute>
+                                    <Progress />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        {/* Protected route */}
+                        <Route
+                            path="/profile"
+                            element={
+                                <ProtectedRoute>
+                                    <Profile />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        {/* Public routes */}
                         <Route path="/register" element={<Register />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/api-test" element={<ApiTest />} />
+
+                        {/* 404 route */}
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </AppLayout>

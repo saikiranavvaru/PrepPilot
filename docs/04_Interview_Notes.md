@@ -5102,4 +5102,80 @@ Authentication Lifecycle
 Frontend Authentication  
 Express Authentication API
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━END OF CHAPTER 07━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 07
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+# Module 5 — Protected Routes & Authentication-Aware Frontend (Chapter 8)      (Date:-27-08-2026)
+
+## Questions
+
+### 1. What is the purpose of protecting a frontend route in PrepPilot?
+
+### 2. What is the role of `ProtectedRoute.jsx` in the PrepPilot frontend?
+
+### 3. How does `ProtectedRoute` determine whether a user can access a protected page?
+
+### 4. Why should `isLoading` be checked before `isAuthenticated`?
+
+### 5. What happens when an unauthenticated user tries to access a protected route?
+
+### 6. What is the purpose of `Navigate` from React Router in a protected route?
+
+### 7. Why is `replace` used when redirecting an unauthenticated user to `/login`?
+
+### 8. Which PrepPilot frontend routes are protected, and which routes remain public?
+
+### 9. How does the Navbar change depending on the authentication state?
+
+### 10. Why should authentication-aware navigation use the shared `AuthContext` instead of maintaining separate authentication state?
+
+### 11. What should happen to the Navbar immediately after a successful login?
+
+### 12. What should happen to the Navbar immediately after logout?
+
+### 13. Why is authentication loading important during browser refresh and session restoration?
+
+### 14. How does `ProtectedRoute` prevent premature redirects while `/api/v1/auth/me` is restoring authentication?
+
+### 15. How does the complete PrepPilot protected frontend authentication flow work from application startup to logout?
+
+---
+
+## Important Concepts
+
+Protected Routes  
+`ProtectedRoute.jsx`  
+React Router  
+`Navigate`  
+`replace`  
+`children`  
+`isAuthenticated`  
+`isLoading`  
+Authentication Loading  
+Authentication Restoration  
+Public Routes  
+Protected Routes  
+Route Protection  
+Authentication-Aware Navigation  
+Conditional Navigation  
+Navbar Authentication  
+Login Synchronization  
+Logout Synchronization  
+JWT Removal  
+Redirect to `/login`  
+Session Restoration  
+`AuthContext.jsx`  
+`AuthProvider`  
+Frontend Authentication  
+Protected Frontend  
+Authentication Lifecycle
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 08
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

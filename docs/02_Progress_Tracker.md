@@ -2666,4 +2666,94 @@ END OF CHAPTER 06
 - Chapter 7 authentication state management is successfully completed.
 - Project is ready to proceed to Chapter 8.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ END OF CHAPTER 07 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 
+
+END OF CHAPTER 07
+
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Chapter 8 — Protected Routes & Authentication-Aware Frontend (Date:-27-08-2026)
+
+## Topics Covered
+
+- Understanding the purpose of protected frontend routes.
+- Connecting protected route behavior with shared authentication state.
+- Reviewing `isAuthenticated` and `isLoading` from `AuthContext.jsx`.
+- Creating and integrating `ProtectedRoute.jsx`.
+- Handling authentication loading before checking authentication status.
+- Displaying authentication checking state during session restoration.
+- Redirecting unauthenticated users to `/login`.
+- Using React Router `Navigate` for protected-route redirects.
+- Using `replace` during authentication redirects.
+- Allowing authenticated users to access protected frontend pages.
+- Protecting `/practice`.
+- Protecting `/practice/session/:topicTitle`.
+- Protecting `/progress`.
+- Protecting `/profile`.
+- Keeping `/`, `/login`, and `/register` publicly accessible.
+- Testing protected route behavior while logged out.
+- Testing protected route behavior while logged in.
+- Testing protected route behavior after browser refresh.
+- Verifying authentication restoration before protected-route decisions.
+- Connecting `Navbar.jsx` with authentication state.
+- Implementing authentication-aware navigation.
+- Displaying protected navigation only for authenticated users.
+- Displaying Login and Register navigation for unauthenticated users.
+- Displaying the authenticated user's name in the Navbar.
+- Implementing logout through the shared authentication context.
+- Redirecting to `/login` after logout.
+- Verifying immediate Navbar synchronization after login.
+- Verifying immediate Navbar synchronization after logout.
+- Verifying authentication behavior when the JWT is removed.
+- Verifying the complete protected frontend authentication flow.
+
+## Milestone Achieved
+
+- Successfully established protected frontend route architecture using `ProtectedRoute.jsx`.
+- Successfully connected protected routes with `AuthContext.jsx`.
+- Successfully handled authentication loading before protected-route decisions.
+- Successfully redirected unauthenticated users to `/login`.
+- Successfully allowed authenticated users to access protected frontend pages.
+- Successfully protected Practice, Practice Session, Progress, and Profile pages.
+- Successfully kept public pages accessible to unauthenticated users.
+- Successfully implemented authentication-aware Navbar navigation.
+- Successfully displayed authenticated and unauthenticated navigation states correctly.
+- Successfully displayed the authenticated user's name in the Navbar.
+- Successfully implemented logout navigation and authentication-state clearing.
+- Successfully verified login and logout UI synchronization without requiring a browser refresh.
+- Successfully verified authentication restoration after browser refresh.
+- Successfully verified behavior after removing the stored JWT.
+- Successfully verified protected-route behavior for authenticated and unauthenticated users.
+- Successfully verified authentication loading behavior during session restoration.
+- Successfully verified the complete protected frontend authentication flow.
+- Successfully established the foundation for the remaining authenticated frontend features.
+
+---
+
+## Current Frontend Status
+
+- PrepPilot now has protected frontend routes managed through `ProtectedRoute.jsx`.
+- Protected routes use the shared authentication state from `AuthContext.jsx`.
+- Authentication loading is checked before protected-route access decisions.
+- Unauthenticated users are redirected to `/login`.
+- Authenticated users can access protected frontend pages.
+- Practice, Practice Session, Progress, and Profile routes are protected.
+- Public routes remain accessible without authentication.
+- Navbar navigation responds to the current authentication state.
+- Logged-out users see Login and Register navigation.
+- Logged-in users see Practice, Progress, Profile, the authenticated user's name, and Logout.
+- Login immediately updates the authentication-aware Navbar.
+- Logout immediately updates the authentication-aware Navbar and redirects to `/login`.
+- Authentication is restored through `/api/v1/auth/me` after browser refresh.
+- Protected frontend access has been successfully tested.
+- Authentication loading behavior has been successfully verified.
+- JWT removal and logged-out behavior have been successfully verified.
+- The complete protected-route and authentication-aware frontend lifecycle has been successfully verified.
+- Chapter 8 protected routes and authentication-aware frontend behavior is successfully completed.
+- Project is ready to proceed to Chapter 9.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 
+
+END OF CHAPTER 08
+
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
