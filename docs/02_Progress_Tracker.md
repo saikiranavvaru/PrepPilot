@@ -2757,3 +2757,90 @@ END OF CHAPTER 07
 END OF CHAPTER 08
 
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Chapter 9 — Login & Registration Frontend Integration (Date:-28-08-2026)
+
+## Topics Covered
+
+- Connecting the existing PrepPilot registration frontend with the backend authentication API.
+- Connecting the existing PrepPilot login frontend with the backend authentication API.
+- Reviewing the existing `POST /api/v1/auth/register` endpoint from Module 4.
+- Reviewing the existing `POST /api/v1/auth/login` endpoint from Module 4.
+- Using `apiRequest()` for authentication API communication.
+- Preparing registration form data before submission.
+- Preparing login form data before submission.
+- Normalizing email addresses before API requests.
+- Preserving client-side validation before API submission.
+- Sending registration data to the backend.
+- Sending login credentials to the backend.
+- Handling successful registration responses.
+- Handling successful login responses.
+- Handling duplicate-email registration errors.
+- Handling invalid login credentials.
+- Handling non-existent email login attempts.
+- Handling invalid and incomplete form submissions.
+- Storing the JWT after successful login.
+- Updating `user` through `AuthContext.jsx` after successful login.
+- Updating `isAuthenticated` after successful login.
+- Connecting frontend login with shared authentication state.
+- Verifying authenticated navigation after successful login.
+- Verifying protected frontend access after authentication.
+- Verifying unauthenticated access after logout.
+- Testing successful registration.
+- Testing failed registration cases.
+- Testing successful login.
+- Testing failed login cases.
+- Testing authentication state synchronization.
+- Verifying the complete frontend authentication integration flow.
+
+## Milestone Achieved
+
+- Successfully connected the PrepPilot registration form with the existing backend authentication API.
+- Successfully connected the PrepPilot login form with the existing backend authentication API.
+- Successfully reused the existing frontend validation system before authentication requests.
+- Successfully normalized email input before API submission.
+- Successfully submitted registration data to the existing backend.
+- Successfully submitted login credentials to the existing backend.
+- Successfully verified successful registration and database record creation.
+- Successfully verified duplicate-email registration handling.
+- Successfully verified successful login response.
+- Successfully stored the JWT after successful login.
+- Successfully updated shared authentication state after login.
+- Successfully handled invalid login credentials.
+- Successfully handled non-existent user login attempts.
+- Successfully verified successful and failed authentication scenarios.
+- Successfully verified authenticated access to protected frontend pages.
+- Successfully verified unauthenticated users are redirected from protected pages.
+- Successfully connected frontend authentication with the existing Module 4 backend.
+- Successfully established the real login and registration flow for PrepPilot.
+
+---
+
+## Current Frontend Status
+
+- PrepPilot now has functional frontend registration integration.
+- PrepPilot now has functional frontend login integration.
+- Registration communicates with the existing `/api/v1/auth/register` endpoint.
+- Login communicates with the existing `/api/v1/auth/login` endpoint.
+- Client-side validation runs before authentication requests.
+- Email normalization is applied before submission.
+- Successful login stores the returned JWT.
+- Successful login updates the shared authentication state.
+- `AuthContext.jsx` receives the authenticated user after login.
+- `isAuthenticated` is synchronized with the successful login state.
+- Registration success and failure responses have been tested.
+- Login success and failure responses have been tested.
+- Duplicate-email registration has been tested.
+- Invalid credentials have been tested.
+- Non-existent email login has been tested.
+- Protected frontend access has been verified after authentication.
+- Unauthenticated protected-route behavior has been verified.
+- The frontend is now connected to the real PrepPilot authentication backend.
+- Chapter 9 login and registration frontend integration is successfully completed.
+- Project is ready to proceed to Chapter 10.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 09
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

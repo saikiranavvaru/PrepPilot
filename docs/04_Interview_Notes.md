@@ -5179,3 +5179,75 @@ Authentication Lifecycle
 END OF CHAPTER 08
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 5 — Login & Registration Frontend Integration (Chapter 9)      (Date:-28-08-2026)
+
+## Questions
+
+### 1. How does the PrepPilot frontend communicate with the registration backend API?
+
+### 2. How does the PrepPilot frontend communicate with the login backend API?
+
+### 3. What is the purpose of using `apiRequest()` for authentication requests?
+
+### 4. Why should client-side validation happen before sending login or registration data to the backend?
+
+### 5. Why is email normalization performed before submitting authentication data?
+
+### 6. What happens when a user successfully registers through the frontend?
+
+### 7. How should the frontend handle a duplicate-email registration response?
+
+### 8. What happens when a user successfully logs in through the frontend?
+
+### 9. Where does the JWT returned by the login API come from, and how is it used by the frontend?
+
+### 10. Why must the frontend update both the JWT storage and authentication state after successful login?
+
+### 11. How does `AuthContext.jsx` receive the authenticated user after login?
+
+### 12. What should happen when a user enters an incorrect password?
+
+### 13. What should happen when a user attempts to log in with an email that does not exist?
+
+### 14. How does successful frontend login allow the user to access protected frontend pages?
+
+### 15. How does the complete PrepPilot registration → login → authentication → protected-page flow work?
+
+---
+
+## Important Concepts
+
+Frontend Authentication Integration  
+`POST /api/v1/auth/register`  
+`POST /api/v1/auth/login`  
+`apiRequest()`  
+Registration Form  
+Login Form  
+Client-Side Validation  
+Email Normalization  
+Authentication API  
+HTTP Response  
+Successful Registration  
+Duplicate Email  
+Successful Login  
+Invalid Credentials  
+JWT  
+JWT Storage  
+`setUser()`  
+`setIsAuthenticated()`  
+`AuthContext.jsx`  
+Authentication State  
+Protected Pages  
+Authentication Synchronization  
+Authentication Errors  
+Frontend Authentication  
+Backend Authentication  
+Login Lifecycle  
+Registration Lifecycle
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 09
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

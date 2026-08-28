@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { apiRequest } from '../utils/api'
 import {
     validateName,
     validateEmail,
@@ -12,28 +13,29 @@ function Register() {
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     function validateForm() {
-    const newErrors = {}
+        const newErrors = {}
 
-    const nameError = validateName(name)
-    const emailError = validateEmail(email)
-    const passwordError = validatePassword(password)
+        const nameError = validateName(name)
+        const emailError = validateEmail(email)
+        const passwordError = validatePassword(password)
 
-    if (nameError) {
-        newErrors.name = nameError
+        if (nameError) {
+            newErrors.name = nameError
+        }
+
+        if (emailError) {
+            newErrors.email = emailError
+        }
+
+        if (passwordError) {
+            newErrors.password = passwordError
+        }
+
+        return newErrors
     }
-
-    if (emailError) {
-        newErrors.email = emailError
-    }
-
-    if (passwordError) {
-        newErrors.password = passwordError
-    }
-
-    return newErrors
-}
 
     function handleInputChange(event) {
         const { name, value } = event.target
@@ -58,7 +60,7 @@ function Register() {
         setIsSubmitted(false)
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
 
         const validationErrors = validateForm()
@@ -75,13 +77,35 @@ function Register() {
             password
         }
 
-        console.log(formData)
+        setIsLoading(true)
+        setIsSubmitted(false)
 
-        setIsSubmitted(true)
+        try {
+            const { response, data } = await apiRequest(
+                '/api/v1/auth/register',
+                {
+                    method: 'POST',
+                    body: formData
+                }
+            )
 
-        setName('')
-        setEmail('')
-        setPassword('')
+            console.log('Registration status:', response.status)
+            console.log('Registration response:', data)
+
+            setIsSubmitted(true)
+
+            setName('')
+            setEmail('')
+            setPassword('')
+        } catch (error) {
+            console.error('Registration request failed:', error)
+
+            setErrors({
+                form: error.message || 'Registration failed. Please try again.'
+            })
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (
@@ -100,6 +124,7 @@ function Register() {
                         type="text"
                         value={name}
                         onChange={handleInputChange}
+                        disabled={isLoading}
                     />
 
                     {errors.name && (
@@ -118,6 +143,7 @@ function Register() {
                         type="email"
                         value={email}
                         onChange={handleInputChange}
+                        disabled={isLoading}
                     />
 
                     {errors.email && (
@@ -136,6 +162,7 @@ function Register() {
                         type="password"
                         value={password}
                         onChange={handleInputChange}
+                        disabled={isLoading}
                     />
 
                     {errors.password && (
@@ -143,14 +170,21 @@ function Register() {
                     )}
                 </div>
 
-                <button type="submit">
-                    Create Account
+                {errors.form && (
+                    <p>{errors.form}</p>
+                )}
+
+                <button
+                    type="submit"
+                    disabled={isLoading}
+                >
+                    {isLoading ? 'Creating Account...' : 'Create Account'}
                 </button>
             </form>
 
             {isSubmitted && (
                 <p>
-                    Registration submitted successfully!
+                    Registration successful!
                 </p>
             )}
         </section>

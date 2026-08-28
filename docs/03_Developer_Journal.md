@@ -5397,3 +5397,115 @@ PrepPilot now has a functional protected frontend routing system that uses share
 END OF CHAPTER 08
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Login & Registration Frontend Integration — (Module 5 Chapter 9) — (28/08/2026)
+
+### Goal
+
+Connect the existing PrepPilot Login and Register frontend forms with the existing Module 4 authentication backend, handle successful and failed authentication responses, update shared authentication state, and verify the complete frontend authentication integration.
+
+---
+
+### Completed
+
+* Connected `Login.jsx` with the existing `POST /api/v1/auth/login` endpoint.
+* Connected `Register.jsx` with the existing `POST /api/v1/auth/register` endpoint.
+* Reused the existing frontend validation functions.
+* Normalized email addresses before submission.
+* Submitted registration data through `apiRequest()`.
+* Submitted login credentials through `apiRequest()`.
+* Handled successful registration.
+* Handled successful login.
+* Stored the JWT after successful login.
+* Updated `user` through `AuthContext`.
+* Updated `isAuthenticated` after successful login.
+* Tested duplicate-email registration.
+* Tested invalid login credentials.
+* Tested non-existent email login.
+* Tested invalid and incomplete form submissions.
+* Verified successful authentication.
+* Verified protected-page access after login.
+* Verified unauthenticated behavior after logout.
+* Verified the complete frontend authentication integration flow.
+
+---
+
+### Concepts Learned
+
+#### Authentication API Integration
+
+* `POST /api/v1/auth/register`
+* `POST /api/v1/auth/login`
+* `apiRequest()`
+* HTTP responses
+* Successful API responses
+* Failed API responses
+* Authentication errors
+
+#### Login Integration
+
+* Login form submission
+* Email normalization
+* Credential validation
+* JWT response
+* JWT storage
+* `setUser()`
+* `setIsAuthenticated()`
+* Authentication state synchronization
+
+#### Registration Integration
+
+* Registration form submission
+* Name validation
+* Email validation
+* Password validation
+* Duplicate-email handling
+* Backend registration response
+* Database record creation
+
+#### Authentication Testing
+
+* Successful registration
+* Duplicate registration
+* Successful login
+* Invalid password
+* Non-existent email
+* Invalid form submission
+* Protected-page access
+* Logged-out access
+
+---
+
+### Key Lessons
+
+The frontend should integrate with the existing backend authentication contract instead of creating duplicate authentication logic.
+
+Client-side validation provides immediate feedback, but the backend remains responsible for validating and processing authentication requests.
+
+A successful login must update both the stored JWT and the shared frontend authentication state.
+
+`AuthContext.jsx` allows the result of authentication to become available throughout the React application.
+
+Authentication errors must be handled separately from successful authentication so that failed login attempts do not incorrectly authenticate the user.
+
+The frontend authentication flow is now connected to the real PrepPilot backend rather than using simulated or hard-coded authentication.
+
+---
+
+### Project Milestone
+
+Successfully connected PrepPilot's Login and Register interfaces with the existing Module 4 authentication APIs, including validation, JWT storage, authentication-state synchronization, successful and failed authentication handling, and protected-page verification.
+
+---
+
+### Result
+
+Module 5 — Chapter 9 completed successfully.
+
+PrepPilot now has a functional frontend authentication integration where users can register through the real backend, log in using the real authentication API, receive and store a JWT, update shared authentication state, and access protected frontend pages.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 09
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
