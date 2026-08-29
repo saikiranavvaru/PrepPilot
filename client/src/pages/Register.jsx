@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { apiRequest } from '../utils/api'
+
 import {
     validateName,
     validateEmail,
@@ -14,6 +16,8 @@ function Register() {
     const [errors, setErrors] = useState({})
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+
+    const navigate = useNavigate()
 
     function validateForm() {
         const newErrors = {}
@@ -54,7 +58,8 @@ function Register() {
 
         setErrors((previousErrors) => ({
             ...previousErrors,
-            [name]: ''
+            [name]: '',
+            form: ''
         }))
 
         setIsSubmitted(false)
@@ -66,6 +71,7 @@ function Register() {
         const validationErrors = validateForm()
 
         setErrors(validationErrors)
+        setIsSubmitted(false)
 
         if (Object.keys(validationErrors).length > 0) {
             return
@@ -78,7 +84,6 @@ function Register() {
         }
 
         setIsLoading(true)
-        setIsSubmitted(false)
 
         try {
             const { response, data } = await apiRequest(
@@ -89,19 +94,33 @@ function Register() {
                 }
             )
 
-            console.log('Registration status:', response.status)
-            console.log('Registration response:', data)
+            console.log(
+                'Registration status:',
+                response.status
+            )
+
+            console.log(
+                'Registration response:',
+                data
+            )
 
             setIsSubmitted(true)
 
             setName('')
             setEmail('')
             setPassword('')
+
+            navigate('/login')
         } catch (error) {
-            console.error('Registration request failed:', error)
+            console.error(
+                'Registration request failed:',
+                error
+            )
 
             setErrors({
-                form: error.message || 'Registration failed. Please try again.'
+                form:
+                    error.message ||
+                    'Registration failed. Please try again.'
             })
         } finally {
             setIsLoading(false)
@@ -111,6 +130,12 @@ function Register() {
     return (
         <section>
             <h1>Create your PrepPilot account</h1>
+
+            {errors.form && (
+                <p role="alert">
+                    {errors.form}
+                </p>
+            )}
 
             <form onSubmit={handleSubmit}>
                 <div>
@@ -170,15 +195,13 @@ function Register() {
                     )}
                 </div>
 
-                {errors.form && (
-                    <p>{errors.form}</p>
-                )}
-
                 <button
                     type="submit"
                     disabled={isLoading}
                 >
-                    {isLoading ? 'Creating Account...' : 'Create Account'}
+                    {isLoading
+                        ? 'Creating Account...'
+                        : 'Create Account'}
                 </button>
             </form>
 

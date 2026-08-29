@@ -5251,3 +5251,74 @@ Registration Lifecycle
 END OF CHAPTER 09
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Module 5 — Dashboard & Reusable UI (Chapter 10)      (Date:-29-08-2026)
+
+## Questions
+
+### 1. What is the purpose of the PrepPilot dashboard?
+
+### 2. Why should the dashboard use the existing authentication state?
+
+### 3. How can `AuthContext.jsx` provide authenticated user information to the dashboard?
+
+### 4. What is a reusable UI component?
+
+### 5. Why are reusable components important in a React application?
+
+### 6. What is the purpose of creating reusable card-based UI components?
+
+### 7. How does component composition help organize the PrepPilot dashboard?
+
+### 8. Why should reusable UI components be separated from page-level logic?
+
+### 9. How can dashboard actions connect with existing React Router routes?
+
+### 10. How should Practice, Progress, and Profile navigation be integrated into the dashboard?
+
+### 11. Why should the dashboard reuse the existing Tailwind CSS architecture?
+
+### 12. How should the dashboard behave for an unauthenticated user?
+
+### 13. Why should dashboard authentication behavior remain consistent with `ProtectedRoute.jsx`?
+
+### 14. How should dashboard behavior be verified after a browser refresh?
+
+### 15. How do reusable UI components improve the maintainability and scalability of PrepPilot?
+
+---
+
+## Important Concepts
+
+Authenticated Dashboard  
+Dashboard Architecture  
+Dashboard Layout  
+User Information  
+`AuthContext.jsx`  
+`useAuth()`  
+Reusable Components  
+Component Reusability  
+Component Composition  
+Reusable Cards  
+Statistic UI  
+Reusable Actions  
+Separation of Concerns  
+React Router  
+Protected Routes  
+Tailwind CSS  
+Dashboard Navigation  
+Practice Navigation  
+Progress Navigation  
+Profile Navigation  
+Authentication-Aware UI  
+Responsive Dashboard  
+Frontend Architecture  
+Component-Based UI  
+Dashboard Testing  
+Frontend Maintainability
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 10
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

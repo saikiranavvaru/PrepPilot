@@ -5509,3 +5509,105 @@ PrepPilot now has a functional frontend authentication integration where users c
 END OF CHAPTER 09
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Development Log — Dashboard & Reusable UI — (Module 5 Chapter 10) — (29/08/2026)
+
+### Goal
+
+Build the authenticated PrepPilot dashboard, display authenticated user information, create reusable frontend UI components, connect dashboard actions with existing application routes, and verify the complete dashboard experience.
+
+---
+
+### Completed
+
+* Established the PrepPilot dashboard structure.
+* Connected the dashboard with the existing authentication state.
+* Displayed authenticated user information.
+* Created reusable frontend UI components.
+* Implemented reusable card and dashboard UI patterns.
+* Connected dashboard actions with existing React Router routes.
+* Integrated Practice navigation.
+* Integrated Progress navigation.
+* Integrated Profile navigation.
+* Reused the existing Tailwind CSS architecture.
+* Maintained separation between reusable UI components and page-level logic.
+* Verified authenticated dashboard access.
+* Verified unauthenticated dashboard behavior.
+* Verified dashboard behavior after browser refresh.
+* Verified dashboard navigation.
+* Verified reusable component behavior.
+* Verified responsive dashboard behavior.
+* Verified the complete dashboard and reusable UI flow.
+
+---
+
+### Concepts Learned
+
+#### Dashboard Architecture
+
+* Authenticated dashboard
+* Dashboard layout
+* Page-level composition
+* User information display
+* Dashboard navigation
+
+#### Reusable UI
+
+* Reusable components
+* Component composition
+* Reusable cards
+* Statistic UI
+* Reusable actions
+* Separation of concerns
+
+#### Frontend Integration
+
+* `AuthContext.jsx`
+* `useAuth()`
+* React Router
+* Protected routes
+* Tailwind CSS
+* Existing frontend architecture
+
+#### Dashboard Testing
+
+* Authenticated access
+* Unauthenticated access
+* Browser refresh
+* Dashboard navigation
+* Reusable components
+* Responsive behavior
+
+---
+
+### Key Lessons
+
+A dashboard should compose reusable UI components instead of placing every interface element directly inside one large page component.
+
+Reusable components reduce duplication and make the frontend easier to maintain.
+
+The dashboard should use the existing authentication state rather than creating a separate authentication system.
+
+Existing routes and frontend architecture should be reused instead of creating duplicate navigation logic.
+
+Reusable UI components should remain independent from page-specific business logic whenever possible.
+
+---
+
+### Project Milestone
+
+Successfully established the PrepPilot dashboard and reusable frontend UI architecture with authenticated user information, reusable components, route-based navigation, responsive behavior, and complete dashboard verification.
+
+---
+
+### Result
+
+Module 5 — Chapter 10 completed successfully.
+
+PrepPilot now has a functional authenticated dashboard with reusable frontend UI components and integrated navigation, providing the foundation for the next stage of frontend development.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 10
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

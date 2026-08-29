@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { apiRequest } from '../utils/api'
 import { setToken } from '../utils/auth'
 import { useAuth } from '../context/AuthContext'
@@ -14,6 +15,10 @@ function Login() {
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [loginError, setLoginError] = useState('')
+
+    const navigate = useNavigate()
 
     const { setUser, setIsAuthenticated } = useAuth()
 
@@ -50,6 +55,7 @@ function Login() {
             [name]: ''
         }))
 
+        setLoginError('')
         setIsSubmitted(false)
     }
 
@@ -70,6 +76,8 @@ function Login() {
         }
 
         console.log(formData)
+
+        setIsLoading(true)
 
         try {
             const { response, data } = await apiRequest(
@@ -98,14 +106,29 @@ function Login() {
             setIsSubmitted(true)
             setEmail('')
             setPassword('')
+
+            navigate('/practice')
         } catch (error) {
             console.error('Login request failed:', error)
+
+            setLoginError(
+                error.message ||
+                'Login failed. Please check your credentials.'
+            )
+        } finally {
+            setIsLoading(false)
         }
     }
 
     return (
         <section>
             <h1>Login to PrepPilot</h1>
+
+            {loginError && (
+                <p role="alert">
+                    {loginError}
+                </p>
+            )}
 
             <form onSubmit={handleSubmit}>
                 <div>
@@ -144,8 +167,11 @@ function Login() {
                     )}
                 </div>
 
-                <button type="submit">
-                    Login
+                <button
+                    type="submit"
+                    disabled={isLoading}
+                >
+                    {isLoading ? 'Logging in...' : 'Login'}
                 </button>
             </form>
 
