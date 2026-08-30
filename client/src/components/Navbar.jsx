@@ -11,7 +11,7 @@ function Navbar() {
     }
 
     return (
-        <nav>
+        <nav className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -50,7 +50,7 @@ function Navbar() {
                         Profile
                     </NavLink>
 
-                    <span>
+                    <span className="break-words">
                         Welcome, {user?.name}
                     </span>
 

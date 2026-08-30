@@ -1,24 +1,13 @@
+@import "tailwindcss";
+
 :root {
-  font-family: system-ui, sans-serif;
+    font-family: system-ui, sans-serif;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    text-decoration: none;
-}
-
-nav a.active {
-    font-weight: bold;
+    margin: 0;
 }

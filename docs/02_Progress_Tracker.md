@@ -2920,3 +2920,116 @@ END OF CHAPTER 09
 END OF CHAPTER 10
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**# Chapter 11 — Responsive Frontend UI & Page Layout (Date:-30-08-2026)**
+
+**## Topics Covered**
+
+\- Reviewing the existing PrepPilot frontend pages before responsive UI improvements.
+\- Identifying inconsistent spacing and layout behavior across frontend pages.
+\- Understanding the importance of a consistent page layout in a growing React application.
+\- Creating a reusable page layout component.
+\- Creating `PageLayout.jsx` for shared page-level structure.
+\- Reusing the common page container across frontend pages.
+\- Applying consistent horizontal spacing and responsive padding.
+\- Applying consistent maximum content width across pages.
+\- Improving mobile and tablet layout behavior.
+\- Improving dashboard responsiveness.
+\- Improving Practice page responsiveness.
+\- Improving Progress page responsiveness.
+\- Improving Profile page responsiveness.
+\- Improving authentication page layout.
+\- Improving navigation responsiveness.
+\- Using Tailwind CSS utility classes for responsive layouts.
+\- Using responsive breakpoints for different screen sizes.
+\- Using flexbox for responsive navigation and action layouts.
+\- Using grid layouts for dashboard statistics.
+\- Using responsive spacing utilities.
+\- Using responsive typography utilities.
+\- Preventing unnecessary horizontal scrolling on smaller screens.
+\- Handling long email and text content with appropriate wrapping.
+\- Maintaining reusable component-based frontend architecture.
+\- Reusing `Card.jsx` for consistent content sections.
+\- Reusing `StatCard.jsx` for dashboard statistics.
+\- Connecting `PageLayout.jsx` with page-level components.
+\- Maintaining the existing authentication-aware dashboard behavior.
+\- Maintaining the existing protected-route architecture.
+\- Verifying authenticated frontend pages.
+\- Verifying unauthenticated frontend pages.
+\- Testing the dashboard on desktop screen sizes.
+\- Testing the dashboard on tablet screen sizes.
+\- Testing the dashboard on phone screen sizes.
+\- Testing Practice topic selection and navigation.
+\- Testing Practice Session navigation.
+\- Testing responsive navigation behavior.
+\- Testing responsive spacing and page boundaries.
+\- Verifying the frontend build.
+\- Running frontend lint verification.
+\- Confirming the frontend remains functional after the responsive UI improvements.
+
+**## Milestone Achieved**
+
+\- Successfully established a reusable page-level layout for PrepPilot.
+\- Successfully introduced `PageLayout.jsx` for consistent frontend page structure.
+\- Successfully improved the consistency of page spacing and content width.
+\- Successfully improved responsive behavior across the frontend.
+\- Successfully improved the dashboard layout for smaller screens.
+\- Successfully improved Practice page layout for smaller screens.
+\- Successfully improved Progress page layout.
+\- Successfully improved Profile page layout.
+\- Successfully improved authentication page layout.
+\- Successfully improved navigation responsiveness.
+\- Successfully reused Tailwind CSS for responsive styling.
+\- Successfully maintained reusable component architecture.
+\- Successfully reused `Card.jsx` across page sections.
+\- Successfully reused `StatCard.jsx` for dashboard statistics.
+\- Successfully maintained the existing authentication state and protected routes.
+\- Successfully prevented unnecessary horizontal scrolling in the responsive layouts.
+\- Successfully verified dashboard behavior on desktop.
+\- Successfully verified dashboard behavior on tablet.
+\- Successfully verified dashboard behavior on phone.
+\- Successfully verified Practice topic selection.
+\- Successfully verified Practice Session navigation.
+\- Successfully verified responsive navigation behavior.
+\- Successfully verified consistent page spacing and layout.
+\- Successfully verified the frontend build.
+\- Successfully ran frontend lint verification with 0 errors.
+\- Successfully established a stronger responsive foundation for the growing PrepPilot frontend.
+\- Successfully completed the responsive frontend page-layout work required for this chapter.
+
+**---**
+
+**## Current Frontend Status**
+
+\- PrepPilot now has a reusable page-level layout architecture.
+\- `PageLayout.jsx` provides a shared responsive page container.
+\- Frontend pages can reuse consistent spacing and maximum content width.
+\- Dashboard content uses the reusable page layout.
+\- Practice content uses the reusable page layout.
+\- Progress content uses the reusable page layout.
+\- Profile content uses the reusable page layout.
+\- Authentication pages can follow the same responsive layout structure.
+\- `Card.jsx` remains available as a reusable content-section component.
+\- `StatCard.jsx` remains available as a reusable dashboard statistic component.
+\- Tailwind CSS is configured and actively used for frontend styling.
+\- Responsive utility classes are being used across the frontend.
+\- Dashboard statistics use a responsive grid layout.
+\- Navigation uses responsive flexbox behavior.
+\- Long text and email values are handled with appropriate wrapping.
+\- Unnecessary horizontal scrolling has been addressed.
+\- Protected frontend behavior remains consistent with the existing authentication architecture.
+\- Dashboard authentication behavior remains unchanged.
+\- Practice topic selection remains functional.
+\- Practice Session navigation remains functional.
+\- Progress and Profile pages now follow the shared page-layout structure.
+\- Responsive behavior has been verified on desktop, tablet, and phone screen sizes.
+\- Frontend build verification has been completed successfully.
+\- Frontend lint verification has been completed with 0 errors.
+\- Chapter 11 responsive frontend and page-layout development is successfully completed.
+\- Project is ready to proceed to the next chapter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 11
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

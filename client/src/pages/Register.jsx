@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 import { apiRequest } from '../utils/api'
 
 import {
     validateName,
     validateEmail,
     validatePassword,
-    normalizeEmail
+    normalizeEmail,
 } from '../utils/validation'
+
+import Card from '../components/Card'
+import PageLayout from '../components/PageLayout'
 
 function Register() {
     const [name, setName] = useState('')
@@ -59,7 +63,7 @@ function Register() {
         setErrors((previousErrors) => ({
             ...previousErrors,
             [name]: '',
-            form: ''
+            form: '',
         }))
 
         setIsSubmitted(false)
@@ -80,7 +84,7 @@ function Register() {
         const formData = {
             name: name.trim(),
             email: normalizeEmail(email),
-            password
+            password,
         }
 
         setIsLoading(true)
@@ -90,7 +94,7 @@ function Register() {
                 '/api/v1/auth/register',
                 {
                     method: 'POST',
-                    body: formData
+                    body: formData,
                 }
             )
 
@@ -120,7 +124,7 @@ function Register() {
             setErrors({
                 form:
                     error.message ||
-                    'Registration failed. Please try again.'
+                    'Registration failed. Please try again.',
             })
         } finally {
             setIsLoading(false)
@@ -128,89 +132,127 @@ function Register() {
     }
 
     return (
-        <section>
-            <h1>Create your PrepPilot account</h1>
+        <PageLayout>
+            <main className="mx-auto w-full max-w-xl px-4 py-8">
+                <section className="mb-6">
+                    <h1 className="text-2xl font-bold sm:text-3xl">
+                        Create your PrepPilot account
+                    </h1>
 
-            {errors.form && (
-                <p role="alert">
-                    {errors.form}
-                </p>
-            )}
+                    <p className="mt-2 text-sm text-gray-600 sm:text-base">
+                        Create an account to start your interview
+                        preparation.
+                    </p>
+                </section>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">
-                        Name
-                    </label>
-
-                    <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        value={name}
-                        onChange={handleInputChange}
-                        disabled={isLoading}
-                    />
-
-                    {errors.name && (
-                        <p>{errors.name}</p>
+                <Card title="Register">
+                    {errors.form && (
+                        <p
+                            role="alert"
+                            className="mb-5 rounded-md border border-gray-300 bg-gray-50 p-3 text-sm"
+                        >
+                            {errors.form}
+                        </p>
                     )}
-                </div>
 
-                <div>
-                    <label htmlFor="email">
-                        Email
-                    </label>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="space-y-5"
+                    >
+                        <div>
+                            <label
+                                htmlFor="name"
+                                className="block text-sm font-medium"
+                            >
+                                Name
+                            </label>
 
-                    <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={email}
-                        onChange={handleInputChange}
-                        disabled={isLoading}
-                    />
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                value={name}
+                                onChange={handleInputChange}
+                                disabled={isLoading}
+                                className="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-gray-500 disabled:bg-gray-100"
+                            />
 
-                    {errors.email && (
-                        <p>{errors.email}</p>
+                            {errors.name && (
+                                <p className="mt-2 text-sm">
+                                    {errors.name}
+                                </p>
+                            )}
+                        </div>
+
+                        <div>
+                            <label
+                                htmlFor="email"
+                                className="block text-sm font-medium"
+                            >
+                                Email
+                            </label>
+
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                value={email}
+                                onChange={handleInputChange}
+                                disabled={isLoading}
+                                className="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-gray-500 disabled:bg-gray-100"
+                            />
+
+                            {errors.email && (
+                                <p className="mt-2 text-sm">
+                                    {errors.email}
+                                </p>
+                            )}
+                        </div>
+
+                        <div>
+                            <label
+                                htmlFor="password"
+                                className="block text-sm font-medium"
+                            >
+                                Password
+                            </label>
+
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                value={password}
+                                onChange={handleInputChange}
+                                disabled={isLoading}
+                                className="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-gray-500 disabled:bg-gray-100"
+                            />
+
+                            {errors.password && (
+                                <p className="mt-2 text-sm">
+                                    {errors.password}
+                                </p>
+                            )}
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={isLoading}
+                            className="w-full rounded-md border border-gray-300 px-4 py-2.5 text-sm font-medium transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                            {isLoading
+                                ? 'Creating Account...'
+                                : 'Create Account'}
+                        </button>
+                    </form>
+
+                    {isSubmitted && (
+                        <p className="mt-4 text-sm font-medium">
+                            Registration successful!
+                        </p>
                     )}
-                </div>
-
-                <div>
-                    <label htmlFor="password">
-                        Password
-                    </label>
-
-                    <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        value={password}
-                        onChange={handleInputChange}
-                        disabled={isLoading}
-                    />
-
-                    {errors.password && (
-                        <p>{errors.password}</p>
-                    )}
-                </div>
-
-                <button
-                    type="submit"
-                    disabled={isLoading}
-                >
-                    {isLoading
-                        ? 'Creating Account...'
-                        : 'Create Account'}
-                </button>
-            </form>
-
-            {isSubmitted && (
-                <p>
-                    Registration successful!
-                </p>
-            )}
-        </section>
+                </Card>
+            </main>
+        </PageLayout>
     )
 }
 

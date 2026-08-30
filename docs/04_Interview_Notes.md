@@ -5322,3 +5322,76 @@ Frontend Maintainability
 END OF CHAPTER 10
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**# Module 5 — Responsive Frontend UI & Page Layout (Chapter 11)      (Date:-30-08-2026)**
+
+**## Questions**
+
+**### 1. What is the purpose of responsive design in the PrepPilot frontend?**
+
+**### 2. Why should a growing React application use a reusable page layout?**
+
+**### 3. What is the purpose of `PageLayout.jsx`?**
+
+**### 4. How does a reusable page layout reduce duplication across frontend pages?**
+
+**### 5. How does Tailwind CSS help implement responsive layouts?**
+
+**### 6. What is the purpose of responsive breakpoints in Tailwind CSS?**
+
+**### 7. How can Flexbox be used to create responsive navigation and action layouts?**
+
+**### 8. How can CSS Grid be used for responsive dashboard statistics?**
+
+**### 9. Why is preventing unnecessary horizontal scrolling important on mobile devices?**
+
+**### 10. How should long text such as email addresses be handled in responsive layouts?**
+
+**### 11. Why should reusable components such as `Card.jsx` and `StatCard.jsx` be reused across the application?**
+
+**### 12. How should the PrepPilot frontend behave across desktop, tablet, and mobile screen sizes?**
+
+**### 13. Why should authentication and protected-route behavior remain unchanged while improving the UI?**
+
+**### 14. How should responsive frontend behavior be tested on different screen sizes?**
+
+**### 15. How does a reusable responsive page-layout architecture improve the maintainability and scalability of PrepPilot?**
+
+**---**
+
+**## Important Concepts**
+
+Responsive Design  
+Responsive UI  
+Mobile Layout  
+Tablet Layout  
+Desktop Layout  
+`PageLayout.jsx`  
+Reusable Page Layout  
+Shared Page Structure  
+Reusable Components  
+Component Composition  
+Separation of Concerns  
+Tailwind CSS  
+Responsive Breakpoints  
+Flexbox  
+CSS Grid  
+Responsive Navigation  
+Responsive Dashboard  
+Responsive Forms  
+Text Wrapping  
+Horizontal Scroll Prevention  
+React Router  
+Protected Routes  
+Authentication-Aware UI  
+`Card.jsx`  
+`StatCard.jsx`  
+Frontend Architecture  
+Responsive Testing  
+Frontend Maintainability
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 11
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -5611,3 +5611,90 @@ PrepPilot now has a functional authenticated dashboard with reusable frontend UI
 END OF CHAPTER 10
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**## Development Log — Responsive Frontend UI & Page Layout — (Module 5 Chapter 11) — (30/08/2026)**
+
+**### Goal**
+
+Improve the PrepPilot frontend with a reusable page layout, consistent responsive styling, and better mobile, tablet, and desktop behavior.
+
+**---**
+
+**### Completed**
+
+\* Created the reusable `PageLayout.jsx` component.
+\* Applied consistent page spacing and content width.
+\* Improved responsive layouts across the frontend.
+\* Improved responsive Navbar behavior.
+\* Improved Dashboard, Practice, Progress, Profile, Login, and Register layouts.
+\* Reused Tailwind CSS responsive utility classes.
+\* Improved flexbox and grid layouts.
+\* Addressed unnecessary horizontal scrolling.
+\* Improved long-text and email wrapping.
+\* Reused `Card.jsx` and `StatCard.jsx`.
+\* Maintained the existing authentication and protected-route architecture.
+\* Verified desktop, tablet, and mobile behavior.
+\* Verified Practice topic and Practice Session navigation.
+\* Ran frontend lint verification with 0 errors.
+
+**---**
+
+**### Concepts Learned**
+
+**#### Responsive UI**
+
+\* Responsive design
+\* Tailwind CSS
+\* Flexbox
+\* CSS Grid
+\* Responsive breakpoints
+\* Mobile and tablet layouts
+
+**#### Reusable Layout**
+
+\* `PageLayout.jsx`
+\* Shared page structure
+\* Reusable containers
+\* Component composition
+\* Separation of concerns
+
+**#### Frontend Testing**
+
+\* Desktop testing
+\* Tablet testing
+\* Mobile testing
+\* Horizontal-scroll testing
+\* Navigation testing
+\* Lint verification
+
+**---**
+
+**### Key Lessons**
+
+A growing frontend should use reusable layouts instead of repeating the same page structure across multiple pages.
+
+Responsive styling should be part of the frontend architecture so the application works consistently across different screen sizes.
+
+Reusable components reduce duplication and make the frontend easier to maintain.
+
+Long content should be handled carefully to prevent unwanted horizontal scrolling.
+
+**---**
+
+**### Project Milestone**
+
+Successfully established the PrepPilot responsive frontend and reusable page-layout architecture with improved layouts, responsive behavior, and verified frontend functionality.
+
+**---**
+
+**### Result**
+
+Module 5 — Chapter 11 completed successfully.
+
+PrepPilot now has a stronger responsive frontend foundation with reusable page layout and consistent UI behavior across desktop, tablet, and mobile screens.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+END OF CHAPTER 11
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

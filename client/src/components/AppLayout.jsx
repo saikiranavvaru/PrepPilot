@@ -3,7 +3,7 @@ import Footer from './Footer'
 
 function AppLayout({ children }) {
     return (
-        <>
+        <div className="min-h-screen">
             <Navbar />
 
             <main>
@@ -11,7 +11,7 @@ function AppLayout({ children }) {
             </main>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

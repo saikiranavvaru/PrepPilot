@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useAuth } from './context/AuthContext'
 
-import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Practice from './pages/Practice'
 import Progress from './pages/Progress'
@@ -15,14 +13,8 @@ import ApiTest from './ApiTest'
 import ProtectedRoute from './routes/ProtectedRoute'
 
 function App() {
-    const { user, isAuthenticated, isLoading } = useAuth()
-
     return (
         <>
-            <p>Loading: {String(isLoading)}</p>
-            <p>Authenticated: {String(isAuthenticated)}</p>
-            <p>User: {user ? user.name : 'Not logged in'}</p>
-
             <BrowserRouter>
                 <AppLayout>
                     <Routes>
