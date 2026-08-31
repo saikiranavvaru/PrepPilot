@@ -14,7 +14,6 @@ import ProtectedRoute from './routes/ProtectedRoute'
 
 function App() {
     return (
-        <>
             <BrowserRouter>
                 <AppLayout>
                     <Routes>
@@ -71,7 +70,6 @@ function App() {
                     </Routes>
                 </AppLayout>
             </BrowserRouter>
-        </>
     )
 }
 

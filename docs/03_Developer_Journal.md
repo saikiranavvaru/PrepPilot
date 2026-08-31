@@ -5612,64 +5612,64 @@ END OF CHAPTER 10
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**## Development Log — Responsive Frontend UI & Page Layout — (Module 5 Chapter 11) — (30/08/2026)**
+## Development Log — Responsive Frontend UI & Page Layout — (Module 5 Chapter 11) — (30/08/2026)
 
-**### Goal**
+### Goal
 
 Improve the PrepPilot frontend with a reusable page layout, consistent responsive styling, and better mobile, tablet, and desktop behavior.
 
-**---**
+---
 
-**### Completed**
+### Completed
 
-\* Created the reusable `PageLayout.jsx` component.
-\* Applied consistent page spacing and content width.
-\* Improved responsive layouts across the frontend.
-\* Improved responsive Navbar behavior.
-\* Improved Dashboard, Practice, Progress, Profile, Login, and Register layouts.
-\* Reused Tailwind CSS responsive utility classes.
-\* Improved flexbox and grid layouts.
-\* Addressed unnecessary horizontal scrolling.
-\* Improved long-text and email wrapping.
-\* Reused `Card.jsx` and `StatCard.jsx`.
-\* Maintained the existing authentication and protected-route architecture.
-\* Verified desktop, tablet, and mobile behavior.
-\* Verified Practice topic and Practice Session navigation.
-\* Ran frontend lint verification with 0 errors.
+- Created the reusable `PageLayout.jsx` component.
+- Applied consistent page spacing and content width.
+- Improved responsive layouts across the frontend.
+- Improved responsive Navbar behavior.
+- Improved Dashboard, Practice, Progress, Profile, Login, and Register layouts.
+- Reused Tailwind CSS responsive utility classes.
+- Improved flexbox and grid layouts.
+- Addressed unnecessary horizontal scrolling.
+- Improved long-text and email wrapping.
+- Reused `Card.jsx` and `StatCard.jsx`.
+- Maintained the existing authentication and protected-route architecture.
+- Verified desktop, tablet, and mobile behavior.
+- Verified Practice topic and Practice Session navigation.
+- Ran frontend lint verification with 0 errors.
 
-**---**
+---
 
-**### Concepts Learned**
+### Concepts Learned
 
-**#### Responsive UI**
+#### Responsive UI
 
-\* Responsive design
-\* Tailwind CSS
-\* Flexbox
-\* CSS Grid
-\* Responsive breakpoints
-\* Mobile and tablet layouts
+- Responsive design
+- Tailwind CSS
+- Flexbox
+- CSS Grid
+- Responsive breakpoints
+- Mobile and tablet layouts
 
-**#### Reusable Layout**
+#### Reusable Layout
 
-\* `PageLayout.jsx`
-\* Shared page structure
-\* Reusable containers
-\* Component composition
-\* Separation of concerns
+- `PageLayout.jsx`
+- Shared page structure
+- Reusable containers
+- Component composition
+- Separation of concerns
 
-**#### Frontend Testing**
+#### Frontend Testing
 
-\* Desktop testing
-\* Tablet testing
-\* Mobile testing
-\* Horizontal-scroll testing
-\* Navigation testing
-\* Lint verification
+- Desktop testing
+- Tablet testing
+- Mobile testing
+- Horizontal-scroll testing
+- Navigation testing
+- Lint verification
 
-**---**
+---
 
-**### Key Lessons**
+### Key Lessons
 
 A growing frontend should use reusable layouts instead of repeating the same page structure across multiple pages.
 
@@ -5679,15 +5679,15 @@ Reusable components reduce duplication and make the frontend easier to maintain.
 
 Long content should be handled carefully to prevent unwanted horizontal scrolling.
 
-**---**
+---
 
-**### Project Milestone**
+### Project Milestone
 
 Successfully established the PrepPilot responsive frontend and reusable page-layout architecture with improved layouts, responsive behavior, and verified frontend functionality.
 
-**---**
+---
 
-**### Result**
+### Result
 
 Module 5 — Chapter 11 completed successfully.
 
@@ -5698,3 +5698,165 @@ PrepPilot now has a stronger responsive frontend foundation with reusable page l
 END OF CHAPTER 11
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Development Log — Frontend Error, Loading & UX Polish — (Module 5 Chapter 12) — (31/08/2026)
+
+## Goal
+
+Complete the final PrepPilot frontend UX polish by improving loading states, error handling, user feedback, authentication behavior, responsive consistency, and overall frontend quality before completing Module 5.
+
+---
+
+## Completed
+
+* Improved frontend loading behavior.
+* Improved frontend error handling.
+* Improved form submission feedback.
+* Improved authentication-related user feedback.
+* Improved protected-route loading behavior.
+* Improved empty and fallback UI states.
+* Improved button and interaction feedback.
+* Prevented duplicate form submissions during loading.
+* Maintained consistent frontend UX patterns.
+* Reused existing frontend components and layout architecture.
+* Maintained the existing authentication architecture.
+* Maintained the existing protected-route architecture.
+* Maintained the existing React Router architecture.
+* Maintained the existing API communication structure.
+* Reviewed responsive frontend behavior.
+* Removed unnecessary development and debugging UI.
+* Removed unnecessary console logging and temporary development output.
+* Reviewed frontend component structure and code consistency.
+* Verified frontend navigation behavior.
+* Verified authentication and session behavior.
+* Verified loading and error behavior.
+* Verified frontend behavior after browser refresh.
+* Ran frontend lint verification.
+* Ran the production frontend build.
+* Verified the complete frontend integration flow.
+* Prepared the frontend for final Module 5 completion.
+
+---
+
+## Concepts Learned
+
+### Loading & Error Handling
+
+* Loading states
+* Error states
+* Empty states
+* Fallback UI
+* User feedback
+* Form submission states
+
+### Authentication UX
+
+* Authentication state
+* Session restoration
+* Protected-route loading
+* Authentication errors
+* AuthContext integration
+* ProtectedRoute integration
+
+### Frontend Polish
+
+* Responsive UI
+* Button interaction feedback
+* Duplicate submission prevention
+* Component consistency
+* Development cleanup
+* UX consistency
+
+### Frontend Verification
+
+* Navigation testing
+* Authentication testing
+* Session testing
+* Browser refresh testing
+* Loading-state testing
+* Error-state testing
+* Responsive testing
+* Lint verification
+* Production build verification
+
+---
+
+## Key Lessons
+
+A production frontend should clearly communicate loading, success, error, and empty states to the user.
+
+Loading states should prevent unnecessary duplicate actions while asynchronous operations are running.
+
+Error handling should provide useful feedback instead of leaving the user uncertain about what happened.
+
+Authentication and protected-route behavior should remain consistent while improving the user experience.
+
+Development-only debugging output should be removed or cleaned up before considering the frontend complete.
+
+Final frontend verification should include navigation, authentication, refresh behavior, responsive behavior, linting, and production builds.
+
+---
+
+## Project Milestone
+
+Successfully completed the final frontend error, loading, and UX polish phase and verified the complete PrepPilot frontend integration.
+
+---
+
+## Result
+
+Module 5 — Chapter 12 completed successfully.
+
+PrepPilot now has a polished frontend foundation with improved loading and error handling, authentication-aware UX, responsive behavior, reusable components, protected routes, and verified production readiness.
+
+---
+
+## Final Module 5 Milestone
+
+Successfully completed all 12 chapters of Module 5 — Frontend Development.
+
+PrepPilot now has the complete frontend foundation including React architecture, reusable components, routing, forms, API integration, authentication, protected routes, dashboard UI, responsive layouts, loading states, error handling, and final UX polish.
+
+---
+
+## Release
+
+Release v0.4.0 — Complete Frontend Integration
+
+Previous Release: v0.3.0 — Complete Authentication Foundation
+
+Current Release: v0.4.0 — Complete Frontend Integration
+
+---
+
+## Final Module 5 Status
+
+* Chapter 1 — Frontend Foundation & React Setup — Completed.
+* Chapter 2 — React Components & JSX — Completed.
+* Chapter 3 — Props, State & Events — Completed.
+* Chapter 4 — Forms & Validation — Completed.
+* Chapter 5 — Tailwind CSS & UI Architecture — Completed.
+* Chapter 6 — React Router & Page Architecture — Completed.
+* Chapter 7 — API Integration with Axios — Completed.
+* Chapter 8 — Authentication State / Protected Frontend — Completed.
+* Chapter 9 — Protected Routes & Session Flow — Completed.
+* Chapter 10 — Login/Register Frontend — Completed.
+* Chapter 11 — Dashboard & Reusable UI — Completed.
+* Chapter 12 — Frontend Error/Loading/UX Polish — Completed.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PREPPILOT v0.4.0
+
+COMPLETE FRONTEND INTEGRATION
+
+MODULE 5 COMPLETED
+
+12 / 12 CHAPTERS COMPLETED
+
+### END OF MODULE 5
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+

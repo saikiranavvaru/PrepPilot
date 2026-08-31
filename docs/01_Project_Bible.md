@@ -1,10 +1,10 @@
 # PrepPilot — Project Bible
 
-**Version:** 0.3.0  
+**Version:** 0.4.0  
 **Project Status:** Active Development  
-**Latest Update:** 15 August 2026  
-**Current Milestone:** Module 4 — Authentication & Authorization Completed  
-**Next Milestone:** Module 5 — Frontend Development
+**Latest Update:** 31 August 2026  
+**Current Milestone:** Module 5 — Frontend Development Completed  
+**Next Milestone:** Module 6 — Core PrepPilot Features
 
 ---
 
@@ -41,6 +41,8 @@ The intended user journey is:
     Create Account
           ↓
     Verify Account
+          ↓
+    Login
           ↓
     Build Profile
           ↓
@@ -139,6 +141,28 @@ PrepPilot provides the foundation for secure user accounts, including:
 - Account verification
 - Password recovery
 - Authorization and resource ownership
+
+## Frontend Application
+
+The frontend foundation now includes:
+
+- React application architecture
+- Component-based UI
+- React Router navigation
+- Forms and validation
+- Tailwind CSS
+- Responsive layouts
+- Authentication state management
+- Protected frontend routes
+- Login and registration interfaces
+- Dashboard interface
+- Practice interface
+- Progress interface
+- Profile interface
+- Reusable UI components
+- Reusable page layout
+- Loading and error states
+- UX polish
 
 ## Resume Management
 
@@ -275,33 +299,60 @@ Future AI capabilities include:
 
 # 8. System Architecture
 
-## Current Backend Architecture
+## Current Full-Stack Architecture
 
-The backend currently follows a layered request flow:
+The current PrepPilot architecture follows this general request flow:
 
-    Client
-      ↓
-    Express Application
-      ↓
+    React Frontend
+          ↓
+    Versioned REST API
+          ↓
+    Authentication
+          ↓
+    Authorization
+          ↓
     Routes
-      ↓
-    Authentication / Authorization Middleware
-      ↓
+          ↓
     Controllers
-      ↓
+          ↓
     PostgreSQL Connection Pool
-      ↓
+          ↓
     PostgreSQL
-      ↓
-    JSON Response
 
-Authentication and authorization are now part of the backend security boundary.
+The frontend now communicates with the backend API while maintaining authentication-aware and protected application behaviour.
+
+Authentication and authorization remain part of the backend security boundary.
 
 Protected resources require the request to pass through the appropriate authentication and authorization checks before reaching protected business operations.
 
+## Frontend Architecture
+
+The frontend currently follows a component-based structure:
+
+    App
+     ↓
+    AppLayout
+     ├── Navbar
+     ├── Page Content
+     └── Footer
+
+    Pages
+     ↓
+    Reusable Components
+     ↓
+    Context / API Utilities
+     ↓
+    Backend API
+
+Authentication state is managed through `AuthContext.jsx`.
+
+Protected frontend pages are handled through `ProtectedRoute.jsx`.
+
+Shared page structure is handled through `PageLayout.jsx`.
+
 ## Long-Term Architecture
 
-As PrepPilot grows, the architecture may evolve toward:
+As PrepPilot grows, the backend architecture may evolve toward:
 
     React Frontend
           ↓
@@ -334,6 +385,17 @@ The project is organised into separate application, documentation, and configura
     PrepPilot/
     │
     ├── client/
+    │   ├── src/
+    │   │   ├── components/
+    │   │   ├── context/
+    │   │   ├── data/
+    │   │   ├── pages/
+    │   │   ├── routes/
+    │   │   └── utils/
+    │   │
+    │   ├── public/
+    │   ├── package.json
+    │   └── vite.config.js
     │
     ├── server/
     │   ├── src/
@@ -361,6 +423,8 @@ The project is organised into separate application, documentation, and configura
 
 The exact implementation structure may evolve as the application grows.
 
+Generated build output and installed dependencies remain development artifacts and are not part of the source architecture.
+
 ---
 
 # 10. Engineering Principles
@@ -373,7 +437,7 @@ Every major technology and architectural decision should be understood before be
 
 ### Keep Responsibilities Clear
 
-Files, modules, controllers, middleware, and services should have focused responsibilities.
+Files, modules, controllers, middleware, services, components, and utilities should have focused responsibilities.
 
 ### Prefer Simplicity
 
@@ -393,7 +457,7 @@ Passwords, secrets, tokens, database credentials, and unnecessary personal infor
 
 ### Test Important Behaviour
 
-Important authentication, authorization, API, database, and business behaviours should be tested before being considered complete.
+Important authentication, authorization, API, database, frontend, and business behaviours should be tested before being considered complete.
 
 ### Maintain Documentation
 
@@ -593,7 +657,7 @@ PrepPilot evolved from an in-memory learning backend into a PostgreSQL-backed ap
 ## Module 4 — Authentication and Authorization
 
 **Status:** Completed  
-**Current Release:** `v0.3.0`
+**Release:** `v0.3.0 — Complete Authentication Foundation`
 
 Module 4 established the security foundation of PrepPilot.
 
@@ -643,30 +707,73 @@ PrepPilot evolved from a database-backed API into an authenticated application w
 
 ## Module 5 — Frontend Development
 
-**Status:** Next
+**Status:** Completed  
+**Release:** `v0.4.0 — Complete Frontend Integration`
 
-Planned areas:
+Module 5 established the complete React frontend and connected it with the existing backend foundation.
 
-- React fundamentals
-- Component architecture
-- Props and state
+### Chapters Completed
+
+- Chapter 1 — Frontend Foundation & React Setup
+- Chapter 2 — React Components & JSX
+- Chapter 3 — Props, State & Events
+- Chapter 4 — Forms & Validation
+- Chapter 5 — Tailwind CSS & UI Architecture
+- Chapter 6 — React Router & Page Architecture
+- Chapter 7 — API Integration with Axios
+- Chapter 8 — Authentication State / Protected Frontend
+- Chapter 9 — Protected Routes & Session Flow
+- Chapter 10 — Login/Register Frontend
+- Chapter 11 — Dashboard & Reusable UI
+- Chapter 12 — Frontend Error/Loading/UX Polish
+
+### Major Outcomes
+
+- React frontend foundation
+- Component-based architecture
 - React Router
-- Forms
-- API integration
-- Axios
-- Authentication state
-- Protected frontend routes
+- Forms and validation
 - Tailwind CSS
-- Responsive interfaces
+- API integration
+- Authentication state management
+- JWT session handling
+- Protected frontend routes
+- Login and registration interfaces
+- Dashboard interface
+- Practice interface
+- Progress interface
+- Profile interface
+- Reusable UI components
+- Reusable page layout
+- Responsive frontend behaviour
 - Loading states
-- Error states
-- Dashboard architecture
+- Error handling
+- UX polish
+- Frontend lint verification
+- Production frontend build verification
+- Full frontend-backend integration
+
+### Module Outcome
+
+PrepPilot now has a complete frontend foundation connected to its authenticated backend.
+
+    React Frontend
+          ↓
+    API Utility
+          ↓
+    Versioned REST API
+          ↓
+    Authentication
+          ↓
+    Authorization
+          ↓
+    PostgreSQL
 
 ---
 
 ## Module 6 — Core PrepPilot Features
 
-**Status:** Planned
+**Status:** Next
 
 Planned capabilities:
 
@@ -728,11 +835,11 @@ Planned areas:
 
 # 14. Current Project Status
 
-**Project Version:** `0.3.0`
+**Project Version:** `0.4.0`
 
-**Current Milestone:** Module 4 — Authentication & Authorization Completed
+**Current Milestone:** Module 5 — Frontend Development Completed
 
-**Next Milestone:** Module 5 — Frontend Development
+**Next Milestone:** Module 6 — Core PrepPilot Features
 
 Current module state:
 
@@ -749,10 +856,10 @@ Current module state:
     ✅ Completed
 
     Module 5 — Frontend Development
-    ⏳ Next
+    ✅ Completed
 
     Module 6 — Core PrepPilot Features
-    ⏳ Planned
+    ⏳ Next
 
     Module 7 — Deployment
     ⏳ Planned
@@ -764,7 +871,7 @@ Current module state:
 
 # 15. Current System Maturity
 
-PrepPilot has progressed through three major architectural stages.
+PrepPilot has progressed through four major architectural stages.
 
 ## Stage 1 — Backend Foundation
 
@@ -804,7 +911,23 @@ PrepPilot has progressed through three major architectural stages.
       ↓
     Persistent User Data
 
-The next major transition will connect this backend foundation to the React frontend.
+## Stage 4 — Full Frontend Integration
+
+    React Frontend
+          ↓
+    API Communication
+          ↓
+    Authentication State
+          ↓
+    Protected Routes
+          ↓
+    Authenticated UI
+          ↓
+    Backend API
+          ↓
+    PostgreSQL
+
+The next major transition will move PrepPilot from its foundational frontend into the implementation of its core product features.
 
 ---
 
@@ -882,7 +1005,19 @@ By the completion of the project, PrepPilot should demonstrate practical experie
 
 ---
 
-**Current Version:** `0.3.0`  
-**Current Milestone:** ✅ Module 4 — Authentication & Authorization  
-**Next Milestone:** 🔐 Module 5 — Frontend Development  
-**Project Status:** Active Development 🚀
+**Current Version:** `0.4.0`  
+**Current Milestone:** ✅ Module 5 — Frontend Development Completed  
+**Next Milestone:** 🚀 Module 6 — Core PrepPilot Features  
+**Project Status:** Active Development
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PREPPILOT v0.4.0
+
+COMPLETE FRONTEND INTEGRATION
+
+MODULE 5 COMPLETED
+
+NEXT → MODULE 6 — CORE PREPPILOT FEATURES
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
