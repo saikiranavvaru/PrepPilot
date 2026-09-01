@@ -40,7 +40,6 @@ The API remains under active development as PrepPilot moves toward core intervie
 
 ## Local Development
 
-```text
 http://localhost:3000
 Versioned API Base Path
 http://localhost:3000/api/v1
@@ -832,4 +831,3 @@ PREPPILOT v0.4.0
 COMPLETE FRONTEND INTEGRATION
 MODULE 5 COMPLETED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```

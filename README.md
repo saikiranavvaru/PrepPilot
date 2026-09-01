@@ -142,7 +142,7 @@ PrepPilot currently consists of a React frontend communicating with a versioned 
 
 ## Frontend Request Flow
 
-```text
+
 React Application
        ↓
 React Router
@@ -394,4 +394,3 @@ Completed: Modules 1–5
 Current Focus: Preparing for Module 6 — Core PrepPilot Features
 PrepPilot has progressed from an Express learning server into a PostgreSQL-backed full-stack application with REST APIs, authentication, authorization, email verification, password recovery, protected backend resources, a React frontend, frontend authentication state, protected frontend routes, responsive UI, API integration, and final frontend UX polish.
 The next major phase is implementing the core PrepPilot product features on top of the established full-stack foundation.
-```
