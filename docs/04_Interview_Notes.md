@@ -5396,8 +5396,6 @@ END OF CHAPTER 11
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 # MODULE 5 — FRONTEND DEVELOPMENT — FINAL COMPLETION
 
 ## Module 5 Completion
