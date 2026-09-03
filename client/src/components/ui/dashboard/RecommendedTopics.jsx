@@ -1,7 +1,7 @@
 import { ArrowRight, Bookmark } from "lucide-react";
 
-import Card from "../ui/Card";
-import Badge from "../ui/Badge";
+import Card from "../Card";
+import Badge from "../Badge";
 
 const topics = [
   {

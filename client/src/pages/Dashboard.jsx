@@ -1,14 +1,14 @@
-import WelcomeCard from "../components/dashboard/WelcomeCard";
-import StatsGrid from "../components/dashboard/StatsGrid";
-import QuickActions from "../components/dashboard/QuickActions";
-import ContinueLearning from "../components/dashboard/ContinueLearning";
-import RecommendedTopics from "../components/dashboard/RecommendedTopics";
-import RecentActivity from "../components/dashboard/RecentActivity";
+import WelcomeCard from "../components/ui/dashboard/WelcomeCard";
+import StatsGrid from "../components/ui/dashboard/StatsGrid";
+import QuickActions from "../components/ui/dashboard/QuickActions";
+import ContinueLearning from "../components/ui/dashboard/ContinueLearning";
+import RecommendedTopics from "../components/ui/dashboard/RecommendedTopics";
+import RecentActivity from "../components/ui/dashboard/RecentActivity";
 
 export default function Dashboard() {
   return (
     <div className="space-y-8">
-      <WelcomeCard userName="Sai" />
+      <WelcomeCard />
 
       <StatsGrid />
 

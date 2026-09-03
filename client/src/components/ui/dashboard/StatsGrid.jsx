@@ -5,7 +5,7 @@ import {
   Trophy,
 } from "lucide-react";
 
-import Card from "../ui/Card";
+import Card from "../Card";
 
 const stats = [
   {

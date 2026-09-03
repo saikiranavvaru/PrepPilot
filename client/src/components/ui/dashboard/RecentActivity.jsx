@@ -1,6 +1,6 @@
 import { CheckCircle2, Clock3 } from "lucide-react";
 
-import Card from "../ui/Card";
+import Card from "../Card";
 
 const activities = [
   {

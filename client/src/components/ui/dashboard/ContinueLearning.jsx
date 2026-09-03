@@ -1,8 +1,8 @@
 import { ArrowRight, BookOpen } from "lucide-react";
 
-import Card from "../ui/Card";
-import ProgressBar from "../ui/ProgressBar";
-import Button from "../ui/Button";
+import Card from "../Card";
+import ProgressBar from "../ProgressBar";
+import Button from "../Button";
 
 export default function ContinueLearning() {
   return (

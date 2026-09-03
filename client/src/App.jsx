@@ -1,76 +1,95 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './pages/Home'
-import Practice from './pages/Practice'
-import Progress from './pages/Progress'
-import Profile from './pages/Profile'
-import NotFound from './pages/NotFound'
-import PracticeSession from './pages/PracticeSession'
-import AppLayout from './components/AppLayout'
-import Register from './pages/Register'
-import Login from './pages/Login'
-import ApiTest from './ApiTest'
-import ProtectedRoute from './routes/ProtectedRoute'
+import AppLayout from "./components/AppLayout";
+
+import Dashboard from "./pages/Dashboard";
+import Practice from "./pages/Practice";
+import PracticeSession from "./pages/PracticeSession";
+import Progress from "./pages/Progress";
+import Profile from "./pages/Profile";
+
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import ApiTest from "./ApiTest";
+
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
-    return (
-            <BrowserRouter>
-                <AppLayout>
-                    <Routes>
-                        {/* Public route */}
-                        <Route path="/" element={<Home />} />
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Public routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-                        {/* Protected route */}
-                        <Route
-                            path="/practice"
-                            element={
-                                <ProtectedRoute>
-                                    <Practice />
-                                </ProtectedRoute>
-                            }
-                        />
+        {/* Application routes */}
+        <Route element={<AppLayout />}>
+          {/* Dashboard */}
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
 
-                        {/* Protected route */}
-                        <Route
-                            path="/practice/session/:topicTitle"
-                            element={
-                                <ProtectedRoute>
-                                    <PracticeSession />
-                                </ProtectedRoute>
-                            }
-                        />
+          {/* Practice */}
+          <Route
+            path="/practice"
+            element={
+              <ProtectedRoute>
+                <Practice />
+              </ProtectedRoute>
+            }
+          />
 
-                        {/* Protected route */}
-                        <Route
-                            path="/progress"
-                            element={
-                                <ProtectedRoute>
-                                    <Progress />
-                                </ProtectedRoute>
-                            }
-                        />
+          {/* Practice Session */}
+          <Route
+            path="/practice/session/:topicTitle"
+            element={
+              <ProtectedRoute>
+                <PracticeSession />
+              </ProtectedRoute>
+            }
+          />
 
-                        {/* Protected route */}
-                        <Route
-                            path="/profile"
-                            element={
-                                <ProtectedRoute>
-                                    <Profile />
-                                </ProtectedRoute>
-                            }
-                        />
+          {/* Progress */}
+          <Route
+            path="/progress"
+            element={
+              <ProtectedRoute>
+                <Progress />
+              </ProtectedRoute>
+            }
+          />
 
-                        {/* Public routes */}
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/api-test" element={<ApiTest />} />
+          {/* Profile */}
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
 
-                        {/* 404 route */}
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </AppLayout>
-            </BrowserRouter>
-    )
+          {/* API Test */}
+          <Route
+            path="/api-test"
+            element={<ApiTest />}
+          />
+
+          {/* 404 */}
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

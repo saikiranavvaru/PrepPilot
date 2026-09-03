@@ -1,7 +1,15 @@
 import { ArrowRight } from "lucide-react";
-import Button from "../ui/Button";
+import { useNavigate } from "react-router-dom";
 
-export default function WelcomeCard({ userName = "there" }) {
+import Button from "../Button";
+import { useAuth } from "../../../context/AuthContext";
+
+export default function WelcomeCard() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const userName = user?.name || "there";
+
   return (
     <section className="overflow-hidden rounded-2xl bg-slate-900 p-6 text-white shadow-sm sm:p-8">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -22,9 +30,9 @@ export default function WelcomeCard({ userName = "there" }) {
 
         <Button
           className="w-full shrink-0 bg-white text-slate-900 hover:bg-slate-100 sm:w-auto"
-          onClick={() => {}}
+          onClick={() => navigate("/practice")}
         >
-          Start Interview
+          Start Practicing
           <ArrowRight size={16} />
         </Button>
       </div>
