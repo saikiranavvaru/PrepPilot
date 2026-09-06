@@ -1,43 +1,15 @@
 // ======================================================
 // PREPPILOT API ENTRY POINT
 // ======================================================
-//
-// Responsibilities:
-//
-// 1. Load environment variables
-// 2. Create the Express application
-// 3. Configure global middleware
-// 4. Mount application routes
-// 5. Handle unknown routes
-// 6. Verify the PostgreSQL connection
-// 7. Start and safely stop the server
-//
-// Feature-specific request logic belongs inside
-// controllers, not inside this file.
-//
-// ======================================================
-
-
-// ======================================================
-// 1. LOAD ENVIRONMENT VARIABLES
-// ======================================================
-//
-// Load variables from server/.env into process.env.
-//
-// This must run before importing database.js because
-// database.js uses the PostgreSQL environment variables.
-//
 
 require("dotenv").config();
 
-
 // ======================================================
-// 2. IMPORT REQUIRED MODULES
+// IMPORT REQUIRED MODULES
 // ======================================================
 
 const express = require("express");
-
-const cors = require('cors')
+const cors = require("cors");
 
 // Shared PostgreSQL connection pool.
 const pool = require("./src/config/database");
@@ -50,45 +22,48 @@ const systemRoutes = require("./src/routes/system.routes");
 const usersRoutes = require("./src/routes/users.routes");
 const authRoutes = require("./src/routes/auth.routes");
 
-
 // ======================================================
-// 3. CREATE EXPRESS APPLICATION
+// CREATE EXPRESS APPLICATION & CORS CONFIG
 // ======================================================
 
 const app = express();
 
-app.use(cors())
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl, or Render health checks)
+      if (!origin) return callback(null, true);
+      
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        process.env.CLIENT_URL,
+      ].filter(Boolean);
+
+      // Allow any vercel preview deployment or specified origins
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app")
+      ) {
+        return callback(null, true);
+      }
+
+      return callback(null, true); // Permissive for production deployment
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 // Use PORT from .env.
-// Fall back to port 3000 when PORT is unavailable.
-const PORT = Number(process.env.PORT) || 3000;
-
-
-// ======================================================
-// 4. APPLICATION SETTINGS
-// ======================================================
-//
-// Express normally includes:
-//
-// X-Powered-By: Express
-//
-// Disabling it avoids unnecessarily exposing the
-// backend technology used by the application.
-//
+const PORT = Number(process.env.PORT) || 10000;
 
 app.disable("x-powered-by");
 
-
 // ======================================================
-// 5. GLOBAL MIDDLEWARE
+// GLOBAL MIDDLEWARE
 // ======================================================
-//
-// Converts incoming JSON request bodies into JavaScript
-// objects available through req.body.
-//
-// The size limit prevents unexpectedly large JSON
-// request bodies.
-//
 
 app.use(
   express.json({
@@ -96,46 +71,17 @@ app.use(
   })
 );
 
-
 // ======================================================
-// 6. MOUNT APPLICATION ROUTES
+// MOUNT APPLICATION ROUTES
 // ======================================================
-//
-// System routes:
-//
-// GET /
-// GET /health
-// GET /health/database
-//
 
 app.use("/", systemRoutes);
-
-//
-// User routes:
-//
-// GET /api/v1/users
-// GET /api/v1/users/:id
-//
-
 app.use("/api/v1/users", usersRoutes);
-
-// Authentication routes:
-//
-// POST /api/v1/auth/register
-//
-
 app.use("/api/v1/auth", authRoutes);
 
 // ======================================================
-// 7. HANDLE UNKNOWN ROUTES
+// HANDLE UNKNOWN ROUTES
 // ======================================================
-//
-// This runs only when no route above matches the request.
-//
-// Example:
-//
-// GET /api/v1/unknown
-//
 
 app.use((req, res) => {
   return res.status(404).json({
@@ -144,117 +90,59 @@ app.use((req, res) => {
   });
 });
 
-
 // ======================================================
-// 8. START APPLICATION
+// START APPLICATION
 // ======================================================
 
-// Store the HTTP server instance so it can later be
-// closed safely during application shutdown.
 let server;
-
-// Prevent the shutdown process from running more than once.
 let isShuttingDown = false;
 
 async function startServer() {
   try {
-    // Verify PostgreSQL before accepting HTTP requests.
-    //
-    // SELECT 1 is a small query commonly used to check
-    // whether the database connection is working.
     await pool.query("SELECT 1");
-
     console.log("🐘 PostgreSQL connected successfully");
 
     server = app.listen(PORT, () => {
-      console.log(
-        `🚀 PrepPilot API running at http://localhost:${PORT}`
-      );
+      console.log(`🚀 PrepPilot API running at port ${PORT}`);
     });
   } catch (error) {
     console.error("❌ PrepPilot could not connect to PostgreSQL");
     console.error("Reason:", error.message);
-
-    // Stop the application because PrepPilot currently
-    // depends on PostgreSQL to work correctly.
     process.exit(1);
   }
 }
 
-
 // ======================================================
-// 9. GRACEFUL SHUTDOWN
+// GRACEFUL SHUTDOWN
 // ======================================================
-//
-// Graceful shutdown allows the HTTP server and database
-// pool to close properly instead of stopping suddenly.
-//
-// SIGINT:
-// Usually triggered when Ctrl + C is pressed.
-//
-// SIGTERM:
-// Usually sent by a hosting platform when stopping
-// or restarting the application.
-//
 
 async function shutdown(signal) {
-  if (isShuttingDown) {
-    return;
-  }
-
+  if (isShuttingDown) return;
   isShuttingDown = true;
 
-  console.log(
-    `\n🛑 ${signal} received. Shutting down PrepPilot...`
-  );
+  console.log(`\n🛑 ${signal} received. Shutting down PrepPilot...`);
 
   try {
-    // Stop accepting new HTTP requests.
     if (server) {
       await new Promise((resolve, reject) => {
         server.close((error) => {
-          if (error) {
-            reject(error);
-            return;
-          }
-
+          if (error) return reject(error);
           resolve();
         });
       });
     }
 
-    // Close all PostgreSQL connections in the pool.
     await pool.end();
-
-    console.log(
-      "✅ HTTP server and PostgreSQL pool closed successfully"
-    );
-
+    console.log("✅ HTTP server and PostgreSQL pool closed successfully");
     process.exit(0);
   } catch (error) {
     console.error("❌ Error while shutting down PrepPilot");
     console.error("Reason:", error.message);
-
     process.exit(1);
   }
 }
 
-
-// ======================================================
-// 10. LISTEN FOR SHUTDOWN SIGNALS
-// ======================================================
-
-process.on("SIGINT", () => {
-  shutdown("SIGINT");
-});
-
-process.on("SIGTERM", () => {
-  shutdown("SIGTERM");
-});
-
-
-// ======================================================
-// 11. RUN THE APPLICATION
-// ======================================================
+process.on("SIGINT", () => shutdown("SIGINT"));
+process.on("SIGTERM", () => shutdown("SIGTERM"));
 
 startServer();
