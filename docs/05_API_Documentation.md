@@ -40,9 +40,9 @@ The API remains under active development as PrepPilot moves toward core intervie
 
 ## Local Development
 
-http://localhost:3000
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"
 Versioned API Base Path
-http://localhost:3000/api/v1
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1
 System endpoints such as /health and /health/database remain outside /api/v1 because they describe application and infrastructure health rather than business resources.
 3. API Versioning
 PrepPilot uses URL-based API versioning.
@@ -555,7 +555,7 @@ The email service supports authentication-related messages such as:
 Development configuration uses environment variables such as:
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-gmail-app-password
-APP_URL=http://localhost:3000
+APP_URL=const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"
 The normal Gmail account password should not be placed in the application configuration.
 Gmail App Password authentication is used for the development SMTP setup.
 18. Unknown Routes
@@ -613,13 +613,13 @@ Module 5 additionally verified the frontend-to-backend integration flow, includi
 20. Example Testing Commands
 Register
 Invoke-RestMethod `
-  -Uri "http://localhost:3000/api/v1/auth/register" `
+  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/register" `
   -Method POST `
   -ContentType "application/json" `
   -Body '{"name":"Test User","email":"testuser@preppilot.com","password":"TestPass123"}'
 Login
 $login = Invoke-RestMethod `
-  -Uri "http://localhost:3000/api/v1/auth/login" `
+  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/login" `
   -Method POST `
   -ContentType "application/json" `
   -Body '{"email":"testuser@preppilot.com","password":"TestPass123"}'
@@ -627,12 +627,12 @@ $login = Invoke-RestMethod `
 $token = $login.data.token
 Current User
 Invoke-RestMethod `
-  -Uri "http://localhost:3000/api/v1/auth/me" `
+  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/me" `
   -Method GET `
   -Headers @{ Authorization = "Bearer $token" }
 Invalid Token
 Invoke-RestMethod `
-  -Uri "http://localhost:3000/api/v1/auth/me" `
+  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/me" `
   -Method GET `
   -Headers @{ Authorization = "Bearer invalid-token" }
 21. Current API Surface

@@ -18,7 +18,10 @@ import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
 import { useAuth } from "../context/AuthContext";
 
-const API_BASE_URL = "http://localhost:3000/api/v1";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_API_URL ||
+  "https://preppilot-api-795k.onrender.com";
 
 export default function Profile() {
   const { user, logout } = useAuth();
@@ -33,9 +36,9 @@ export default function Profile() {
     async function fetchUserStats() {
       try {
         setIsLoading(true);
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
 
-        const res = await axios.get(`${API_BASE_URL}/interviews/history`, {
+        const res = await axios.get(`${API_BASE_URL}/api/v1/interviews/history`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

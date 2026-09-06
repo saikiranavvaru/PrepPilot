@@ -6,7 +6,10 @@ import axios from "axios";
 import PageLayout from "../components/PageLayout";
 import { TOPICS } from "../data/topics";
 
-const API_BASE_URL = "http://localhost:3000/api/v1";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_API_URL ||
+  "https://preppilot-api-795k.onrender.com";
 
 export default function PracticeSession() {
   const { topicTitle } = useParams();
@@ -41,11 +44,11 @@ export default function PracticeSession() {
 
       try {
         setIsInitializing(true);
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
 
         // Start interview session via API
         const response = await axios.post(
-          `${API_BASE_URL}/interviews/start`,
+          `${API_BASE_URL}/api/v1/interviews/start`,
           {
             title: topic.title,
             technologyId: 1, // Defaults to tech track
@@ -114,11 +117,11 @@ export default function PracticeSession() {
     setIsSubmitting(true);
 
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
       
       if (interviewId && currentQuestion?.id) {
         const res = await axios.post(
-          `${API_BASE_URL}/interviews/${interviewId}/answers`,
+          `${API_BASE_URL}/api/v1/interviews/${interviewId}/answers`,
           {
             questionId: currentQuestion.id,
             answerText: currentAnswer.trim(),
@@ -153,10 +156,10 @@ export default function PracticeSession() {
     } else {
       // Finalize interview
       try {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
         if (interviewId) {
           const completeRes = await axios.post(
-            `${API_BASE_URL}/interviews/${interviewId}/complete`,
+            `${API_BASE_URL}/api/v1/interviews/${interviewId}/complete`,
             {},
             { headers: { Authorization: `Bearer ${token}` } }
           );

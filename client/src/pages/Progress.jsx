@@ -15,7 +15,10 @@ import PageLayout from "../components/PageLayout";
 import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
 
-const API_BASE_URL = "http://localhost:3000/api/v1";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_API_URL ||
+  "https://preppilot-api-795k.onrender.com";
 
 export default function Progress() {
   const [history, setHistory] = useState([]);
@@ -26,9 +29,9 @@ export default function Progress() {
     async function fetchProgressData() {
       try {
         setIsLoading(true);
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
 
-        const response = await axios.get(`${API_BASE_URL}/interviews/history`, {
+        const response = await axios.get(`${API_BASE_URL}/api/v1/interviews/history`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

@@ -199,7 +199,7 @@ Continue Updating After Every Lesson ✅
 
 ### 12. What is a port?
 
-### 13. What happens internally when a browser requests http://localhost:3000?
+### 13. What happens internally when a browser requests const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"?
 
 ### 14. What is node_modules?
 
@@ -4463,7 +4463,7 @@ Environment Variables:
 ```env
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-gmail-app-password
-APP_URL=http://localhost:3000
+APP_URL=const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"
 ```
 
 ---

@@ -36,7 +36,7 @@ app.use(
       
       const allowedOrigins = [
         "http://localhost:5173",
-        "http://localhost:3000",
+        "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"",
         process.env.CLIENT_URL,
       ].filter(Boolean);
 
