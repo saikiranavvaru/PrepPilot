@@ -1,7 +1,7 @@
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
   import.meta.env.VITE_API_URL ||
-  "https://preppilot-api-795k.onrender.com/api/v1";
+  "https://preppilot-api-795k.onrender.com";
 
 export async function apiRequest(endpoint, options = {}) {
   const token = localStorage.getItem("preppilot_token");
