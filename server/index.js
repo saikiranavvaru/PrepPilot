@@ -21,6 +21,7 @@ require("./src/utils/mail");
 const systemRoutes = require("./src/routes/system.routes");
 const usersRoutes = require("./src/routes/users.routes");
 const authRoutes = require("./src/routes/auth.routes");
+const interviewRoutes = require("./src/routes/interview.routes");
 
 // ======================================================
 // CREATE EXPRESS APPLICATION & CORS CONFIG
@@ -31,24 +32,8 @@ const app = express();
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps, curl, or Render health checks)
       if (!origin) return callback(null, true);
-      
-      const allowedOrigins = [
-        "http://localhost:5173",
-        "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"",
-        process.env.CLIENT_URL,
-      ].filter(Boolean);
-
-      // Allow any vercel preview deployment or specified origins
-      if (
-        allowedOrigins.includes(origin) ||
-        origin.endsWith(".vercel.app")
-      ) {
-        return callback(null, true);
-      }
-
-      return callback(null, true); // Permissive for production deployment
+      return callback(null, true);
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
@@ -78,6 +63,7 @@ app.use(
 app.use("/", systemRoutes);
 app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/interviews", interviewRoutes);
 
 // ======================================================
 // HANDLE UNKNOWN ROUTES
