@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../config/database");
-const authenticateUser = require("../middlewares/auth.middleware");
+const authenticateUser = require("../middleware/auth.middleware");
 
 // GET /api/v1/interviews/history
 router.get("/history", authenticateUser, async (req, res) => {
