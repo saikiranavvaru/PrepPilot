@@ -70,6 +70,31 @@ router.post("/start", authenticateUser, async (req, res) => {
   }
 });
 
+// POST /api/v1/interviews/:id/answers
+router.post("/:id/answers", authenticateUser, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { questionId, answer } = req.body;
+
+    return res.status(200).json({
+      success: true,
+      message: "Answer submitted successfully",
+      data: {
+        interviewId: id,
+        questionId: questionId || 1,
+        score: 85,
+        feedback: "Strong conceptual explanation with clear reasoning.",
+        nextQuestionIndex: 1,
+      },
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Failed to submit answer",
+    });
+  }
+});
+
 // POST /api/v1/interviews/:id/complete
 router.post("/:id/complete", authenticateUser, async (req, res) => {
   try {
@@ -90,26 +115,6 @@ router.post("/:id/complete", authenticateUser, async (req, res) => {
     return res.status(500).json({
       success: false,
       message: "Failed to complete interview session",
-    });
-  }
-});
-
-// POST /api/v1/interviews/evaluate
-router.post("/evaluate", authenticateUser, async (req, res) => {
-  try {
-    const { questionId, answer } = req.body;
-
-    return res.status(200).json({
-      success: true,
-      data: {
-        score: 80,
-        feedback: "Good answer covering key foundational aspects.",
-      },
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: "Failed to evaluate answer",
     });
   }
 });
