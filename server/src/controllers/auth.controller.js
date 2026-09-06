@@ -1,5 +1,4 @@
 // Authentication Controller
-
 // Handles authentication-related requests.
 // ======================================================
 
@@ -41,7 +40,6 @@ async function registerUser(req, res) {
     }
 
     const normalizedName = name.trim();
-
     const normalizedEmail =
       validator.normalizeEmail(email.trim()) || "";
 
@@ -111,7 +109,6 @@ async function registerUser(req, res) {
     }
 
     // Hash the password before saving it.
-    // Never store a user's plain-text password in the database.
     const hashedPassword = await bcrypt.hash(
       password,
       SALT_ROUNDS
@@ -119,12 +116,10 @@ async function registerUser(req, res) {
 
     // Generate a verification token and set it to expire in 1 hour.
     const verificationToken = generateSecureToken();
-
     const verificationTokenExpiresAt =
       new Date(Date.now() + 60 * 60 * 1000);
 
-    // Insert the new user using a parameterized query.
-    // Parameterized queries protect against SQL injection.
+    // Insert the new user.
     const result = await pool.query(
       `
         INSERT INTO users (
@@ -152,11 +147,15 @@ async function registerUser(req, res) {
       ]
     );
 
-    // Send the verification email after successful registration.
-    await sendVerificationEmail(
-      normalizedEmail,
-      verificationToken
-    );
+    // Safely attempt to send verification email without blocking registration
+    try {
+      await sendVerificationEmail(
+        normalizedEmail,
+        verificationToken
+      );
+    } catch (mailError) {
+      console.warn("Verification email could not be sent:", mailError.message);
+    }
 
     return res.status(201).json({
       success: true,
@@ -164,10 +163,6 @@ async function registerUser(req, res) {
       data: result.rows[0],
     });
   } catch (error) {
-    // PostgreSQL unique-constraint error.
-    //
-    // This also protects against two registration
-    // requests using the same email at the same time.
     if (error.code === "23505") {
       return res.status(409).json({
         success: false,
@@ -191,7 +186,6 @@ async function loginUser(req, res) {
   try {
     const { email, password } = req.body;
 
-    // Validate required fields and data types.
     if (
       typeof email !== "string" ||
       typeof password !== "string"
@@ -205,7 +199,6 @@ async function loginUser(req, res) {
     const normalizedEmail =
       validator.normalizeEmail(email.trim()) || "";
 
-    // Validate email.
     if (!validator.isEmail(normalizedEmail)) {
       return res.status(400).json({
         success: false,
@@ -213,7 +206,6 @@ async function loginUser(req, res) {
       });
     }
 
-    // Prevent empty passwords.
     if (password.length === 0) {
       return res.status(400).json({
         success: false,
@@ -221,7 +213,6 @@ async function loginUser(req, res) {
       });
     }
 
-    // Find the user by normalized email.
     const result = await pool.query(
       `
         SELECT
@@ -241,16 +232,6 @@ async function loginUser(req, res) {
 
     const user = result.rows[0];
 
-    console.log("LOGIN EMAIL:", normalizedEmail);
-    console.log("USER FOUND:", !!user);
-    
-    if (user) {
-      console.log("USER ID:", user.id);
-      console.log("USER ACTIVE:", user.is_active);
-    }
-
-    // Use a generic response to avoid revealing
-    // whether an email address is registered.
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -258,7 +239,6 @@ async function loginUser(req, res) {
       });
     }
 
-    // Compare the submitted password with the bcrypt hash.
     const passwordMatches = await bcrypt.compare(
       password,
       user.password_hash
@@ -271,7 +251,6 @@ async function loginUser(req, res) {
       });
     }
 
-    // Prevent disabled accounts from logging in.
     if (!user.is_active) {
       return res.status(403).json({
         success: false,
@@ -279,13 +258,10 @@ async function loginUser(req, res) {
       });
     }
 
-    // JWT_SECRET is required to securely sign access tokens.
     if (!process.env.JWT_SECRET) {
       throw new Error("JWT_SECRET is not configured");
     }
 
-    // Generate a signed access token.
-    // The user's ID is stored in the "sub" (subject) claim.
     const token = jwt.sign(
       {
         sub: user.id,
@@ -339,7 +315,6 @@ async function verifyEmail(req, res) {
   try {
     const { token } = req.query;
 
-    // Ensure a verification token is provided.
     if (!token) {
       return res.status(400).json({
         success: false,
@@ -347,7 +322,6 @@ async function verifyEmail(req, res) {
       });
     }
 
-    // Find the user associated with the verification token.
     const result = await pool.query(
       `
         SELECT
@@ -361,7 +335,6 @@ async function verifyEmail(req, res) {
       [token]
     );
 
-    // Invalid or unknown token.
     if (result.rows.length === 0) {
       return res.status(400).json({
         success: false,
@@ -371,7 +344,6 @@ async function verifyEmail(req, res) {
 
     const user = result.rows[0];
 
-    // Check whether the verification token has expired.
     if (
       user.verification_token_expires_at &&
       user.verification_token_expires_at < new Date()
@@ -382,8 +354,6 @@ async function verifyEmail(req, res) {
       });
     }
 
-    // Mark the user's email as verified and invalidate the verification token.
-    // Clearing the token prevents the same verification link from being reused.
     await pool.query(
       `
         UPDATE users
@@ -416,10 +386,8 @@ async function verifyEmail(req, res) {
 
 async function forgotPassword(req, res) {
   try {
-    // Extract the email address from the request body.
     const { email } = req.body;
 
-    // Ensure the client has provided an email.
     if (!email) {
       return res.status(400).json({
         success: false,
@@ -427,36 +395,24 @@ async function forgotPassword(req, res) {
       });
     }
 
-    // Normalize the email to maintain a consistent format in the database.
     const normalizedEmail = validator.normalizeEmail(email);
 
-    // Validate the email format before querying the database.
-    if (
-      !normalizedEmail ||
-      !validator.isEmail(normalizedEmail)
-    ) {
+    if (!normalizedEmail || !validator.isEmail(normalizedEmail)) {
       return res.status(400).json({
         success: false,
         message: "Please provide a valid email address",
       });
     }
 
-    // Look up the user using the normalized email address.
     const result = await pool.query(
       `
-        SELECT
-          id,
-          name,
-          email,
-          is_active
+        SELECT id, name, email, is_active
         FROM users
         WHERE email = $1;
       `,
       [normalizedEmail]
     );
 
-    // Return the same response when the email does not exist.
-    // This prevents attackers from discovering registered email addresses.
     if (result.rows.length === 0) {
       return res.status(200).json({
         success: true,
@@ -465,10 +421,8 @@ async function forgotPassword(req, res) {
       });
     }
 
-    // Retrieve the matching user from the query result.
     const user = result.rows[0];
 
-    // Do not allow password resets for inactive accounts.
     if (!user.is_active) {
       return res.status(403).json({
         success: false,
@@ -476,14 +430,9 @@ async function forgotPassword(req, res) {
       });
     }
 
-    // Generate a secure token for the password reset link.
     const resetPasswordToken = generateSecureToken();
+    const resetPasswordTokenExpiresAt = new Date(Date.now() + 60 * 60 * 1000);
 
-    // The reset link will remain valid for 1 hour.
-    const resetPasswordTokenExpiresAt =
-      new Date(Date.now() + 60 * 60 * 1000);
-
-    // Save the reset token and its expiration time in the database.
     await pool.query(
       `
         UPDATE users
@@ -500,22 +449,18 @@ async function forgotPassword(req, res) {
       ]
     );
 
-    // Send the password reset link to the user's email.
-    await sendPasswordResetEmail(
-      user.email,
-      resetPasswordToken
-    );
+    try {
+      await sendPasswordResetEmail(user.email, resetPasswordToken);
+    } catch (mailError) {
+      console.warn("Password reset email dispatch skipped:", mailError.message);
+    }
 
-    // Use the same response for successful and unknown email requests.
-    // This keeps the user's account existence private.
     return res.status(200).json({
       success: true,
       message:
         "If an account with that email exists, a password reset link has been sent.",
     });
   } catch (error) {
-    // Log the error for debugging while returning
-    // a generic message to the client.
     console.error("Forgot password error:", error);
 
     return res.status(500).json({
@@ -530,10 +475,8 @@ async function forgotPassword(req, res) {
 
 async function resetPassword(req, res) {
   try {
-    // Extract the reset token and new password from the request body.
     const { token, newPassword } = req.body;
 
-    // Ensure both values are provided.
     if (
       typeof token !== "string" ||
       typeof newPassword !== "string"
@@ -544,7 +487,6 @@ async function resetPassword(req, res) {
       });
     }
 
-    // Prevent empty reset tokens.
     if (token.trim().length === 0) {
       return res.status(400).json({
         success: false,
@@ -552,7 +494,6 @@ async function resetPassword(req, res) {
       });
     }
 
-    // Validate the new password length.
     if (newPassword.length < MIN_PASSWORD_LENGTH) {
       return res.status(400).json({
         success: false,
@@ -560,18 +501,13 @@ async function resetPassword(req, res) {
       });
     }
 
-    // bcrypt safely supports passwords up to 72 bytes.
-    if (
-      Buffer.byteLength(newPassword, "utf8") >
-      MAX_PASSWORD_BYTES
-    ) {
+    if (Buffer.byteLength(newPassword, "utf8") > MAX_PASSWORD_BYTES) {
       return res.status(400).json({
         success: false,
         message: "Password is too long",
       });
     }
 
-    // Require uppercase, lowercase, and number.
     if (
       !/[a-z]/.test(newPassword) ||
       !/[A-Z]/.test(newPassword) ||
@@ -584,7 +520,6 @@ async function resetPassword(req, res) {
       });
     }
 
-    // Find the user associated with the reset token.
     const result = await pool.query(
       `
         SELECT
@@ -598,7 +533,6 @@ async function resetPassword(req, res) {
       [token.trim()]
     );
 
-    // Reject invalid or unknown reset tokens.
     if (result.rows.length === 0) {
       return res.status(400).json({
         success: false,
@@ -608,7 +542,6 @@ async function resetPassword(req, res) {
 
     const user = result.rows[0];
 
-    // Do not allow inactive accounts to reset their password.
     if (!user.is_active) {
       return res.status(403).json({
         success: false,
@@ -616,7 +549,6 @@ async function resetPassword(req, res) {
       });
     }
 
-    // Check whether the reset token has expired.
     if (
       !user.reset_password_token_expires_at ||
       user.reset_password_token_expires_at < new Date()
@@ -627,14 +559,8 @@ async function resetPassword(req, res) {
       });
     }
 
-    // Hash the new password before saving it.
-    const hashedPassword = await bcrypt.hash(
-      newPassword,
-      SALT_ROUNDS
-    );
+    const hashedPassword = await bcrypt.hash(newPassword, SALT_ROUNDS);
 
-    // Update the password and invalidate the reset token.
-    // Clearing the token prevents the same reset link from being reused.
     await pool.query(
       `
         UPDATE users
@@ -645,10 +571,7 @@ async function resetPassword(req, res) {
           updated_at = CURRENT_TIMESTAMP
         WHERE id = $2;
       `,
-      [
-        hashedPassword,
-        user.id,
-      ]
+      [hashedPassword, user.id]
     );
 
     return res.status(200).json({
