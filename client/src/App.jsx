@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
 import AppLayout from "./components/AppLayout";
 
@@ -7,6 +7,8 @@ import Practice from "./pages/Practice";
 import PracticeSession from "./pages/PracticeSession";
 import Progress from "./pages/Progress";
 import Profile from "./pages/Profile";
+import MockInterview from "./pages/MockInterview";
+import Settings from "./pages/Settings";
 
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -34,6 +36,8 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="/dashboard" element={<Navigate to="/" replace />} />
 
           {/* Practice */}
           <Route
@@ -71,6 +75,24 @@ function App() {
             element={
               <ProtectedRoute>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/mock-interview"
+            element={
+              <ProtectedRoute>
+                <MockInterview />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
               </ProtectedRoute>
             }
           />

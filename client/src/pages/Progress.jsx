@@ -14,11 +14,7 @@ import axios from "axios";
 import PageLayout from "../components/PageLayout";
 import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  import.meta.env.VITE_API_URL ||
-  "https://preppilot-api-795k.onrender.com";
+import { API_BASE_URL } from "../utils/config";
 
 export default function Progress() {
   const [history, setHistory] = useState([]);

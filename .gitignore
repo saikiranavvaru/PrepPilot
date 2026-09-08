@@ -29,6 +29,7 @@ pnpm-debug.log*
 # Runtime Files
 *.pid
 *.pid.lock
+server/uploads/
 
 # Temporary Files
 *.tmp

@@ -18,11 +18,7 @@ import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
 import { useAuth } from "../context/AuthContext";
 import { TOPICS } from "../data/topics";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  import.meta.env.VITE_API_URL ||
-  "https://preppilot-api-795k.onrender.com";
+import { API_BASE_URL } from "../utils/config";
 
 export default function Dashboard() {
   const { user } = useAuth();

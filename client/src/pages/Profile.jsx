@@ -1,216 +1,201 @@
-import { useState, useEffect } from "react";
-import { 
-  User, 
-  Mail, 
-  ShieldCheck, 
-  Calendar, 
-  Award, 
-  CheckCircle2, 
-  Clock, 
-  LogOut, 
-  Loader2 
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { AlertCircle, Award, Calendar, CheckCircle2, Download, FileText, Loader2, Mail, ShieldCheck, Sparkles, Upload } from "lucide-react";
 import axios from "axios";
 
 import PageLayout from "../components/PageLayout";
-import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
 import { useAuth } from "../context/AuthContext";
+import { API_BASE_URL } from "../utils/config";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  import.meta.env.VITE_API_URL ||
-  "https://preppilot-api-795k.onrender.com";
+const MAX_RESUME_SIZE = 5 * 1024 * 1024;
+
+function formatFileSize(size) {
+  if (!size) return "PDF resume";
+  return `${(size / 1024 / 1024).toFixed(size < 1024 * 1024 ? 1 : 2)} MB`;
+}
+
+function formatDate(value) {
+  if (!value) return "Just now";
+  return new Date(value).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
 
 export default function Profile() {
-  const { user, logout } = useAuth();
-  const [stats, setStats] = useState({
-    completedCount: 0,
-    averageScore: 0,
-    totalAttempts: 0,
-  });
+  const { user } = useAuth();
+  const fileInputRef = useRef(null);
+  const [history, setHistory] = useState([]);
+  const [resume, setResume] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [summary, setSummary] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
-    async function fetchUserStats() {
-      try {
-        setIsLoading(true);
-        const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
+    async function loadProfileData() {
+      const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
+      const headers = { Authorization: `Bearer ${token}` };
+      const [historyResult, resumeResult] = await Promise.allSettled([
+        axios.get(`${API_BASE_URL}/api/v1/interviews/history`, { headers }),
+        axios.get(`${API_BASE_URL}/api/v1/resumes/me`, { headers }),
+      ]);
 
-        const res = await axios.get(`${API_BASE_URL}/api/v1/interviews/history`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        const history = res.data.data || [];
-        const completed = history.filter((h) => h.status === "completed");
-        const avg =
-          completed.length > 0
-            ? Math.round(
-                completed.reduce((acc, curr) => acc + (Number(curr.score) || 0), 0) /
-                  completed.length
-              )
-            : 0;
-
-        setStats({
-          completedCount: completed.length,
-          averageScore: avg,
-          totalAttempts: history.length,
-        });
-      } catch (err) {
-        console.error("Failed to load profile stats:", err);
-      } finally {
-        setIsLoading(false);
+      if (historyResult.status === "fulfilled") setHistory(historyResult.value.data.data || []);
+      if (resumeResult.status === "fulfilled") {
+        const currentResume = resumeResult.value.data.data;
+        setResume(currentResume);
+        setSummary(currentResume?.summary || "");
       }
+      setIsLoading(false);
     }
 
-    fetchUserStats();
+    loadProfileData();
   }, []);
+
+  const completedSessions = history.filter((item) => item.status === "completed" || item.completed_at);
+  const averageScore = completedSessions.length
+    ? Math.round(completedSessions.reduce((total, item) => total + (Number(item.score) || 0), 0) / completedSessions.length)
+    : 0;
+  const userInitial = user?.name?.trim()?.charAt(0)?.toUpperCase() || "P";
+  const joinDate = user?.created_at
+    ? new Date(user.created_at).toLocaleDateString(undefined, { month: "long", year: "numeric" })
+    : "PrepPilot member";
+  const milestones = [
+    { label: "Account created", complete: Boolean(user?.id) },
+    { label: "Email verified", complete: Boolean(user?.is_verified) },
+    { label: "Resume added", complete: Boolean(resume) },
+    { label: "First interview completed", complete: completedSessions.length > 0 },
+  ];
+  const completedMilestones = milestones.filter((milestone) => milestone.complete).length;
+
+  function handleFileChange(event) {
+    const file = event.target.files?.[0];
+    setError("");
+    setSuccessMessage("");
+    if (!file) return;
+
+    if (file.type !== "application/pdf" || !file.name.toLowerCase().endsWith(".pdf")) {
+      setError("Choose a PDF resume.");
+      event.target.value = "";
+      return;
+    }
+    if (file.size > MAX_RESUME_SIZE) {
+      setError("Your resume must be 5 MB or smaller.");
+      event.target.value = "";
+      return;
+    }
+    setSelectedFile(file);
+  }
+
+  async function handleUpload() {
+    if (!selectedFile || isUploading) return;
+    setIsUploading(true);
+    setError("");
+    setSuccessMessage("");
+
+    try {
+      const formData = new FormData();
+      formData.append("resume", selectedFile);
+      formData.append("summary", summary.trim());
+      const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
+      const response = await axios.post(`${API_BASE_URL}/api/v1/resumes/me`, formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      setResume(response.data.data);
+      setSummary(response.data.data.summary || "");
+      setSelectedFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      setSuccessMessage("Your resume is saved securely to your profile.");
+    } catch (uploadError) {
+      setError(uploadError.response?.data?.message || "We could not upload your resume. Please try again.");
+    } finally {
+      setIsUploading(false);
+    }
+  }
+
+  async function handleDownload() {
+    try {
+      const token = localStorage.getItem("preppilot_token") || localStorage.getItem("token");
+      const response = await axios.get(`${API_BASE_URL}/api/v1/resumes/me/download`, {
+        headers: { Authorization: `Bearer ${token}` },
+        responseType: "blob",
+      });
+      const downloadUrl = URL.createObjectURL(response.data);
+      const link = document.createElement("a");
+      link.href = downloadUrl;
+      link.download = resume?.fileName || "PrepPilot-resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(downloadUrl);
+    } catch {
+      setError("We could not download your resume. Please upload it again.");
+    }
+  }
 
   if (isLoading) {
     return (
-      <PageLayout title="User Profile" description="Managing your PrepPilot account.">
+      <PageLayout title="Profile" description="Loading your PrepPilot profile.">
         <div className="flex flex-col items-center justify-center py-20">
           <Loader2 className="h-10 w-10 animate-spin text-indigo-600" />
-          <p className="mt-4 text-sm font-medium text-slate-600">Loading your profile data...</p>
+          <p className="mt-4 text-sm font-medium text-slate-600">Loading your profile...</p>
         </div>
       </PageLayout>
     );
   }
 
-  const joinDate = user?.created_at
-    ? new Date(user.created_at).toLocaleDateString(undefined, {
-        month: "long",
-        year: "numeric",
-      })
-    : "Member";
-
   return (
-    <PageLayout
-      title="User Profile"
-      description="Manage your account details and view your platform metrics."
-    >
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Account Info Header Card */}
-        <Card className="p-6 md:p-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 text-white font-bold text-2xl shadow-sm">
-                {user?.name?.charAt(0).toUpperCase() || "U"}
-              </div>
-
+    <PageLayout>
+      <div className="mx-auto max-w-5xl space-y-6 pb-8">
+        <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="h-28 bg-gradient-to-r from-indigo-700 via-indigo-600 to-violet-500 sm:h-36" />
+          <div className="relative px-5 pb-6 sm:px-8">
+            <div className="-mt-12 flex h-24 w-24 items-center justify-center rounded-2xl border-4 border-white bg-slate-900 text-3xl font-bold text-white shadow-lg">{userInitial}</div>
+            <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
               <div>
-                <div className="flex items-center gap-3">
-                  <h2 className="text-xl font-bold text-slate-900">{user?.name}</h2>
-                  <Badge variant={user?.is_verified ? "default" : "secondary"}>
-                    {user?.is_verified ? "Verified" : "Pending Verification"}
-                  </Badge>
-                </div>
-
-                <div className="mt-1 flex flex-wrap items-center gap-4 text-sm text-slate-500">
-                  <span className="flex items-center gap-1.5">
-                    <Mail size={15} />
-                    {user?.email}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={15} />
-                    Joined {joinDate}
-                  </span>
-                </div>
+                <div className="flex flex-wrap items-center gap-2"><h1 className="text-2xl font-bold tracking-tight text-slate-900">{user?.name || "PrepPilot member"}</h1><Badge variant={user?.is_verified ? "default" : "secondary"}>{user?.is_verified ? "Verified" : "Email pending"}</Badge></div>
+                <p className="mt-1 flex items-center gap-2 text-sm text-slate-600"><Mail size={15} /> {user?.email || "Email address unavailable"}</p>
+                <p className="mt-1 flex items-center gap-2 text-sm text-slate-500"><Calendar size={15} /> Member since {joinDate}</p>
               </div>
+              <div className="rounded-xl bg-indigo-50 px-4 py-3 text-sm"><p className="font-semibold text-indigo-900">Profile progress</p><p className="mt-0.5 text-indigo-700">{completedMilestones} of {milestones.length} milestones complete</p></div>
             </div>
-
-            <Button
-              variant="outline"
-              onClick={logout}
-              className="inline-flex items-center gap-2 border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300"
-            >
-              <LogOut size={16} />
-              Sign Out
-            </Button>
           </div>
-        </Card>
+        </section>
 
-        {/* Activity & Performance Overview */}
-        <div className="grid gap-6 sm:grid-cols-3">
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Completed Tracks
-              </span>
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <CheckCircle2 size={18} />
+        <div className="grid gap-6 lg:grid-cols-3">
+          <section className="space-y-6 lg:col-span-2">
+            <Card className="p-5 sm:p-6">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                <div><div className="flex items-center gap-2"><FileText className="text-indigo-600" size={21} /><h2 className="text-lg font-bold text-slate-900">Resume</h2></div><p className="mt-1 text-sm leading-6 text-slate-600">Keep one current PDF resume on your private PrepPilot profile.</p></div>
+                {resume && <Button variant="outline" onClick={handleDownload}><Download size={16} /> Download</Button>}
               </div>
-            </div>
-            <div className="mt-3 text-2xl font-bold text-slate-900">{stats.completedCount}</div>
-            <p className="mt-1 text-xs text-slate-500">Interviews finalized</p>
-          </Card>
 
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Average Score
-              </span>
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-green-50 text-green-600">
-                <Award size={18} />
-              </div>
-            </div>
-            <div className="mt-3 text-2xl font-bold text-slate-900">{stats.averageScore}%</div>
-            <p className="mt-1 text-xs text-slate-500">Technical competency</p>
-          </Card>
+              {resume ? (
+                <div className="mt-5 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div className="flex min-w-0 items-center gap-3"><div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-emerald-600 shadow-sm"><FileText size={20} /></div><div className="min-w-0"><p className="truncate text-sm font-semibold text-slate-900">{resume.fileName}</p><p className="mt-0.5 text-xs text-slate-600">Uploaded {formatDate(resume.uploadedAt)} · {formatFileSize(resume.fileSize)}</p></div></div><label className="cursor-pointer text-sm font-semibold text-indigo-700 hover:text-indigo-800">Replace<input ref={fileInputRef} type="file" accept="application/pdf" className="sr-only" onChange={handleFileChange} /></label></div>
+                  {resume.summary && <p className="mt-4 border-t border-emerald-100 pt-4 text-sm leading-6 text-slate-700">{resume.summary}</p>}
+                </div>
+              ) : (
+                <label className="mt-5 flex cursor-pointer flex-col items-center rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/50 px-5 py-8 text-center transition hover:border-indigo-400 hover:bg-indigo-50"><Upload className="h-7 w-7 text-indigo-600" /><span className="mt-3 text-sm font-semibold text-slate-900">Choose your resume</span><span className="mt-1 text-xs text-slate-600">PDF only · Maximum 5 MB</span><input ref={fileInputRef} type="file" accept="application/pdf" className="sr-only" onChange={handleFileChange} /></label>
+              )}
 
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Total Attempts
-              </span>
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-50 text-purple-600">
-                <Clock size={18} />
-              </div>
-            </div>
-            <div className="mt-3 text-2xl font-bold text-slate-900">{stats.totalAttempts}</div>
-            <p className="mt-1 text-xs text-slate-500">Started sessions</p>
-          </Card>
+              {selectedFile && <div className="mt-5 space-y-4 rounded-xl border border-slate-200 bg-slate-50 p-4"><div className="flex items-center gap-3"><FileText className="text-indigo-600" size={20} /><div className="min-w-0"><p className="truncate text-sm font-semibold text-slate-900">{selectedFile.name}</p><p className="text-xs text-slate-500">{formatFileSize(selectedFile.size)}</p></div></div><div><label htmlFor="resume-summary" className="text-sm font-medium text-slate-800">Brief profile summary <span className="font-normal text-slate-500">(optional)</span></label><textarea id="resume-summary" rows={3} maxLength={500} value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Example: Frontend developer focused on React, Node.js, and product design." className="mt-2 w-full resize-none rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-800 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100" /></div><div className="flex justify-end"><Button onClick={handleUpload} disabled={isUploading}>{isUploading ? <><Loader2 className="animate-spin" size={16} /> Uploading...</> : <><Upload size={16} /> Save resume</>}</Button></div></div>}
+              {error && <p role="alert" className="mt-4 flex items-center gap-2 rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700"><AlertCircle size={16} /> {error}</p>}
+              {successMessage && <p className="mt-4 flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700"><CheckCircle2 size={16} /> {successMessage}</p>}
+            </Card>
+
+            <Card className="p-5 sm:p-6"><div className="flex items-center gap-2"><Sparkles className="text-indigo-600" size={21} /><h2 className="text-lg font-bold text-slate-900">Your next steps</h2></div><div className="mt-5 grid gap-3 sm:grid-cols-2">{milestones.map((milestone) => <div key={milestone.label} className={`flex items-center gap-3 rounded-xl border p-3 ${milestone.complete ? "border-emerald-100 bg-emerald-50/60" : "border-slate-200 bg-white"}`}><CheckCircle2 size={18} className={milestone.complete ? "text-emerald-600" : "text-slate-300"} /><span className={`text-sm font-medium ${milestone.complete ? "text-emerald-800" : "text-slate-600"}`}>{milestone.label}</span></div>)}</div></Card>
+          </section>
+
+          <aside className="space-y-4">
+            <Card className="p-5"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Performance</h2><div className="mt-5 space-y-5"><div><p className="text-3xl font-bold text-slate-900">{completedSessions.length}</p><p className="mt-1 text-sm text-slate-600">Completed interviews</p></div><div className="border-t border-slate-100 pt-4"><p className="text-3xl font-bold text-slate-900">{averageScore}%</p><p className="mt-1 text-sm text-slate-600">Average score</p></div><div className="border-t border-slate-100 pt-4"><p className="text-3xl font-bold text-slate-900">{history.length}</p><p className="mt-1 text-sm text-slate-600">Practice attempts</p></div></div></Card>
+            <Card className="p-5"><div className="flex items-start gap-3"><ShieldCheck className="mt-0.5 shrink-0 text-indigo-600" size={20} /><div><h2 className="font-semibold text-slate-900">Private by default</h2><p className="mt-1 text-sm leading-6 text-slate-600">Your resume is downloaded through your authenticated account and is not publicly exposed.</p></div></div></Card>
+            <Card className="p-5"><div className="flex items-center gap-3"><Award className="text-amber-500" size={20} /><div><p className="font-semibold text-slate-900">Badges are coming</p><p className="mt-1 text-sm text-slate-600">Earn them through completed practice tracks.</p></div></div></Card>
+          </aside>
         </div>
-
-        {/* Account Security Settings Section */}
-        <Card className="p-6 md:p-8 space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold text-slate-900">Security & Credentials</h3>
-            <p className="mt-1 text-sm text-slate-600">
-              Your security configuration and account settings.
-            </p>
-          </div>
-
-          <div className="divide-y divide-slate-100">
-            <div className="flex items-center justify-between py-4">
-              <div className="flex items-center gap-3">
-                <ShieldCheck className="text-slate-400" size={20} />
-                <div>
-                  <div className="text-sm font-medium text-slate-800">Email Verification</div>
-                  <div className="text-xs text-slate-500">
-                    {user?.is_verified
-                      ? "Your account email address is verified."
-                      : "Check your inbox for a verification link."}
-                  </div>
-                </div>
-              </div>
-              <Badge variant={user?.is_verified ? "default" : "secondary"}>
-                {user?.is_verified ? "Active" : "Unverified"}
-              </Badge>
-            </div>
-
-            <div className="flex items-center justify-between py-4">
-              <div className="flex items-center gap-3">
-                <User className="text-slate-400" size={20} />
-                <div>
-                  <div className="text-sm font-medium text-slate-800">Account ID</div>
-                  <div className="text-xs text-slate-500">User reference: #{user?.id}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
       </div>
     </PageLayout>
   );
