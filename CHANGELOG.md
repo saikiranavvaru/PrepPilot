@@ -10,6 +10,38 @@ The project follows semantic versioning where practical:
 
 ---
 
+# [Unreleased] — Architecture, authentication, and entry experience
+
+**Date:** 8 October 2026
+
+## Added
+
+- Feature-oriented React client structure: `app`, `features`, and `shared` layers.
+- Feature-level API modules for authentication, interviews, and resume work, plus a single shared fetch client.
+- Reusable PrepPilot brand mark and original code-native illustrations for public/authentication screens.
+- Database migration script: `npm run migrate:auth-identifiers` adds the nullable `users.phone` column and a partial unique index.
+
+## Changed
+
+- Moved route composition, auth state, layouts, validation, and UI primitives into clear ownership boundaries for future feature work.
+- Rebuilt the landing, sign-in, and registration screens as responsive, minimal entry experiences.
+- Registration and login now accept an email address or E.164 mobile number. Passwords require at least eight characters with uppercase, lowercase, and numeric characters.
+- JWT expiry defaults to 30 days when `JWT_EXPIRES_IN` is not configured.
+- Standardized authentication failures to avoid revealing whether an account exists or which credential was incorrect.
+- Removed a duplicate `multer` dependency declaration from the server manifest.
+
+## Verification
+
+- Production frontend build completed successfully.
+- Authentication controller, middleware, and migration syntax checks passed.
+- PostgreSQL connection test succeeded against the local `preppilot` database.
+
+## Production note
+
+- Mobile-number login is implemented, but SMS ownership verification is not yet implemented. Configure an SMS provider before claiming verified phone authentication in production.
+
+---
+
 # [0.4.0] — Module 5: Frontend Development & Integration
 
 **Status:** Released  

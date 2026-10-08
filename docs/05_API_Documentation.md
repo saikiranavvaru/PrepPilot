@@ -4,7 +4,7 @@
 **Project Version:** `0.4.0`  
 **API Status:** Active Development  
 **Current Milestone:** Module 5 — Frontend Development Completed  
-**Last Updated:** 31 August 2026
+**Last Updated:** 8 October 2026
 
 ---
 
@@ -40,9 +40,13 @@ The API remains under active development as PrepPilot moves toward core intervie
 
 ## Local Development
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"
-Versioned API Base Path
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1
+`http://localhost:3000`
+
+The frontend resolves its API base URL from `VITE_API_BASE_URL` or `VITE_API_URL`; in development it defaults to `http://localhost:3000`.
+
+### Versioned API Base Path
+
+`http://localhost:3000/api/v1`
 System endpoints such as /health and /health/database remain outside /api/v1 because they describe application and infrastructure health rather than business resources.
 3. API Versioning
 PrepPilot uses URL-based API versioning.
@@ -214,19 +218,18 @@ Request Body
   "email": "testuser@preppilot.com",
   "password": "TestPass123"
 }
-Processing
-The registration flow:
-1. Validates the request.
-2. Validates the email address.
-3. Normalizes the email.
-4. Validates the password.
-5. Checks for an existing account.
-6. Hashes the password using bcrypt.
-7. Creates the PostgreSQL user.
-8. Generates an email-verification token.
-9. Stores the verification information.
-10. Sends the verification email.
-11. Returns safe user information.
+
+Or register with a mobile number in E.164 format:
+
+{
+  "name": "Test User",
+  "phone": "+919876543210",
+  "password": "TestPass123"
+}
+
+Supply one valid identifier: `email` or `phone`. Passwords must be 8–72 bytes and contain uppercase, lowercase, and numeric characters. The server normalizes the identifier, checks both identifiers for an existing account, hashes the password with bcrypt, and returns only safe user fields.
+
+Email registration creates a time-limited verification token and attempts to send a verification email. Phone registration does not yet verify mobile-number ownership; SMS verification is a future production requirement.
 Successful Response
 201 Created
 {
@@ -236,27 +239,17 @@ Successful Response
     "id": 14,
     "name": "Test User",
     "email": "testuser@preppilot.com",
+    "phone": null,
     "is_verified": false,
     "created_at": "2026-08-15T05:24:47.623Z"
   }
 }
 Password hashes and verification tokens are not returned.
-Duplicate Email
+Duplicate Identifier
 409 Conflict
 {
   "success": false,
-  "message": "An account with this email already exists"
-}
-Validation Examples
-Weak passwords are rejected.
-{
-  "success": false,
-  "message": "Password must contain at least 8 characters"
-}
-Invalid email addresses are rejected.
-{
-  "success": false,
-  "message": "Please provide a valid email address"
+  "message": "An account with this email address or mobile number already exists"
 }
 10.2 Login User
 POST /api/v1/auth/login
@@ -264,34 +257,37 @@ Authentication
 Not required.
 Request Body
 {
-  "email": "testuser@preppilot.com",
+  "identifier": "testuser@preppilot.com",
   "password": "TestPass123"
 }
-Processing
-The login flow:
-1. Validates the request.
-2. Normalizes the email.
-3. Finds the account in PostgreSQL.
-4. Checks account status.
-5. Compares the supplied password with the bcrypt hash.
-6. Creates a signed JWT.
-7. Returns the access token.
+
+`identifier` may be an email address or an E.164 mobile number, for example `+919876543210`. Legacy `email` and `phone` fields are still accepted by the server for compatibility, but new clients should send `identifier`.
+
+The server normalizes the identifier, checks the active account, compares the bcrypt password hash, and returns a signed JWT. If `JWT_EXPIRES_IN` is not configured, the token expiry defaults to 30 days.
 Successful Response
 200 OK
 {
   "success": true,
   "message": "Login successful",
   "data": {
-    "token": "<jwt-access-token>"
+    "token": "<jwt-access-token>",
+    "user": {
+      "id": 14,
+      "name": "Test User",
+      "email": "testuser@preppilot.com",
+      "phone": null,
+      "is_verified": false,
+      "is_active": true
+    }
   }
 }
 Invalid Credentials
 401 Unauthorized
 {
   "success": false,
-  "message": "Invalid email or password"
+  "message": "Invalid credentials"
 }
-The response does not reveal whether the email or password was specifically incorrect.
+The response does not reveal whether the identifier or password was specifically incorrect.
 10.3 Get Current Authenticated User
 GET /api/v1/auth/me
 Authentication
@@ -309,6 +305,7 @@ Successful Response
     "id": 14,
     "name": "Test User",
     "email": "testuser@preppilot.com",
+    "phone": null,
     "is_verified": false,
     "is_active": true,
     "created_at": "2026-08-15T05:24:47.623Z",
@@ -478,11 +475,11 @@ The middleware rejects requests when:
 - The account is inactive.
 13. Frontend Integration
 Module 5 connected the React frontend to the existing API.
-The frontend communicates with the backend through the existing API utility and Axios-based request structure.
+The frontend communicates with the backend through the shared API utility and fetch-based request structure.
 The authentication flow is:
 React Login/Register Page
         ↓
-API Utility / Axios
+Shared API Utility
         ↓
 POST /api/v1/auth/login
         ↓
@@ -555,7 +552,7 @@ The email service supports authentication-related messages such as:
 Development configuration uses environment variables such as:
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-gmail-app-password
-APP_URL=const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"
+APP_URL=http://localhost:3000
 The normal Gmail account password should not be placed in the application configuration.
 Gmail App Password authentication is used for the development SMTP setup.
 18. Unknown Routes
@@ -613,26 +610,26 @@ Module 5 additionally verified the frontend-to-backend integration flow, includi
 20. Example Testing Commands
 Register
 Invoke-RestMethod `
-  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/register" `
+  -Uri "http://localhost:3000/api/v1/auth/register" `
   -Method POST `
   -ContentType "application/json" `
   -Body '{"name":"Test User","email":"testuser@preppilot.com","password":"TestPass123"}'
 Login
 $login = Invoke-RestMethod `
-  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/login" `
+  -Uri "http://localhost:3000/api/v1/auth/login" `
   -Method POST `
   -ContentType "application/json" `
-  -Body '{"email":"testuser@preppilot.com","password":"TestPass123"}'
+  -Body '{"identifier":"testuser@preppilot.com","password":"TestPass123"}'
 
 $token = $login.data.token
 Current User
 Invoke-RestMethod `
-  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/me" `
+  -Uri "http://localhost:3000/api/v1/auth/me" `
   -Method GET `
   -Headers @{ Authorization = "Bearer $token" }
 Invalid Token
 Invoke-RestMethod `
-  -Uri "const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || "https://preppilot-api-795k.onrender.com"/api/v1/auth/me" `
+  -Uri "http://localhost:3000/api/v1/auth/me" `
   -Method GET `
   -Headers @{ Authorization = "Bearer invalid-token" }
 21. Current API Surface
@@ -698,7 +695,7 @@ React Router
       ↓
 Authentication State
       ↓
-Axios / API Utility
+Shared API Utility
       ↓
 Versioned REST API
       ↓
@@ -722,7 +719,7 @@ POST /api/v1/auth/login
  ↓
 JWT
  ↓
-Frontend AuthContext
+Frontend AuthProvider
  ↓
 ProtectedRoute
  ↓
@@ -815,7 +812,7 @@ Release v0.4.0 Highlights
 - Established the React frontend architecture.
 - Established reusable frontend components.
 - Established responsive page layouts.
-- Integrated Axios-based API communication.
+- Integrated fetch-based API communication.
 - Integrated authentication state.
 - Implemented protected frontend routes.
 - Implemented login and registration frontend flows.

@@ -6,6 +6,19 @@ The project is being developed as a long-term, production-oriented software engi
 
 ---
 
+## Current development update — 8 October 2026
+
+The current unreleased work strengthens the application foundation before Module 6:
+
+- The React client now uses a feature-oriented structure: `app` owns composition, providers, and routing; `features` owns business areas such as authentication and practice; and `shared` owns reusable API, layout, validation, UI, and brand code.
+- Authentication now accepts either an email address or an E.164 mobile number, while preserving strong password validation and JWT-protected application routes. A database migration adds the nullable `users.phone` field and its unique index.
+- Public, sign-in, and registration screens were redesigned as responsive, minimal entry points with a shared PrepPilot brand and original code-native illustrations.
+- The frontend uses one fetch-based API client and feature-level API modules; direct request details are no longer scattered across pages.
+
+For local development, run `npm run migrate:auth-identifiers` once from `server` after configuring PostgreSQL, then start the backend with `npm run dev` and the frontend with its development script. Phone ownership verification by SMS is not implemented yet; an SMS provider is required before treating phone registration as production-ready verification.
+
+---
+
 ## ✨ Features
 
 ### Implemented
@@ -38,7 +51,7 @@ The project is being developed as a long-term, production-oriented software engi
 - React frontend
 - React Router page architecture
 - Tailwind CSS UI architecture
-- Axios API integration
+- Fetch-based API integration
 - Authentication state management
 - Protected frontend routes
 - Login and registration frontend
@@ -82,7 +95,7 @@ The project is being developed as a long-term, production-oriented software engi
 - React
 - React Router
 - Tailwind CSS
-- Axios
+- Fetch API
 - JavaScript
 - HTML5
 - CSS3
@@ -158,7 +171,7 @@ Protected Route
 
 ↓
 
-Axios API Request
+Shared API Request Client
 
 ↓
 
@@ -210,15 +223,15 @@ PrepPilot/
 
 │   ├── src/
 
-│   │   ├── components/
+│   │   ├── app/                 # Route composition, providers, app pages
 
-│   │   ├── context/
+│   │   ├── features/            # Auth, dashboard, interviews, practice, profile, progress, settings
 
-│   │   ├── pages/
+│   │   ├── shared/              # API client, layouts, validation, brand, reusable UI
 
-│   │   ├── services/
+│   │   ├── App.jsx
 
-│   │   └── ...
+│   │   └── main.jsx
 
 │   │
 
@@ -239,6 +252,8 @@ PrepPilot/
 │   │   │
 
 │   │   ├── controllers/
+
+│   │   ├── database/            # Idempotent schema migrations
 
 │   │   ├── middleware/
 
@@ -389,7 +404,7 @@ The frontend currently includes:
 - Loading states
 - Error handling
 - Interaction feedback
-- API communication through Axios
+- API communication through the shared fetch client
 
 The frontend is designed to communicate with the existing versioned backend rather than duplicating backend security responsibilities.
 
