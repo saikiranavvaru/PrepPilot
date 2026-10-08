@@ -18,7 +18,8 @@
     "start": "node index.js",
     "dev": "node index.js",
     "test:db": "node test-db.js",
-    "migrate:resume": "node src/database/migrate-resume.js"
+    "migrate:resume": "node src/database/migrate-resume.js",
+    "migrate:auth-identifiers": "node src/database/migrate-auth-identifiers.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

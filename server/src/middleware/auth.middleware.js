@@ -51,6 +51,7 @@ async function authenticateUser(req, res, next) {
         id,
         name,
         email,
+        phone,
         is_verified,
         is_active,
         created_at,

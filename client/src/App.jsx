@@ -1,27 +1,26 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
-import AppLayout from "./components/AppLayout";
+import AppLayout from "./shared/layout/AppLayout";
 
-import Dashboard from "./pages/Dashboard";
-import Practice from "./pages/Practice";
-import PracticeSession from "./pages/PracticeSession";
-import Progress from "./pages/Progress";
-import Profile from "./pages/Profile";
-import MockInterview from "./pages/MockInterview";
-import Settings from "./pages/Settings";
+import { Dashboard } from "./features/dashboard";
+import { Practice, PracticeSession } from "./features/practice";
+import { Progress } from "./features/progress";
+import { Profile } from "./features/profile";
+import { MockInterview } from "./features/interviews";
+import { Settings } from "./features/settings";
 
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import ApiTest from "./ApiTest";
+import { Login, Register, Welcome } from "./features/auth";
+import NotFound from "./app/pages/NotFound";
+import ApiTest from "./app/pages/ApiTest";
 
-import ProtectedRoute from "./routes/ProtectedRoute";
+import ProtectedRoute from "./app/routes/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public routes */}
+        <Route path="/" element={<Welcome />} />
+        <Route path="/welcome" element={<Navigate to="/" replace />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -29,15 +28,13 @@ function App() {
         <Route element={<AppLayout />}>
           {/* Dashboard */}
           <Route
-            path="/"
+            path="/dashboard"
             element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
             }
           />
-
-          <Route path="/dashboard" element={<Navigate to="/" replace />} />
 
           {/* Practice */}
           <Route

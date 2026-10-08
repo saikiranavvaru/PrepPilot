@@ -20,28 +20,63 @@ const SALT_ROUNDS = 10;
 const MIN_PASSWORD_LENGTH = 8;
 const MAX_PASSWORD_BYTES = 72;
 
+function normalizePhone(phone) {
+  if (typeof phone !== "string") return "";
+
+  const normalized = phone.trim().replace(/[\s()-]/g, "");
+  return /^\+[1-9]\d{7,14}$/.test(normalized) ? normalized : "";
+}
+
+function validatePassword(password) {
+  if (typeof password !== "string" || password.length < MIN_PASSWORD_LENGTH) {
+    return "Password must contain at least 8 characters";
+  }
+
+  if (Buffer.byteLength(password, "utf8") > MAX_PASSWORD_BYTES) {
+    return "Password is too long";
+  }
+
+  if (!/[a-z]/.test(password) || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+    return "Password must include uppercase, lowercase, and numeric characters";
+  }
+
+  return null;
+}
+
+function serializeUser(user) {
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone,
+    is_verified: user.is_verified,
+    is_active: user.is_active,
+    created_at: user.created_at,
+    updated_at: user.updated_at,
+  };
+}
+
 // ======================================================
 // Register User
 
 async function registerUser(req, res) {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, phone, password } = req.body;
 
-    // Validate required fields and data types.
-    if (
-      typeof name !== "string" ||
-      typeof email !== "string" ||
-      typeof password !== "string"
-    ) {
+    if (typeof name !== "string" || typeof password !== "string") {
       return res.status(400).json({
         success: false,
-        message: "Name, email, and password are required",
+        message: "Name and password are required",
       });
     }
 
     const normalizedName = name.trim();
-    const normalizedEmail =
-      validator.normalizeEmail(email.trim()) || "";
+    const normalizedEmail = typeof email === "string" && email.trim()
+      ? validator.normalizeEmail(email.trim()) || ""
+      : null;
+    const normalizedPhone = typeof phone === "string" && phone.trim()
+      ? normalizePhone(phone)
+      : null;
 
     // Validate name.
     if (
@@ -54,57 +89,49 @@ async function registerUser(req, res) {
       });
     }
 
-    // Validate email.
-    if (!validator.isEmail(normalizedEmail)) {
+    if (!normalizedEmail && !normalizedPhone) {
+      return res.status(400).json({
+        success: false,
+        message: "Provide a valid email address or mobile number",
+      });
+    }
+
+    if (normalizedEmail === "") {
       return res.status(400).json({
         success: false,
         message: "Please provide a valid email address",
       });
     }
 
-    // Validate password length.
-    if (password.length < MIN_PASSWORD_LENGTH) {
+    if (normalizedPhone === "") {
       return res.status(400).json({
         success: false,
-        message: "Password must contain at least 8 characters",
+        message: "Use a mobile number with its country code, for example +919876543210",
       });
     }
 
-    // bcrypt safely supports passwords up to 72 bytes.
-    if (Buffer.byteLength(password, "utf8") > MAX_PASSWORD_BYTES) {
+    const passwordError = validatePassword(password);
+    if (passwordError) {
       return res.status(400).json({
         success: false,
-        message: "Password is too long",
+        message: passwordError,
       });
     }
 
-    // Require uppercase, lowercase, and number.
-    if (
-      !/[a-z]/.test(password) ||
-      !/[A-Z]/.test(password) ||
-      !/[0-9]/.test(password)
-    ) {
-      return res.status(400).json({
-        success: false,
-        message:
-          "Password must include uppercase, lowercase, and numeric characters",
-      });
-    }
-
-    // Check whether the email is already registered.
     const existingUser = await pool.query(
       `
         SELECT id
         FROM users
-        WHERE email = $1;
+        WHERE ($1::TEXT IS NOT NULL AND email = $1)
+           OR ($2::TEXT IS NOT NULL AND phone = $2);
       `,
-      [normalizedEmail]
+      [normalizedEmail, normalizedPhone]
     );
 
     if (existingUser.rows.length > 0) {
       return res.status(409).json({
         success: false,
-        message: "An account with this email already exists",
+        message: "An account with this email address or mobile number already exists",
       });
     }
 
@@ -114,10 +141,10 @@ async function registerUser(req, res) {
       SALT_ROUNDS
     );
 
-    // Generate a verification token and set it to expire in 1 hour.
-    const verificationToken = generateSecureToken();
-    const verificationTokenExpiresAt =
-      new Date(Date.now() + 60 * 60 * 1000);
+    const verificationToken = normalizedEmail ? generateSecureToken() : null;
+    const verificationTokenExpiresAt = normalizedEmail
+      ? new Date(Date.now() + 60 * 60 * 1000)
+      : null;
 
     // Insert the new user.
     const result = await pool.query(
@@ -125,48 +152,50 @@ async function registerUser(req, res) {
         INSERT INTO users (
           name,
           email,
+          phone,
           password_hash,
           verification_token,
           verification_token_expires_at
         )
-        VALUES ($1, $2, $3, $4, $5)
+        VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING
           id,
           name,
           email,
+          phone,
           is_verified,
+          is_active,
           created_at,
           updated_at;
       `,
       [
         normalizedName,
         normalizedEmail,
+        normalizedPhone,
         hashedPassword,
         verificationToken,
         verificationTokenExpiresAt,
       ]
     );
 
-    // Safely attempt to send verification email without blocking registration
-    try {
-      await sendVerificationEmail(
-        normalizedEmail,
-        verificationToken
-      );
-    } catch (mailError) {
-      console.warn("Verification email could not be sent:", mailError.message);
+    if (normalizedEmail) {
+      try {
+        await sendVerificationEmail(normalizedEmail, verificationToken);
+      } catch (mailError) {
+        console.warn("Verification email could not be sent:", mailError.message);
+      }
     }
 
     return res.status(201).json({
       success: true,
       message: "User registered successfully",
-      data: result.rows[0],
+      data: serializeUser(result.rows[0]),
     });
   } catch (error) {
     if (error.code === "23505") {
       return res.status(409).json({
         success: false,
-        message: "An account with this email already exists",
+        message: "An account with this email address or mobile number already exists",
       });
     }
 
@@ -184,32 +213,37 @@ async function registerUser(req, res) {
 
 async function loginUser(req, res) {
   try {
-    const { email, password } = req.body;
+    const { identifier, email, phone, password } = req.body;
+    const rawIdentifier = typeof identifier === "string"
+      ? identifier
+      : typeof email === "string"
+        ? email
+        : phone;
 
-    if (
-      typeof email !== "string" ||
-      typeof password !== "string"
-    ) {
+    if (typeof rawIdentifier !== "string" || typeof password !== "string") {
       return res.status(400).json({
         success: false,
-        message: "Email and password are required",
+        message: "Email address or mobile number and password are required",
       });
     }
 
-    const normalizedEmail =
-      validator.normalizeEmail(email.trim()) || "";
+    const isEmailIdentifier = rawIdentifier.includes("@");
+    const normalizedEmail = isEmailIdentifier
+      ? validator.normalizeEmail(rawIdentifier.trim()) || ""
+      : null;
+    const normalizedPhone = isEmailIdentifier ? null : normalizePhone(rawIdentifier);
 
-    if (!validator.isEmail(normalizedEmail)) {
+    if (!normalizedEmail && !normalizedPhone) {
       return res.status(400).json({
         success: false,
-        message: "Please provide a valid email address",
+        message: "Please provide a valid email address or mobile number",
       });
     }
 
     if (password.length === 0) {
       return res.status(400).json({
         success: false,
-        message: "Email and password are required",
+        message: "Email address or mobile number and password are required",
       });
     }
 
@@ -219,15 +253,17 @@ async function loginUser(req, res) {
           id,
           name,
           email,
+          phone,
           password_hash,
           is_verified,
           is_active,
           created_at,
           updated_at
         FROM users
-        WHERE email = $1;
+        WHERE ($1::TEXT IS NOT NULL AND email = $1)
+           OR ($2::TEXT IS NOT NULL AND phone = $2);
       `,
-      [normalizedEmail]
+      [normalizedEmail, normalizedPhone]
     );
 
     const user = result.rows[0];
@@ -235,7 +271,7 @@ async function loginUser(req, res) {
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: "Invalid email or password",
+        message: "Invalid credentials",
       });
     }
 
@@ -247,7 +283,7 @@ async function loginUser(req, res) {
     if (!passwordMatches) {
       return res.status(401).json({
         success: false,
-        message: "Invalid email or password",
+        message: "Invalid credentials",
       });
     }
 
@@ -268,7 +304,7 @@ async function loginUser(req, res) {
       },
       process.env.JWT_SECRET,
       {
-        expiresIn: process.env.JWT_EXPIRES_IN || "1h",
+        expiresIn: process.env.JWT_EXPIRES_IN || "30d",
       }
     );
 
@@ -277,15 +313,7 @@ async function loginUser(req, res) {
       message: "Login successful",
       data: {
         token,
-        user: {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          is_verified: user.is_verified,
-          is_active: user.is_active,
-          created_at: user.created_at,
-          updated_at: user.updated_at,
-        },
+        user: serializeUser(user),
       },
     });
   } catch (error) {
