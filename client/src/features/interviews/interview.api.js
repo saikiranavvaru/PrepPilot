@@ -1,5 +1,10 @@
 import { apiRequest } from "../../shared/api/api";
 
+export async function getInterviewTopics() {
+  const { data } = await apiRequest("/api/v1/interviews/topics");
+  return data.data || [];
+}
+
 export async function getInterviewHistory() {
   const { data } = await apiRequest("/api/v1/interviews/history");
   return data.data || [];

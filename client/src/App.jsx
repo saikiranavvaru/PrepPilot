@@ -48,7 +48,7 @@ function App() {
 
           {/* Practice Session */}
           <Route
-            path="/practice/session/:topicTitle"
+            path="/practice/session/:topicSlug"
             element={
               <ProtectedRoute>
                 <PracticeSession />

@@ -1,49 +1,62 @@
-import { useMemo, useState } from "react";
-import { Search, SlidersHorizontal } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Loader2, Search, SlidersHorizontal } from "lucide-react";
 
+import { getInterviewTopics } from "../../interviews/interview.api";
 import PageLayout from "../../../shared/layout/PageLayout";
 import TopicCard from "../../../shared/ui/TopicCard";
 
-const topics = [
-  {
-    title: "JavaScript",
-    description: "Practice JavaScript interview questions.",
-    difficulty: "Intermediate",
-    questionCount: 32,
-    progress: 35,
-  },
-  {
-    title: "React",
-    description: "Practice React interview questions.",
-    difficulty: "Intermediate",
-    questionCount: 28,
-    progress: 60,
-  },
-  {
-    title: "Database",
-    description: "Practice database interview questions.",
-    difficulty: "Beginner",
-    questionCount: 24,
-    progress: 15,
-  },
-];
-
 export default function Practice() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [difficulty, setDifficulty] = useState("All");
+  const [topics, setTopics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadTopics() {
+      try {
+        setIsLoading(true);
+        setError("");
+        const data = await getInterviewTopics();
+
+        if (!isMounted) return;
+
+        setTopics(
+          data.map((topic) => ({
+            slug: topic.slug,
+            title: topic.name,
+            description: topic.description,
+            difficulty: "Mixed",
+            questionCount: topic.questionCount,
+            progress: 0,
+          }))
+        );
+      } catch (requestError) {
+        if (!isMounted) return;
+        setError(requestError.message || "Unable to load practice topics.");
+      } finally {
+        if (isMounted) setIsLoading(false);
+      }
+    }
+
+    loadTopics();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const filteredTopics = useMemo(() => {
-    return topics.filter((topic) => {
-      const matchesSearch =
-        topic.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        topic.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return topics;
 
-      const matchesDifficulty =
-        difficulty === "All" || topic.difficulty === difficulty;
-
-      return matchesSearch && matchesDifficulty;
-    });
-  }, [searchQuery, difficulty]);
+    return topics.filter(
+      (topic) =>
+        topic.title.toLowerCase().includes(query) ||
+        topic.description.toLowerCase().includes(query)
+    );
+  }, [searchQuery, topics]);
 
   return (
     <PageLayout
@@ -61,81 +74,63 @@ export default function Practice() {
               <h2 className="text-lg font-semibold text-slate-900">
                 Find your next practice topic
               </h2>
-
               <p className="mt-1 text-sm text-slate-600">
-                Search topics, choose a difficulty level, and start practicing.
+                Every topic is loaded from the PrepPilot question catalog.
               </p>
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-[1fr_220px]">
-            <div className="relative">
-              <Search
-                size={18}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-              />
-
-              <input
-                type="search"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search topics..."
-                aria-label="Search practice topics"
-                className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
-              />
-            </div>
-
-            <select
-              value={difficulty}
-              onChange={(event) => setDifficulty(event.target.value)}
-              aria-label="Filter by difficulty"
-              className="rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
-            >
-              <option value="All">All difficulties</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </select>
+          <div className="relative mt-6">
+            <Search
+              size={18}
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+            />
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Search topics..."
+              aria-label="Search practice topics"
+              className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+            />
           </div>
         </section>
 
         <section>
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-slate-900">
-              Practice Topics
-            </h2>
-
-            <p className="text-sm text-slate-500">
-              {filteredTopics.length}{" "}
-              {filteredTopics.length === 1 ? "topic" : "topics"}
-            </p>
+            <h2 className="text-lg font-semibold text-slate-900">Practice Topics</h2>
+            {!isLoading && (
+              <p className="text-sm text-slate-500">
+                {filteredTopics.length} {filteredTopics.length === 1 ? "topic" : "topics"}
+              </p>
+            )}
           </div>
 
-          {filteredTopics.length > 0 ? (
+          {isLoading ? (
+            <div className="flex min-h-48 items-center justify-center rounded-2xl border border-slate-200 bg-white">
+              <Loader2 className="h-7 w-7 animate-spin text-indigo-600" />
+            </div>
+          ) : error ? (
+            <div className="rounded-2xl border border-red-200 bg-red-50 px-6 py-8 text-center">
+              <h3 className="text-lg font-semibold text-red-950">Topics are unavailable</h3>
+              <p className="mt-2 text-sm text-red-700">{error}</p>
+            </div>
+          ) : filteredTopics.length > 0 ? (
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {filteredTopics.map((topic) => (
-                <TopicCard key={topic.title} {...topic} />
+                <TopicCard key={topic.slug} {...topic} />
               ))}
             </div>
           ) : (
             <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-12 text-center">
-              <h3 className="text-lg font-semibold text-slate-900">
-                No topics found
-              </h3>
-
-              <p className="mt-2 text-sm text-slate-600">
-                Try a different search term or difficulty level.
-              </p>
-
+              <h3 className="text-lg font-semibold text-slate-900">No topics found</h3>
+              <p className="mt-2 text-sm text-slate-600">Try a different search term.</p>
               <button
                 type="button"
-                onClick={() => {
-                  setSearchQuery("");
-                  setDifficulty("All");
-                }}
+                onClick={() => setSearchQuery("")}
                 className="mt-4 text-sm font-medium text-indigo-600 hover:text-indigo-700"
               >
-                Clear filters
+                Clear search
               </button>
             </div>
           )}

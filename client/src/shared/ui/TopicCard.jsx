@@ -11,6 +11,7 @@ import Badge from "./Badge";
 import Button from "./Button";
 
 function TopicCard({
+  slug,
   title,
   description,
   difficulty = "Beginner",
@@ -25,7 +26,7 @@ function TopicCard({
   );
 
   function handleStartPractice() {
-    navigate(`/practice/session/${encodeURIComponent(title)}`);
+    navigate(`/practice/session/${encodeURIComponent(slug || title)}`);
   }
 
   return (
