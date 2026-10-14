@@ -40,9 +40,9 @@ export default function AppLayout() {
   const userInitial = user?.name?.trim()?.charAt(0)?.toUpperCase() || "P";
 
   return (
-    <div className="flex min-h-screen bg-slate-50 font-sans antialiased text-slate-800">
+    <div className="flex h-screen overflow-hidden bg-[#f8f9ff] font-sans antialiased text-slate-800">
       {/* Left Sidebar */}
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col justify-between border-r border-slate-200 bg-white p-4 select-none md:flex">
+      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col justify-between border-r border-indigo-100/70 bg-white/80 p-4 backdrop-blur-xl select-none md:flex">
         <div>
           {/* Brand Logo */}
           <div className="px-3 py-4 mb-3"><BrandMark /></div>
@@ -57,8 +57,8 @@ export default function AppLayout() {
                   to={item.path}
                   className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive(item.path)
-                      ? "bg-indigo-50 text-indigo-600 font-semibold"
-                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                      ? "bg-gradient-to-r from-indigo-100 to-violet-50 text-indigo-700 font-semibold shadow-sm shadow-indigo-950/5"
+                      : "text-slate-600 hover:bg-indigo-50/70 hover:text-slate-900"
                   }`}
                 >
                   <Icon size={18} />
@@ -83,9 +83,9 @@ export default function AppLayout() {
       </aside>
 
       {/* Main View Area */}
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-[radial-gradient(circle_at_82%_8%,rgba(254,215,170,0.18),transparent_25rem),radial-gradient(circle_at_32%_0%,rgba(199,210,254,0.22),transparent_32rem)]">
         {/* Top Header */}
-        <header className="sticky top-0 z-10 flex h-[72px] shrink-0 items-center justify-between bg-[#fafbff]/90 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-10 flex h-[72px] shrink-0 items-center justify-between bg-[#fafbff]/75 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
           <Link to="/dashboard" className="md:hidden" aria-label="PrepPilot home"><BrandMark /></Link>
 
           <Link
@@ -117,7 +117,7 @@ export default function AppLayout() {
         </header>
 
         {/* Dynamic Page Content */}
-        <main className="flex-1 px-4 py-6 sm:px-6 lg:px-8">
+        <main className="app-scroll-area flex-1 overflow-y-auto px-4 py-6 sm:px-6 lg:px-8">
           <Outlet />
         </main>
 

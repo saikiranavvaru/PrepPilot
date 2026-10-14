@@ -825,6 +825,7 @@ Release v0.4.0 Highlights
 - Completed the production frontend build.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 PREPPILOT v0.4.0
 COMPLETE FRONTEND INTEGRATION
 MODULE 5 COMPLETED

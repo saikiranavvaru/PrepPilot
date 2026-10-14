@@ -98,17 +98,21 @@ export default function Dashboard() {
     <PageLayout
       title={`Welcome back, ${firstName}.`}
       description="A clear view of your preparation, one focused session at a time."
+      wide
     >
-      <div className="space-y-10">
-        <section className="relative overflow-hidden rounded-[2rem] border border-indigo-100/70 bg-gradient-to-br from-[#f8f7ff] via-[#fafbff] to-[#fff7ed] px-6 py-7 sm:px-8 sm:py-9 lg:grid lg:grid-cols-[1fr_0.64fr] lg:items-center lg:gap-8">
+      <div className="space-y-8">
+        <section className="relative overflow-hidden px-2 py-5 sm:px-3 sm:py-6 lg:grid lg:min-h-[310px] lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:gap-10">
           <div className="absolute -right-16 -top-20 h-52 w-52 rounded-full bg-amber-200/35 blur-3xl" />
           <div className="absolute -bottom-24 left-[38%] h-44 w-44 rounded-full bg-rose-200/25 blur-3xl" />
           <div className="relative z-10 max-w-2xl">
-            <p className="text-xs font-bold tracking-[0.14em] text-indigo-700">PREPPILOT WORKSPACE</p>
+            <div className="flex items-center gap-2 text-xs font-bold tracking-[0.14em] text-indigo-700">
+              <span className="h-2 w-2 rounded-full bg-amber-400 shadow-[0_0_0_4px_rgba(251,191,36,0.15)]" />
+              PREPPILOT WORKSPACE
+            </div>
 
             {continueSession ? (
               <>
-                <h2 className="mt-4 text-3xl font-black tracking-[-0.045em] text-slate-950 sm:text-4xl">
+                <h2 className="mt-4 text-3xl font-black tracking-[-0.045em] text-slate-950 sm:text-5xl">
                   Continue with intention.
                 </h2>
                 <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
@@ -134,7 +138,7 @@ export default function Dashboard() {
                 <button
                   type="button"
                   onClick={() => navigate(`/practice/sessions/${continueSession.id}`)}
-                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:-translate-y-0.5 hover:bg-indigo-700"
+                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:-translate-y-0.5 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2"
                 >
                   <Play size={16} fill="currentColor" />
                   Continue practice
@@ -142,7 +146,7 @@ export default function Dashboard() {
               </>
             ) : (
               <>
-                <h2 className="mt-4 text-3xl font-black tracking-[-0.045em] text-slate-950 sm:text-4xl">
+                <h2 className="mt-4 text-3xl font-black tracking-[-0.045em] text-slate-950 sm:text-5xl">
                   Your next opportunity deserves preparation.
                 </h2>
                 <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
@@ -150,7 +154,7 @@ export default function Dashboard() {
                 </p>
                 <Link
                   to="/practice"
-                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:-translate-y-0.5 hover:bg-indigo-700"
+                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:-translate-y-0.5 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2"
                 >
                   Explore practice topics
                   <ArrowRight size={16} />
@@ -164,18 +168,18 @@ export default function Dashboard() {
           </div>
         </section>
 
-        <section aria-label="Practice summary" className="grid divide-y divide-slate-200 border-y border-slate-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          <div className="py-5 sm:px-6 sm:first:pl-0">
+        <section aria-label="Practice summary" className="grid divide-y divide-indigo-100/80 border-y border-indigo-100/80 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <div className="rounded-xl py-5 transition-colors hover:bg-white/55 sm:px-6 sm:first:pl-0">
             <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Completed</p>
             <p className="mt-2 text-3xl font-black tracking-[-0.04em] text-slate-950">{summary.completedSessions}</p>
             <p className="mt-1 text-sm text-slate-500">sessions finished</p>
           </div>
-          <div className="py-5 sm:px-6">
+          <div className="rounded-xl py-5 transition-colors hover:bg-white/55 sm:px-6">
             <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Average score</p>
             <p className="mt-2 text-3xl font-black tracking-[-0.04em] text-slate-950">{summary.averageScore}%</p>
             <p className="mt-1 text-sm text-slate-500">completed sessions only</p>
           </div>
-          <div className="py-5 sm:px-6 sm:pr-0">
+          <div className="rounded-xl py-5 transition-colors hover:bg-white/55 sm:px-6 sm:pr-0">
             <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Active focus</p>
             <p className="mt-2 text-3xl font-black tracking-[-0.04em] text-slate-950">{summary.activeSessions}</p>
             <p className="mt-1 text-sm text-slate-500">session{summary.activeSessions === 1 ? "" : "s"} in progress</p>
@@ -198,7 +202,7 @@ export default function Dashboard() {
                 <p className="text-xs font-bold tracking-[0.12em] text-indigo-700">RECENT ACTIVITY</p>
                 <h2 className="mt-2 text-xl font-black tracking-[-0.035em] text-slate-950">Your practice history</h2>
               </div>
-              <Link to="/progress" className="text-sm font-bold text-indigo-700 hover:text-indigo-900">
+              <Link to="/progress" className="text-sm font-bold text-indigo-700 underline-offset-4 transition hover:text-indigo-900 hover:underline">
                 View progress
               </Link>
             </div>
@@ -206,7 +210,7 @@ export default function Dashboard() {
             {recentSessions.length ? (
               <div className="mt-5 divide-y divide-slate-200 border-y border-slate-200">
                 {recentSessions.map((session) => (
-                  <div key={session.id} className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0">
+                  <div key={session.id} className="flex items-center justify-between gap-4 rounded-xl py-4 transition-colors hover:bg-white/55 first:pt-0 last:pb-0">
                     <div className="min-w-0">
                       <p className="truncate text-sm font-bold text-slate-900">{session.title}</p>
                       <p className="mt-1 text-xs text-slate-500">
@@ -232,7 +236,7 @@ export default function Dashboard() {
                 <Link
                   key={topic.slug}
                   to={`/practice/session/${encodeURIComponent(topic.slug)}`}
-                  className="group flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0"
+                  className="group flex items-center justify-between gap-4 rounded-xl py-4 transition-colors hover:bg-white/55 first:pt-0 last:pb-0"
                 >
                   <div>
                     <p className="text-sm font-bold text-slate-900 group-hover:text-indigo-700">{topic.name}</p>
