@@ -135,14 +135,14 @@ export default function Progress() {
                         <div className="mt-1 flex flex-wrap items-center gap-3 text-xs text-slate-500">
                           <span className="flex items-center gap-1">
                             <Clock size={14} />
-                            {new Date(session.created_at).toLocaleDateString(undefined, {
+                            {new Date(session.createdAt).toLocaleDateString(undefined, {
                               month: "short",
                               day: "numeric",
                               year: "numeric",
                             })}
                           </span>
                           <span>•</span>
-                          <span className="capitalize">{session.technology_name || "General Tech"}</span>
+                          <span>{session.topic?.name || "Practice session"}</span>
                         </div>
                       </div>
                     </div>

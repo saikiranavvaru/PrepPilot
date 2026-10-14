@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeft,
   CheckCircle2,
+  ChevronLeft,
   ChevronRight,
   Loader2,
   RotateCcw,
@@ -12,12 +13,13 @@ import {
 import PageLayout from "../../../shared/layout/PageLayout";
 import {
   completeInterview,
+  getInterviewSession,
   startInterview,
   submitInterviewAnswer,
 } from "../../interviews/interview.api";
 
 export default function PracticeSession() {
-  const { topicSlug } = useParams();
+  const { topicSlug, interviewId } = useParams();
   const navigate = useNavigate();
   const [session, setSession] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -30,6 +32,21 @@ export default function PracticeSession() {
   const [finalScore, setFinalScore] = useState(null);
   const [error, setError] = useState("");
 
+  function selectQuestion(nextQuestions, index) {
+    const question = nextQuestions[index];
+    setCurrentIndex(index);
+    setCurrentAnswer(question?.answer?.text || "");
+    setFeedback(
+      question?.answer
+        ? {
+            score: question.answer.score,
+            feedback: question.answer.feedback,
+            feedbackDetails: question.answer.feedbackDetails,
+          }
+        : null
+    );
+  }
+
   useEffect(() => {
     let isMounted = true;
 
@@ -37,46 +54,66 @@ export default function PracticeSession() {
       try {
         setIsInitializing(true);
         setError("");
+        setFeedback(null);
 
-        const sessionData = await startInterview({
-          topicSlug,
-        });
+        const sessionData = interviewId
+          ? await getInterviewSession(interviewId)
+          : await startInterview({ topicSlug });
 
         if (!isMounted) return;
 
         if (!sessionData?.interview?.id || !Array.isArray(sessionData.questions)) {
-          throw new Error("The practice session could not be initialized.");
+          throw new Error("The practice session could not be loaded.");
         }
 
         setSession(sessionData.interview);
         setQuestions(sessionData.questions);
+        setIsCompleted(sessionData.interview.status === "completed");
+        setFinalScore(
+          sessionData.interview.status === "completed"
+            ? sessionData.interview.score
+            : null
+        );
+
+        const firstUnansweredIndex = sessionData.questions.findIndex(
+          (question) => !question.answer
+        );
+        const initialIndex = firstUnansweredIndex === -1
+          ? Math.max(sessionData.questions.length - 1, 0)
+          : firstUnansweredIndex;
+
+        selectQuestion(sessionData.questions, initialIndex);
       } catch (requestError) {
         if (!isMounted) return;
-        setError(
-          requestError.message || "Unable to start this practice session."
-        );
+        setError(requestError.message || "Unable to load this practice session.");
       } finally {
         if (isMounted) setIsInitializing(false);
       }
     }
 
-    if (topicSlug) {
+    if (interviewId || topicSlug) {
       initializeSession();
     } else {
+      setError("A practice topic or saved session is required.");
       setIsInitializing(false);
-      setError("A practice topic is required.");
     }
 
     return () => {
       isMounted = false;
     };
-  }, [topicSlug]);
+  }, [interviewId, topicSlug]);
 
   const currentQuestion = questions[currentIndex];
   const questionCount = questions.length;
+  const answeredCount = questions.filter((question) => question.answer).length;
   const progressPercent = questionCount
-    ? Math.round(((currentIndex + (isCompleted ? 1 : 0)) / questionCount) * 100)
+    ? Math.round((answeredCount / questionCount) * 100)
     : 0;
+
+  function moveToQuestion(index) {
+    setError("");
+    selectQuestion(questions, index);
+  }
 
   async function handleSubmitAnswer(event) {
     event.preventDefault();
@@ -100,6 +137,21 @@ export default function PracticeSession() {
         answerText: currentAnswer.trim(),
       });
 
+      const nextQuestions = questions.map((question) =>
+        question.id === currentQuestion.id
+          ? {
+              ...question,
+              answer: {
+                text: currentAnswer.trim(),
+                score: answerResult.score,
+                feedback: answerResult.feedback,
+                feedbackDetails: answerResult.feedbackDetails,
+              },
+            }
+          : question
+      );
+
+      setQuestions(nextQuestions);
       setFeedback(answerResult);
     } catch (requestError) {
       setError(requestError.message || "Unable to save your answer.");
@@ -109,12 +161,10 @@ export default function PracticeSession() {
   }
 
   async function handleNextQuestion() {
-    setFeedback(null);
-    setCurrentAnswer("");
     setError("");
 
     if (currentIndex + 1 < questionCount) {
-      setCurrentIndex((previous) => previous + 1);
+      moveToQuestion(currentIndex + 1);
       return;
     }
 
@@ -132,12 +182,10 @@ export default function PracticeSession() {
 
   if (isInitializing) {
     return (
-      <PageLayout title="Preparing practice session" description="Loading your interview questions.">
+      <PageLayout title="Preparing practice session" description="Loading your saved interview data.">
         <div className="flex flex-col items-center justify-center py-20">
           <Loader2 className="h-10 w-10 animate-spin text-indigo-600" />
-          <p className="mt-4 text-sm font-medium text-slate-600">
-            Setting up your interview session...
-          </p>
+          <p className="mt-4 text-sm font-medium text-slate-600">Setting up your interview session...</p>
         </div>
       </PageLayout>
     );
@@ -145,13 +193,13 @@ export default function PracticeSession() {
 
   if (error && !session) {
     return (
-      <PageLayout title="Practice session unavailable" description="We could not start this topic.">
-        <div className="rounded-2xl border border-red-200 bg-red-50 p-8 text-center">
-          <p className="text-sm text-red-700">{error}</p>
+      <PageLayout title="Practice session unavailable" description="We could not load this session.">
+        <div className="rounded-2xl border border-rose-200 bg-rose-50 p-8 text-center">
+          <p className="text-sm text-rose-700">{error}</p>
           <button
             type="button"
             onClick={() => navigate("/practice")}
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-medium text-white"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-2.5 text-sm font-medium text-white"
           >
             <ArrowLeft size={16} />
             Back to Practice Library
@@ -162,11 +210,12 @@ export default function PracticeSession() {
   }
 
   const topicName = session?.topic?.name || "Practice";
+  const practiceAgainSlug = session?.topic?.slug || topicSlug;
 
   return (
     <PageLayout
       title={`${topicName} Practice Session`}
-      description="Answer each question and receive structured feedback."
+      description="Explain your reasoning clearly and build confidence one answer at a time."
     >
       <div className="mx-auto max-w-3xl space-y-6">
         <div className="flex items-center justify-between">
@@ -178,36 +227,32 @@ export default function PracticeSession() {
             <ArrowLeft size={16} />
             Exit to Library
           </button>
-          <span className="text-sm font-medium text-indigo-600">
-            {isCompleted ? "Completed" : `Question ${currentIndex + 1} of ${questionCount}`}
+          <span className="text-sm font-medium text-indigo-700">
+            {isCompleted ? "Completed" : `${answeredCount} of ${questionCount} answered`}
           </span>
         </div>
 
         <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
-          <div
-            className="h-full bg-indigo-600 transition-all duration-300"
-            style={{ width: `${progressPercent}%` }}
-          />
+          <div className="h-full bg-indigo-600 transition-all duration-300" style={{ width: `${progressPercent}%` }} />
         </div>
 
         {!isCompleted ? (
           <div className="space-y-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-            <div className="flex items-center justify-between">
-              <span className="rounded-lg bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-600">
+            <div className="flex items-center justify-between gap-4">
+              <span className="rounded-lg bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
                 {currentQuestion?.difficulty || "Intermediate"}
               </span>
+              <span className="text-xs font-semibold text-slate-500">Question {currentIndex + 1} of {questionCount}</span>
             </div>
 
-            <h2 className="text-xl font-bold text-slate-900">
+            <h2 className="text-xl font-bold tracking-[-0.02em] text-slate-950">
               {currentQuestion?.questionText || currentQuestion?.question}
             </h2>
 
             {!feedback ? (
               <form onSubmit={handleSubmitAnswer} className="space-y-4">
                 <div>
-                  <label htmlFor="answer" className="mb-2 block text-sm font-medium text-slate-700">
-                    Your response
-                  </label>
+                  <label htmlFor="answer" className="mb-2 block text-sm font-bold text-slate-800">Your response</label>
                   <textarea
                     id="answer"
                     rows={7}
@@ -217,48 +262,52 @@ export default function PracticeSession() {
                       if (error) setError("");
                     }}
                     placeholder="Explain your reasoning clearly, then add a practical example..."
-                    className="w-full rounded-xl border border-slate-300 p-4 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                    className="w-full rounded-xl border border-slate-200 p-4 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10"
                   />
                   <p className="mt-2 text-xs text-slate-500">Minimum 20 characters.</p>
-                  {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+                  {error && <p role="alert" className="mt-2 text-sm text-rose-600">{error}</p>}
                 </div>
 
-                <div className="flex justify-end pt-2">
+                <div className="flex items-center justify-between gap-3 pt-2">
+                  {currentIndex > 0 ? (
+                    <button type="button" onClick={() => moveToQuestion(currentIndex - 1)} className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-slate-900">
+                      <ChevronLeft size={16} /> Previous
+                    </button>
+                  ) : <span />}
                   <button
                     type="submit"
                     disabled={isSubmitting || !currentAnswer.trim()}
-                    className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:-translate-y-0.5 hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    {isSubmitting ? (
-                      <><Loader2 className="h-4 w-4 animate-spin" />Evaluating...</>
-                    ) : (
-                      <><Sparkles size={16} />Submit Answer</>
-                    )}
+                    {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" />Saving...</> : <><Sparkles size={16} />Submit answer</>}
                   </button>
                 </div>
               </form>
             ) : (
               <div className="space-y-5">
-                <div className="space-y-3 rounded-xl border border-slate-200 bg-slate-50 p-5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-slate-800">Answer score</span>
-                    <span className="rounded-md bg-indigo-50 px-2.5 py-1 text-sm font-bold text-indigo-600">
-                      {feedback.score}%
-                    </span>
+                <div className="space-y-3 rounded-xl bg-indigo-50/70 p-5">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-sm font-bold text-slate-900">Structured feedback</span>
+                    <span className="rounded-md bg-white px-2.5 py-1 text-sm font-bold text-indigo-700">{feedback.score}%</span>
                   </div>
                   <p className="text-sm leading-relaxed text-slate-600">{feedback.feedback}</p>
                 </div>
 
-                {error && <p className="text-sm text-red-600">{error}</p>}
+                {error && <p role="alert" className="text-sm text-rose-600">{error}</p>}
 
-                <div className="flex justify-end">
+                <div className="flex items-center justify-between gap-3">
+                  {currentIndex > 0 ? (
+                    <button type="button" onClick={() => moveToQuestion(currentIndex - 1)} className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-slate-900">
+                      <ChevronLeft size={16} /> Previous
+                    </button>
+                  ) : <span />}
                   <button
                     type="button"
                     onClick={handleNextQuestion}
                     disabled={isSubmitting}
-                    className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 disabled:opacity-50"
+                    className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:-translate-y-0.5 hover:bg-indigo-700 disabled:opacity-50"
                   >
-                    {currentIndex + 1 < questionCount ? "Next Question" : "Complete Session"}
+                    {currentIndex + 1 < questionCount ? "Next question" : "Complete session"}
                     <ChevronRight size={16} />
                   </button>
                 </div>
@@ -267,33 +316,26 @@ export default function PracticeSession() {
           </div>
         ) : (
           <div className="space-y-6 rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-green-600">
-              <CheckCircle2 size={32} />
-            </div>
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600"><CheckCircle2 size={32} /></div>
             <div>
-              <h2 className="text-2xl font-bold text-slate-900">Session completed</h2>
-              <p className="mt-2 text-sm text-slate-600">Your responses and scores have been saved.</p>
-              <div className="mt-4 inline-block rounded-xl border border-slate-200 bg-slate-50 px-6 py-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Overall score</span>
-                <div className="text-3xl font-black text-indigo-600">{finalScore}%</div>
+              <h2 className="text-2xl font-black tracking-[-0.04em] text-slate-950">Session completed</h2>
+              <p className="mt-2 text-sm text-slate-600">Your answers, feedback, and score are safely stored in your progress history.</p>
+              <div className="mt-5 inline-block rounded-xl bg-slate-50 px-6 py-3">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Overall score</span>
+                <div className="text-3xl font-black tracking-[-0.04em] text-indigo-700">{finalScore ?? 0}%</div>
               </div>
             </div>
-            <div className="flex flex-col justify-center gap-4 pt-4 sm:flex-row">
-              <button
-                type="button"
-                onClick={() => navigate(`/practice/session/${encodeURIComponent(topicSlug)}`)}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-              >
-                <RotateCcw size={16} />
-                Practice Again
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate("/practice")}
-                className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700"
-              >
-                Practice Library
-              </button>
+            <div className="flex flex-col justify-center gap-3 pt-2 sm:flex-row">
+              {practiceAgainSlug ? (
+                <button
+                  type="button"
+                  onClick={() => navigate(`/practice/session/${encodeURIComponent(practiceAgainSlug)}`)}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-bold text-slate-700 transition hover:border-indigo-200 hover:text-indigo-700"
+                >
+                  <RotateCcw size={16} /> Practice this topic
+                </button>
+              ) : null}
+              <button type="button" onClick={() => navigate("/practice")} className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-indigo-700">Practice Library</button>
             </div>
           </div>
         )}

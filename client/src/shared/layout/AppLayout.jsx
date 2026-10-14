@@ -84,38 +84,32 @@ export default function AppLayout() {
 
       {/* Main View Area */}
       <div className="flex min-w-0 flex-1 flex-col">
-        {/* Top Header with Search Bar */}
-        <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-4 sm:px-6 lg:px-8">
+        {/* Top Header */}
+        <header className="sticky top-0 z-10 flex h-[72px] shrink-0 items-center justify-between bg-[#fafbff]/90 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
           <Link to="/dashboard" className="md:hidden" aria-label="PrepPilot home"><BrandMark /></Link>
 
-          <div className="relative hidden w-80 md:block">
-            <Search
-              size={18}
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
-            />
-            <input
-              type="text"
-              placeholder="Topic search is coming soon"
-              aria-label="Search topics and questions"
-              readOnly
-              className="w-full pl-10 pr-4 py-2 bg-slate-100 border border-transparent rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-indigo-500 focus:outline-none transition-colors"
-            />
-          </div>
+          <Link
+            to="/practice"
+            className="hidden items-center gap-2 rounded-full bg-indigo-50/90 px-4 py-2 text-sm font-semibold text-indigo-700 shadow-sm shadow-indigo-950/5 transition hover:bg-indigo-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 md:inline-flex"
+          >
+            <Search size={16} />
+            Find a practice topic
+          </Link>
 
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <button
               type="button"
               aria-label="Notifications"
               title="Notifications will appear here when enabled"
-              className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-colors"
+              className="rounded-full p-2 text-slate-500 transition-colors hover:bg-white hover:text-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               <Bell size={20} />
             </button>
             <Link
               to="/profile"
-              className="flex items-center gap-2.5 hover:opacity-80 transition"
+              className="rounded-full p-1 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
-              <div className="h-8 w-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs" aria-label="Open profile">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700 shadow-sm ring-2 ring-white" aria-label="Open profile">
                 {userInitial}
               </div>
             </Link>

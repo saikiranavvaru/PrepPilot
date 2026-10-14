@@ -56,6 +56,15 @@ function App() {
             }
           />
 
+          <Route
+            path="/practice/sessions/:interviewId"
+            element={
+              <ProtectedRoute>
+                <PracticeSession />
+              </ProtectedRoute>
+            }
+          />
+
           {/* Progress */}
           <Route
             path="/progress"

@@ -25,6 +25,20 @@ function serializeQuestion(row) {
   };
 }
 
+function serializeSessionQuestion(row) {
+  return {
+    ...serializeQuestion(row),
+    answer: row.answer_text
+      ? {
+          text: row.answer_text,
+          feedback: row.feedback,
+          feedbackDetails: row.feedback_details || {},
+          score: Number(row.score),
+        }
+      : null,
+  };
+}
+
 function getUserId(req) {
   return req.user?.id || req.user?.userId || null;
 }
@@ -252,6 +266,27 @@ async function startInterview(req, res) {
     }
 
     const topic = topicResult.rows[0];
+    // Serializes concurrent start requests for the same user/topic pair.
+    // This prevents new duplicates without changing or deleting legacy sessions.
+    await client.query("SELECT pg_advisory_xact_lock($1, $2);", [userId, topic.id]);
+
+    const activeSessionResult = await client.query(
+      `
+        SELECT id, title, status, created_at
+        FROM interviews
+        WHERE user_id = $1
+          AND practice_topic_id = $2
+          AND status = 'in_progress'
+        ORDER BY updated_at DESC, created_at DESC, id DESC
+        LIMIT 1
+        FOR UPDATE;
+      `,
+      [userId, topic.id]
+    );
+
+    let interview = activeSessionResult.rows[0] || null;
+    const resumed = Boolean(interview);
+
     const questionBankResult = await client.query(
       `
         SELECT id, prompt, difficulty
@@ -272,43 +307,68 @@ async function startInterview(req, res) {
       });
     }
 
-    const title = requestedTitle.slice(0, 160) || `${topic.name} Practice`;
-    const interviewResult = await client.query(
-      `
-        INSERT INTO interviews (user_id, practice_topic_id, title, status)
-        VALUES ($1, $2, $3, 'in_progress')
-        RETURNING id, title, status, created_at;
-      `,
-      [userId, topic.id, title]
+    if (!interview) {
+      const title = requestedTitle.slice(0, 160) || `${topic.name} Practice`;
+      const interviewResult = await client.query(
+        `
+          INSERT INTO interviews (user_id, practice_topic_id, title, status)
+          VALUES ($1, $2, $3, 'in_progress')
+          RETURNING id, title, status, created_at;
+        `,
+        [userId, topic.id, title]
+      );
+      interview = interviewResult.rows[0];
+    }
+
+    const existingQuestionsResult = await client.query(
+      `SELECT id FROM questions WHERE interview_id = $1 LIMIT 1;`,
+      [interview.id]
     );
 
-    const interview = interviewResult.rows[0];
-    const questions = [];
-
-    for (const [index, question] of questionBankResult.rows.entries()) {
-      const questionResult = await client.query(
-        `
-          INSERT INTO questions (
-            interview_id,
-            question_bank_id,
-            question_text,
-            difficulty,
-            position
-          )
-          VALUES ($1, $2, $3, $4, $5)
-          RETURNING id, interview_id, question_text, difficulty, position;
-        `,
-        [
-          interview.id,
-          question.id,
-          question.prompt,
-          question.difficulty,
-          index + 1,
-        ]
-      );
-
-      questions.push(serializeQuestion(questionResult.rows[0]));
+    if (existingQuestionsResult.rows.length === 0) {
+      for (const [index, question] of questionBankResult.rows.entries()) {
+        await client.query(
+          `
+            INSERT INTO questions (
+              interview_id,
+              question_bank_id,
+              question_text,
+              difficulty,
+              position
+            )
+            VALUES ($1, $2, $3, $4, $5);
+          `,
+          [
+            interview.id,
+            question.id,
+            question.prompt,
+            question.difficulty,
+            index + 1,
+          ]
+        );
+      }
     }
+
+    const sessionQuestionsResult = await client.query(
+      `
+        SELECT
+          question.id,
+          question.interview_id,
+          question.question_text,
+          question.difficulty,
+          question.position,
+          answer.answer_text,
+          answer.feedback,
+          answer.feedback_details,
+          answer.score
+        FROM questions AS question
+        LEFT JOIN answers AS answer
+          ON answer.question_id = question.id
+        WHERE question.interview_id = $1
+        ORDER BY question.position ASC, question.id ASC;
+      `,
+      [interview.id]
+    );
 
     await client.query("COMMIT");
 
@@ -325,7 +385,8 @@ async function startInterview(req, res) {
             name: topic.name,
           },
         },
-        questions,
+        resumed,
+        questions: sessionQuestionsResult.rows.map(serializeSessionQuestion),
       },
     });
   } catch (error) {
@@ -371,7 +432,7 @@ async function getInterviewSession(req, res) {
         SELECT
           question.id, question.interview_id, question.question_text,
           question.difficulty, question.position,
-          answer.answer_text, answer.feedback, answer.score
+          answer.answer_text, answer.feedback, answer.feedback_details, answer.score
         FROM questions AS question
         LEFT JOIN answers AS answer ON answer.question_id = question.id
         WHERE question.interview_id = $1
@@ -395,12 +456,7 @@ async function getInterviewSession(req, res) {
             ? { slug: interview.topic_slug, name: interview.topic_name }
             : null,
         },
-        questions: questionsResult.rows.map((row) => ({
-          ...serializeQuestion(row),
-          answer: row.answer_text
-            ? { text: row.answer_text, feedback: row.feedback, score: Number(row.score) }
-            : null,
-        })),
+        questions: questionsResult.rows.map(serializeSessionQuestion),
       },
     });
   } catch (error) {
@@ -436,8 +492,12 @@ async function submitInterviewAnswer(req, res) {
     });
   }
 
+  const client = await pool.connect();
+
   try {
-    const questionResult = await pool.query(
+    await client.query("BEGIN");
+
+    const questionResult = await client.query(
       `
         SELECT interview.status, question.id, bank.expected_concepts
         FROM interviews AS interview
@@ -445,12 +505,14 @@ async function submitInterviewAnswer(req, res) {
         LEFT JOIN question_bank AS bank ON bank.id = question.question_bank_id
         WHERE interview.id = $1
           AND interview.user_id = $2
-          AND question.id = $3;
+          AND question.id = $3
+        FOR UPDATE OF interview, question;
       `,
       [interviewId, userId, questionId]
     );
 
     if (questionResult.rows.length === 0) {
+      await client.query("ROLLBACK");
       return res.status(404).json({
         success: false,
         message: "Question not found in this interview session",
@@ -458,6 +520,7 @@ async function submitInterviewAnswer(req, res) {
     }
 
     if (questionResult.rows[0].status !== "in_progress") {
+      await client.query("ROLLBACK");
       return res.status(409).json({
         success: false,
         message: "This interview session is no longer accepting answers",
@@ -465,7 +528,7 @@ async function submitInterviewAnswer(req, res) {
     }
 
     const evaluation = scoreAnswer(answerText, questionResult.rows[0].expected_concepts);
-    const result = await pool.query(
+    const result = await client.query(
       `
         INSERT INTO answers (
           question_id, answer_text, feedback, feedback_details, score
@@ -489,6 +552,17 @@ async function submitInterviewAnswer(req, res) {
       ]
     );
 
+    await client.query(
+      `
+        UPDATE interviews
+        SET updated_at = CURRENT_TIMESTAMP
+        WHERE id = $1 AND user_id = $2;
+      `,
+      [interviewId, userId]
+    );
+
+    await client.query("COMMIT");
+
     const answer = result.rows[0];
     return res.status(200).json({
       success: true,
@@ -503,8 +577,11 @@ async function submitInterviewAnswer(req, res) {
       },
     });
   } catch (error) {
+    await client.query("ROLLBACK");
     console.error("Submit interview answer error:", error);
     return res.status(500).json({ success: false, message: "Unable to save the answer" });
+  } finally {
+    client.release();
   }
 }
 

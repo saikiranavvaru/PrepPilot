@@ -21,6 +21,7 @@ require("./src/utils/mail");
 const systemRoutes = require("./src/routes/system.routes");
 const usersRoutes = require("./src/routes/users.routes");
 const authRoutes = require("./src/routes/auth.routes");
+const dashboardRoutes = require("./src/routes/dashboard.routes");
 const interviewRoutes = require("./src/routes/interview.routes");
 const resumeRoutes = require("./src/routes/resume.routes");
 
@@ -64,6 +65,7 @@ app.use(
 app.use("/", systemRoutes);
 app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/dashboard", dashboardRoutes);
 app.use("/api/v1/interviews", interviewRoutes);
 app.use("/api/v1/resumes", resumeRoutes);
 

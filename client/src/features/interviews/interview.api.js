@@ -18,6 +18,11 @@ export async function startInterview(payload) {
   return data.data;
 }
 
+export async function getInterviewSession(interviewId) {
+  const { data } = await apiRequest(`/api/v1/interviews/${interviewId}`);
+  return data.data;
+}
+
 export async function submitInterviewAnswer(interviewId, payload) {
   const { data } = await apiRequest(`/api/v1/interviews/${interviewId}/answers`, {
     method: "POST",
