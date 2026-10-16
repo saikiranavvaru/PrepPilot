@@ -170,17 +170,17 @@ export default function Dashboard() {
 
         <section aria-label="Practice summary" className="grid divide-y divide-indigo-100/80 border-y border-indigo-100/80 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           <div className="rounded-xl py-5 transition-colors hover:bg-white/55 sm:px-6 sm:first:pl-0">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Completed</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.12em] text-slate-500">Completed</p>
             <p className="mt-2 text-3xl font-black tracking-[-0.04em] text-slate-950">{summary.completedSessions}</p>
             <p className="mt-1 text-sm text-slate-500">sessions finished</p>
           </div>
           <div className="rounded-xl py-5 transition-colors hover:bg-white/55 sm:px-6">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Average score</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.12em] text-slate-500">Average score</p>
             <p className="mt-2 text-3xl font-black tracking-[-0.04em] text-slate-950">{summary.averageScore}%</p>
             <p className="mt-1 text-sm text-slate-500">completed sessions only</p>
           </div>
           <div className="rounded-xl py-5 transition-colors hover:bg-white/55 sm:px-6 sm:pr-0">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Active focus</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.12em] text-slate-500">Active focus</p>
             <p className="mt-2 text-3xl font-black tracking-[-0.04em] text-slate-950">{summary.activeSessions}</p>
             <p className="mt-1 text-sm text-slate-500">session{summary.activeSessions === 1 ? "" : "s"} in progress</p>
           </div>

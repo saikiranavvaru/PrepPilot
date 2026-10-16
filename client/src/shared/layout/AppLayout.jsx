@@ -42,20 +42,21 @@ export default function AppLayout() {
   return (
     <div className="flex h-screen overflow-hidden bg-[#f8f9ff] font-sans antialiased text-slate-800">
       {/* Left Sidebar */}
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col justify-between border-r border-indigo-100/70 bg-white/80 p-4 backdrop-blur-xl select-none md:flex">
+      <aside className="sticky top-0 hidden h-screen w-72 shrink-0 flex-col justify-between border-r border-indigo-100/70 bg-white/80 p-5 backdrop-blur-xl select-none md:flex">
         <div>
           {/* Brand Logo */}
-          <div className="px-3 py-4 mb-3"><BrandMark /></div>
+          <div className="sidebar-entry mb-5 px-3 py-4"><BrandMark /></div>
 
           {/* Navigation Links */}
           <nav className="space-y-1">
-            {navItems.map((item) => {
+            {navItems.map((item, index) => {
               const Icon = item.icon;
               return (
                 <Link
                   key={item.label}
                   to={item.path}
-                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  style={{ animationDelay: `${80 + index * 45}ms` }}
+                  className={`sidebar-entry flex items-center gap-3 rounded-xl px-3.5 py-3 text-[15px] font-semibold transition-all duration-200 hover:translate-x-0.5 ${
                     isActive(item.path)
                       ? "bg-gradient-to-r from-indigo-100 to-violet-50 text-indigo-700 font-semibold shadow-sm shadow-indigo-950/5"
                       : "text-slate-600 hover:bg-indigo-50/70 hover:text-slate-900"
@@ -70,11 +71,11 @@ export default function AppLayout() {
         </div>
 
         {/* Bottom Actions / Logout */}
-        <div className="pt-4 border-t border-slate-100">
+        <div className="sidebar-entry border-t border-slate-100 pt-4" style={{ animationDelay: "380ms" }}>
           <button
             type="button"
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-rose-600 hover:bg-rose-50 transition-colors"
+            className="flex w-full items-center gap-3 rounded-xl px-3.5 py-3 text-[15px] font-semibold text-rose-600 transition-colors hover:bg-rose-50"
           >
             <LogOut size={18} />
             Log Out
@@ -85,31 +86,31 @@ export default function AppLayout() {
       {/* Main View Area */}
       <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-[radial-gradient(circle_at_82%_8%,rgba(254,215,170,0.18),transparent_25rem),radial-gradient(circle_at_32%_0%,rgba(199,210,254,0.22),transparent_32rem)]">
         {/* Top Header */}
-        <header className="sticky top-0 z-10 flex h-[72px] shrink-0 items-center justify-between bg-[#fafbff]/75 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between bg-[#fafbff]/75 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
           <Link to="/dashboard" className="md:hidden" aria-label="PrepPilot home"><BrandMark /></Link>
 
           <Link
             to="/practice"
-            className="hidden items-center gap-2 rounded-full bg-indigo-50/90 px-4 py-2 text-sm font-semibold text-indigo-700 shadow-sm shadow-indigo-950/5 transition hover:bg-indigo-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 md:inline-flex"
+            className="hidden items-center gap-2.5 rounded-full bg-indigo-50/90 px-5 py-3 text-base font-semibold text-indigo-700 shadow-sm shadow-indigo-950/5 transition hover:bg-indigo-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 md:inline-flex"
           >
-            <Search size={16} />
+            <Search size={19} />
             Find a practice topic
           </Link>
 
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
               aria-label="Notifications"
               title="Notifications will appear here when enabled"
-              className="rounded-full p-2 text-slate-500 transition-colors hover:bg-white hover:text-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="rounded-full p-3 text-slate-500 transition-colors hover:bg-white hover:text-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
-              <Bell size={20} />
+              <Bell size={24} strokeWidth={1.9} />
             </button>
             <Link
               to="/profile"
-              className="rounded-full p-1 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="rounded-full p-1.5 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700 shadow-sm ring-2 ring-white" aria-label="Open profile">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-sm font-bold text-indigo-700 shadow-sm ring-2 ring-white" aria-label="Open profile">
                 {userInitial}
               </div>
             </Link>
